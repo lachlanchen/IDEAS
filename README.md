@@ -1,11 +1,11 @@
 # IDEAS
 
-A personal notebook of research and writing ideas. Each entry lives as a standalone Markdown file in this repository.
+A personal notebook of research and writing ideas. Each entry lives as a standalone Markdown file under the `ideas/` folder.
 
 ## Contents
 
-- Nonlinear Kramers–Kronig Relations in Kerr Media: `nonlinear-kramers-kronig-kerr-media.md`
-- Quantum Carpets: Fractal Patterns in Wavefunction Revival: `quantum-carpets-fractal-wavefunction-revival.md`
+- Nonlinear Kramers–Kronig Relations in Kerr Media: `ideas/nonlinear-kramers-kronig-kerr-media.md`
+- Quantum Carpets: Fractal Patterns in Wavefunction Revival: `ideas/quantum-carpets-fractal-wavefunction-revival.md`
 
 ## Notes
 
