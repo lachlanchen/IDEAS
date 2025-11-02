@@ -1,19 +1,19 @@
-\\documentclass[11pt,a4paper]{article}
-\\usepackage[T1]{fontenc}
-\\usepackage[utf8]{inputenc}
-\\usepackage{lmodern}
-\\usepackage{amsmath,amssymb}
-\\usepackage{geometry}
-\\usepackage{hyperref}
-\\usepackage{enumitem}
-\\usepackage{graphicx}
-\\usepackage{microtype}
-\\geometry{margin=1in}
-\\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
-\\title{The Quantum Carpets: Fractal Patterns in Wavefunction Revival}
-\\date{2025-11-02}
-\\begin{document}
-\\maketitle
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{microtype}
+\geometry{margin=1in}
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=2pt}
+\title{The Quantum Carpets: Fractal Patterns in Wavefunction Revival}
+\date{2025-11-02}
+\begin{document}
+\maketitle
 
 
 \section{Introduction}
@@ -24,23 +24,23 @@ Quantum carpets are intricate self-replicating interference patterns that emerge
 
 To illustrate the essence of quantum carpets, we consider a particle in a one-dimensional infinite square well of width $L$ (the classic “particle-in-a-box”). The stationary eigenstates are $\psi_n(x)=\sqrt{\frac{2}{L}}\,\sin\big(\tfrac{n\pi x}{L}\big)$ for $n=1,2,3,\dots$, with quantized energies $E_n=\tfrac{\hbar^2\pi^2 n^2}{2mL^2}$. If the initial wavefunction $\Psi(x,0)$ is expanded in this eigenbasis with coefficients $c_n$, the time-evolving state is:
 
-$$
+\begin{equation}
 \Psi(x,t) = \sum_{n=1}^{\infty} c_n\, e^{-i E_n t/\hbar}\, \psi_n(x)\,. \tag{1}
-$$
+\end{equation}
 
 Because the eigen-energies scale as $n^2$, all the phase factors $e^{-iE_n t/\hbar}$ have frequencies that are integer multiples of a fundamental frequency (proportional to $n^2$). This leads to a remarkable periodicity. One can show that at a \textbf{full revival time} $T_{\text{rev}}$, every eigenstate’s phase realigns (up to a common global phase), recreating the initial wavefunction exactly: $\Psi(x,T_{\text{rev}})=\Psi(x,0)$\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=which means that after the,period with}{ar5iv.labs.arxiv.org}. For the infinite well, plugging $E_n$ into the condition for phase alignment yields the revival period:
 
-$$
+\begin{equation}
 T_{\text{rev}} = \frac{4 m L^2}{\pi\,\hbar}\,.\tag{2}
-$$
+\end{equation}
 
 which indeed makes $E_n T_{\text{rev}}/\hbar = 2\pi n^2$ an integer multiple of $2\pi$ for every $n$. At $t=T_{\text{rev}}$, the full wave packet “magically” reforms, exemplifying a pure quantum recurrence\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=“quantum carpet”%2C which was introduced,( 25}{ar5iv.labs.arxiv.org}. Notably, there is also a \textbf{half-period mirror revival} at $t=T_{\text{rev}}/2$, where the wavefunction refocuses into the initial shape but with spatial inversion (a mirrored profile)\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=Besides full revival%2C there is,( 48}{ar5iv.labs.arxiv.org}. This mirror revival can be seen as the wave packet retracing itself in a time-reversed manner.
 
 More intriguingly, at fractional multiples of the revival time, the wavefunction \textbf{partially revives} into multiple smaller copies of the initial packet – this is known as a \textbf{fractional revival}\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=Apart from the full revival,Different}{ar5iv.labs.arxiv.org}. If $t = \frac{p}{q},T_{\text{rev}}$ for integers $p$ and $q$ (in lowest terms), the state can be expressed as a superposition of \textbf{$q$ replica wave packets} (each resembling the initial state, possibly shifted or phase-weighted). In essence, the original packet splits into $q$ “clones” distributed across the well\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=Apart from the full revival,Different}{ar5iv.labs.arxiv.org}\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=Apart from the full revival,shall see%2C the wave function}{ar5iv.labs.arxiv.org}. For example, at $t=T_{\text{rev}}/2$ ($p/q=1/2$), the wavefunction in a box splits into two mirror-image packets (one in each half of the well); at $t=T_{\text{rev}}/3$, it splits into three copies, and so on. Formally, one finds that:
 
-$$
+\begin{equation}
 \Psi\Big(x,\tfrac{p}{q}T_{\text{rev}}\Big) = \sum_{j=0}^{q-1} \alpha_j\, \Psi_{\text{init}}(x - x_j)\,. \tag{3}
-$$
+\end{equation}
 
 for some phase coefficients $\alpha_j$ and displacements $x_j$ (here $\Psi_{\text{init}}$ denotes the initial wave packet shape). In the simplest cases, those $q$ sub-packets are of equal amplitude (symmetrically placed) so that $|\Psi(x,t)|^2$ shows $q$ main peaks\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=Apart from the full revival,shall see%2C the wave function}{ar5iv.labs.arxiv.org}. The phases $\alpha_j$ can cause interference where the copies overlap, producing fine fringes. Indeed, if the $q$ mini-packets overlap in space, their interference yields a rich \textbf{self-similar} pattern of fringes, whereas if they are well separated, one sees distinct copies with minimal interference\href{https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=where is absolute phase and,separated by in coordinate}{ar5iv.labs.arxiv.org}. These interference fringes at fractional times create the visual appearance of a carpet with repeating motifs at different scales – a hallmark of fractals. The \textbf{quantum carpet} thus encodes a hierarchy of time-evolved replicas of the initial state, analogous to how a fractal contains miniature copies of itself.
 
