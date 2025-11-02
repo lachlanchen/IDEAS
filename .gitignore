@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors/IDEs
+.idea/
+.vscode/
+
+# Python virtualenvs
+venv/
+.venv/
+
+# Node (if ever used)
+node_modules/
+dist/
+build/
