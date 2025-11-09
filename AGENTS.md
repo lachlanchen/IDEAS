@@ -30,6 +30,7 @@
   - `Add optical metasurfaces feasibility analysis (ideas)`
   - `Update LaTeX manuscript; fix Unicode in code block`
 - Group related changes; keep diffs focused per topic/paper.
+- Always commit and push after any change; keep commits small and focused.
 - Pull Requests should include:
   - Summary of changes and rationale
   - Paths touched (e.g., `ideas/...`, `publications/<slug>/...`)
@@ -41,3 +42,4 @@
 - Keep LaTeX Unicode-safe (escape `&`, avoid `λ` in verbatim).
 - It’s acceptable to commit LaTeX build artifacts kept elsewhere in this repo (`.aux`, `.fdb_latexmk`, `.fls`).
 - Do not add licenses or headers unless requested.
+- Always commit and push immediately after making a change; include a concise, descriptive message.
