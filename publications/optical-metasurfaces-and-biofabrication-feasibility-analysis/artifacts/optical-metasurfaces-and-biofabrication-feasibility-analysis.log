@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./ms.tex
-(ms.tex
+**./optical-metasurfaces-and-biofabrication-feasibility-analysis.tex
+(optical-metasurfaces-and-biofabrication-feasibility-analysis.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (/home/lachlan/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -362,8 +362,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (/home/lachlan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
-) (ms.aux)
-\openout1 = `ms.aux'.
+) (optical-metasurfaces-and-biofabrication-feasibility-analysis.aux)
+\openout1 = `optical-metasurfaces-and-biofabrication-feasibility-analysis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -419,9 +419,10 @@ LaTeX Font Info:    ... okay on input line 15.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 15.
-(ms.out) (ms.out)
+(optical-metasurfaces-and-biofabrication-feasibility-analysis.out)
+(optical-metasurfaces-and-biofabrication-feasibility-analysis.out)
 \@outlinefile=\write3
-\openout3 = `ms.out'.
+\openout3 = `optical-metasurfaces-and-biofabrication-feasibility-analysis.out'.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -519,101 +520,73 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 21.
 
 
 [1
 
 {/home/lachlan/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/lachlan/.
-miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}{/home/lachlan/.miktex/texmf
-s/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home/lachlan/.miktex/texmfs/instal
-l/fonts/enc/dvips/lm/lm-rm.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/
-dvips/lm/lm-mathex.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm
-/lm-mathsy.enc}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.38 
-     ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.41 \begin{equation}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.41 \begin{equation}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.41 \begin{equation}
-                     
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.41 \begin{equation}
-                     
+miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 32.
 
-[2]
 
-[3]
+[2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
+7.
 
-[4]
-
-[5]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
-0.
- (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
+(/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[6{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
+[3]
+
+[4{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[5]
+
+[6{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home
+/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-rm.enc}]
 
 [7]
 
-[8] (ms.aux)
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12] (optical-metasurfaces-and-biofabrication-feasibility-analysis.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 87F84BC6C348008BAB9FA3957A483590;1203.
+Package rerunfilecheck Info: File `optical-metasurfaces-and-biofabrication-feas
+ibility-analysis.out' has not changed.
+(rerunfilecheck)             Checksum: 581D9852AB638F75844A3C3BCD130FFF;2738.
  ) 
 Here is how much of TeX's memory you used:
- 13032 strings out of 468131
- 203383 string characters out of 5434543
- 652190 words of memory out of 5000000
- 41228 multiletter control sequences out of 15000+600000
- 697979 words of font info for 193 fonts, out of 8000000 for 9000
+ 13035 strings out of 468131
+ 204705 string characters out of 5434543
+ 649487 words of memory out of 5000000
+ 41226 multiletter control sequences out of 15000+600000
+ 684859 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,2593b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,3920b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx10.pfb></home
 /lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/lachlan
-/.miktex/texmfs/install/fonts/type1/public/lm/lmbx8.pfb></home/lachlan/.miktex/
-texmfs/install/fonts/type1/public/lm/lmex10.pfb></home/lachlan/.miktex/texmfs/i
-nstall/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex/texmfs/install/f
-onts/type1/public/lm/lmmi6.pfb></home/lachlan/.miktex/texmfs/install/fonts/type
-1/public/lm/lmmi8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/
-lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr12.
-pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr17.pfb></hom
-e/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr6.pfb></home/lachlan/
-.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb></home/lachlan/.miktex/te
-xmfs/install/fonts/type1/public/lm/lmri10.pfb></home/lachlan/.miktex/texmfs/ins
-tall/fonts/type1/public/lm/lmri8.pfb></home/lachlan/.miktex/texmfs/install/font
-s/type1/public/lm/lmsy10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/
-public/lm/lmsy8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/am
-sfonts/symbols/msbm10.pfb>
-Output written on ms.pdf (8 pages, 344143 bytes).
+/.miktex/texmfs/install/fonts/type1/public/lm/lmbxi10.pfb></home/lachlan/.mikte
+x/texmfs/install/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex/texmfs
+/install/fonts/type1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/
+fonts/type1/public/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/typ
+e1/public/lm/lmr17.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public
+/lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10
+.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb>
+Output written on optical-metasurfaces-and-biofabrication-feasibility-analysis.
+pdf (12 pages, 315536 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 36913 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
+ 28753 words of extra memory for PDF output out of 29859 (max. 10000000)
 

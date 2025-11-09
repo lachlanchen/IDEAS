@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./ms.tex
-(ms.tex
+**./designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.tex
+(designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (/home/lachlan/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -362,8 +362,9 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (/home/lachlan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
-) (ms.aux)
-\openout1 = `ms.aux'.
+) (designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.aux)
+\openout1 = `designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4
+.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -419,9 +420,11 @@ LaTeX Font Info:    ... okay on input line 15.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 15.
-(ms.out) (ms.out)
+(designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.out)
+(designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.out)
 \@outlinefile=\write3
-\openout3 = `ms.out'.
+\openout3 = `designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4
+.out'.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -519,71 +522,158 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 LaTeX Warning: No \author given.
 
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 19.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+4.
+(/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+3.
+
+(/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
 
 [1
 
 {/home/lachlan/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/lachlan/.
-miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}]
+miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}{/home/lachlan/.miktex/texmf
+s/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home/lachlan/.miktex/texmfs/instal
+l/fonts/enc/dvips/lm/lm-rm.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/
+dvips/lm/lm-ts1.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm
+-mathsy.enc}]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 32.
+(Font)              <14.4> on input line 52.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 52.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 52.
 
 
-[2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-7.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 52.
 
-(/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\to' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 52.
+
+
+Overfull \hbox (41.42319pt too wide) in paragraph at lines 141--141
+[]\T1/lmtt/m/n/10.95 # Convert Gaussian TD-DFT excited states (E_j, f_j) to dis
+persive n(lambda), k(lambda)[] 
+ []
+
+
+Overfull \hbox (104.65926pt too wide) in paragraph at lines 141--141
+[]\T1/lmtt/m/n/10.95 def lorentz_alpha_mol(omega: float, lines: List[Tuple[floa
+t,float]], gamma_eV: float) -> complex:[] 
+ []
+
+
+
+[2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathex.enc}]
+Overfull \hbox (70.16685pt too wide) in paragraph at lines 141--141
+[]\T1/lmtt/m/n/10.95 def number_density(wt_frac: float, density_g_cm3: float, m
+olar_mass_g_mol: float) -> float:[] 
+ []
+
+
+Overfull \hbox (6.93079pt too wide) in paragraph at lines 141--141
+[]    \T1/lmtt/m/n/10.95 ap = argparse.ArgumentParser(description='TD-DFT to n,
+k via Lorentz-Lorenz')[] 
+ []
+
+
+Overfull \hbox (58.66939pt too wide) in paragraph at lines 141--141
+[]               \T1/lmtt/m/n/10.95 for i in range(int((args.lambda_max-args.la
+mbda_min)/args.lambda_step)+1)][] 
+ []
+
+
+Overfull \hbox (1.18205pt too wide) in paragraph at lines 141--141
+[]    \T1/lmtt/m/n/10.95 table = build_dispersion(lines, args.gamma, N, lambdas
+, host_n=args.host_n)[] 
+ []
+
+
+Overfull \hbox (12.67952pt too wide) in paragraph at lines 141--141
+[]        \T1/lmtt/m/n/10.95 w = csv.writer(fh); w.writerow(['lambda_nm','n','k
+']); w.writerows(table)[] 
+ []
+
+
 
 [3]
+Overfull \hbox (85.78506pt too wide) in paragraph at lines 146--147
+[]\T1/lmr/m/n/10.95 (-20) For each $\OML/lmm/m/it/10.95 ^^U$\T1/lmr/m/n/10.95 (
+-20) , set dye $\OML/lmm/m/it/10.95 n; k$ \T1/lmr/m/n/10.95 (-20) from CSV; in 
+Lua, up-date ma-te-rial, set fre-quency (e.g., \T1/lmtt/m/n/10.95 S:SetFrequenc
+y(c0/lambda)\T1/lmr/m/n/10.95 (-20) ),
+ []
 
-[4{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
 
-[5]
 
-[6{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home
-/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-rm.enc}]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12] (ms.aux)
+[4] (designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 581D9852AB638F75844A3C3BCD130FFF;2738.
+Package rerunfilecheck Info: File `designing-molecularly-programmed-metasurface
+s-gaussian-multiwfn-s4.out' has not changed.
+(rerunfilecheck)             Checksum: EAEDE38A82DBAC04906E492B1A47EA36;764.
  ) 
 Here is how much of TeX's memory you used:
- 13035 strings out of 468131
- 203545 string characters out of 5434543
- 649197 words of memory out of 5000000
- 41226 multiletter control sequences out of 15000+600000
- 684859 words of font info for 186 fonts, out of 8000000 for 9000
+ 12982 strings out of 468131
+ 204872 string characters out of 5434543
+ 650525 words of memory out of 5000000
+ 41306 multiletter control sequences out of 15000+600000
+ 686460 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,3862b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,1065b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx10.pfb></home
 /lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/lachlan
-/.miktex/texmfs/install/fonts/type1/public/lm/lmbxi10.pfb></home/lachlan/.mikte
-x/texmfs/install/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex/texmfs
-/install/fonts/type1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/
-fonts/type1/public/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/typ
-e1/public/lm/lmr17.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public
-/lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10
-.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb>
-Output written on ms.pdf (12 pages, 315536 bytes).
+/.miktex/texmfs/install/fonts/type1/public/lm/lmex10.pfb></home/lachlan/.miktex
+/texmfs/install/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex/texmfs/
+install/fonts/type1/public/lm/lmmi12.pfb></home/lachlan/.miktex/texmfs/install/
+fonts/type1/public/lm/lmmi8.pfb></home/lachlan/.miktex/texmfs/install/fonts/typ
+e1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public
+/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr17
+.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb></hom
+e/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.pfb></home/lachla
+n/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></home/lachlan/.mikte
+x/texmfs/install/fonts/type1/public/lm/lmtt10.pfb></home/lachlan/.miktex/texmfs
+/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on designing-molecularly-programmed-metasurfaces-gaussian-multiw
+fn-s4.pdf (4 pages, 277566 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 28753 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 33329 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./ms.tex
-(ms.tex
+**./nonlinear-kramers-kronig-kerr-media.tex
+(nonlinear-kramers-kronig-kerr-media.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (/home/lachlan/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -362,8 +362,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (/home/lachlan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
-) (ms.aux)
-\openout1 = `ms.aux'.
+) (nonlinear-kramers-kronig-kerr-media.aux)
+\openout1 = `nonlinear-kramers-kronig-kerr-media.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -419,9 +419,10 @@ LaTeX Font Info:    ... okay on input line 15.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 15.
-(ms.out) (ms.out)
+(nonlinear-kramers-kronig-kerr-media.out)
+(nonlinear-kramers-kronig-kerr-media.out)
 \@outlinefile=\write3
-\openout3 = `ms.out'.
+\openout3 = `nonlinear-kramers-kronig-kerr-media.out'.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -520,12 +521,8 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Warning: No \author given.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 20.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-4.
-(/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+(Font)              <10.95> on input line 21.
+
 
 [1
 
@@ -534,135 +531,52 @@ miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}{/home/lachlan/.miktex/texmf
 s/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home/lachlan/.miktex/texmfs/instal
 l/fonts/enc/dvips/lm/lm-rm.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/
 dvips/lm/lm-mathsy.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm
-/lm-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-7.
- (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 72.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 72.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 72.
+/lm-mathex.enc}]
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 72.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
-
-
-Overfull \hbox (29.92572pt too wide) in paragraph at lines 201--201
-[]\T1/lmtt/m/n/10.95 # Convert Gaussian TD-DFT excited states (Ej, fj) to dispe
-rsive n(lambda), k(lambda)[] 
- []
-
-
-
-[2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (1.18205pt too wide) in paragraph at lines 201--201
-[]        \T1/lmtt/m/n/10.95 raise RuntimeError("No excited states found. Check
- your Gaussian log.")[] 
- []
-
-
-Overfull \hbox (110.40799pt too wide) in paragraph at lines 201--201
-[]\T1/lmtt/m/n/10.95 def lorentz_alpha_mol(omega: float, lines: List[Tuple[floa
-t, float]], gamma_eV: float) -> complex:[] 
- []
-
-
+[2]
 
 [3]
-Overfull \hbox (305.86493pt too wide) in paragraph at lines 201--201
-[]    \T1/lmtt/m/n/10.95 p = argparse.ArgumentParser(description="Convert Gauss
-ian TD-DFT excitations to n(lambda),k(lambda) via Lorentz^^ULorenz mixing.")[] 
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+6.
+ (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
- []
-
-
-Overfull \hbox (70.16685pt too wide) in paragraph at lines 201--201
-[]    \T1/lmtt/m/n/10.95 N = number_density_from_wt_fraction(wt_frac, args.dens
-ity_g_cm3, args.molar_mass_g_mol)[] 
- []
-
-
-
-[4]
-Overfull \hbox (35.67445pt too wide) in paragraph at lines 201--201
-[]        \T1/lmtt/m/n/10.95 print("Warning: wt% > 20% may be unphysical; Loren
-tz^^ULorenz may break down.")[] 
- []
-
-
-Overfull \hbox (87.41306pt too wide) in paragraph at lines 234--234
-[]\T1/lmtt/m/n/10.95 #p TD(NStates=20) CAM-B3LYP/6-31+G(d,p) Geom=AllCheck Gues
-s=Read SCRF=(PCM,Solvent=Chloroform)[] 
- []
-
-
+[4{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [5]
 
-[6] (ms.aux)
+[6] (nonlinear-kramers-kronig-kerr-media.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 344054F72B11E7EC9C2703D9766FE16A;1464.
+Package rerunfilecheck Info: File `nonlinear-kramers-kronig-kerr-media.out' has
+ not changed.
+(rerunfilecheck)             Checksum: F0EEAF95779D3F8C90EF489EACFA3454;935.
  ) 
 Here is how much of TeX's memory you used:
- 12987 strings out of 468131
- 203627 string characters out of 5434543
- 650199 words of memory out of 5000000
- 41307 multiletter control sequences out of 15000+600000
- 686012 words of font info for 132 fonts, out of 8000000 for 9000
+ 12962 strings out of 468131
+ 203188 string characters out of 5434543
+ 652359 words of memory out of 5000000
+ 41217 multiletter control sequences out of 15000+600000
+ 680919 words of font info for 165 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,1001b,715s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,2789b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx10.pfb></home
 /lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/lachlan
 /.miktex/texmfs/install/fonts/type1/public/lm/lmex10.pfb></home/lachlan/.miktex
 /texmfs/install/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex/texmfs/
-install/fonts/type1/public/lm/lmmi12.pfb></home/lachlan/.miktex/texmfs/install/
-fonts/type1/public/lm/lmmi8.pfb></home/lachlan/.miktex/texmfs/install/fonts/typ
-e1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public
-/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr17
-.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb></hom
-e/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.pfb></home/lachla
-n/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></home/lachlan/.mikte
-x/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
-Output written on ms.pdf (6 pages, 275859 bytes).
+install/fonts/type1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/install/f
+onts/type1/public/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/type
+1/public/lm/lmr17.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/
+lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.
+pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></ho
+me/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.pfb>
+Output written on nonlinear-kramers-kronig-kerr-media.pdf (6 pages, 261400 byte
+s).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 33345 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 28713 words of extra memory for PDF output out of 29859 (max. 10000000)
 
