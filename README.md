@@ -22,6 +22,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 - 有机染料调控的纳米超表面：让超薄结构把光吃干抹净 — [Markdown](ideas/organic-dye-programmed-metasurface-zh.md) | [PDF](publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf)
 - DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks — [Markdown](ideas/doraemon-tap-and-charge-deep-research.md) | [PDF](publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf)
 - DORAEMON（日本語）— [Markdown](ideas/doraemon-tap-and-charge-deep-research-ja.md) | [PDF](publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf)
+- 用通俗中文讲清楚：DORAEMON「一碰即充」完整说明 — [Markdown](ideas/doraemon-tap-and-charge-explainer-zh.md) | [PDF](publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf)
 
 ## Build
 
