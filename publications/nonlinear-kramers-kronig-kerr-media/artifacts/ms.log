@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  2 NOV 2025 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./paper.tex
-(paper.tex
+**./ms.tex
+(ms.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (/home/lachlan/.miktex/texmfs/install/tex/latex/base/article.cls
@@ -362,8 +362,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (/home/lachlan/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
-) (paper.aux)
-\openout1 = `paper.aux'.
+) (ms.aux)
+\openout1 = `ms.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -419,9 +419,9 @@ LaTeX Font Info:    ... okay on input line 15.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 15.
-(paper.out) (paper.out)
+(ms.out) (ms.out)
 \@outlinefile=\write3
-\openout3 = `paper.out'.
+\openout3 = `ms.out'.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
@@ -545,22 +545,22 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [5]
 
-[6] (paper.aux)
+[6] (ms.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
-Package rerunfilecheck Info: File `paper.out' has not changed.
+Package rerunfilecheck Info: File `ms.out' has not changed.
 (rerunfilecheck)             Checksum: F0EEAF95779D3F8C90EF489EACFA3454;935.
  ) 
 Here is how much of TeX's memory you used:
  12962 strings out of 468131
- 202588 string characters out of 5434543
- 652209 words of memory out of 5000000
+ 202528 string characters out of 5434543
+ 652194 words of memory out of 5000000
  41217 multiletter control sequences out of 15000+600000
  680919 words of font info for 165 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,2759b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,2756b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx10.pfb></home
 /lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/lachlan
 /.miktex/texmfs/install/fonts/type1/public/lm/lmex10.pfb></home/lachlan/.miktex
@@ -571,7 +571,7 @@ onts/type1/public/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fonts/type
 lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.
 pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></ho
 me/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.pfb>
-Output written on paper.pdf (6 pages, 261400 bytes).
+Output written on ms.pdf (6 pages, 261400 bytes).
 PDF statistics:
  168 PDF objects out of 1000 (max. 8388607)
  12 named destinations out of 1000 (max. 500000)
