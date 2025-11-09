@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.10)  9 NOV 2025 18:27
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.10)  9 NOV 2025 18:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,7 +984,7 @@ lmtt/m/n/10.95 syntecoptics .
 LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10.95> 
 not available
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
- input line 55.
+ input line 49.
 [2]
 
 [3] (organic-dye-programmed-metasurface-zh.aux)
@@ -994,16 +994,16 @@ L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `organic-dye-programmed-metasurface-zh.out' h
 as not changed.
-(rerunfilecheck)             Checksum: 1F91F48DAF5644FEBC97801A4342EB50;729.
+(rerunfilecheck)             Checksum: D43860D2A2473318864956C087959698;1599.
  ) 
 Here is how much of TeX's memory you used:
- 18193 strings out of 403246
- 398587 string characters out of 5462425
- 848857 words of memory out of 5000000
- 46423 multiletter control sequences out of 15000+600000
- 656885 words of font info for 96 fonts, out of 8000000 for 9000
+ 18212 strings out of 403246
+ 399471 string characters out of 5462425
+ 849779 words of memory out of 5000000
+ 46440 multiletter control sequences out of 15000+600000
+ 664154 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,6n,112p,1036b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,6n,112p,1036b,402s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on organic-dye-programmed-metasurface-zh.xdv (3 pages, 36684 byt
+Output written on organic-dye-programmed-metasurface-zh.xdv (3 pages, 45512 byt
 es).

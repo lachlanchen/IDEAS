@@ -214,6 +214,8 @@ INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/cm/cmr8.tfm
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/cm/cmr6.tfm
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmbx10.tfm
+INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 INPUT /home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 INPUT /home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
@@ -226,7 +228,7 @@ INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/amsfonts/symbols/msb
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/cm/cmr10.tfm
 OUTPUT organic-dye-programmed-metasurface-zh.xdv
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ts1-lmr10.tfm
-INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmbx10.tfm
+INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /home/lachlan/.miktex/texmfs/install/fonts/tfm/public/lm/ec-lmro10.tfm
 INPUT organic-dye-programmed-metasurface-zh.aux
 INPUT ./organic-dye-programmed-metasurface-zh.out
