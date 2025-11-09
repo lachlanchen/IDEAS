@@ -47,3 +47,12 @@
 - It’s acceptable to commit LaTeX build artifacts under `publications/<slug>/artifacts/`.
 - Do not add licenses or headers unless requested.
 - Always commit and push immediately after making a change; include a concise, descriptive message.
+
+### Markdown → LaTeX Conversion Policy (1:1, no verbatim)
+- When asked to “include everything” from a Markdown idea in a TeX publication, perform a true 1:1 conversion:
+  - Preserve all knowledge and content from the Markdown (no reductions/omissions).
+  - Convert headings, lists, emphasis, and equations to proper LaTeX (e.g., `\section`, `\subsection`, `\itemize`, `\textbf{}`, `\emph{}`, display/inline math).
+  - Convert links to `\href{...}{...}` or `\url{...}`.
+  - Do not embed the Markdown itself inside the TeX (no `verbatim`/raw Markdown blocks in the PDF).
+  - For CJK content, use `ctex` + XeLaTeX and ensure fonts avoid tofu (e.g., Noto CJK families as needed).
+  - Keep publication filenames slug‑matching and compile with `latexmk`.
