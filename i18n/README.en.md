@@ -2,8 +2,7 @@
 
 # IDEAS
 
-Short About (for GitHub)
-- Research notebook of optics, metasurfaces, computational physics, and wireless power ideas. Each idea ships as Markdown in `ideas/` and a LaTeX/PDF in `publications/<slug>/`. Chinese docs build with XeLaTeX. See below for the full index and build commands.
+
 
 ## About
 
@@ -37,4 +36,3 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 - Equations in Markdown use `$...$` and `$$...$$`.
 - External links with spaces are percent‑encoded for reliable rendering.
-
