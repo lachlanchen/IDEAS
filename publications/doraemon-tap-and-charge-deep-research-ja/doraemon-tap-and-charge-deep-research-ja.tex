@@ -4,6 +4,18 @@
 \usepackage{hyperref}
 \usepackage{amsmath,amssymb}
 \usepackage{microtype}
+% Ensure robust Japanese font coverage to avoid tofu
+% Explicitly set CJK fonts to Noto CJK JP family available on system
+\setCJKmainfont[
+  BoldFont={Noto Serif CJK JP SemiBold}
+]{Noto Serif CJK JP}
+\setCJKsansfont[
+  BoldFont={Noto Sans CJK JP Medium}
+]{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans Mono CJK JP}
+% Improve Japanese line breaking
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip = 0pt plus 1pt
 
 \title{DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）}
 \date{}
@@ -118,4 +130,3 @@ $V_{RC}$ は一次遅れで従う。制約は（1）所望 SOC 達成、（2）�
 \end{itemize}
 
 \end{document}
-
