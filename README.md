@@ -1,6 +1,15 @@
 # IDEAS
 
-A personal notebook of research and writing ideas. Each entry lives as a standalone Markdown file under the `ideas/` folder.
+Short About (for GitHub)
+- Research notebook of optics, metasurfaces, computational physics, and wireless power ideas. Each idea ships as Markdown in `ideas/` and a LaTeX/PDF in `publications/<slug>/`. Chinese docs build with XeLaTeX. See below for the full index and build commands.
+
+## About
+
+IDEAS is a lightweight, versioned notebook of research notes and essays.
+- Content-first: every idea is Markdown in `ideas/`, mirrored (when mature) to LaTeX under `publications/<slug>/<slug>.tex` with a compiled PDF.
+- Conventions: kebab-case filenames; publication filenames match their folder slug (`<slug>.tex`, `<slug>.pdf`).
+- CJK support: Chinese-language publications compile with XeLaTeX.
+- Reproducible builds: use `latexmk` (see Build section) to regenerate PDFs.
 
 ## Contents
 
@@ -13,7 +22,14 @@ A personal notebook of research and writing ideas. Each entry lives as a standal
 - 有机染料调控的纳米超表面：让超薄结构把光吃干抹净 — [Markdown](ideas/organic-dye-programmed-metasurface-zh.md) | [PDF](publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf)
 - DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks — [Markdown](ideas/doraemon-tap-and-charge-deep-research.md) | [PDF](publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf)
 
+## Build
+
+- English/ASCII PDFs:
+  - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
+- Chinese PDFs (CJK):
+  - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
+
 ## Notes
 
-- Equations are formatted for KaTeX/MathJax using `$...$` and `$$...$$`.
-- External links with spaces have been percent‑encoded for reliable rendering.
+- Equations in Markdown use `$...$` and `$$...$$`.
+- External links with spaces are percent‑encoded for reliable rendering.
