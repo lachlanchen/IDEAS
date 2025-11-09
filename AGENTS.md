@@ -2,22 +2,25 @@
 
 ## Project Structure & Module Organization
 - `ideas/`: Markdown essays and concept notes (kebab-case filenames).
-- `publications/<slug>/`: LaTeX manuscripts (`paper.tex`) and compiled artifacts (`paper.pdf`, `.aux`, `.log`, etc.).
-- `markdown/`: Scratch or draft Markdown (optional staging area).
+- `publications/<slug>/`: LaTeX source and PDF where filenames match the slug:
+  - `<slug>.tex` (source), `<slug>.pdf` (compiled)
+  - Optional: `artifacts/` subfolder for LaTeX aux files (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`).
 - `README.md`, `.gitignore`: repo metadata.
 
 ## Build, Test, and Development Commands
-- Build a single paper:
-  - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error paper.tex`
+- Build a single paper (English/ASCII):
+  - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
+- Build a Chinese paper (CJK):
+  - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
 - Build all papers:
-  - `find publications -maxdepth 2 -name paper.tex -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
+  - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
 - Clean LaTeX artifacts (in a paper folder):
   - `latexmk -C`
 
 ## Coding Style & Naming Conventions
 - Filenames: use kebab-case (e.g., `optical-metasurfaces-feasibility.md`, `molecularly-programmed-workflow.md`).
 - Markdown: start with a `# Title`, use `##` for sections, concise paragraphs, and fenced code blocks for scripts.
-- LaTeX: minimal preamble (article class), main file named `paper.tex`, output `paper.pdf`. Avoid Unicode in code blocks; prefer ASCII (e.g., `lambda`).
+- LaTeX: minimal preamble; main file uses slug-matching names: `<slug>.tex` and `<slug>.pdf`. Avoid Unicode in verbatim/code unless using XeLaTeX.
 
 ## Testing Guidelines
 - No automated tests. Validate by:
@@ -37,9 +40,10 @@
   - If applicable, build output confirmation (e.g., “compiled `paper.pdf`”).
 
 ## Agent-Specific Instructions
-- Place new concept notes in `ideas/`; promote mature work to `publications/<slug>/` with `paper.tex` and `paper.pdf`.
+- Place new concept notes in `ideas/`; promote mature work to `publications/<slug>/` with `<slug>.tex` and `<slug>.pdf`.
 - Prefer additive edits; avoid renaming existing files unless necessary.
-- Keep LaTeX Unicode-safe (escape `&`, avoid `λ` in verbatim).
-- It’s acceptable to commit LaTeX build artifacts kept elsewhere in this repo (`.aux`, `.fdb_latexmk`, `.fls`).
+- Use XeLaTeX for CJK content; otherwise `latexmk -pdf` is sufficient.
+- Keep LaTeX Unicode-safe (escape `&`, avoid `λ` in verbatim unless XeLaTeX).
+- It’s acceptable to commit LaTeX build artifacts under `publications/<slug>/artifacts/`.
 - Do not add licenses or headers unless requested.
 - Always commit and push immediately after making a change; include a concise, descriptive message.
