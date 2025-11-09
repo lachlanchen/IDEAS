@@ -5,99 +5,117 @@
 \usepackage{amsmath,amssymb}
 \usepackage{microtype}
 
-\title{DORAEMON「タップ\&チャージ」システム提案の強化}
+\title{DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）}
 \date{}
 \begin{document}
 \maketitle
 
-\section{序論とコンセプト概要}
-DORAEMON（Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks：最適化ネットワークのためのオンデマンド分離型高速吸収エネルギーメカニズム）は、50〜200 ms 程度の短時間接触によってデバイスへほぼ瞬時にエネルギーを移送する無線「タップ\&チャージ」システムを目指す提案である。本質は、エネルギー移送フェーズと使用フェーズを分離することにある。すなわち、高出力の無線バーストでオンボードのエネルギー貯蔵（スーパーキャパシタによる「エネルギーキャビティ」）を急速に満たし、その後はデバイスのバッテリーへ時間をかけて放電・充電する。継続的な結合を必要とする従来の無線充電が抱える可動性の制約を、瞬間的な接触でのエネルギー注入により解決する発想である（例：\url{https://www.volfpackenergy.com/post/wireless-charging-with-supercapacitors}）。
+\section{はじめに／コンセプト概要}
+\textbf{DORAEMON}（Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks：最適化ネットワークのための“分離型オンデマンド急速吸収エネルギー機構）は、\textbf{「タップ・アンド・チャージ」}を実現する無線給電システムの提案であり、\textbf{50--200 ms 程度のごく短い接触}でデバイスへエネルギーをほぼ瞬時に移送することを目指す。最大の発想は\textbf{エネルギー転送段}と\textbf{エネルギー使用段}を分離する点にある。すなわち、高出力の無線バーストで受側の\textbf{オンボード蓄エネルギー（スーパーキャパシタの「エネルギーキャビティ」）}を急速に満たし、その後はそのキャビティが時間をかけて放電し、デバイスのバッテリ充電や駆動を行う。これは、通常の無線給電が連続結合を必要とし\textbf{機動性に制約}がある問題に対し、\textbf{一瞬の接触でエネルギー注入}を可能にするものである（参考：supercapacitor を用いた無線充電の概念と実例は文末の情報源参照）。
 
-このアイデアを確かなものにするには、以下を包含する厳密な理論枠組みが必要である。
+このアイデアを評価し堅固にするため、本稿では以下の理論枠組みを厳密に整える：
 \begin{itemize}
-  \item 短時間パルス中の高効率な電磁結合（短時間接触で高い電力をどう達成するか）
-  \item 中間貯蔵（スーパーキャパシタ）の高速吸収ダイナミクス（容量、ESR、リーク等の回路物理による限界）
-  \item バッテリーへの最適放電制御（充電速度と寿命の両立）
+  \item 短時間の電力転送で\textbf{電磁結合効率}を高く保つ方法（瞬間接触での大電力伝送）。
+  \item 中間蓄電（スーパーキャパシタ）における\textbf{急速吸収ダイナミクス}（容量・ESR・リークなど回路物理の限界）。
+  \item バッテリ健全性を守りつつ充電速度を最大化する\textbf{最適放電制御}。
 \end{itemize}
-以下では各要素を数理的に詳細化し、理論主張が物理的に妥当であることを示す。さらに、MATLAB/Simulink や Python によるソフトウェア実験で再現・検証できる形に整理する。
+各項目を数式と物理に基づき検討し、主張の実現可能性を確認する。また、\textbf{ソフトウェアシミュレーション}で個々の要素を検証し、ハード試験の前に「コード上の実験」を行う方法も示す。
 
-\section{瞬時エネルギー移送のための電磁結合理論}
+\section{瞬時エネルギー転送のための電磁結合理論}
 \subsection{相互インダクタンスと共振結合}
-送電・受電の2つの共振コイルは、結合した誘導システムを形成する。相互インダクタンス $M$ は、送電コイルの磁束が受電コイルにどれほど結合するかを定量化する。一般形は次式で与えられる：
+無線リンクの中心は送受二つの共振コイルで構成される\textbf{結合誘導系}である。二コイル間の\textbf{相互インダクタンス} $M$ は、送信コイルの磁束が受信コイルへどれほど結び付くかを表す。一般形は（ビオ・サバール則に基づく線積分）
 \begin{equation}
-M = \frac{\mu_0}{4\pi} \oint_{C_1} \oint_{C_2} \frac{d\vec{\ell}_1 \cdot d\vec{\ell}_2}{\lVert \vec r_1 - \vec r_2 \rVert}\,.
+M=\frac{\mu_0}{4\pi}\oint_{C_1}\oint_{C_2}\frac{\mathrm{d}\vec{\ell}_1\cdot \mathrm{d}\vec{\ell}_2}{\lvert\vec r_1-\vec r_2\rvert},
 \end{equation}
-幾何形状によっては数値計算が必要だが、コイル間距離が小さいほど、また重なり面積が大きいほど $M$ は大きくなる。結合係数は $k = M/\sqrt{L_1 L_2}$ と定義される（$L_1,L_2$ は自己インダクタンス）。本提案のプロトタイプでは、ISM 帯の $f_0 = 6.78\,\mathrm{MHz}$ に同調し、$d \approx 12\,\mathrm{mm}$ で $k \approx 0.42$ を達成している。短時間で大電力を移送するには強結合が重要である。
+で与えられ、実形状では数値計算が要るが、間隔が近く重なり面積が大きいほど $M$ が増大することを示す。\textbf{結合係数} $k=M/\sqrt{L_1L_2}$（$L_1,L_2$ は自己インダクタンス）で規格化する。DORAEMON の試作では ISM 帯である $f_0=6.78\,\mathrm{MHz}$ に同調し、約 12 mm の間隔で $k\approx0.42$ を達成している。短時間で大電力をやり取りするには\textbf{強結合}が肝要である。
+
+\paragraph{共振動作。} 各コイルにコンデンサ（$C_1,C_2$）を直並列に組み、角周波数 $\omega_0=2\pi f_0$ で同調させる。準静近傍場では、時間調和な磁界は $\mathbf{H}(\mathbf{r},t)=\Re\{\mathbf{H}_0(\mathbf{r})e^{j\omega_0 t}\}$ の形で表される。\textbf{両コイルが同一の $\omega_0$ を保つ}ことでエネルギー交換が最大化され、負荷変動時にも迅速に再同調されるべきである。短時間タップでは共振の立ち上がりが $\mu$s オーダで完了し、結合中は同調逸脱 $\Delta\omega$ を最小に抑える必要がある（逸脱は効率を $1/[1+(\Delta\omega,\tau)^2]$ 的に劣化させる）。
 
 \subsection{伝送効率と最適負荷}
-等価回路モデルでは、$R_1, R_2$ を各コイルの損失、$R_L$ を負荷抵抗（整流・蓄電側で見込む有効負荷）とする。強結合共振リンクの最大効率は、よく知られるように $k^2 Q_1 Q_2$ に依存する（$Q_i = \omega_0 L_i / R_i$）。最適負荷下での理想最大効率は
+\textbf{等価回路：} 送受は相互結合した RLC に写像できる。コイル損を $R_1,R_2$、負荷を $R_L$ とし、共振点のフェーザでは二端子対回路として扱える。\textbf{電力伝送効率} $\eta$ は入力から $R_L$ に渡った割合で、古典的に\textbf{$k^2Q_1Q_2$} に強く依存する（$Q_i=\omega_0 L_i/R_i$）。負荷が最適整合されたときの\textbf{最大効率}は
 \begin{equation}
-\eta_{\max} = \frac{k^2 Q_1 Q_2}{\bigl(1+\sqrt{1+k^2 Q_1 Q_2}\bigr)^2}\,.
+\eta_{\max}=\frac{k^2Q_1Q_2}{\left(1+\sqrt{1+k^2Q_1Q_2}\right)^2},
 \end{equation}
-例えば $k^2 Q_1 Q_2 \approx 0.42^2\times 200\times 150 \approx 5290$ とすると $\eta_{\max} \approx 94.7\%$ が得られ、提案値と整合する。これは市販無線充電より高効率で、配線充電にも迫る。最適負荷は概ね $R_{L,\mathrm{opt}} \approx R_2\sqrt{1+k^2 Q_1 Q_2}$ のスケーリングに従う（受信側損失とのバランス）。
+（表記ゆれはあるが同等の形）となり、$k^2Q_1Q_2$ が大きいほど高効率となる。例として $k=0.42,\,Q_1\approx200,\,Q_2\approx150$ なら $k^2Q_1Q_2\approx5290$, $\eta_{\max}\approx95\%$ 程度が見込め、一般的な民生無線充電（70--90\%）を上回り、実用上は有線に匹敵する。\textbf{最適負荷}は受側の見込み抵抗と釣り合わせる形となり、おおよそ $R_{L,\mathrm{opt}}\approx R_2\sqrt{1+k^2Q_1Q_2}$。実機では受側整流・DC/DC により動的にインピーダンス整合を取る。
 
-なお、最大電力点と最大効率点は一般に一致しない。短時間での総捕獲エネルギーを最大化するには、高効率点近傍で運用する方が有利なことが多い。
+\paragraph{最大効率 vs 最大電力。} 最大電力点と最大効率点は一致しない。$R_L$ を極端に軽くすれば効率は上がるが出力は小さく、重くすれば電力は増えるが損失も増える。タップ・アンド・チャージでは\textbf{短時間で“損せず取り切る”}ことが重要で、最大効率付近の運用が合理的である。
 
-\subsection{50 ms 窓を満たす応答性}
-6.78 MHz で 50 ms は約 34 万サイクルに相当し、定常移送には十分な周期数である。立上りは $\tau \sim \tfrac{2Q_1 Q_2}{Q_1+Q_2}\,\omega_0^{-1}$ により決まり、MHz・$Q\sim10^2$ では $\mu\mathrm{s}$ オーダー。よって、50 ms の大半を効率的な移送に充てられる。電源側は所望のパルス電力を供給できる必要があり、熱ストレス抑制のためデューティ設計や冷却も重要である（例：100 W $\times$ 50 ms $=$ 5 J）。
+\subsection{50 ms ウィンドウを満たせるか}
+6.78 MHz で 50 ms は約 34 万周期に相当し、\textbf{定常転送に十分な周期数}である。コイル系の立ち上がりは減衰（$Q$）に支配され、結合時間定数
+\begin{equation}
+\tau\approx \frac{2Q_1Q_2}{Q_1+Q_2}\frac{1}{\omega_0}
+\end{equation}
+は本設計で $\mu$s オーダ。ゆえに 50 ms のほぼ全時間を有効転送に充てられる。送信機が当該時間幅で所要電力を供給できること、熱ストレスが許容内であることを確認すればよい。例えば 100 W$\times$50 ms=5 J、1000 W$\times$50 ms=50 J の注入は、\textbf{短デューティ}なら熱的にさばきやすい。
 
-アライメントの誤差は $k$ を低下させ効率を損ねるため、機械的ガイドや磁気吸引などで再現性を高める設計が有効である。
+\paragraph{アライメント許容度。} $k>0.4$ は定位置タップや磁気吸着・機構案内などを仮定する。短時間ゆえリアルタイム補正は難しいため、\textbf{位置ずれに鈍感なコイル形状}や\textbf{自然に位置決めできる機構}が望ましい。
 
-\section{スーパーキャパシタ群による高速吸収}
+\section{スーパーキャパシタ群での急速吸収}
 \subsection{充電ダイナミクスとエネルギー式}
-短時間パルスで受けたエネルギーは、まずスーパーキャパシタ（SC）群に取り込まれる。バッテリーは化学反応が遅くスパイク電流に不向きだが、SC は高い出力密度で瞬時充放電が可能（ただしエネルギー密度は低い）。有効容量 $C_{\mathrm{eff}}(V_c)$ と ESR $R_{\mathrm{ESR}}$ を用いると、
-\begin{align}
-\frac{dV_c}{dt} &= \frac{I_{\mathrm{in}}-I_{\mathrm{leak}}(V_c)}{C_{\mathrm{eff}}(V_c)},\\
-E(V_c) &= \int_0^{V_c} C_{\mathrm{eff}}(V)\,V\,dV.
-\end{align}
-短時間（50 ms）ではリークは無視でき、支配的損失は ESR である。瞬時蓄積効率は
-\begin{equation}
-\eta_{\mathrm{stor}}(I) = \frac{V_c I}{V_c I + I^2 R_{\mathrm{ESR}}} = \frac{1}{1+\frac{I R_{\mathrm{ESR}}}{V_c}}\,.
-\end{equation}
-従って、$V_c$ が小さい初期に大電流を流すと $I^2R$ 損失が卓越し非効率となる。低 ESR の素子選択、初期は中電流から開始して $V_c$ の上昇に合わせて電流を高めるテーパ/ランプ波形が有利である。
+短接触の間に受側は\textbf{入射エネルギーを素早く捕捉}する必要がある。化学電池へ直接 100 W 級のスパイクを叩き込むのは難しいため、中間蓄電として\textbf{スーパーキャパシタ}を用いるのが賢明である。スーパーキャパシタは\textbf{極めて高いパワー密度}を持ち、kW 級の入出力に強い一方、エネルギー密度は低いが、本用途では必要量（数〜数十 J）を短期保存できれば良い。
 
-\subsection{最大捕獲のための最適電流波形}
-目的は $T_c$ 内に $E(V_c(T_c))$ を最大化すること。制約は $0\le I(t)\le I_{\max}$、電圧・温度上限など。厳密には最適制御（Pontryagin の最小原理等）で解けるが、短時間ではバンバン制御に近い解（初期は抑えめ→中盤で増加→終盤でタップ）や単調ランプが実用的である。数値最適化（例：\texttt{fmincon}）でも同様の傾向が得られる。
-
-熱は単発パルスでは大きく上昇せず、累積管理で十分である。
-
-\section{最適放電とバッテリー充電理論}
-SC に貯えたエネルギーは、分離後にバッテリーへ数十分かけて移される（2段階充電：50 ms で SC 充電→30 分でバッテリー充電）。Randles モデル（OCV(SOC)、$R_{\mathrm{int}}$、RC 分枝）を用いると、端子電圧は
-\begin{equation}
-V_{\mathrm{bat}}(t) = \mathrm{OCV}(\mathrm{SOC}) + I_{\mathrm{bat}}(t)\,R_{\mathrm{int}} + V_{RC}(t),\qquad
-\tau_{RC}\,\dot V_{RC} + V_{RC} = I_{\mathrm{bat}} R_{RC}.
-\end{equation}
-実務的には CC--CV（定電流→定電圧）が最適制御の解と整合し、温度制約に達するまで最大許容電流で充電し、その後は制約（電圧/温度）に沿って電流を絞る。モデル予測制御（MPC）や簡易クランプで実装可能である。
-
-\section{コードによる検証フレームワーク}
+\paragraph{基本関係。} $I=C,\,\mathrm{d}V_c/\mathrm{d}t$。実際には容量 $C_{\mathrm{eff}}(V_c)$ の電圧依存、等価直列抵抗 $R_{\mathrm{ESR}}$、リーク電流 $I_{\mathrm{leak}}(V_c,T)$ を考慮する。
 \begin{itemize}
-  \item 電磁結合：幾何・位置ズレ・距離・周波数に対する $k$ と効率を FEM（COMSOL、Maxwell）または相互インダクタンス素子の回路モデルで走査。
-  \item SC 充電：$V_c(t)$ の ODE を ESR 損失込みで数値積分し、定電流 vs テーパ電流の効率を比較。最適化で波形を探索。
-  \item バッテリー放電：SC 初期電圧から DC--DC を介して CC--CV 充電を模擬し、SOC 上昇と温度を評価。
-  \item システム統合：相互インダクタ＋整流＋DC/DC＋熱のコシミュレーションでエッジケースを検査。
+  \item \textbf{電荷収支：} $I_{\mathrm{in}}=I_{\mathrm{cap}}+I_{\mathrm{leak}}$, $I_{\mathrm{cap}}=C_{\mathrm{eff}}(V_c)\,\dot V_c$。
+  \item \textbf{蓄積エネルギー：} $E_{\mathrm{stored}}(t)=\int_0^{V_c} C_{\mathrm{eff}}(V)\,V\,\mathrm{d}V$（$C$一定なら $\tfrac12 C V_c^2$）。
+  \item \textbf{パワー収支：} $P_{\mathrm{in}}=V_c I_{\mathrm{cap}}+I_{\mathrm{in}}^2R_{\mathrm{ESR}}+V_c I_{\mathrm{leak}}$。
+\end{itemize}
+50 ms ではリークは無視可、支配的損失は\textbf{ESR による $I^2R$}。特に $V_c\approx0$ 付近では、同じ電流でも蓄積効率が著しく低下する。\textbf{瞬時の蓄積効率}を
+\begin{equation}
+\eta_{\mathrm{storage}}=\frac{P_{\mathrm{stored}}}{P_{\mathrm{in}}}\approx\frac{V_c I}{V_c I+I^2R_{\mathrm{ESR}}}=\frac{1}{1+\dfrac{I R_{\mathrm{ESR}}}{V_c}}
+\end{equation}
+と書くと、$V_c$ が低いほど $\dfrac{IR}{V_c}$ が大となり効率が落ちる。対策は（1）\textbf{$R_{\mathrm{ESR}}$ を徹底的に下げる}（並列セルで見かけ ESR を m$\Omega$ 以下へ）、（2）初期は\textbf{電流を抑制}し $V_c$ を稼いでから増流、（3）\textbf{事前プリチャージ}で $V_c>0$ を確保、のいずれか（併用が理想）。
+
+\subsection{エネルギー捕捉を最大化する最適充電プロファイル}
+目的は限られた $T_{\mathrm{charge}}$ 内での $E_{\mathrm{stored}}$ 最大化。直観的には\textbf{低電圧域で電流を控え、電圧が上がるにつれ電流を増やす}のが合理的で、終盤は電圧制限に合わせてテーパする。厳密には最適制御（ポントリャーギン最小原理など）で解け、短時間・飽和制約の下では\textbf{バンバン制御}（最大電流と低電流の切替）に近い解になりやすい。送信側も出力ランプを持てるが、受側の\textbf{インピーダンス整合／DC-DC 電流制御}で実現するのが現実的である。
+
+\paragraph{熱。} 50 ms の単発では温度上昇は限定的（数 J の損失で数度以下）。高頻度タップ時は冷却インターバルや放熱設計を要する。
+
+\paragraph{実例とのアナロジ。} 数百 kW を十秒オーダで注入するバス充電など、\textbf{短時間高出力×中間蓄電}の実装は既に存在する。小型機器では 1 F 級スーパーキャパシタを 1 秒未満で充電しセンサ駆動に使う例もある。本提案の 50 ms で 5--20 J は攻めた設定だが、同一桁の実績があり、要は\textbf{ESR と電流波形設計}で勝負が決まる。
+
+\section{最適放電とバッテリ充電理論}
+タップ後はスーパーキャパシタから\textbf{デタッチして}バッテリへ充電／給電する。提案では\textbf{30 分超の後段放電}を想定し、段階 1（50 ms でキャパ充電）→段階 2（30 分でバッテリ充電）という\textbf{二段充電}で、バッテリには\textbf{穏やかな充電}のみを見せる。
+
+\subsection{バッテリモデル}
+リチウムイオンを\textbf{Randles モデル}で表し、$V_{\mathrm{OCV}}(SOC)$ と $R_{\mathrm{int}}$、拡散等を表す RC 支線（$R_{RC},C_{RC}$）を用いる。端子電圧
+\begin{equation}
+V_{\mathrm{bat}}(t)=V_{\mathrm{OCV}}(SOC(t))+I_{\mathrm{bat}}(t)R_{\mathrm{int}}+V_{RC}(t),
+\end{equation}
+$V_{RC}$ は一次遅れで従う。制約は（1）所望 SOC 達成、（2）温度上限、（3）許容 C レート内の電流。
+
+\subsection{最適電流プロファイル}
+実務の最適は\textbf{CC--CV}（定電流→定電圧）で、最適制御でもしばしば\textbf{最大電流で制約に当たるまで進み、以降は制約に沿う}という“バン--制約”解になる。温度制約が支配的でなければ、初期は高電流、電圧・温度・SOC に応じてテーパする。大容量のスーパーキャパシタと適切な DC--DC があれば、受動的にも\textbf{CC に近い初期相→CV 的に自然減衰}へ移る挙動を実現しやすい。
+
+\section{シミュレーション枠組みとコードによる検証}
+\begin{itemize}
+  \item \textbf{電磁シミュレーション：} FEM（COMSOL/Maxwell）または SPICE/Simulink の\textbf{相互インダクタンス素子}で $k$ と過渡を評価。距離・偏心・周波数掃引で感度を定量化し、設計余裕（例：2 mm の偏心で $k$ が 10\% 低下 → 効率 90\% 台維持など）を把握。
+  \item \textbf{スーパーキャパ充電：} $V_c(t)$ と $T(t)$ の微分方程式を数値積分。\textbf{定電流 vs 段階電流}を比較し、初期低電圧域での電流抑制が\textbf{蓄積エネルギーの劇的向上}をもたらすことを確認。最適化（勾配・探索）で 50 ms の\textbf{電流波形}を求める。
+  \item \textbf{バッテリ放電：} 受側に DC--DC を介して\textbf{目標 C レート}で充電するシミュレーションを行い、単発タップでの SOC 増分、キャパ電圧の時間変化、温度上昇を確認。複数タップの積み上げも評価。
+  \item \textbf{全体系連成：} 送信 RF→相互インダクタンス→整流→キャパ→DC--DC→バッテリを連結し端‐端の\textbf{感度解析}（接触短縮、環境温度上昇、微小デチューン）を実施。必要に応じてパルス幅を 100 ms に延長、送信電力を増強など、定量根拠に基づく設計判断を行う。
 \end{itemize}
 
-\section{実現性と推奨}
+\section{実現性と推奨事項}
+\textbf{理論を現実に近づけるポイント：}
 \begin{itemize}
-  \item 高性能部品：高 $Q$ コイル（リッツ線等）と低 ESR SC（ミリオーム級）で $\eta_{\mathrm{link}}\sim95\%$、$\eta_{\mathrm{stor}}\sim90\%$ を狙う。
-  \item 安全と規制：6.78 MHz・100 W 級でも近接強結合とシールドで放射を抑え、近接検知・インタロックを実装。
-  \item アライメント補助：ガイドや磁気吸着で再現性を確保。
-  \item スケール感：スマホ・ウェアラブル等の中小電力で即効性が高い。EV 等の大容量は増パワーや複数タップが前提。
-  \item 段/並列構成：並列受電→直列放電などの構成切替で電圧レベル最適化（要安全設計）。
-  \item 適応制御：可変マッチング（バラクタ等）や学習で波形・同調を最適化。
-  \item 多目的最適化：時間・効率・寿命の優先度に応じてモード切替（ブースト/エコ）。
+  \item \textbf{高性能部材の採用：} 6.78 MHz で $Q>200$ を狙う\textbf{リッツ線}や表面処理導体、\textbf{m$\Omega$ 級 ESR}のスーパーキャパ（セル並列）を選定。整合網は低損失で可変同調（バラクタ・スイッチド C）に対応。
+  \item \textbf{安全・適合性：} ISM 帯の短時間 100 W バーストでも規制適合と\textbf{近傍場の閉じ込め}（フェライト・シールド）を確保。金属異物検知・近接判定による\textbf{インタロック}必須。大電流配線の熱と力学（ループ反力）に配慮。
+  \item \textbf{アライメント支援：} \textbf{機構ガイド／磁気吸着／浅いドック}で再現性ある結合を担保。
+  \item \textbf{スケーリングの現実：} EV 級では 50 ms$\times$5 kJ クラスでもバッテリ全体から見れば微小。\textbf{小〜中電力デバイス}（スマホ・ウェアラブル・センサ）にまず適用し、\textbf{トップアップ}用途から展開。
+  \item \textbf{並列・再構成：} 充電時は\textbf{並列}で低 ESR 吸収、放電時は\textbf{シリーズ再構成}で高電圧供給などの\textbf{可変接続}も検討価値あり（要高信頼スイッチ）。
+  \item \textbf{適応制御：} 計測した $V_c,I$ に基づき\textbf{オンザフライで電流波形}を最適化、コイルの\textbf{自動チューニング}で $kQ$ を最大維持。用途別に「ブースト／エコ」モードを用意し、\textbf{効率・エネルギー・寿命}の重み付けを切替。
 \end{itemize}
-結論として、DORAEMON のタップ\&チャージは厳密な理論・数値検証に照らして実現可能である。高周波共振結合で短時間・高効率のエネルギー移送が可能で、SC がそれを損失少なく捕獲し、バッテリーへ安全に移送できる。次段階として、コード実験に基づく小規模プロトタイプの構築が推奨される。
 
-\section*{参考文献（Sources）}
+\paragraph{最終判断（“決めてほしい”への回答）。} 上記の解析より、\textbf{DORAEMON のタップ・アンド・チャージは物理的に健全で実現可能}である。共振結合で短時間・高効率の電力移送ができ、スーパーキャパは最適電流制御により高い取り込み効率を達成し、バッテリは分離段で安全に充電できる。\textbf{課題は ESR・同調・位置合わせ}に集約され、既存技術で対処可能である。実システムの類例（フラッシュ充電バス、スーパーキャパ応用）も後押しする。
+
+\paragraph{推奨。} まず\textbf{シミュレーションと小規模プロト}に進む。導出式とモデルを設計指針（コイル寸法・キャパ容量・コンバータ定格）に落とし込み、コード上で反復検証する。想定どおりの効率と充電量が得られるなら、\textbf{50 ms タップでスーパーキャパに充電→LED 駆動やスマホ数 \% 充電}を示すデモ機を構築する。\textbf{“瞬時無線充電”}の体験価値は大きく、速さと効率を両立する本枠組みは、その実現に十分な基盤を提供する。
+
+\section*{参考情報源}
 \begin{itemize}
-  \item Kurs, A. ほか, “Wireless power transfer via strongly coupled magnetic resonances,” \textit{Science}, 317(5834), 83--86 (2007).
-  \item Wang, X. ほか, “Time-varying systems to improve the efficiency of wireless power transfer,” \textit{Phys. Rev. Applied}, 21, 054027 (2024).
-  \item Volfpack Energy Blog, “Wireless Charging with Supercapacitors – The Future of Fast, Convenient Energy Transfer,” 2023年3月 \url{https://www.volfpackenergy.com/post/wireless-charging-with-supercapacitors}。
-  \item ABB Press Release, “ABB demonstrates flash charging electric bus in 15 seconds,” 2013年6月3日 \url{https://new.abb.com/news/detail/43929/abb-demonstrates-technology-to-power-flash-charging-electric-bus-in-15-seconds}。
-  \item Park, S. ほか, “Optimal Control of Battery Fast Charging Based on Pontryagin’s Minimum Principle,” \textit{Proc. IEEE CDC}, 2020 \url{https://saehong.github.io/files/CDC2020-PMP.pdf}。
+  \item Kurs, A. \emph{et al.}, ``Wireless power transfer via strongly coupled magnetic resonances,'' \emph{Science}, 317(5834), 83--86 (2007).（強結合共振型 WPT の古典的実証）
+  \item Wang, X. \emph{et al.}, ``Time-varying systems to improve the efficiency of wireless power transfer,'' \emph{Phys. Rev. Applied}, 21, 054027 (2024).（変調により効率--電力トレードオフを改善）
+  \item Volfpack Energy Blog, ``Wireless Charging with Supercapacitors -- The Future of Fast, Convenient Energy Transfer,'' Mar. 2023.（スーパーキャパと無線給電の相性・事例）
+  \item ABB Press Release, ``ABB demonstrates flash charging electric bus in 15 seconds,'' June 3, 2013.（400 kW 級の短時間充電の実例）
+  \item Park, S. \emph{et al.}, ``Optimal Control of Battery Fast Charging Based on Pontryagin's Minimum Principle,'' Proc. IEEE CDC, 2020.（最適充電則が“最大電流→制約走行”に帰着することの解析）
 \end{itemize}
 
 \end{document}
 
-\end{document}
