@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDEAS — Research to Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="/assets/favicon.png" />
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/ideas.html" class="hover:text-indigo-400">Ideas</a>
+        <a href="/publications.html" class="hover:text-indigo-400">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-indigo-400">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-indigo-700/10 to-transparent"></div>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">From Idea to Product.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">AI‑accelerated research</span></h1>
+          <p class="mt-5 text-slate-300 text-lg">A living notebook of photonics, chemistry, and simulation — with workflows, publications, and a pipeline mindset to ship real products.</p>
+          <div class="mt-8 flex gap-4">
+            <a href="/ideas.html" class="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-semibold">Explore Ideas</a>
+            <a href="/publications.html" class="px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-500">Read Publications</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="p-1 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-400">
+            <div class="rounded-2xl p-6 bg-slate-900/80 border border-slate-800">
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-emerald-400 mt-2"></span><span><b>QC + MD + AI:</b> End‑to‑end small molecule simulation pipeline with automation.</span></li>
+                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-sky-400 mt-2"></span><span><b>Metasurface Imaging:</b> AI‑assisted design, library sweeps, Fourier optics, and validation.</span></li>
+                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-fuchsia-400 mt-2"></span><span><b>DORAEMON:</b> Tap‑and‑Charge concept with rigorous EM coupling and circuit limits.</span></li>
+              </ul>
+              <div class="mt-6 grid grid-cols-3 gap-2 text-center">
+                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold">11</div><div class="text-xs text-slate-400">Ideas</div></div>
+                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold" id="pubCount">—</div><div class="text-xs text-slate-400">Publications</div></div>
+                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold">∞</div><div class="text-xs text-slate-400">Potential</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">Latest Ideas</h2>
+      <a href="/ideas.html" class="text-sm text-slate-400 hover:text-indigo-400">View all →</a>
+    </div>
+    <div id="ideasGrid" class="grid md:grid-cols-3 gap-6"></div>
+  </section>
+
+  <section class="bg-slate-900/50 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Productization Pipeline</h3>
+        <p class="text-slate-300">We treat ideas like products: specs → prototypes → validation → docs → release. Automation, reproducible builds, and clean handoffs are first‑class.</p>
+      </div>
+      <div class="col-span-2 grid sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b>1. Specify</b><p class="text-sm text-slate-300 mt-1">Define targets, metrics, resources.</p></div>
+        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b>2. Simulate</b><p class="text-sm text-slate-300 mt-1">QC/MD/EM pipelines and sweeps.</p></div>
+        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b>3. Optimize</b><p class="text-sm text-slate-300 mt-1">AI‑assisted optimization + surrogates.</p></div>
+        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b>4. Publish</b><p class="text-sm text-slate-300 mt-1">LaTeX PDFs, figures, and code.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    async function loadIdeas() {
+      try {
+        const ideas = await fetch('/assets/ideas.json').then(r=>r.json());
+        const pubs = await fetch('/assets/publications.json').then(r=>r.json()).catch(()=>[]);
+        document.getElementById('pubCount').textContent = pubs.length || '0';
+        const root = document.getElementById('ideasGrid');
+        const top = ideas.slice(0, 6);
+        root.innerHTML = top.map(x => `
+          <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
+            <div class="text-sm text-indigo-300">${x.author || 'IDEAS'}</div>
+            <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
+            <div class="mt-2 text-sm text-slate-400">${(x.excerpt||'').replace(/</g,'&lt;')}</div>
+          </a>`).join('');
+      } catch (e) { console.error(e); }
+    }
+    loadIdeas();
+  </script>
+</body>
+</html>
+

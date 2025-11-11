@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版） — IDEAS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="/assets/favicon.png" />
+  <meta property="og:title" content="用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版） — IDEAS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/assets/logo.svg" />
+  <meta name="description" content="IDEAS — a lightweight, versioned notebook of research notes and essays." />
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: { DEFAULT:'#4f46e5'} } } } }
+  </script>
+  <style>.prose h1,h2,h3{scroll-margin-top:6rem}</style>
+  </head>
+<body class="bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="hover:text-primary">Home</a>
+        <a href="/ideas.html" class="hover:text-primary">Ideas</a>
+        <a href="/publications.html" class="hover:text-primary">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-3xl mx-auto px-4 py-14">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-2">用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）</h1>
+      <p class="text-slate-400 mb-8">by LazyingArt</p>
+      <article class="prose prose-invert prose-slate max-w-none"><h1>用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）</h1>
+Author: LazyingArt<p></p>> 目标：先讲<strong>直觉</strong>，再讲<strong>问题—方案—为什么能成—方法细节—影响与应用</strong>，最后给一个<strong>小算例</strong>和<strong>如何用代码做验证</strong>的思路。整篇可直接当说明文/提案文使用。<p></p>---<p></p><h2>1) 直觉：像“磁性插头 + 海绵”</h2><p></p>把手机/设备轻轻一“贴”，<strong>两只线圈</strong>就像“磁性插头”一样对上了频率（<strong>共振</strong>），能量顺着<strong>近场磁场</strong>涌过来；设备里有一块“<strong>能量海绵</strong>”（<strong>超级电容</strong>），<strong>几十毫秒内瞬间吸能</strong>，然后在接下来的几分钟里<strong>慢慢把能量喂给电池</strong>。<p></p>关键点：这不是要在 50 ms 内把<strong>电池</strong>充满，而是先把能量塞进“海绵”（超级电容），再<strong>温和</strong>地给电池。——<strong>“快”与“稳”被时间上拆分</strong>。<p></p>---<p></p><h2>2) 传统无线充电的痛点</h2><p></p>1. <strong>必须一直对准</strong>：放偏就掉速、掉效。
+2. <strong>速度慢</strong>：功率不高，要放很久。
+3. <strong>移动不友好</strong>：边走边充基本不现实。
+4. <strong>电池不耐“野蛮快充”</strong>：化学反应有上限，大电流易发热、掉寿命。<p></p>---<p></p><h2>3) 为什么 DORAEMON 能工作（核心直觉）</h2><p></p><li><strong>共振放大</strong>：两线圈调到同一频率（如 6.78 MHz），近场磁耦合像“跷跷板”一样高效传能；<strong>对得准</strong>时，耦合效率可很高。</li>
+<li><strong>能量缓冲</strong>：超级电容（功率密度高）能在<strong>几十毫秒吸收大电流</strong>，这点电池做不到；相当于先把能量“存到小水缸”。</li>
+<li><strong>时间尺度解耦</strong>：<strong>50 ms</strong>完成“吸能”，<strong>30 分钟</strong>完成“喂电池”。电池看到的是<strong>温和、可控</strong>的电流，更护寿命。</li>
+<li><strong>智能控流降损</strong>：电容电压低时若“猛灌”，$I^2R$ 热损耗大。<strong>先小—再大—后小</strong>的电流波形显著提高“吸能效率”。</li><p></p>---<p></p><h2>4) 系统全貌（组成与分工）</h2><p></p><strong>发射端</strong><p></p><li>高频驱动（功放）</li>
+<li>发射线圈</li>
+<li>调谐/匹配网络（可变）</li><p></p><strong>接收端</strong><p></p><li>接收线圈</li>
+<li>低损整流（优先同步整流）</li>
+<li><strong>超级电容（能量腔）</strong></li>
+<li>DC-DC 转换器（给电池/负载）</li>
+<li>保护与测量（电流/电压/温度）</li><p></p><strong>感知与控制</strong><p></p><li>合法设备与对准检测 / 异物检测</li>
+<li>频率/相位/占空比调节、自动匹配</li>
+<li>电流限幅、过温/过压/欠压保护</li>
+<li>充电策略（入腔侧、给电池侧）</li><p></p>---<p></p><h2>5) 方法细节：一次“贴靠”的全过程（0 → 30 分钟）</h2><p></p><h3>A. 0–50 ms：瞬时吸能（“海绵进水”）</h3><p></p>1. <strong>识别与对中</strong>：确认合法设备、线圈基本对中（磁吸/定位结构辅助）。
+2. <strong>建立共振</strong>：两侧频率一致，近场磁耦合“通车”。
+3. <strong>整流入腔</strong>：接收侧把高频交流整流成直流，喂给超级电容。
+4. <strong>电流波形要点</strong><p></p>   <li><strong>起步</strong>（电容电压低）：<strong>中等电流</strong>，避免 $I^2R$ 占比过大；</li>
+   <li><strong>中段</strong>（电压升高、效率更好）：逐步<strong>拉高电流</strong>，快速装能量；</li>
+   <li><strong>结束前</strong>：逼近电容安全电压或时间将尽，<strong>平滑回落</strong>防过冲。</li>
+5. <strong>温控与保护</strong>：实时监温，必要时限流/停机；异物（硬币等）检测到立刻断能。<p></p>> <strong>直觉总结</strong>：电容电压越高，同样电流带来的<strong>有效存能占比越大</strong>。先把“底”垫起来再加速，整体更省损、效率更高。<p></p><h3>B. 50 ms–30 min：温和给电池（“海绵放水”）</h3><p></p>1. <strong>DC-DC 转换</strong>：把电容较高电压变成电池所需电压/电流。
+2. <strong>电池侧策略</strong><p></p>   <li><strong>类似 CC-CV</strong>：前期用<strong>恒定且安全的电流</strong>（遵守电池 C-rate），电池电压接近上限时转为“电压受控”，<strong>电流自然回落</strong>；</li>
+   <li><strong>温度优先</strong>：温升过高立即降档。</li>
+3. <strong>合理的工作区</strong>：不必把电容从 0 V 充到满，也不必榨到见底；让它<strong>在高效率电压区间来回工作</strong>，平均效率高、发热低。<p></p>---<p></p><h2>6) 一个小算例（把量级“算清楚”）</h2><p></p><strong>目标</strong>：在 <strong>50 ms</strong> 内注入 <strong>5 J</strong>（等效平均功率 <strong>100 W</strong>），向一个<strong>等效 10 F</strong> 的超级电容“加一点电”。<p></p><li>理想能量关系：</li>
+  [
+  E=\tfrac{1}{2} C ,\Delta V^2
+  ]
+<li>代入：</li>
+  [
+  5=\tfrac{1}{2}\times 10 \times \Delta V^2 \Rightarrow \Delta V=1\ \text{V}
+  ]
+<li>50 ms 内的平均电流：</li>
+  [
+  I=\frac{C,\Delta V}{\Delta t}= \frac{10\times 1}{0.05}=200\ \text{A}
+  ]
+  （峰值可由整流/滤波分担）
+<li><strong>ESR 决定损耗</strong>：若等效 ESR = <strong>0.2 mΩ</strong>，</li>
+  [
+  I^2R \Delta t = 200^2\times 0.0002\times 0.05 = 0.4\ \text{J}
+  ]
+  吸能效率 ≈ (\frac{5}{5+0.4}=92.6%)（很可观）。
+<li>若 ESR = <strong>1 mΩ</strong>，损耗变 2 J，效率掉到约 <strong>71%</strong>。</li><p></p><strong>结论</strong>：要么把 ESR 做到极低（并联多颗、优选器件、同步整流、减小寄生），要么不要从 0 V “猛灌”——这正是<strong>三段式电流 + 合理电压工作区</strong>的价值。<p></p>> 注：很多应用不需要 10 F；<strong>几法拉</strong>更容易在 50 ms 内形成可观 ΔV，功率与损耗也更可控。<p></p>---<p></p><h2>7) 关键挑战与边界条件</h2><p></p><li><strong>对准容差</strong>：偏一点 $k$ 下降，效率/功率跟着掉；用<strong>物理定位/磁吸</strong> + 线圈形状优化提高容差。</li>
+<li><strong>电磁兼容与安全</strong>：6.78 MHz 属 ISM 频段，但仍需<strong>异物检测、屏蔽/导磁片</strong>、场强管理。</li>
+<li><strong>峰值电流能力</strong>：整流器件、母线、走线要承受 <strong>100–200 A 级</strong>短时冲击；优先<strong>同步整流</strong>、低寄生布局。</li>
+<li><strong>热管理</strong>：虽是 50 ms，但峰值功率带来瞬时发热；需要<strong>足够热容 + 散热路径</strong>，并限制“高频次连击”。</li>
+<li><strong>电池友好策略</strong>：<strong>温度与寿命优先</strong>，不要追求极限拉满。</li><p></p>---<p></p><h2>8) 影响与应用场景</h2><p></p><li><strong>用户体验</strong>：手机/耳机/手表“一碰就走”，<strong>几十毫秒换来几分钟到半小时续航</strong>，摆脱“趴在充电板上”。</li>
+<li><strong>IoT/工业</strong>：巡检机器人、AGV、传感节点，路过时“抬手一碰”即可补能，<strong>不停机</strong>。</li>
+<li><strong>交通/物流</strong>：对接“短停快充”（站台/工位），把等待压缩到<strong>肌肉记忆级</strong>。</li>
+<li><strong>电池寿命</strong>：把“暴力快充”交给超级电容，电池只见“柔和电流”，<strong>更耐用</strong>。</li><p></p>---<p></p><h2>9) 这套方法为什么靠谱（一句话）</h2><p></p><strong>物理</strong>有共振耦合保证短时<strong>高效传能</strong>；<strong>器件</strong>有超级电容承受<strong>巨瞬功率</strong>；<strong>控制</strong>用三段式电流/合适工作区把<strong>损耗压低</strong>；<strong>系统</strong>把<strong>快</strong>与<strong>稳</strong>拆开，电池安全、体验简单。<p></p>---<p></p><h2>10) 如何用“代码做实验”（最小闭环思路）</h2><p></p>> 不急做硬件，先把“数字样机”在电脑里跑起来，评估量级与敏感性。<p></p><h3>(1) 线圈耦合（近似）</h3><p></p><li>用等效电源 + 负载模型，设置耦合效率 (\eta_{\text{coupling}})（如 85–95%），随<strong>偏移/频偏/距离</strong>变化。</li>
+<li>输出：<strong>50 ms 内可提供到整流端的能量（J）</strong>。</li><p></p><h3>(2) 超级电容充电 ODE</h3><p></p><li>核心方程：</li>
+  [
+  \frac{dV_c}{dt}=\frac{I(t)-I_{\text{leak}}(V_c)}{C_{\text{eff}}(V_c)},\quad
+  P_{\text{loss}}=I^2 R_{\text{ESR}}
+  ]
+  可加简单热模型（热容 + 热阻）。
+<li>试三类电流：<strong>恒流</strong>、<strong>三段式</strong>（先中后高再回落）、<strong>优化搜索</strong>（把 50 ms 切段，求每段电流）。</li>
+<li>记录：<strong>吸能效率、峰值温升、末端电压</strong>。</li><p></p><h3>(3) 电池侧放电</h3><p></p><li>电池用简化 <strong>Randles</strong> 等效（(V_{\text{OCV}}(SOC))、(R_{\text{int}})、一阶 RC）。</li>
+<li>DC-DC 设“<strong>安全恒流上限 + 温度限流</strong>”，再过渡到“电压受控”。</li>
+<li>记录：<strong>30 min 内 SOC 提升、温升、平均效率</strong>。</li><p></p><h3>(4) 端到端指标</h3><p></p><li>[</li>
+  \eta_{\text{total}}=
+  \eta_{\text{coupling}}\times
+  \eta_{\text{rect}}\times
+  \eta_{\text{storage}}\times
+  \eta_{\text{dc-dc}}
+  ]
+<li>关注：<strong>每次贴靠注入能量（J/次）</strong>、<strong>效率</strong>、<strong>热安全</strong>、以及对<strong>对准/ESR/频偏</strong>的敏感性。</li><p></p>---<p></p><h2>小结（要点速览）</h2><p></p><li><strong>问题</strong>：想要“又快又自由”的无线充电，传统“长时间趴板”做不到。</li>
+<li><strong>直觉</strong>：像磁性插头 + 海绵，<strong>先快吸能、后慢喂电</strong>。</li>
+<li><strong>方法</strong>：<strong>共振耦合</strong>高效传能 + <strong>超级电容</strong>扛瞬时功率 + <strong>三段式电流</strong>与温控保护 + <strong>CC-CV 给电池</strong>。</li>
+<li><strong>为什么能成</strong>：物理可行、器件能扛、控制能优化、系统把快与稳拆开。</li>
+<li><strong>应用</strong>：极简体验、不断电补能、对电池更友好；先从小功率场景快速落地。</li><p></p>---<p></p><h3>附：公式/名词小抄（便于查阅）</h3><p></p><li>电容能量：(;E=\tfrac{1}{2} C V^2)</li>
+<li>充电速率：(;I=C,\dfrac{\Delta V}{\Delta t})</li>
+<li>ESR 损耗：(;E_{\text{loss}}=I^2 R_{\text{ESR}} \Delta t)</li>
+<li>吸能效率（近似）：(;\eta_{\text{storage}}=\dfrac{V_c I}{V_c I + I^2 R_{\text{ESR}}}=\dfrac{1}{1+\frac{I R_{\text{ESR}}}{V_c}})</li>
+<li>CC-CV：恒流（CC）到达电压阈值后转恒压（CV），电流自然回落</li>
+<li>6.78 MHz：常用 ISM 频段之一（近场共振耦合）</li><p></p>---<p></p><h3>想要进一步：下一步可做什么？</h3><p></p><li>我们可以把上述“数字样机”的<strong>最简 Python/MATLAB 脚本</strong>搭起来：</li>
+  线圈耦合近似 + 超级电容 ODE（含 ESR/热）+ 三段式电流生成器 + 电池侧 CC-CV 控制。
+  一键跑完就能看到<strong>每次贴靠注入多少焦耳</strong>、<strong>热是否安全</strong>、以及<strong>对齐偏差/ESR</strong>对效率的影响。
+</article>
+    </div>
+  </section>
+  <footer class="border-t border-slate-800 mt-20">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400 flex justify-between">
+      <span>© 2025 IDEAS</span>
+      <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>

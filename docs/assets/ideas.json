@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4",
+    "title": "Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4",
+    "author": "LazyingArt",
+    "excerpt": "**Yes – combining Gaussian (quantum chemistry) + Multiwfn (molecular analysis) with S4 (metasurface RCWA solver) is not only feasible but opens up novel \\**molecularly-programmed metasurface\\** designs.** Below we outline: **(i)** several concrete project ideas, **(ii)** a physics-grounded workflow linking the tools..."
+  },
+  {
+    "slug": "doraemon-tap-and-charge-deep-research-ja",
+    "title": "DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "doraemon-tap-and-charge-deep-research",
+    "title": "DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks",
+    "author": "LazyingArt",
+    "excerpt": "This entry preserves the complete materials you provided: the original IEEE LaTeX manuscript and the full deep-research/theory strengthening writeup (no reductions)."
+  },
+  {
+    "slug": "doraemon-tap-and-charge-explainer-zh",
+    "title": "用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）",
+    "author": "LazyingArt",
+    "excerpt": "> 目标：先讲**直觉**，再讲**问题—方案—为什么能成—方法细节—影响与应用**，最后给一个**小算例**和**如何用代码做验证**的思路。整篇可直接当说明文/提案文使用。"
+  },
+  {
+    "slug": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow",
+    "title": "Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow",
+    "author": "LazyingArt",
+    "excerpt": "Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed* metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools togeth..."
+  },
+  {
+    "slug": "nonlinear-kramers-kronig-kerr-media",
+    "title": "The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis-draft",
+    "title": "Optical Metasurfaces and Biofabrication: A Feasibility Analysis",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis",
+    "title": "Optical Metasurfaces and Biofabrication: A Feasibility Analysis",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "organic-dye-programmed-metasurface-zh",
+    "title": "有机染料调控的纳米超表面：让超薄结构把光吃干抹净",
+    "author": "LazyingArt",
+    "excerpt": "**有没有可能让一层超薄的材料把射来的光“吃”个精光？\\**科学家们正尝试将有机染料分子和光学超表面（纳米级人工结构）结合，设计出一种超薄的\\**光学超表面吸收器**。它能利用有机染料对特定颜色光的强烈吸收，在纳米结构的配合下将那种颜色的光完全吸收掉。简单地说，就是让一张比纸还薄的特殊表面，当特定波长的光照上去时，几乎一丝不漏地把光能量全部吞进去。下面我们用通俗的语言来解释其中的核心思路、解决的问题和重要意义。"
+  },
+  {
+    "slug": "proposal-ai-assisted-metasurface-imaging-system",
+    "title": "Proposal for AI-Assisted Simulation of a Metasurface Imaging System",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation",
+    "title": "Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
+    "slug": "quantum-carpets-fractal-wavefunction-revival",
+    "title": "The Quantum Carpets: Fractal Patterns in Wavefunction Revival",
+    "author": "LazyingArt",
+    "excerpt": ""
+  }
+]

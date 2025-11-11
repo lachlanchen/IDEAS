@@ -1,4 +1,4 @@
-name: Deploy website
+name: Deploy fancy website
 
 on:
   push:
@@ -12,31 +12,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.x'
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: Prepare site content
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs-material mkdocs-awesome-pages-plugin
-
-      - name: Prepare docs content
-        run: |
-          mkdir -p docs/ideas docs/publications docs/figs
+          mkdir -p docs/ideas docs/publications docs/figs docs/assets
           rsync -a --delete ideas/ docs/ideas/
           if [ -d figs ]; then rsync -a figs/ docs/figs/; fi
           if [ -d publications ]; then rsync -a publications/ docs/publications/; fi
 
-      - name: Build site
+      - name: Generate site pages & manifests
         run: |
-          mkdocs build --strict
+          npm install --no-save marked
+          node scripts/generate_site.mjs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./docs
           cname: ideas.onlyideas.art
-
