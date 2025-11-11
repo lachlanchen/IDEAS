@@ -26,18 +26,19 @@
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-primary">Home</a>
-        <a href="/ideas.html" class="hover:text-primary">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary">Publications</a>
-        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary">GitHub</a>
+        <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
+        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
+      <div id="langSwitcher" class="ml-4"></div>
     </div>
   </header>
   
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation</h1>
-      <p class="text-slate-400 mb-8">by LazyingArt</p>
+      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
       <article class="prose prose-invert prose-slate max-w-none"><h1>Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation</h1>
 Author: LazyingArt<p></p><h2>Overview and Objectives</h2><p></p>We propose a comprehensive simulation workflow that <strong>combines quantum chemistry</strong>, <strong>molecular dynamics (MD)</strong>, and <strong>AI-driven tools</strong> to study a small or biomolecular system. The goal is to <strong>optimize the molecular structure</strong> and <strong>predict its spectra</strong> (e.g. infrared and UV-Vis) with high accuracy, while leveraging automation to streamline the process. Specifically, this plan will:<p></p>- Use *first-principles quantum chemistry (DFT)<li>with <strong>Gaussian</strong> (or a similar package) for <strong>geometry optimization</strong>and <strong>vibrational frequency analysis</strong>, yielding an optimized structure and IR spectra<a href="https://wanglab.hosted.uark.edu/g98help/00000437.htm#:~:text=frequencies for a correlated method,route section for a job">wanglab.hosted.uark.edu</a><a href="https://wanglab.hosted.uark.edu/g98help/00000437.htm#:~:text=This calculation type keyword computes,required%2C polarizabilities must be explicitly">wanglab.hosted.uark.edu</a>. Optionally, excited-state calculations (TD-DFT) can predict UV-Vis spectra.</li>
 - Use *classical MD simulation<li>with <strong>LAMMPS</strong> to explore the molecule’s conformational space or environment effects, employing appropriate force fields (or ML-based potentials) for efficiency. LAMMPS will run on our high-performance GPU hardware to accelerate sampling<a href="https://docs.lammps.org/Intro_overview.html#:~:text=clusters and supercomputers,threading%2C vectorization%2C and GPU acceleration">docs.lammps.org</a>.</li>
@@ -158,5 +159,6 @@ Author: LazyingArt<p></p><h2>Overview and Objectives</h2><p></p>We propose a com
       <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
     </div>
   </footer>
+  <script src="/assets/i18n.js"></script>
 </body>
 </html>

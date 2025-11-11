@@ -70,11 +70,12 @@ function baseTemplate({ title, content }) {
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-primary">Home</a>
-        <a href="/ideas.html" class="hover:text-primary">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary">Publications</a>
-        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary">GitHub</a>
+        <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
+        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
+      <div id="langSwitcher" class="ml-4"></div>
     </div>
   </header>
   ${content}
@@ -84,6 +85,7 @@ function baseTemplate({ title, content }) {
       <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
     </div>
   </footer>
+  <script src="/assets/i18n.js"></script>
 </body>
 </html>`;
 }
@@ -93,7 +95,7 @@ function ideaDetailTemplate({ title, author, html }) {
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">${title}</h1>
-      ${author ? `<p class="text-slate-400 mb-8">by ${author}</p>` : ''}
+      ${author ? `<p class="text-slate-400 mb-8"><span data-i18n="by">by</span> ${author}</p>` : ''}
       <article class="prose prose-invert prose-slate max-w-none">${html}</article>
     </div>
   </section>`;
@@ -163,4 +165,3 @@ async function main() {
 }
 
 main().catch(err => { console.error(err); process.exit(1); });
-

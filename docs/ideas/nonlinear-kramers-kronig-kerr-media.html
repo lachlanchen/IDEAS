@@ -26,18 +26,19 @@
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-primary">Home</a>
-        <a href="/ideas.html" class="hover:text-primary">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary">Publications</a>
-        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary">GitHub</a>
+        <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
+        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
+      <div id="langSwitcher" class="ml-4"></div>
     </div>
   </header>
   
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity</h1>
-      <p class="text-slate-400 mb-8">by LazyingArt</p>
+      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
       <article class="prose prose-invert prose-slate max-w-none"><h1>The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity</h1>
 Author: LazyingArt<p></p><h2>Introduction</h2><p></p>The classical Kramers–Kronig (KK) relations provide a bridge between a material’s dispersion (real part of the response) and its absorption (imaginary part of the response) by enforcing <strong>causality</strong> <a href="https://en.wikipedia.org/wiki/Kramers%E2%80%93Kronig_relations">en.wikipedia.org</a> <a href="https://api.creol.ucf.edu/Publications/3865.pdf">api.creol.ucf.edu</a>. In linear optics, causality implies that no output occurs before an input signal arrives. Mathematically, this causality translates into analyticity of the frequency response, which yields Hilbert transform relations between the real and imaginary parts of any causal susceptibility <a href="https://en.wikipedia.org/wiki/Kramers%E2%80%93Kronig_relations">en.wikipedia.org</a>. In simple terms, if a medium absorbs light at a certain frequency, it must exhibit a corresponding phase shift across other frequencies so that the combined response does not produce any effect prior to the cause <a href="https://api.creol.ucf.edu/Publications/3865.pdf">api.creol.ucf.edu</a>. The <strong>linear KK relations</strong> are typically written as a pair of integrals. For example, if $\chi_1(\omega)$ and $\chi_2(\omega)$ are the real and imaginary parts of the linear susceptibility $\chi^{(1)}(\omega)$, one form is:<p></p>$$
 \chi_1(\omega) = \frac{1}{\pi}\, \mathcal{P} \! \int_{-\infty}^{\infty} \frac{\chi_2(\omega')}{\omega' - \omega}\, d\omega'\,.
@@ -64,5 +65,6 @@ $$<p></p>where $n_2(\Omega)$ is the intensity-dependent index coefficient at fre
       <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
     </div>
   </footer>
+  <script src="/assets/i18n.js"></script>
 </body>
 </html>
