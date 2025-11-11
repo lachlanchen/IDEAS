@@ -74,7 +74,7 @@
 
 **实验目的和原理：**第二步利用第一步Gaussian的计算结果，**生成染料分子的吸收光谱曲线**，并提取染料掺杂介质的有效光学参数。借助Multiwfn对Gaussian输出进行解析，可以得到更直观的光谱信息（如吸收峰半宽、摩尔消光系数等）以及用于电磁仿真的介质色散参数。本质原理是：利用计算的若干离散激发态（能级和振子强度）经过展宽处理，得到连续的UV-Vis吸收光谱；同时根据振子强度和浓度估算介质在各波长的吸收系数（即介电常数的虚部），从而表征染料介质的色散特性。
 
-**使用软件及功能模块：\**使用 **Multiwfn** 波函数分析程序。Multiwfn提供强大的光谱绘制和分析功能，可以直接读取Gaussian的TD-DFT输出并生成吸收光谱[shiyanjia.com](https://www.shiyanjia.com/knowledge-articleinfo-8841.html#:~:text=好书解读| 《模拟计算指南》荧光、磷光光谱与激发态电子结构分析 使用Multiwfn载入log文件，进入主功能11→3的UV)。操作步骤为：启动Multiwfn，载入Gaussian输出的后处理文件（如`.log`或TD结果的`.fch`文件），进入主功能11中的UV-Vis光谱绘制模块[shiyanjia.com](https://www.shiyanjia.com/knowledge-articleinfo-8841.html#:~:text=好书解读| 《模拟计算指南》荧光、磷光光谱与激发态电子结构分析 使用Multiwfn载入log文件，进入主功能11→3的UV)。在该模块中，可选择\**谱线展宽类型**（如高斯或洛伦兹展宽）及展宽半高宽参数（例如典型值0.1~0.3 eV，模拟室温下谱线展宽），Multiwfn将据此生成模拟的吸收光谱曲线sobereva.com。此外，Multiwfn能计算每个吸收峰对应的**摩尔吸光系数**或**吸收截面**，以评估染料的吸收强度是否在合理范围bbs.keinsci.com。
+**使用软件及功能模块：\**使用 \*\*Multiwfn\*\* 波函数分析程序。Multiwfn提供强大的光谱绘制和分析功能，可以直接读取Gaussian的TD-DFT输出并生成吸收光谱[shiyanjia.com](https://www.shiyanjia.com/knowledge-articleinfo-8841.html#:~:text=好书解读| 《模拟计算指南》荧光、磷光光谱与激发态电子结构分析 使用Multiwfn载入log文件，进入主功能11→3的UV)。操作步骤为：启动Multiwfn，载入Gaussian输出的后处理文件（如`.log`或TD结果的`.fch`文件），进入主功能11中的UV-Vis光谱绘制模块[shiyanjia.com](https://www.shiyanjia.com/knowledge-articleinfo-8841.html#:~:text=好书解读| 《模拟计算指南》荧光、磷光光谱与激发态电子结构分析 使用Multiwfn载入log文件，进入主功能11→3的UV)。在该模块中，可选择\**谱线展宽类型**（如高斯或洛伦兹展宽）及展宽半高宽参数（例如典型值0.1~0.3 eV，模拟室温下谱线展宽），Multiwfn将据此生成模拟的吸收光谱曲线sobereva.com。此外，Multiwfn能计算每个吸收峰对应的**摩尔吸光系数**或**吸收截面**，以评估染料的吸收强度是否在合理范围bbs.keinsci.com。
 
 **输入信息：**
 
