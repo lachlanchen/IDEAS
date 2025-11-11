@@ -24,6 +24,12 @@
     "excerpt": "> 目标：先讲**直觉**，再讲**问题—方案—为什么能成—方法细节—影响与应用**，最后给一个**小算例**和**如何用代码做验证**的思路。整篇可直接当说明文/提案文使用。"
   },
   {
+    "slug": "investigating-mpempba-effect-deep-learning-imaging",
+    "title": "Investigating the \"Mpempba Effect\" in Deep Learning and Imaging",
+    "author": "LazyingArt",
+    "excerpt": ""
+  },
+  {
     "slug": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow",
     "title": "Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow",
     "author": "LazyingArt",
