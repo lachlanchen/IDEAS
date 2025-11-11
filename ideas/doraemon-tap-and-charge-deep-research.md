@@ -1,4 +1,5 @@
 # DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks
+Author: LazyingArt
 
 This entry preserves the complete materials you provided: the original IEEE LaTeX manuscript and the full deep-research/theory strengthening writeup (no reductions).
 

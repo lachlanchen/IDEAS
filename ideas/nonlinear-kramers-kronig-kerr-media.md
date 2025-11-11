@@ -1,4 +1,5 @@
 # The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity
+Author: LazyingArt
 
 ## Introduction
 

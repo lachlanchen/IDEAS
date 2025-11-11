@@ -1,4 +1,5 @@
 # Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation
+Author: LazyingArt
 
 ## Overview and Objectives
 
@@ -254,4 +255,3 @@ Through careful execution of each phase – and validation at each step – we e
 - ASE (Atomic Simulation Environment): ASE will assist in managing jobs and interfacing with codes. It provides high-level tools to set up calculations and analyze results in Pythonabacus.deepmodeling.com, which aligns with our automation goals. Specifically, ASE’s support for Gaussian and other engines, as well as its ability to read/write common structure formats, will simplify moving data between Gaussian, LAMMPS, and analysis.
 
 By drawing on these resources and tools, the implementation will be on a solid foundation, following best practices from the literature and software documentation. The end result will be a robust, AI-enhanced simulation pipeline for molecular research, validated on our test case and ready for future applications.
-

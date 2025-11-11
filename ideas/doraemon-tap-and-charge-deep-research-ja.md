@@ -1,4 +1,5 @@
 # DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）
+Author: LazyingArt
 
 ## はじめに／コンセプト概要
 
@@ -134,4 +135,3 @@ $V_{RC}$ は一次遅れで従う。制約は（1）所望 SOC 達成、（2）�
 
 
 DORAEMON（日本語）— Markdown | PDF
-

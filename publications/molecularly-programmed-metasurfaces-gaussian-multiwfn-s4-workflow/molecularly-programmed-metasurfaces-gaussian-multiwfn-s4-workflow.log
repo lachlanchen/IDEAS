@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  9 NOV 2025 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  11 NOV 2025 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -353,7 +353,7 @@ File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 15
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 16
 .
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmr.fd
@@ -366,24 +366,24 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \openout1 = `molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.
 aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -419,7 +419,7 @@ LaTeX Font Info:    ... okay on input line 15.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 15.
+Package hyperref Info: Link coloring OFF on input line 16.
 (molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.out)
 (molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.out)
 \@outlinefile=\write3
@@ -449,13 +449,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (/home/lachlan/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \microtypecontext on input line 15.
-Package microtype Info: Applying patch `item' on input line 15.
-Package microtype Info: Applying patch `toc' on input line 15.
-Package microtype Info: Applying patch `eqnum' on input line 15.
-Package microtype Info: Applying patch `footnote' on input line 15.
-Package microtype Info: Applying patch `verbatim' on input line 15.
-LaTeX Info: Redefining \microtypesetup on input line 15.
+LaTeX Info: Redefining \microtypecontext on input line 16.
+Package microtype Info: Applying patch `item' on input line 16.
+Package microtype Info: Applying patch `toc' on input line 16.
+Package microtype Info: Applying patch `eqnum' on input line 16.
+Package microtype Info: Applying patch `footnote' on input line 16.
+Package microtype Info: Applying patch `verbatim' on input line 16.
+LaTeX Info: Redefining \microtypesetup on input line 16.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -472,36 +472,36 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-7.
+8.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-7.
+8.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-17.
+18.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-17.
+18.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 17.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+(Font)              <6> on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
@@ -510,7 +510,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/home/lachlan/.miktex/texmfs/install/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
@@ -519,13 +519,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/home/lachlan/.miktex/texmfs/install/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-
-LaTeX Warning: No \author given.
-
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 20.
+(Font)              <10.95> on input line 21.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-4.
+5.
+
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -539,7 +537,7 @@ l/fonts/enc/dvips/lm/lm-rm.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/
 dvips/lm/lm-mathsy.enc}{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm
 /lm-ts1.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-7.
+8.
  (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -548,42 +546,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 72.
+(Font)              <14.4> on input line 73.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 72.
+(Font)              <10> on input line 73.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 72.
+(Font)              <7> on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightarrow' on input line 72.
+(hyperref)                removing `\rightarrow' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 72.
+(hyperref)                removing `\lambda' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 72.
+(hyperref)                removing `\lambda' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 73.
 
 
-Overfull \hbox (29.92572pt too wide) in paragraph at lines 201--201
+Overfull \hbox (29.92572pt too wide) in paragraph at lines 202--202
 []\T1/lmtt/m/n/10.95 # Convert Gaussian TD-DFT excited states (Ej, fj) to dispe
 rsive n(lambda), k(lambda)[] 
  []
@@ -591,13 +589,13 @@ rsive n(lambda), k(lambda)[]
 
 
 [2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (1.18205pt too wide) in paragraph at lines 201--201
+Overfull \hbox (1.18205pt too wide) in paragraph at lines 202--202
 []        \T1/lmtt/m/n/10.95 raise RuntimeError("No excited states found. Check
  your Gaussian log.")[] 
  []
 
 
-Overfull \hbox (110.40799pt too wide) in paragraph at lines 201--201
+Overfull \hbox (110.40799pt too wide) in paragraph at lines 202--202
 []\T1/lmtt/m/n/10.95 def lorentz_alpha_mol(omega: float, lines: List[Tuple[floa
 t, float]], gamma_eV: float) -> complex:[] 
  []
@@ -605,14 +603,14 @@ t, float]], gamma_eV: float) -> complex:[]
 
 
 [3]
-Overfull \hbox (305.86493pt too wide) in paragraph at lines 201--201
+Overfull \hbox (305.86493pt too wide) in paragraph at lines 202--202
 []    \T1/lmtt/m/n/10.95 p = argparse.ArgumentParser(description="Convert Gauss
 ian TD-DFT excitations to n(lambda),k(lambda) via Lorentz^^ULorenz mixing.")[] 
 
  []
 
 
-Overfull \hbox (70.16685pt too wide) in paragraph at lines 201--201
+Overfull \hbox (70.16685pt too wide) in paragraph at lines 202--202
 []    \T1/lmtt/m/n/10.95 N = number_density_from_wt_fraction(wt_frac, args.dens
 ity_g_cm3, args.molar_mass_g_mol)[] 
  []
@@ -620,13 +618,13 @@ ity_g_cm3, args.molar_mass_g_mol)[]
 
 
 [4]
-Overfull \hbox (35.67445pt too wide) in paragraph at lines 201--201
+Overfull \hbox (35.67445pt too wide) in paragraph at lines 202--202
 []        \T1/lmtt/m/n/10.95 print("Warning: wt% > 20% may be unphysical; Loren
 tz^^ULorenz may break down.")[] 
  []
 
 
-Overfull \hbox (87.41306pt too wide) in paragraph at lines 234--234
+Overfull \hbox (87.41306pt too wide) in paragraph at lines 235--235
 []\T1/lmtt/m/n/10.95 #p TD(NStates=20) CAM-B3LYP/6-31+G(d,p) Geom=AllCheck Gues
 s=Read SCRF=(PCM,Solvent=Chloroform)[] 
  []
@@ -647,7 +645,7 @@ Package rerunfilecheck Info: File `molecularly-programmed-metasurfaces-gaussian
 Here is how much of TeX's memory you used:
  12987 strings out of 468131
  204887 string characters out of 5434543
- 650514 words of memory out of 5000000
+ 650511 words of memory out of 5000000
  41307 multiletter control sequences out of 15000+600000
  686012 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -665,7 +663,7 @@ e/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.pfb></home/lachla
 n/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></home/lachlan/.mikte
 x/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
 Output written on molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-work
-flow.pdf (6 pages, 275859 bytes).
+flow.pdf (6 pages, 279234 bytes).
 PDF statistics:
  185 PDF objects out of 1000 (max. 8388607)
  38 named destinations out of 1000 (max. 500000)

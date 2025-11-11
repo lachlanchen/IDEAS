@@ -1,4 +1,5 @@
 # **Proposal for AI-Assisted Simulation of a Metasurface Imaging System**
+Author: LazyingArt
 
 ## **1. Introduction and Objectives**
 
@@ -103,4 +104,3 @@ By executing this plan, we expect to contribute valuable knowledge and resources
 - Hzzg0727 (GitHub user). *“Metasurface-Design Workflow (Python/Lumerical FDTD)”* – Demonstrates a Python-based metasurface design process and mentions alternatives like Meep and S4[github.com](https://github.com/hzzg0727/Metasurface-Design#:~:text=A%20major%20advantage%20of%20the,flexible%2C%20convenient%2C%20and%20automated%20workflow)[github.com](https://github.com/hzzg0727/Metasurface-Design#:~:text=Here%20we%20use%20Lumerical%20FDTD,Meep%2C%20Lumerical%20RCWA%2C%20or%20S4).
 - Hou, Z. et al. *“Advances in Deep Learning-Driven Metasurface Design and Holographic Imaging”*, Photonics 2023 – Review article describing traditional vs. AI-based metasurface design approaches[mdpi.com](https://www.mdpi.com/2304-6732/12/10/947#:~:text=Traditional%20metasurface%20design%20methods%20mainly,simulate%20and%20analyze%20the%20electromagnetic)[mdpi.com](https://www.mdpi.com/2304-6732/12/10/947#:~:text=Recently%2C%20the%20application%20of%20deep,429%2C353%20%2C%20431%2C355%20%2C%20433%2C357) and the role of deep learning in accelerating metasurface hologram design[mdpi.com](https://www.mdpi.com/2304-6732/12/10/947#:~:text=match%20at%20L1259%20RNNs%2C%20and,previously%20complex%20inverse%20design%20process).
 - Jiang, J. et al. *“Metasurface holographic imaging”* (Nat. Photonics 2021) – Explains how metasurfaces control amplitude, phase, polarization for imaging applications[mdpi.com](https://www.mdpi.com/2304-6732/12/10/947#:~:text=holographic%20imaging%20enables%20rapid%20metasurface,focusing%2C%20beam%20shaping%2C%20and%20aberration). (Additional references within text)
-

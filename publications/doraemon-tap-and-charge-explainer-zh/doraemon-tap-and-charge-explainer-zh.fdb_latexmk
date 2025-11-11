@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1762688886.52417 "doraemon-tap-and-charge-explainer-zh.xdv" "doraemon-tap-and-charge-explainer-zh.pdf" "doraemon-tap-and-charge-explainer-zh" 1762688886.747 0
-  "doraemon-tap-and-charge-explainer-zh.xdv" 1762688886.44667 61260 c55ab1b77bee93e51f50abe8da6bb642 "xelatex"
+["xdvipdfmx"] 1762832928.62383 "doraemon-tap-and-charge-explainer-zh.xdv" "doraemon-tap-and-charge-explainer-zh.pdf" "doraemon-tap-and-charge-explainer-zh" 1762832928.86664 0
+  "doraemon-tap-and-charge-explainer-zh.xdv" 1762832928.54051 61580 fe5a00c2386186b961c98ad0eeb599a1 "xelatex"
   (generated)
   "doraemon-tap-and-charge-explainer-zh.pdf"
   (rewritten before read)
-["xelatex"] 1762688885.92371 "doraemon-tap-and-charge-explainer-zh.tex" "doraemon-tap-and-charge-explainer-zh.xdv" "doraemon-tap-and-charge-explainer-zh" 1762688886.74641 0
+["xelatex"] 1762832928.02662 "doraemon-tap-and-charge-explainer-zh.tex" "doraemon-tap-and-charge-explainer-zh.xdv" "doraemon-tap-and-charge-explainer-zh" 1762832928.86602 0
   "/home/lachlan/.miktex/texmfs/data/miktex/data/le/xetex/xelatex.fmt" 1760085322.31302 27039198 9cb663f1f261541ccec8eb6bcefedfbf ""
   "/home/lachlan/.miktex/texmfs/install/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136743454 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/home/lachlan/.miktex/texmfs/install/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1759415209.80411 1004 54797486969f23fa377b128694d548df ""
@@ -97,9 +97,9 @@
   "/home/lachlan/.miktex/texmfs/install/tex/xelatex/xecjk/xeCJK.cfg" 1762684058.34855 408 7369c27beaa819c5f46de3795b22ee3e ""
   "/home/lachlan/.miktex/texmfs/install/tex/xelatex/xecjk/xeCJK.sty" 1762684058.34856 183137 ed372550124703b2b73cbcc0b47cb20f ""
   "/home/lachlan/.miktex/texmfs/install/tex/xelatex/xecjk/xeCJKfntef.sty" 1762684058.3495 39577 b470f8a1dbecc9c45c9bf05ca7db9188 ""
-  "doraemon-tap-and-charge-explainer-zh.aux" 1762688886.44555 1534 beeb0c1dcb568216c19a967fab3d6ad5 "xelatex"
-  "doraemon-tap-and-charge-explainer-zh.out" 1762688886.44555 1781 3cf96302a737e737c556e3cc6fe51ca0 "xelatex"
-  "doraemon-tap-and-charge-explainer-zh.tex" 1762688879.49527 11477 69982b9d8f90bf16fbb4bb6916218b44 ""
+  "doraemon-tap-and-charge-explainer-zh.aux" 1762832928.53897 1534 beeb0c1dcb568216c19a967fab3d6ad5 "xelatex"
+  "doraemon-tap-and-charge-explainer-zh.out" 1762832928.53897 1781 3cf96302a737e737c556e3cc6fe51ca0 "xelatex"
+  "doraemon-tap-and-charge-explainer-zh.tex" 1762832788.95836 11496 f55c26f585aab40081aac279460f639d ""
   (generated)
   "doraemon-tap-and-charge-explainer-zh.aux"
   "doraemon-tap-and-charge-explainer-zh.log"

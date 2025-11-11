@@ -1,4 +1,5 @@
 # Optical Metasurfaces and Biofabrication: A Feasibility Analysis
+Author: LazyingArt
 
 ## Introduction
 Optical metasurfaces are a cutting-edge technology in photonics, consisting of ultrathin, nanoscale-patterned surfaces that can manipulate light in extraordinary ways. Traditional fabrication of metasurfaces relies on top-down nanofabrication (e.g. electron-beam lithography), which provides precise control but is expensive, slow, and limited in area coverage. This report explores an alternative vision: using biological and biochemical assembly methods – such as DNA nanotechnology, protein scaffolds, and sequence-programmed synthesis – to build or template metasurfaces. We examine what metasurfaces are and how they control light, then assess whether mature biotech tools (from DNA origami to protein self-assembly) could be repurposed for metasurface fabrication. We consider the maturity and accessibility of these methods in a typical biomedical lab, review theoretical and experimental evidence across disciplines (nanophotonics, synthetic biology, materials science), and highlight examples of research merging biomolecules with metasurface design. The goal is to evaluate the theoretical feasibility and current progress toward bio-fabricated metasurfaces, which could potentially democratize and enrich the metasurface toolkit.
@@ -270,4 +271,3 @@ Sarikaya, M. et al. (2003). "Molecular biomimetics: Nanotechnology through biolo
 nanoconvergencejournal.springeropen.com
 .
 (Additional references embedded in text as per numbered citations.)
-

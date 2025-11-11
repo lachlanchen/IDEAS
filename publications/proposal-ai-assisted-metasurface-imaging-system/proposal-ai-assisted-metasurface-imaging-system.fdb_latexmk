@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762832587.90474 "proposal-ai-assisted-metasurface-imaging-system.tex" "proposal-ai-assisted-metasurface-imaging-system.pdf" "proposal-ai-assisted-metasurface-imaging-system" 1762832588.23238 0
+["pdflatex"] 1762832925.35799 "proposal-ai-assisted-metasurface-imaging-system.tex" "proposal-ai-assisted-metasurface-imaging-system.pdf" "proposal-ai-assisted-metasurface-imaging-system" 1762832925.68075 0
   "/home/lachlan/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1762686771.58483 124488 6dc7e40803de0223ad3f7d796d6f1010 ""
   "/home/lachlan/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1759804420.46615 13283028 8f5796110591c33110e9ce7fb8b9491f ""
   "/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc" 1759415222.92782 2375 baa924870cfb487815765f9094cf3728 ""
@@ -32,6 +32,7 @@
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb" 1759415223.04642 116908 1fca96723793882c2e0160350c192fc8 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmmi10.pfb" 1759415223.09542 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr10.pfb" 1759415223.10842 119235 f35b44530a1d90eb90fe15d9cba67ea0 ""
+  "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr12.pfb" 1759415223.11242 113634 f99c44d58bae0863375faf0e1d74d612 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr17.pfb" 1759415223.11642 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb" 1759415223.13342 122174 a7a08406857c9530a0320a2517f60370 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.pfb" 1759415223.14142 112593 fda2373ba4420af33949610de4c28fe8 ""
@@ -87,9 +88,9 @@
   "/home/lachlan/.miktex/texmfs/install/tex/latex/refcount/refcount.sty" 1759416317.07642 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/home/lachlan/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1759416321.76899 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "/home/lachlan/.miktex/texmfs/install/tex/latex/url/url.sty" 1759415227.45437 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "proposal-ai-assisted-metasurface-imaging-system.aux" 1762832588.16272 896 aeab3f4e63bcb5eb54d4397295f1a095 "pdflatex"
-  "proposal-ai-assisted-metasurface-imaging-system.out" 1762832588.16272 1049 fdcf77fdee30b791dfc9cb8fde6f5972 "pdflatex"
-  "proposal-ai-assisted-metasurface-imaging-system.tex" 1762832583.59366 40675 2812ed85d50101171e10d23a71367598 ""
+  "proposal-ai-assisted-metasurface-imaging-system.aux" 1762832925.61088 896 aeab3f4e63bcb5eb54d4397295f1a095 "pdflatex"
+  "proposal-ai-assisted-metasurface-imaging-system.out" 1762832925.61088 1049 fdcf77fdee30b791dfc9cb8fde6f5972 "pdflatex"
+  "proposal-ai-assisted-metasurface-imaging-system.tex" 1762832821.20646 40695 03cb7513445f669dae7fdc296398ca99 ""
   (generated)
   "proposal-ai-assisted-metasurface-imaging-system.aux"
   "proposal-ai-assisted-metasurface-imaging-system.log"

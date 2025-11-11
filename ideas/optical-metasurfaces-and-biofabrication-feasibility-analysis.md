@@ -1,4 +1,5 @@
 # Optical Metasurfaces and Biofabrication: A Feasibility Analysis
+Author: LazyingArt
 
 ## Introduction
 
@@ -99,4 +100,3 @@ In conclusion, the **theoretical feasibility** of bio-fabricated optical metasur
 12. Sarikaya, M. *et al.* (2003). *"Molecular biomimetics: Nanotechnology through biology."* **Nature Materials, 2**(9), 577–585 – (on peptide-mediated material synthesis, chiral NP growth)[nanoconvergencejournal.springeropen.com](https://nanoconvergencejournal.springeropen.com/articles/10.1186/s40580-020-00226-7#:~:text=that enabled the reconfigurability,directed helical).
 
 *(Additional references embedded in text as per numbered citations.)*
-

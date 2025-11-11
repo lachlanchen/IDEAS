@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  11 NOV 2025 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.7)  11 NOV 2025 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -359,7 +359,7 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks30
 \verbatim@in@stream=\read2
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 19
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 20
 .
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmr.fd
@@ -372,24 +372,24 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \openout1 = `proposal-integrating-quantum-chemistry-md-ai-small-molecule-simula
 tion.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -425,20 +425,20 @@ LaTeX Font Info:    ... okay on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 20.
 (proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.out)
 (proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.out)
 \@outlinefile=\write3
 \openout3 = `proposal-integrating-quantum-chemistry-md-ai-small-molecule-simula
 tion.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 19.
-Package microtype Info: Applying patch `item' on input line 19.
-Package microtype Info: Applying patch `toc' on input line 19.
-Package microtype Info: Applying patch `eqnum' on input line 19.
-Package microtype Info: Applying patch `footnote' on input line 19.
-Package microtype Info: Applying patch `verbatim' on input line 19.
-LaTeX Info: Redefining \microtypesetup on input line 19.
+LaTeX Info: Redefining \microtypecontext on input line 20.
+Package microtype Info: Applying patch `item' on input line 20.
+Package microtype Info: Applying patch `toc' on input line 20.
+Package microtype Info: Applying patch `eqnum' on input line 20.
+Package microtype Info: Applying patch `footnote' on input line 20.
+Package microtype Info: Applying patch `verbatim' on input line 20.
+LaTeX Info: Redefining \microtypesetup on input line 20.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -477,36 +477,36 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-1.
+2.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-1.
+2.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-21.
+22.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-21.
+22.
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 22.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 22.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 21.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+(Font)              <6> on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
@@ -515,7 +515,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/home/lachlan/.miktex/texmfs/install/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 
 
 (/home/lachlan/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
@@ -524,21 +524,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/home/lachlan/.miktex/texmfs/install/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-
-LaTeX Warning: No \author given.
-
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-6.
+7.
+
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (2.62479pt too wide) in paragraph at lines 27--28
+Overfull \hbox (2.62479pt too wide) in paragraph at lines 28--29
 \T1/lmr/m/n/10.95 (-20) LAMMPS will run on our high-performance GPU hard-ware t
 o ac-cel-er-ate sam-pling[]docs.lammps.org[]. 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-9.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+0.
 (/home/lachlan/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -547,7 +545,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 29.
+(Font)              <10.95> on input line 30.
 
 
 [1
@@ -558,7 +556,7 @@ s/install/fonts/enc/dvips/lm/lm-ts1.enc}{/home/lachlan/.miktex/texmfs/install/f
 onts/enc/dvips/lm/lm-mathsy.enc}]
 
 [2{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-rm.enc}]
-Overfull \hbox (48.09666pt too wide) in paragraph at lines 63--64
+Overfull \hbox (48.09666pt too wide) in paragraph at lines 64--65
 \T1/lmr/m/n/10.95 (-20) most all ma-jor QC pro-grams' out-puts (Gaus-sian, ORCA
 , GAMESS, etc.)[]mattermodeling.stackexchange.com[].
  []
@@ -572,14 +570,14 @@ Overfull \hbox (48.09666pt too wide) in paragraph at lines 63--64
 [5]
 
 [6{/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}]
-Overfull \hbox (31.2386pt too wide) in paragraph at lines 136--137
+Overfull \hbox (31.2386pt too wide) in paragraph at lines 137--138
 []\T1/lmr/bx/n/10.95 (-20) Define Project Di-rec-tory Struc-ture: \T1/lmr/m/n/1
 0.95 (-20) Or-ga-nize di-rec-to-ries for each phase: e.g., \T1/lmtt/m/n/10.95 /
 project/geometry/\T1/lmr/m/n/10.95 (-20) ,
  []
 
 
-Overfull \hbox (59.23619pt too wide) in paragraph at lines 141--142
+Overfull \hbox (59.23619pt too wide) in paragraph at lines 142--143
 \T1/lmtt/m/n/10.95 SCRF \T1/lmr/m/n/10.95 (-20) if sol-vent). Com-bin-ing \T1/l
 mtt/m/n/10.95 Opt Freq \T1/lmr/m/n/10.95 (-20) op-ti-mizes then com-putes fre-q
 uen-cies in one run[]wanglab.hosted.uark.edu[]. 
@@ -590,14 +588,14 @@ uen-cies in one run[]wanglab.hosted.uark.edu[].
 [7]
 
 [8]
-Overfull \hbox (68.18521pt too wide) in paragraph at lines 199--200
+Overfull \hbox (68.18521pt too wide) in paragraph at lines 200--201
 []\T1/lmr/m/n/10.95 (-20) Gaussian 16 User Man-ual -- \T1/lmr/bx/n/10.95 (-20) 
 Ge-om-e-try Op-ti-miza-tion and Fre-quency Cal-cu-la-tion\T1/lmr/m/n/10.95 (-20
 ) : []wanglab.hosted.uark.edu[],
  []
 
 
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 201--202
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 202--203
 []\T1/lmr/m/n/10.95 (-20) LAMMPS Doc-u-men-ta-tion -- \T1/lmr/bx/n/10.95 (-20) 
 Overview and GPU Ac-cel-er-a-tion\T1/lmr/m/n/10.95 (-20) : []docs.lammps.org[],
  []docs.lammps.org[].
@@ -618,7 +616,7 @@ Package rerunfilecheck Info: File `proposal-integrating-quantum-chemistry-md-ai
 Here is how much of TeX's memory you used:
  13067 strings out of 468131
  206176 string characters out of 5434543
- 647304 words of memory out of 5000000
+ 647301 words of memory out of 5000000
  41308 multiletter control sequences out of 15000+600000
  678450 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -627,15 +625,16 @@ Here is how much of TeX's memory you used:
 /lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/lachlan
 /.miktex/texmfs/install/fonts/type1/public/lm/lmmi10.pfb></home/lachlan/.miktex
 /texmfs/install/fonts/type1/public/lm/lmr10.pfb></home/lachlan/.miktex/texmfs/i
-nstall/fonts/type1/public/lm/lmr17.pfb></home/lachlan/.miktex/texmfs/install/fo
-nts/type1/public/lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/
-public/lm/lmri10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/l
-m/lmsy10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.
-pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
+nstall/fonts/type1/public/lm/lmr12.pfb></home/lachlan/.miktex/texmfs/install/fo
+nts/type1/public/lm/lmr17.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1
+/public/lm/lmr8.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm
+/lmri10.pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.
+pfb></home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.pfb></hom
+e/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmtt10.pfb>
 Output written on proposal-integrating-quantum-chemistry-md-ai-small-molecule-s
-imulation.pdf (9 pages, 268168 bytes).
+imulation.pdf (9 pages, 291271 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
+ 201 PDF objects out of 1000 (max. 8388607)
  25 named destinations out of 1000 (max. 500000)
  27217 words of extra memory for PDF output out of 29859 (max. 10000000)
 

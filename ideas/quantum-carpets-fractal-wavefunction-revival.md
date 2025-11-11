@@ -1,4 +1,5 @@
 # The Quantum Carpets: Fractal Patterns in Wavefunction Revival
+Author: LazyingArt
 
 ## Introduction
 

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762831834.18831 "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.tex" "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf" "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation" 1762831834.55311 0
+["pdflatex"] 1762832925.86042 "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.tex" "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf" "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation" 1762832926.22925 0
   "/home/lachlan/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1762686771.58483 124488 6dc7e40803de0223ad3f7d796d6f1010 ""
   "/home/lachlan/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1759804420.46615 13283028 8f5796110591c33110e9ce7fb8b9491f ""
   "/home/lachlan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc" 1759415222.92782 2375 baa924870cfb487815765f9094cf3728 ""
@@ -37,6 +37,7 @@
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb" 1759415223.04642 116908 1fca96723793882c2e0160350c192fc8 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmmi10.pfb" 1759415223.09542 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr10.pfb" 1759415223.10842 119235 f35b44530a1d90eb90fe15d9cba67ea0 ""
+  "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr12.pfb" 1759415223.11242 113634 f99c44d58bae0863375faf0e1d74d612 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr17.pfb" 1759415223.11642 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb" 1759415223.13342 122174 a7a08406857c9530a0320a2517f60370 ""
   "/home/lachlan/.miktex/texmfs/install/fonts/type1/public/lm/lmri10.pfb" 1759415223.14142 112593 fda2373ba4420af33949610de4c28fe8 ""
@@ -109,9 +110,9 @@
   "/home/lachlan/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1759416321.76899 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "/home/lachlan/.miktex/texmfs/install/tex/latex/tools/verbatim.sty" 1759415220.55932 7532 26d26e9d8f2ca784270d5da8ec7d102b ""
   "/home/lachlan/.miktex/texmfs/install/tex/latex/url/url.sty" 1759415227.45437 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.aux" 1762831834.47452 1570 f6aff55c24631711606b43138d1cc29b "pdflatex"
-  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.out" 1762831834.47452 2577 9100ea8b5b7863353d8191036d72698e "pdflatex"
-  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.tex" 1762831826.03935 35220 640396e95e74cd1aa4e4e0e95f2dcf52 ""
+  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.aux" 1762832926.14889 1570 f6aff55c24631711606b43138d1cc29b "pdflatex"
+  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.out" 1762832926.14889 2577 9100ea8b5b7863353d8191036d72698e "pdflatex"
+  "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.tex" 1762832826.28164 35239 ad9dd16f7370c98342ec4e8a189cbb56 ""
   (generated)
   "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.aux"
   "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.log"

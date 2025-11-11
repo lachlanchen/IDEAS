@@ -1,4 +1,5 @@
 # Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow
+Author: LazyingArt
 
 Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed* metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into **n(λ), k(λ)** you can feed into S4.
 
@@ -342,4 +343,3 @@ If you’d like, I can adapt the script to **tensor anisotropy** (for oriented d
 [4]: https://en.wikipedia.org/wiki/Clausius%E2%80%93Mossotti_relation?utm_source=chatgpt.com "Clausius–Mossotti relation"
 [5]: https://pfloos.github.io/WEB_LOOS/pub/97.pdf?utm_source=chatgpt.com "Benchmarking TD-DFT and Wave Function Methods for ..."
 [6]: https://github.com/victorliu/S4?utm_source=chatgpt.com "victorliu/S4: Stanford Stratified Structure Solver"
-
