@@ -1,0 +1,48 @@
+site_name: IDEAS
+site_description: A lightweight, versioned notebook of research notes and essays.
+site_url: https://ideas.onlyideas.art
+repo_url: https://github.com/lachlanchen/IDEAS
+repo_name: lachlanchen/IDEAS
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: en
+  favicon: assets/favicon.png
+  logo: assets/logo.svg
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - footnotes
+  - def_list
+  - attr_list
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lachlanchen/IDEAS
+
+nav:
+  - Home: index.md
+  - Ideas: 
+      - ideas/index.md
+  - Publications:
+      - publications/index.md
