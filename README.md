@@ -24,6 +24,8 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 - DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks — [Markdown](ideas/doraemon-tap-and-charge-deep-research.md) | [PDF](publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf)
 - DORAEMON（日本語）— [Markdown](ideas/doraemon-tap-and-charge-deep-research-ja.md) | [PDF](publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf)
 - 用通俗中文讲清楚：DORAEMON「一碰即充」完整说明 — [Markdown](ideas/doraemon-tap-and-charge-explainer-zh.md) | [PDF](publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf)
+ - Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation — [Markdown](ideas/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.md) | [PDF](publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf)
+ - Proposal for AI-Assisted Simulation of a Metasurface Imaging System — [Markdown](ideas/proposal-ai-assisted-metasurface-imaging-system.md) | [PDF](publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf)
 
 ## Build
 
