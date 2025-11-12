@@ -27,5 +27,9 @@
   "search_placeholder": "아이디어 검색…",
   "publications_title": "출판물",
   "open_pdf": "PDF 열기",
-  "by": "작성자"
+  "by": "작성자",
+  "browse_categories": "카테고리로 보기",
+  "explore": "탐색",
+  "see_more": "더 보기 →",
+  "all": "전체"
 }

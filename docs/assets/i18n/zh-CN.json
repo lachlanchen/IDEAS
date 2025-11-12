@@ -27,5 +27,9 @@
   "search_placeholder": "搜索想法…",
   "publications_title": "出版物",
   "open_pdf": "打开 PDF",
-  "by": "作者"
+  "by": "作者",
+  "browse_categories": "按类别浏览",
+  "explore": "浏览",
+  "see_more": "查看更多 →",
+  "all": "全部"
 }

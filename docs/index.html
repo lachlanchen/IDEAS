@@ -68,8 +68,8 @@
 
   <section class="max-w-6xl mx-auto px-4 py-10">
     <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold">Browse by Category</h2>
-      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400">Explore →</a>
+      <h2 class="text-2xl font-bold" data-i18n="browse_categories">Browse by Category</h2>
+      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="explore">Explore</a>
     </div>
     <div id="catChips" class="flex flex-wrap gap-2"></div>
     <div id="catSections" class="mt-8 space-y-10"></div>
@@ -136,11 +136,13 @@
           return `<div>
             <div class="flex items-center justify-between mb-3">
               <h3 class="text-lg font-bold">${c}</h3>
-              <a href="/ideas/?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400">See more →</a>
+              <a href="/ideas/?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="see_more">See more →</a>
             </div>
             <div class="grid md:grid-cols-4 gap-4">${items}</div>
           </div>`;
         }).join('');
+        // Apply i18n to newly injected content
+        if (window.__i18n && typeof window.__i18n.apply === 'function') window.__i18n.apply();
       } catch (e) { console.error(e); }
     }
     loadIdeas();

@@ -27,5 +27,9 @@
   "search_placeholder": "Rechercher des idées…",
   "publications_title": "Publications",
   "open_pdf": "Ouvrir le PDF",
-  "by": "par"
+  "by": "par",
+  "browse_categories": "Parcourir par catégorie",
+  "explore": "Explorer",
+  "see_more": "Voir plus →",
+  "all": "Tous"
 }

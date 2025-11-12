@@ -47,11 +47,13 @@
     function renderFilters(){
       const cats = [...new Set(pubs.map(p=>p.category))];
       const root = document.getElementById('filters');
-      root.innerHTML = ['All', ...cats].map(c => {
+      const ALL = (window.__i18n && window.__i18n.dict && window.__i18n.dict.all) || 'All';
+      root.innerHTML = [ALL, ...cats].map(c => {
         const active = (c===currentCat) || (c==='All' && !currentCat);
         const cls = active? 'ring-2 ring-indigo-400' : '';
+        const label = c==='All' ? ALL : c;
         const color = c==='All' ? 'from-slate-600 to-slate-500' : catColor(c);
-        return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${c}</button>`;
+        return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
       }).join('');
       root.querySelectorAll('button').forEach(b => b.addEventListener('click', ()=>{
         const v = b.getAttribute('data-cat');

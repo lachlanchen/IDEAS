@@ -50,7 +50,8 @@
     function renderFilters(){
       const cats = [...new Set(ideas.map(i=>i.category))];
       const root = document.getElementById('filters');
-      root.innerHTML = ['All', ...cats].map(c => {
+      const ALL = (window.__i18n && window.__i18n.dict && window.__i18n.dict.all) || 'All';
+      root.innerHTML = [ALL, ...cats].map(c => {
         const active = (c===currentCat) || (c==='All' && !currentCat);
         const cls = active? 'ring-2 ring-indigo-400' : '';
         const label = c==='All' ? 'All' : c;

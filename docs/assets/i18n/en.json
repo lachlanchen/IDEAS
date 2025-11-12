@@ -27,5 +27,9 @@
   "search_placeholder": "Search ideas...",
   "publications_title": "Publications",
   "open_pdf": "Open PDF",
-  "by": "by"
+  "by": "by",
+  "browse_categories": "Browse by Category",
+  "explore": "Explore",
+  "see_more": "See more →",
+  "all": "All"
 }

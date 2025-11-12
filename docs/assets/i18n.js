@@ -65,7 +65,7 @@
       opt.value = l.code; opt.textContent = l.label; if (l.code === current) opt.selected = true; sel.appendChild(opt);
     });
     sel.addEventListener('change', async () => {
-      const lang = sel.value; localStorage.setItem('lang', lang); setDir(lang); const dict = await loadDict(lang); applyDict(dict);
+      const lang = sel.value; localStorage.setItem('lang', lang); setDir(lang); const dict = await loadDict(lang); window.__i18n = { lang, dict, apply: ()=>applyDict(dict) }; applyDict(dict);
     });
     container.innerHTML = ''; container.appendChild(sel);
   }
@@ -77,7 +77,7 @@
     setDir(lang);
     buildSelector(lang);
     const dict = await loadDict(lang);
+    window.__i18n = { lang, dict, apply: ()=>applyDict(dict) };
     applyDict(dict);
   });
 })();
-

@@ -27,5 +27,9 @@
   "search_placeholder": "ابحث في الأفكار…",
   "publications_title": "المنشورات",
   "open_pdf": "فتح PDF",
-  "by": "بقلم"
+  "by": "بقلم",
+  "browse_categories": "تصفح حسب الفئة",
+  "explore": "استكشف",
+  "see_more": "المزيد →",
+  "all": "الكل"
 }
