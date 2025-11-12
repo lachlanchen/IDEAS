@@ -18,8 +18,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-indigo-400" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-indigo-400" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-indigo-400" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -34,8 +34,8 @@
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight"><span data-i18n="hero_title1">From Idea to Product.</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300" data-i18n="hero_title2">AI‑accelerated research</span></h1>
           <p class="mt-5 text-slate-300 text-lg" data-i18n="hero_subtitle">A living notebook of photonics, chemistry, and simulation — with workflows, publications, and a pipeline mindset to ship real products.</p>
           <div class="mt-8 flex gap-4">
-            <a href="/ideas.html" class="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-semibold" data-i18n="hero_cta_explore">Explore Ideas</a>
-            <a href="/publications.html" class="px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-500" data-i18n="hero_cta_publications">Read Publications</a>
+            <a href="/ideas/" class="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-semibold" data-i18n="hero_cta_explore">Explore Ideas</a>
+            <a href="/publications/" class="px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-500" data-i18n="hero_cta_publications">Read Publications</a>
           </div>
         </div>
         <div class="relative">
@@ -61,7 +61,7 @@
   <section class="max-w-6xl mx-auto px-4 py-10">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-2xl font-bold" data-i18n="latest_ideas">Latest Ideas</h2>
-      <a href="/ideas.html" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="view_all">View all →</a>
+      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="view_all">View all →</a>
     </div>
     <div id="ideasGrid" class="grid md:grid-cols-3 gap-6"></div>
   </section>
@@ -69,7 +69,7 @@
   <section class="max-w-6xl mx-auto px-4 py-10">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-2xl font-bold">Browse by Category</h2>
-      <a href="/ideas.html" class="text-sm text-slate-400 hover:text-indigo-400">Explore →</a>
+      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400">Explore →</a>
     </div>
     <div id="catChips" class="flex flex-wrap gap-2"></div>
     <div id="catSections" class="mt-8 space-y-10"></div>
@@ -123,7 +123,7 @@
         // Category chips
         const cats = [...new Set(ideas.map(i=>i.category))];
         const chipRoot = document.getElementById('catChips');
-        chipRoot.innerHTML = cats.map(c => `<a href="/ideas.html?category=${encodeURIComponent(c)}" class="inline-block text-sm rounded-full bg-gradient-to-r ${catColor(c)} text-slate-900 font-semibold px-3 py-1">${c}</a>`).join('');
+        chipRoot.innerHTML = cats.map(c => `<a href="/ideas/?category=${encodeURIComponent(c)}" class="inline-block text-sm rounded-full bg-gradient-to-r ${catColor(c)} text-slate-900 font-semibold px-3 py-1">${c}</a>`).join('');
 
         // Category sections (featured 4 each)
         const secRoot = document.getElementById('catSections');
@@ -136,7 +136,7 @@
           return `<div>
             <div class="flex items-center justify-between mb-3">
               <h3 class="text-lg font-bold">${c}</h3>
-              <a href="/ideas.html?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400">See more →</a>
+              <a href="/ideas/?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400">See more →</a>
             </div>
             <div class="grid md:grid-cols-4 gap-4">${items}</div>
           </div>`;
