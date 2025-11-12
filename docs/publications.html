@@ -26,22 +26,60 @@
 
   <main class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="text-3xl font-extrabold" data-i18n="publications_title">Publications</h1>
+    <div id="filters" class="flex flex-wrap gap-2 mt-4"></div>
     <div id="pubs" class="grid md:grid-cols-3 gap-6 mt-8"></div>
   </main>
 
   <script src="/assets/i18n.js"></script>
   <script>
-    async function loadPubs(){
-      const pubs = await fetch('/assets/publications.json').then(r=>r.json());
+    let pubs = [];
+    let currentCat = null;
+    function catColor(cat){
+      const map = {
+        'Metasurfaces':'from-fuchsia-500 to-pink-500',
+        'Theory':'from-amber-500 to-yellow-400',
+        'DORAEMON':'from-emerald-500 to-teal-400',
+        'AI for Science':'from-sky-500 to-cyan-400',
+        'Product & Tools':'from-indigo-500 to-violet-500',
+        'General':'from-slate-500 to-slate-400'
+      }; return map[cat]||map['General'];
+    }
+    function renderFilters(){
+      const cats = [...new Set(pubs.map(p=>p.category))];
+      const root = document.getElementById('filters');
+      root.innerHTML = ['All', ...cats].map(c => {
+        const active = (c===currentCat) || (c==='All' && !currentCat);
+        const cls = active? 'ring-2 ring-indigo-400' : '';
+        const color = c==='All' ? 'from-slate-600 to-slate-500' : catColor(c);
+        return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${c}</button>`;
+      }).join('');
+      root.querySelectorAll('button').forEach(b => b.addEventListener('click', ()=>{
+        const v = b.getAttribute('data-cat');
+        currentCat = (v==='All')? null : v;
+        render();
+        renderFilters();
+      }));
+    }
+    function render(){
       const root = document.getElementById('pubs');
-      root.innerHTML = pubs.map(p => `
+      let list = pubs;
+      if (currentCat) list = list.filter(p=>p.category===currentCat);
+      root.innerHTML = list.map(p => `
         <a href="${p.href}" target="_blank" class="block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
-          <div class=\"text-sm text-indigo-300\">${p.slug}</div>
+          <div class=\"text-xs inline-flex items-center gap-2\">
+            <span class=\"inline-block rounded-full bg-gradient-to-r ${catColor(p.category)} px-2 py-0.5 text-slate-900 font-semibold\">${p.category}</span>
+            <span class=\"inline-block text-slate-400\">${p.slug}</span>
+          </div>
           <div class=\"mt-1 font-bold text-lg\">${p.title}</div>
           <div class=\"mt-2 text-sm text-slate-400\" data-i18n=\"open_pdf\">Open PDF</div>
         </a>`).join('');
     }
-    loadPubs();
+    async function load(){
+      pubs = await fetch('/assets/publications.json').then(r=>r.json());
+      renderFilters();
+      render();
+    }
+    load();
   </script>
 </body>
 </html>

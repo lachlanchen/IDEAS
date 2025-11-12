@@ -66,6 +66,15 @@
     <div id="ideasGrid" class="grid md:grid-cols-3 gap-6"></div>
   </section>
 
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">Browse by Category</h2>
+      <a href="/ideas.html" class="text-sm text-slate-400 hover:text-indigo-400">Explore →</a>
+    </div>
+    <div id="catChips" class="flex flex-wrap gap-2"></div>
+    <div id="catSections" class="mt-8 space-y-10"></div>
+  </section>
+
   <section class="bg-slate-900/50 border-y border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-10">
       <div>
@@ -83,6 +92,17 @@
 
   <script src="/assets/i18n.js"></script>
   <script>
+    function catColor(cat){
+      const map = {
+        'Metasurfaces':'from-fuchsia-500 to-pink-500',
+        'Theory':'from-amber-500 to-yellow-400',
+        'DORAEMON':'from-emerald-500 to-teal-400',
+        'AI for Science':'from-sky-500 to-cyan-400',
+        'Product & Tools':'from-indigo-500 to-violet-500',
+        'General':'from-slate-500 to-slate-400'
+      }; return map[cat]||map['General'];
+    }
+
     async function loadIdeas() {
       try {
         const ideas = await fetch('/assets/ideas.json').then(r=>r.json());
@@ -92,10 +112,35 @@
         const top = ideas.slice(0, 6);
         root.innerHTML = top.map(x => `
           <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
-            <div class="text-sm text-indigo-300">${x.author || 'IDEAS'}</div>
+            <div class="text-xs flex items-center gap-2">
+              <span class="inline-block rounded-full bg-slate-800 border border-slate-700 px-2 py-0.5">${x.author || 'IDEAS'}</span>
+              <span class="inline-block rounded-full bg-gradient-to-r ${catColor(x.category)} px-2 py-0.5 text-slate-900 font-semibold">${x.category}</span>
+            </div>
             <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
             <div class="mt-2 text-sm text-slate-400">${(x.excerpt||'').replace(/</g,'&lt;')}</div>
           </a>`).join('');
+
+        // Category chips
+        const cats = [...new Set(ideas.map(i=>i.category))];
+        const chipRoot = document.getElementById('catChips');
+        chipRoot.innerHTML = cats.map(c => `<a href="/ideas.html?category=${encodeURIComponent(c)}" class="inline-block text-sm rounded-full bg-gradient-to-r ${catColor(c)} text-slate-900 font-semibold px-3 py-1">${c}</a>`).join('');
+
+        // Category sections (featured 4 each)
+        const secRoot = document.getElementById('catSections');
+        secRoot.innerHTML = cats.map(c => {
+          const items = ideas.filter(i=>i.category===c).slice(0,4).map(x => `
+            <a href="/ideas/${x.slug}.html" class="group block p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
+              <div class="text-xs text-indigo-300">${x.author||'IDEAS'}</div>
+              <div class="mt-1 font-bold">${x.title}</div>
+            </a>`).join('');
+          return `<div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-lg font-bold">${c}</h3>
+              <a href="/ideas.html?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400">See more →</a>
+            </div>
+            <div class="grid md:grid-cols-4 gap-4">${items}</div>
+          </div>`;
+        }).join('');
       } catch (e) { console.error(e); }
     }
     loadIdeas();

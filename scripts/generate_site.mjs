@@ -120,6 +120,27 @@ async function renderMarkdown(md) {
   }
 }
 
+function categoryForSlug(slug) {
+  const s = slug.toLowerCase();
+  // Metasurfaces
+  if (s.includes('metasurface') || s.includes('s4') || s.includes('metalens')) return 'Metasurfaces';
+  // Theory / Physics
+  if (s.includes('kramers') || s.includes('quantum-carpets') || s.includes('fractal')) return 'Theory';
+  // DORAEMON
+  if (s.startsWith('doraemon-')) return 'DORAEMON';
+  // AI for Science (Optimization, Imaging, Chemistry)
+  if (s.includes('mpempba') || s.includes('quantum-chemistry') || s.includes('molecular') || s.includes('imaging-system')) return 'AI for Science';
+  // Product & Tools
+  if (s.includes('file-management') || s.includes('file-management')) return 'Product & Tools';
+  return 'General';
+}
+
+function languageForSlug(slug) {
+  if (slug.endsWith('-zh') || slug.includes('zh')) return 'zh';
+  if (slug.endsWith('-ja') || slug.includes('-ja')) return 'ja';
+  return 'en';
+}
+
 async function main() {
   const root = process.cwd();
   const ideasDir = path.join(root, 'ideas');
@@ -139,9 +160,14 @@ async function main() {
     const html = await renderMarkdown(raw);
     const page = ideaDetailTemplate({ title: title || slug, author, html });
     await fs.writeFile(path.join(outIdeasDir, `${slug}.html`), page, 'utf8');
-    ideas.push({ slug, title: title || slug, author, excerpt });
+    const category = categoryForSlug(slug);
+    const lang = languageForSlug(slug);
+    ideas.push({ slug, title: title || slug, author, excerpt, category, lang });
   }
   await fs.writeFile(path.join(outAssetsDir, 'ideas.json'), JSON.stringify(ideas, null, 2));
+  // categories manifest
+  const catMap = ideas.reduce((acc, x) => { acc[x.category] = (acc[x.category]||0)+1; return acc; }, {});
+  await fs.writeFile(path.join(outAssetsDir, 'categories.json'), JSON.stringify(catMap, null, 2));
 
   // Publications manifest
   const pubItems = [];
@@ -153,10 +179,12 @@ async function main() {
     const entries = await fs.readdir(catDir);
     for (const f of entries) {
       if (f.endsWith('.pdf')) {
+        const category = categoryForSlug(cat);
         pubItems.push({
           slug: cat,
           title: cat.replace(/[-_]/g, ' '),
-          href: `/publications/${cat}/${f}`
+          href: `/publications/${cat}/${f}`,
+          category
         });
       }
     }

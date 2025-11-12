@@ -29,29 +29,71 @@
       <h1 class="text-3xl font-extrabold" data-i18n="ideas_title">Ideas</h1>
       <input id="q" data-i18n-ph="search_placeholder" placeholder="Search ideas..." class="px-3 py-2 bg-slate-900 border border-slate-800 rounded-lg w-64"/>
     </div>
+    <div id="filters" class="flex flex-wrap gap-2 mt-4"></div>
     <div id="ideasGrid" class="grid md:grid-cols-3 gap-6 mt-8"></div>
   </main>
 
   <script src="/assets/i18n.js"></script>
   <script>
     let ideas = [];
-    async function loadIdeas() {
-      ideas = await fetch('/assets/ideas.json').then(r=>r.json());
-      render(ideas);
+    let currentCat = null;
+    function catColor(cat){
+      const map = {
+        'Metasurfaces':'from-fuchsia-500 to-pink-500',
+        'Theory':'from-amber-500 to-yellow-400',
+        'DORAEMON':'from-emerald-500 to-teal-400',
+        'AI for Science':'from-sky-500 to-cyan-400',
+        'Product & Tools':'from-indigo-500 to-violet-500',
+        'General':'from-slate-500 to-slate-400'
+      }; return map[cat]||map['General'];
+    }
+    function renderFilters(){
+      const cats = [...new Set(ideas.map(i=>i.category))];
+      const root = document.getElementById('filters');
+      root.innerHTML = ['All', ...cats].map(c => {
+        const active = (c===currentCat) || (c==='All' && !currentCat);
+        const cls = active? 'ring-2 ring-indigo-400' : '';
+        const label = c==='All' ? 'All' : c;
+        const color = c==='All' ? 'from-slate-600 to-slate-500' : catColor(c);
+        return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
+      }).join('');
+      root.querySelectorAll('button').forEach(b => b.addEventListener('click', ()=>{
+        const v = b.getAttribute('data-cat');
+        currentCat = (v==='All')? null : v;
+        renderFilters();
+        applyRender();
+      }));
+    }
+    function card(x){
+      return `
+        <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs flex items-center gap-2">
+            <span class="inline-block rounded-full bg-slate-800 border border-slate-700 px-2 py-0.5">${x.author || 'IDEAS'}</span>
+            <span class="inline-block rounded-full bg-gradient-to-r ${catColor(x.category)} px-2 py-0.5 text-slate-900 font-semibold">${x.category}</span>
+          </div>
+          <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
+          <div class="mt-2 text-sm text-slate-400">${(x.excerpt||'').replace(/</g,'&lt;')}</div>
+        </a>`;
     }
     function render(list){
       const root = document.getElementById('ideasGrid');
-      root.innerHTML = list.map(x => `
-        <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
-          <div class="text-xs text-indigo-300">${x.author || 'IDEAS'}</div>
-          <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
-          <div class="mt-2 text-sm text-slate-400">${(x.excerpt||'').replace(/</g,'&lt;')}</div>
-        </a>`).join('');
+      root.innerHTML = list.map(card).join('');
     }
-    document.getElementById('q').addEventListener('input', (e)=>{
-      const k = e.target.value.toLowerCase();
-      render(ideas.filter(x => (x.title+x.author+x.excerpt).toLowerCase().includes(k)));
-    })
+    function applyRender(){
+      let list = ideas;
+      const q = document.getElementById('q').value.toLowerCase();
+      if (currentCat) list = list.filter(x=>x.category===currentCat);
+      if (q) list = list.filter(x => (x.title+x.author+x.excerpt).toLowerCase().includes(q));
+      render(list);
+    }
+    async function loadIdeas(){
+      ideas = await fetch('/assets/ideas.json').then(r=>r.json());
+      const params = new URLSearchParams(location.search);
+      currentCat = params.get('category');
+      renderFilters();
+      applyRender();
+    }
+    document.getElementById('q').addEventListener('input', applyRender);
     loadIdeas();
   </script>
 </body>

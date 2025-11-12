@@ -2,61 +2,79 @@
   {
     "slug": "designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4",
     "title": "designing molecularly programmed metasurfaces gaussian multiwfn s4",
-    "href": "/publications/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.pdf"
+    "href": "/publications/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.pdf",
+    "category": "Metasurfaces"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research",
     "title": "doraemon tap and charge deep research",
-    "href": "/publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf"
+    "href": "/publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf",
+    "category": "DORAEMON"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research-ja",
     "title": "doraemon tap and charge deep research ja",
-    "href": "/publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf"
+    "href": "/publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf",
+    "category": "DORAEMON"
   },
   {
     "slug": "doraemon-tap-and-charge-explainer-zh",
     "title": "doraemon tap and charge explainer zh",
-    "href": "/publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf"
+    "href": "/publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf",
+    "category": "DORAEMON"
   },
   {
     "slug": "investigating-mpempba-effect-deep-learning-imaging",
     "title": "investigating mpempba effect deep learning imaging",
-    "href": "/publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf"
+    "href": "/publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf",
+    "category": "AI for Science"
+  },
+  {
+    "slug": "llm-powered-file-management-feasibility-market-design",
+    "title": "llm powered file management feasibility market design",
+    "href": "/publications/llm-powered-file-management-feasibility-market-design/llm-powered-file-management-feasibility-market-design.pdf",
+    "category": "Product & Tools"
   },
   {
     "slug": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow",
     "title": "molecularly programmed metasurfaces gaussian multiwfn s4 workflow",
-    "href": "/publications/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.pdf"
+    "href": "/publications/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.pdf",
+    "category": "Metasurfaces"
   },
   {
     "slug": "nonlinear-kramers-kronig-kerr-media",
     "title": "nonlinear kramers kronig kerr media",
-    "href": "/publications/nonlinear-kramers-kronig-kerr-media/nonlinear-kramers-kronig-kerr-media.pdf"
+    "href": "/publications/nonlinear-kramers-kronig-kerr-media/nonlinear-kramers-kronig-kerr-media.pdf",
+    "category": "Theory"
   },
   {
     "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis",
     "title": "optical metasurfaces and biofabrication feasibility analysis",
-    "href": "/publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf"
+    "href": "/publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf",
+    "category": "Metasurfaces"
   },
   {
     "slug": "organic-dye-programmed-metasurface-zh",
     "title": "organic dye programmed metasurface zh",
-    "href": "/publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf"
+    "href": "/publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf",
+    "category": "Metasurfaces"
   },
   {
     "slug": "proposal-ai-assisted-metasurface-imaging-system",
     "title": "proposal ai assisted metasurface imaging system",
-    "href": "/publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf"
+    "href": "/publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf",
+    "category": "Metasurfaces"
   },
   {
     "slug": "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation",
     "title": "proposal integrating quantum chemistry md ai small molecule simulation",
-    "href": "/publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf"
+    "href": "/publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf",
+    "category": "AI for Science"
   },
   {
     "slug": "quantum-carpets-fractal-wavefunction-revival",
     "title": "quantum carpets fractal wavefunction revival",
-    "href": "/publications/quantum-carpets-fractal-wavefunction-revival/quantum-carpets-fractal-wavefunction-revival.pdf"
+    "href": "/publications/quantum-carpets-fractal-wavefunction-revival/quantum-carpets-fractal-wavefunction-revival.pdf",
+    "category": "Theory"
   }
 ]
