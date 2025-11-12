@@ -12,21 +12,45 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 - CJK support: Chinese-language publications compile with XeLaTeX.
 - Reproducible builds: use `latexmk` (see Build section) to regenerate PDFs.
 
-## Contents
+## Catalog by Category
 
-- The Nonlinear Kramers–Kronig Relations: Causality Beyond Linearity — [Markdown](ideas/nonlinear-kramers-kronig-kerr-media.md) | [PDF](publications/nonlinear-kramers-kronig-kerr-media/nonlinear-kramers-kronig-kerr-media.pdf)
-- The Quantum Carpets: Fractal Patterns in Wavefunction Revival — [Markdown](ideas/quantum-carpets-fractal-wavefunction-revival.md) | [PDF](publications/quantum-carpets-fractal-wavefunction-revival/quantum-carpets-fractal-wavefunction-revival.pdf)
-- Optical Metasurfaces and Biofabrication: A Feasibility Analysis — [Markdown](ideas/optical-metasurfaces-and-biofabrication-feasibility-analysis.md) | [PDF](publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf)
-- Optical Metasurfaces and Biofabrication (Draft) — [Markdown](ideas/optical-metasurfaces-and-biofabrication-feasibility-analysis-draft.md) | [PDF](publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf)
-- Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow — [Markdown](ideas/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.md) | [PDF](publications/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.pdf)
-- Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4 — [Markdown](ideas/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.md) | [PDF](publications/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.pdf)
-- 有机染料调控的纳米超表面：让超薄结构把光吃干抹净 — [Markdown](ideas/organic-dye-programmed-metasurface-zh.md) | [PDF](publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf)
-- DORAEMON: Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks — [Markdown](ideas/doraemon-tap-and-charge-deep-research.md) | [PDF](publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf)
-- DORAEMON（日本語）— [Markdown](ideas/doraemon-tap-and-charge-deep-research-ja.md) | [PDF](publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf)
-- 用通俗中文讲清楚：DORAEMON「一碰即充」完整说明 — [Markdown](ideas/doraemon-tap-and-charge-explainer-zh.md) | [PDF](publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf)
-- Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation — [Markdown](ideas/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.md) | [PDF](publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf)
-- Proposal for AI-Assisted Simulation of a Metasurface Imaging System — [Markdown](ideas/proposal-ai-assisted-metasurface-imaging-system.md) | [PDF](publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf)
- - Investigating the "Mpempba Effect" in Deep Learning and Imaging — [Markdown](ideas/investigating-mpempba-effect-deep-learning-imaging.md) | [PDF](publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf)
+### Metasurfaces
+
+| Title | Markdown | PDF | Lang |
+| --- | --- | --- | --- |
+| Optical Metasurfaces and Biofabrication: A Feasibility Analysis | ideas/optical-metasurfaces-and-biofabrication-feasibility-analysis.md | publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf | EN |
+| Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow | ideas/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.md | publications/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.pdf | EN |
+| Designing Molecularly Programmed Metasurfaces | ideas/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.md | publications/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.pdf | EN |
+| 有机染料调控的纳米超表面（中文） | ideas/organic-dye-programmed-metasurface-zh.md | publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf | ZH |
+| Proposal: AI‑Assisted Metasurface Imaging System | ideas/proposal-ai-assisted-metasurface-imaging-system.md | publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf | EN |
+
+### Theory
+
+| Title | Markdown | PDF | Lang |
+| --- | --- | --- | --- |
+| The Nonlinear Kramers–Kronig Relations: Causality Beyond Linearity | ideas/nonlinear-kramers-kronig-kerr-media.md | publications/nonlinear-kramers-kronig-kerr-media/nonlinear-kramers-kronig-kerr-media.pdf | EN |
+| The Quantum Carpets: Fractal Patterns in Wavefunction Revival | ideas/quantum-carpets-fractal-wavefunction-revival.md | publications/quantum-carpets-fractal-wavefunction-revival/quantum-carpets-fractal-wavefunction-revival.pdf | EN |
+
+### AI for Science
+
+| Title | Markdown | PDF | Lang |
+| --- | --- | --- | --- |
+| Proposal: Integrating Quantum Chemistry, MD, and AI (Small Molecule) | ideas/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.md | publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf | EN |
+| Investigating the “Mpempba Effect” in Deep Learning and Imaging | ideas/investigating-mpempba-effect-deep-learning-imaging.md | publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf | EN |
+
+### Product \& Tools
+
+| Title | Markdown | PDF | Lang |
+| --- | --- | --- | --- |
+| LLM‑Powered File Management: Feasibility, Market, and Design | ideas/llm-powered-file-management-feasibility-market-design.md | publications/llm-powered-file-management-feasibility-market-design/llm-powered-file-management-feasibility-market-design.pdf | EN |
+
+### DORAEMON
+
+| Title | Markdown | PDF | Lang |
+| --- | --- | --- | --- |
+| DORAEMON: Detached On‑demand Rapid Absorption Energy Mechanism | ideas/doraemon-tap-and-charge-deep-research.md | publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf | EN |
+| DORAEMON（日本語） | ideas/doraemon-tap-and-charge-deep-research-ja.md | publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf | JA |
+| 用通俗中文讲清楚：DORAEMON「一碰即充」完整说明 | ideas/doraemon-tap-and-charge-explainer-zh.md | publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf | ZH |
 
 ## Build
 
