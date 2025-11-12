@@ -29,7 +29,7 @@ jobs:
       - name: Prepare site content
         run: |
           mkdir -p docs/ideas docs/publications docs/figs docs/assets
-          rsync -a --delete ideas/ docs/ideas/
+          rsync -a ideas/ docs/ideas/
           if [ -d figs ]; then rsync -a figs/ docs/figs/; fi
           if [ -d publications ]; then rsync -a publications/ docs/publications/; fi
 
@@ -53,4 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
