@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,10 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1>用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）</h1>
 Author: LazyingArt<p></p>> 目标：先讲<strong>直觉</strong>，再讲<strong>问题—方案—为什么能成—方法细节—影响与应用</strong>，最后给一个<strong>小算例</strong>和<strong>如何用代码做验证</strong>的思路。整篇可直接当说明文/提案文使用。<p></p>---<p></p><h2>1) 直觉：像“磁性插头 + 海绵”</h2><p></p>把手机/设备轻轻一“贴”，<strong>两只线圈</strong>就像“磁性插头”一样对上了频率（<strong>共振</strong>），能量顺着<strong>近场磁场</strong>涌过来；设备里有一块“<strong>能量海绵</strong>”（<strong>超级电容</strong>），<strong>几十毫秒内瞬间吸能</strong>，然后在接下来的几分钟里<strong>慢慢把能量喂给电池</strong>。<p></p>关键点：这不是要在 50 ms 内把<strong>电池</strong>充满，而是先把能量塞进“海绵”（超级电容），再<strong>温和</strong>地给电池。——<strong>“快”与“稳”被时间上拆分</strong>。<p></p>---<p></p><h2>2) 传统无线充电的痛点</h2><p></p>1. <strong>必须一直对准</strong>：放偏就掉速、掉效。
 2. <strong>速度慢</strong>：功率不高，要放很久。

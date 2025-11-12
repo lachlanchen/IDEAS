@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,10 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1>Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow</h1>
 Author: LazyingArt<p></p>Absolutely—pairing <strong>Gaussian</strong> + <strong>Multiwfn</strong> (molecular optics) with <strong>S4</strong> (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed<li>metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into <strong>n(λ), k(λ)</strong> you can feed into S4.</li><p></p>---<p></p><h2>What you can do that’s interesting, feasible, and meaningful</h2><p></p><h3>1) Molecularly tuned perfect absorber (critical coupling)</h3><p></p>Design a guided‑mode resonance (or lamellar grating) metasurface whose linewidth and center frequency are matched to a dye’s excitonic line so that <strong>all incident light is dissipated in the dye layer</strong> at the target wavelength (e.g., visible red).
 *Impact:<li>ultrathin sensors, display pixels, or quenchers for fluorescence backgrounds.</li>

@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,10 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Proposal for AI-Assisted Simulation of a Metasurface Imaging System</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1><strong>Proposal for AI-Assisted Simulation of a Metasurface Imaging System</strong></h1>
 Author: LazyingArt<p></p><h2><strong>1. Introduction and Objectives</strong></h2><p></p>Metasurfaces are ultrathin, planar optical elements composed of sub-wavelength structures (“meta-atoms”) that can manipulate light’s phase, amplitude, and polarization with high precision. By arranging meta-atoms across a surface, one can create flat optical devices – such as <strong>metalenses</strong> and <strong>meta-holograms</strong> – capable of focusing light or forming images in ways traditionally achieved by bulky lenses or diffractive optics<a href="https://www.mdpi.com/2304-6732/12/10/947#:~:text=holographic%20imaging%20enables%20rapid%20metasurface,focusing%2C%20beam%20shaping%2C%20and%20aberration">mdpi.com</a>. In a metasurface imaging system, each meta-atom imparts a designed phase shift or polarization change to incident light, enabling complex wavefront shaping for high-resolution imaging, beam focusing, or holography.<p></p><strong>Objective:</strong> This project aims to <strong>design and simulate a metasurface-based imaging system</strong> (for example, a metalens or a meta-hologram) using a combination of multi-physics simulation tools and AI-driven techniques. The goal is to achieve an optimized metasurface that produces the desired imaging (focusing or image projection) with high efficiency and accuracy across the target spectrum. The outcome will include a validated simulation pipeline (potentially released as software) and results suitable for academic publication. Key objectives include:<p></p>- Simulating the <strong>spectral response</strong> (transmission, reflection, phase profile) of candidate metasurface designs to ensure they meet imaging requirements (e.g. focusing at a certain wavelength, or multi-wavelength operation).
 - Evaluating the <strong>imaging performance</strong> (e.g. point spread function, image formation quality) of the metasurface by modeling how the structured wavefront produces an image.

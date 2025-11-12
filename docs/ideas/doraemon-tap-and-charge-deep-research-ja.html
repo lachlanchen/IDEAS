@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,14 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+        <div class="text-sm">
+          <span class="text-slate-400 mr-2" data-i18n="content_language">Content language</span>
+          <a class="inline-block px-2 py-0.5 rounded border border-slate-700 hover:border-indigo-400 mr-1" href="/ideas/doraemon-tap-and-charge-deep-research-ja.html">日本語</a><a class="inline-block px-2 py-0.5 rounded border border-slate-700 hover:border-indigo-400 mr-1" href="/ideas/doraemon-tap-and-charge-deep-research.html">English</a>
+        </div>
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1>DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）</h1>
 Author: LazyingArt<p></p><h2>はじめに／コンセプト概要</h2><p></p><strong>DORAEMON</strong>（Detached On-demand Rapid Absorption Energy Mechanism for Optimized Networks：最適化ネットワークのための“分離型オンデマンド急速吸収エネルギー機構）は、<strong>「タップ・アンド・チャージ」</strong>を実現する無線給電システムの提案であり、<strong>50–200 ms 程度のごく短い接触</strong>でデバイスへエネルギーをほぼ瞬時に移送することを目指す。最大の発想は<strong>エネルギー転送段</strong>と<strong>エネルギー使用段</strong>を分離する点にある。すなわち、高出力の無線バーストで受側の<strong>オンボード蓄エネルギー（スーパーキャパシタの「エネルギーキャビティ」）</strong>を急速に満たし、その後はそのキャビティが時間をかけて放電し、デバイスのバッテリ充電や駆動を行う。これは、通常の無線給電が連続結合を必要とし<strong>機動性に制約</strong>がある問題に対し、<strong>一瞬の接触でエネルギー注入</strong>を可能にするものである（参考：supercapacitor を用いた無線充電の概念と実例は文末の情報源参照）。<p></p>このアイデアを評価し堅固にするため、本稿では以下の理論枠組みを厳密に整える：<p></p><li>短時間の電力転送で<strong>電磁結合効率</strong>を高く保つ方法（瞬間接触での大電力伝送）。</li>
 <li>中間蓄電（スーパーキャパシタ）における<strong>急速吸収ダイナミクス</strong>（容量・ESR・リークなど回路物理の限界）。</li>

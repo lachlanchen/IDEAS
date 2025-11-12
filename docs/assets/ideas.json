@@ -5,7 +5,8 @@
     "author": "LazyingArt",
     "excerpt": "**Yes – combining Gaussian (quantum chemistry) + Multiwfn (molecular analysis) with S4 (metasurface RCWA solver) is not only feasible but opens up novel \\**molecularly-programmed metasurface\\** designs.** Below we outline: **(i)** several concrete project ideas, **(ii)** a physics-grounded workflow linking the tools...",
     "category": "Metasurfaces",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research-ja",
@@ -13,7 +14,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "DORAEMON",
-    "lang": "ja"
+    "lang": "ja",
+    "baseId": "doraemon-tap-and-charge-deep-research"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research",
@@ -21,7 +23,8 @@
     "author": "LazyingArt",
     "excerpt": "This entry preserves the complete materials you provided: the original IEEE LaTeX manuscript and the full deep-research/theory strengthening writeup (no reductions).",
     "category": "DORAEMON",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "doraemon-tap-and-charge-deep-research"
   },
   {
     "slug": "doraemon-tap-and-charge-explainer-zh",
@@ -29,7 +32,8 @@
     "author": "LazyingArt",
     "excerpt": "> 目标：先讲**直觉**，再讲**问题—方案—为什么能成—方法细节—影响与应用**，最后给一个**小算例**和**如何用代码做验证**的思路。整篇可直接当说明文/提案文使用。",
     "category": "DORAEMON",
-    "lang": "zh"
+    "lang": "zh",
+    "baseId": "doraemon-tap-and-charge-explainer"
   },
   {
     "slug": "investigating-mpempba-effect-deep-learning-imaging",
@@ -37,7 +41,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "AI for Science",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "investigating-mpempba-effect-deep-learning-imaging"
   },
   {
     "slug": "llm-powered-file-management-feasibility-market-design",
@@ -45,7 +50,8 @@
     "author": "",
     "excerpt": "1. Situation: The File Organization Problem Modern computer users often face disorganized folders, duplicate files, and poorly named documents. Over years of use, multiple copies of files get scattered across drives, downloads directories overflow, and inconsistent naming conventions make it hard to know what’s what...",
     "category": "Product & Tools",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "llm-powered-file-management-feasibility-market-design"
   },
   {
     "slug": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow",
@@ -53,7 +59,8 @@
     "author": "LazyingArt",
     "excerpt": "Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed* metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools togeth...",
     "category": "Metasurfaces",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow"
   },
   {
     "slug": "nonlinear-kramers-kronig-kerr-media",
@@ -61,7 +68,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "Theory",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "nonlinear-kramers-kronig-kerr-media"
   },
   {
     "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis-draft",
@@ -69,7 +77,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "Metasurfaces",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "optical-metasurfaces-and-biofabrication-feasibility-analysis-draft"
   },
   {
     "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis",
@@ -77,7 +86,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "Metasurfaces",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "optical-metasurfaces-and-biofabrication-feasibility-analysis"
   },
   {
     "slug": "organic-dye-programmed-metasurface-zh",
@@ -85,7 +95,8 @@
     "author": "LazyingArt",
     "excerpt": "**有没有可能让一层超薄的材料把射来的光“吃”个精光？\\**科学家们正尝试将有机染料分子和光学超表面（纳米级人工结构）结合，设计出一种超薄的\\**光学超表面吸收器**。它能利用有机染料对特定颜色光的强烈吸收，在纳米结构的配合下将那种颜色的光完全吸收掉。简单地说，就是让一张比纸还薄的特殊表面，当特定波长的光照上去时，几乎一丝不漏地把光能量全部吞进去。下面我们用通俗的语言来解释其中的核心思路、解决的问题和重要意义。",
     "category": "Metasurfaces",
-    "lang": "zh"
+    "lang": "zh",
+    "baseId": "organic-dye-programmed-metasurface"
   },
   {
     "slug": "proposal-ai-assisted-metasurface-imaging-system",
@@ -93,7 +104,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "Metasurfaces",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "proposal-ai-assisted-metasurface-imaging-system"
   },
   {
     "slug": "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation",
@@ -101,7 +113,8 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "AI for Science",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation"
   },
   {
     "slug": "quantum-carpets-fractal-wavefunction-revival",
@@ -109,6 +122,7 @@
     "author": "LazyingArt",
     "excerpt": "",
     "category": "Theory",
-    "lang": "en"
+    "lang": "en",
+    "baseId": "quantum-carpets-fractal-wavefunction-revival"
   }
 ]

@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,10 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">The Quantum Carpets: Fractal Patterns in Wavefunction Revival</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1>The Quantum Carpets: Fractal Patterns in Wavefunction Revival</h1>
 Author: LazyingArt<p></p><h2>Introduction</h2><p></p>Quantum carpets are intricate self-replicating interference patterns that emerge during the time evolution of a wavefunction in a bounded quantum system<a href="https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=“quantum carpet”%2C which was introduced,( 25">ar5iv.labs.arxiv.org</a>. When a localized wave packet spreads and reflects off confining boundaries (e.g. infinite potential well walls), it interferes with itself to produce a striking “carpet-like” pattern in the space–time plot of probability density. A key feature of quantum carpets is the <strong>quantum revival</strong>: after a certain <strong>revival time</strong> $T_{\text{rev}}$, the wave packet reassembles into (or close to) its initial form<a href="https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=“quantum carpet”%2C which was introduced,( 25">ar5iv.labs.arxiv.org</a>. Between launch and full revival, the wavefunction exhibits partial revivals and complex interference fringes that reveal <strong>fractal-like self-similarity</strong> at various scales. This phenomenon connects wave mechanics with concepts from fractal geometry and even number theory, as the interference condition for revivals involves rational relationships in the energy spectrum. In this paper, we extend the idea of quantum carpets into a comprehensive study, providing a solid theoretical derivation of the effect and proposing a simple computer-based experiment (simulation) to observe it. The problem we address is clear: <strong>How do fractal interference patterns arise from quantum wavepacket dynamics, and how can one elegantly demonstrate and utilize this phenomenon?</strong> Our method combines analytical insight (using the well-understood infinite square well model) with an elegant numerical simulation, and we discuss meaningful impacts across physics, optics, and computational fields.<p></p><h2>Theoretical Background: Wavefunction Revivals and Fractal Patterns</h2><p></p>To illustrate the essence of quantum carpets, we consider a particle in a one-dimensional infinite square well of width $L$ (the classic “particle-in-a-box”). The stationary eigenstates are $\psi_n(x)=\sqrt{\frac{2}{L}}\,\sin\big(\tfrac{n\pi x}{L}\big)$ for $n=1,2,3,\dots$, with quantized energies $E_n=\tfrac{\hbar^2\pi^2 n^2}{2mL^2}$. If the initial wavefunction $\Psi(x,0)$ is expanded in this eigenbasis with coefficients $c_n$, the time-evolving state is:<p></p>$$
 \Psi(x,t) = \sum_{n=1}^{\infty} c_n\, e^{-i E_n t/\hbar}\, \psi_n(x)\,. \tag{1}

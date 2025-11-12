@@ -27,8 +27,8 @@
       <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
-        <a href="/ideas.html" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications.html" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
       </nav>
       <div id="langSwitcher" class="ml-4"></div>
@@ -38,7 +38,10 @@
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4</h1>
-      <p class="text-slate-400 mb-8"><span data-i18n="by">by</span> LazyingArt</p>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
+        
+      </div>
       <article class="prose prose-invert prose-slate max-w-none"><h1>Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4</h1>
 Author: LazyingArt<p></p><strong>Yes – combining Gaussian (quantum chemistry) + Multiwfn (molecular analysis) with S4 (metasurface RCWA solver) is not only feasible but opens up novel \</strong>molecularly-programmed metasurface\<strong> designs.</strong> Below we outline: <strong>(i)</strong> several concrete project ideas, <strong>(ii)</strong> a physics-grounded workflow linking the tools, and <strong>(iii)</strong> an example simulation pipeline (with code) to convert TD-DFT results into dispersive <strong>n(λ), k(λ)</strong> inputs for S4. We also highlight choices to keep the experimental realization as simple and feasible as possible.<p></p><h2>Potential Projects Integrating Molecular Optics & Metasurfaces</h2><p></p>Using a molecule’s optical resonance inside a photonic metasurface can create unique optical functions. Here are four promising directions:<p></p>- <strong>1. Molecularly Tuned Perfect Absorber (Critical Coupling):</strong> Design a metasurface (e.g. a guided-mode resonant grating or 2D lattice) whose resonance <strong>matches a dye’s excitonic transition</strong>. At the target wavelength, nearly all incident light is absorbed by the dye layer (critical coupling). *Impact:<li>Ultrathin light absorbers for sensors, display pixels, or fluorescence quenchers. *Approach:* Use TD-DFT (Gaussian) to get dye’s oscillator strengths, convert to a dispersion via Clausius–Mossotti (mixing into a host matrix), then simulate reflectance/transmittance in <strong>S4</strong> (an RCWA solver for periodic layered structures<a href="https://web.stanford.edu/group/fan/publication/Liu_ComputerPhysicsCommunications_183_2233_2012.pdf#:~:text=We describe S4%2C a free,extensibility of program capabilities for">web.stanford.edu</a>) to optimize absorption.</li>
 - <strong>2. All-Optical Switch with Photochromic Dyes:</strong> Use a photochromic molecule (e.g. azobenzene or spiropyran) that has <strong>two states with different spectra</strong>. Compute both molecular states (cis/trans) to obtain two sets of n(λ),k(λ). Design a metasurface operating at a wavelength where its response (e.g. phase or reflectance) is highly sensitive to the dye’s state. UV or blue light can then switch the dye and dramatically change the metasurface’s optical response. *Impact:<li>Pixel-level optical modulators that are low-energy and reversible (driven purely by light).</li>

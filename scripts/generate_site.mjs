@@ -90,12 +90,19 @@ function baseTemplate({ title, content }) {
 </html>`;
 }
 
-function ideaDetailTemplate({ title, author, html }) {
+function ideaDetailTemplate({ title, author, html, alts }) {
   const content = `
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">${title}</h1>
-      ${author ? `<p class="text-slate-400 mb-8"><span data-i18n="by">by</span> ${author}</p>` : ''}
+      <div class="flex items-center justify-between mb-4">
+        ${author ? `<p class=\"text-slate-400\"><span data-i18n=\"by\">by</span> ${author}</p>` : '<span></span>'}
+        ${Array.isArray(alts) && alts.length > 1 ? `
+        <div class=\"text-sm\">
+          <span class=\"text-slate-400 mr-2\" data-i18n=\"content_language\">Content language</span>
+          ${alts.map(a => `<a class=\"inline-block px-2 py-0.5 rounded border border-slate-700 hover:border-indigo-400 mr-1\" href=\"/ideas/${a.slug}.html\">${a.label}</a>`).join('')}
+        </div>` : ''}
+      </div>
       <article class="prose prose-invert prose-slate max-w-none">${html}</article>
     </div>
   </section>`;
@@ -141,6 +148,21 @@ function languageForSlug(slug) {
   return 'en';
 }
 
+function baseIdForSlug(slug){
+  return slug
+    .replace(/-zh-cn$/i,'').replace(/-zh-tw$/i,'').replace(/-zh$/i,'')
+    .replace(/-ja$/i,'').replace(/-ko$/i,'').replace(/-vi$/i,'')
+    .replace(/-ar$/i,'').replace(/-fr$/i,'').replace(/-es$/i,'');
+}
+
+function labelForLang(code){
+  const L = {
+    'en':'English', 'zh-CN':'简体中文', 'zh-TW':'繁體中文', 'zh':'中文',
+    'ja':'日本語', 'ko':'한국어', 'vi':'Tiếng Việt', 'ar':'العربية', 'fr':'Français', 'es':'Español'
+  };
+  return L[code] || code;
+}
+
 async function main() {
   const root = process.cwd();
   const ideasDir = path.join(root, 'ideas');
@@ -152,17 +174,27 @@ async function main() {
 
   const files = (await fs.readdir(ideasDir)).filter(f => f.endsWith('.md'));
   const ideas = [];
+  const groups = {};
+  // First pass: parse metadata and group by baseId
   for (const file of files) {
     const mdPath = path.join(ideasDir, file);
     const raw = await fs.readFile(mdPath, 'utf8');
     const { title, author, excerpt } = parseMeta(raw);
     const slug = file.replace(/\.md$/, '');
-    const html = await renderMarkdown(raw);
-    const page = ideaDetailTemplate({ title: title || slug, author, html });
-    await fs.writeFile(path.join(outIdeasDir, `${slug}.html`), page, 'utf8');
     const category = categoryForSlug(slug);
     const lang = languageForSlug(slug);
-    ideas.push({ slug, title: title || slug, author, excerpt, category, lang });
+    const baseId = baseIdForSlug(slug);
+    const rec = { slug, title: title || slug, author, excerpt, category, lang, baseId, _raw: raw };
+    ideas.push(rec);
+    (groups[baseId] = groups[baseId] || []).push(rec);
+  }
+  // Second pass: render pages with language alternatives
+  for (const rec of ideas) {
+    const alts = (groups[rec.baseId]||[]).map(r => ({ slug: r.slug, code: r.lang, label: labelForLang(r.lang) }));
+    const html = await renderMarkdown(rec._raw);
+    const page = ideaDetailTemplate({ title: rec.title, author: rec.author, html, alts });
+    await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page, 'utf8');
+    delete rec._raw;
   }
   await fs.writeFile(path.join(outAssetsDir, 'ideas.json'), JSON.stringify(ideas, null, 2));
   // categories manifest
