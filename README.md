@@ -212,7 +212,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 ## Support / Donate
 
 <div align="center">
-<table style="margin:0 auto; text-align:center; border-collapse:collapse;">
+<table width="100%" style="margin:0 auto; text-align:center; border-collapse:collapse;">
   <tr>
     <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
       <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
