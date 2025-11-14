@@ -16,7 +16,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 ### Metasurfaces
 
-<table width="100%">
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
     <col width="52%" />
     <col width="28%" />
@@ -67,7 +67,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 ### Theory
 
-<table width="100%">
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
     <col width="52%" />
     <col width="28%" />
@@ -100,7 +100,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 ### AI for Science
 
-<table width="100%">
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
     <col width="52%" />
     <col width="28%" />
@@ -133,7 +133,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 ### Product \& Tools
 
-<table width="100%">
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
     <col width="52%" />
     <col width="28%" />
@@ -160,7 +160,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 
 ### DORAEMON
 
-<table width="100%">
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
     <col width="52%" />
     <col width="28%" />
@@ -212,7 +212,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 ## Support / Donate
 
 <div align="center">
-<table width="100%" style="margin:0 auto; text-align:center; border-collapse:collapse;">
+<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
   <tr>
     <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
       <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
