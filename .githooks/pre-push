@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Block any push that includes AGENTS.md in the update range
+protected='AGENTS.md'
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # New branch push
+  if [[ "$remote_sha" == 0000000000000000000000000000000000000000 ]]; then
+    if git ls-tree -r --name-only "$local_sha" | grep -Fxq "$protected"; then
+      echo "pre-push: $protected present in branch tip; push blocked." >&2
+      echo "Tip: push a branch without $protected, or remove it from that branch." >&2
+      exit 1
+    fi
+  else
+    # Existing branch: if changes include the protected file, block
+    if git diff --name-only "$remote_sha" "$local_sha" -- "$protected" | grep -q .; then
+      echo "pre-push: changes to $protected detected in push range; push blocked." >&2
+      echo "Tip: commit other changes without modifying $protected, or use a sanitized push script." >&2
+      exit 1
+    fi
+  fi
+done
+
+exit 0
+
