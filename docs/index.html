@@ -8,11 +8,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
+  <style>
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.6);
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .theme-toggle:hover {
+      border-color: rgba(129, 140, 248, 0.6);
+    }
+    body[data-theme="light"] {
+      color-scheme: light;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    body[data-theme="light"] .theme-toggle {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+    body[data-theme="dark"] {
+      color-scheme: dark;
+    }
+    body[data-theme="light"] .bg-slate-950 { background-color: #f8fafc; }
+    body[data-theme="light"] .bg-slate-950\/70 { background-color: rgba(248, 250, 252, 0.95); }
+    body[data-theme="light"] .bg-slate-900\/50 { background-color: rgba(241, 245, 249, 0.85); }
+    body[data-theme="light"] .bg-slate-900\/70 { background-color: rgba(255, 255, 255, 0.92); }
+    body[data-theme="light"] .bg-slate-900\/80 { background-color: rgba(255, 255, 255, 0.96); }
+    body[data-theme="light"] .bg-slate-800\/60 { background-color: rgba(226, 232, 240, 0.85); }
+    body[data-theme="light"] .bg-slate-800 { background-color: #e2e8f0; }
+    body[data-theme="light"] .bg-indigo-500\/10 { background-color: rgba(59, 130, 246, 0.12); }
+    body[data-theme="light"] .border-slate-800 { border-color: #e2e8f0; }
+    body[data-theme="light"] .border-slate-700 { border-color: #cbd5e1; }
+    body[data-theme="light"] .text-slate-100 { color: #0f172a; }
+    body[data-theme="light"] .text-slate-300 { color: #334155; }
+    body[data-theme="light"] .text-slate-400 { color: #475569; }
+    body[data-theme="light"] .text-indigo-300 { color: #2563eb; }
+    body[data-theme="light"] .text-emerald-300 { color: #047857; }
+    body[data-theme="light"] .hover\:text-indigo-400:hover { color: #1d4ed8; }
+    body[data-theme="light"] .group:hover .group-hover\:text-white { color: #0f172a; }
+  </style>
   <meta name="color-scheme" content="dark light">
   <link rel="icon" href="/assets/favicon.png" />
 </head>
-<body class="bg-slate-950 text-slate-100">
+<body class="bg-slate-950 text-slate-100" data-theme="light">
   <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"><img src="https://lazying.art/logos/logo.png" class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0" alt="LazyingArt logo" /> IDEAS</a>
@@ -22,7 +73,13 @@
         <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications">Publications</a>
         <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-indigo-400" data-i18n="nav_github">GitHub</a>
       </nav>
-      <div id="langSwitcher" class="ml-4"></div>
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-icon" aria-hidden="true">☀️</span>
+          <span class="theme-label">Light</span>
+        </button>
+        <div id="langSwitcher"></div>
+      </div>
     </div>
   </header>
 
@@ -200,6 +257,28 @@
       } catch (e) { console.error(e); }
     }
     loadIdeas();
+
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      const themeKey = 'ideas-theme';
+      const themeIcon = themeToggle.querySelector('.theme-icon');
+      const themeLabel = themeToggle.querySelector('.theme-label');
+      const applyTheme = (theme) => {
+        document.body.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        const isDark = theme === 'dark';
+        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        if (themeIcon) themeIcon.textContent = isDark ? '🌙' : '☀️';
+        if (themeLabel) themeLabel.textContent = isDark ? 'Dark' : 'Light';
+      };
+      const storedTheme = localStorage.getItem(themeKey);
+      applyTheme(storedTheme || 'light');
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(themeKey, nextTheme);
+        applyTheme(nextTheme);
+      });
+    }
   </script>
 </body>
 </html>
