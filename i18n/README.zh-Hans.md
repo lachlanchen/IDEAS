@@ -14,47 +14,49 @@
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
 
-## Resumen
+## 概览
 
-IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
+IDEAS 是一个轻量、可版本化的研究笔记与论文随笔仓库。
 
-Este repositorio sigue un flujo de trabajo centrado en el contenido:
-- Redactar ideas en Markdown bajo `ideas/`.
-- Promover ideas maduras a carpetas de publicación bajo `publications/<slug>/`.
-- Mantener nombres de archivo de publicación que coincidan con el slug (`<slug>.tex`, `<slug>.pdf`).
-- Regenerar PDFs de publicaciones con comandos reproducibles de `latexmk`.
-- Mantener variantes multilingües del README bajo `i18n/` y páginas web estáticas bajo `docs/`.
+本仓库采用内容优先（content-first）工作流：
+- 在 `ideas/` 下以 Markdown 撰写想法。
+- 将成熟内容提升到 `publications/<slug>/` 下的出版目录。
+- 保持出版文件名与 slug 一致（`<slug>.tex`、`<slug>.pdf`）。
+- 通过可复现的 `latexmk` 命令重新生成 PDF。
+- 在 `i18n/` 维护多语言 README，并在 `docs/` 维护静态网页。
 
-## Enlaces Rápidos
+<a id="quick-links"></a>
+## 快速链接
 
-| Sección | Ir a |
+| 区块 | 跳转 |
 |---|---|
-| Catálogo | [Catálogo por Categoría](#catálogo-por-categoría) |
-| Comandos de compilación | [Compilación](#compilación) |
-| Flujo de trabajo diario | [Uso](#uso) |
-| Estructura del repositorio | [Estructura del Proyecto](#estructura-del-proyecto) |
-| Detalles operativos | [Configuración](#configuración) |
-| Guía de contribución | [Contribución](#contribución) |
-| Soporte | [Soporte / Donaciones](#soporte--donaciones) |
+| 目录 | [按类别目录](#catalog-by-category) |
+| 构建命令 | [构建](#build) |
+| 日常流程 | [使用](#usage) |
+| 仓库结构 | [项目结构](#project-structure) |
+| 运维细节 | [配置](#configuration) |
+| 贡献指南 | [贡献](#contribution) |
+| 支持 | [支持 / 捐赠](#support--donate) |
 
-## Acerca De
+## 关于
 
-IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
-- Prioridad al contenido: cada idea es un Markdown en `ideas/`, reflejado (cuando madura) a LaTeX bajo `publications/<slug>/<slug>.tex` con un PDF compilado.
-- Convenciones: nombres de archivo en kebab-case; los nombres de publicación coinciden con el slug de su carpeta (`<slug>.tex`, `<slug>.pdf`).
-- Soporte CJK: las publicaciones en chino se compilan con XeLaTeX.
-- Compilaciones reproducibles: usar `latexmk` (ver sección Compilación) para regenerar PDFs.
+IDEAS 是一个轻量、可版本化的研究笔记与论文随笔仓库。
+- 内容优先：每个想法都以 `ideas/` 中的 Markdown 管理；成熟后同步到 `publications/<slug>/<slug>.tex` 并编译 PDF。
+- 约定：文件名使用 kebab-case；出版文件名与目录 slug 保持一致（`<slug>.tex`、`<slug>.pdf`）。
+- CJK 支持：中文出版内容使用 XeLaTeX 编译。
+- 可复现构建：使用 `latexmk`（见 Build 章节）重建 PDF。
 
-## Características
+## 特性
 
-- Flujo versionado de idea a publicación (`ideas/` -> `publications/<slug>/`).
-- Catálogo de investigación organizado por categoría con enlaces directos a Markdown/PDF.
-- Conjunto multilingüe de README en 9 idiomas bajo `i18n/`.
-- Contenido del sitio estático bajo `docs/` con manifiestos generados en `docs/assets/`.
-- Configuración opcional de hooks locales de git mediante `scripts/enable-hooks.sh`.
-- El repositorio incluye artefactos de publicación (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) cuando resultan útiles para la reproducibilidad.
+- 版本化的 idea-to-publication 流程（`ideas/` -> `publications/<slug>/`）。
+- 按类别组织的研究目录，并提供 Markdown/PDF 直链。
+- 在 `i18n/` 下提供 9 种语言的 README。
+- 在 `docs/` 下维护静态站点内容，并在 `docs/assets/` 下生成清单文件。
+- 支持通过 `scripts/enable-hooks.sh` 可选启用本地 git hook。
+- 在有助于复现的场景下，仓库可包含出版构建产物（`.aux`、`.log`、`.fls`、`.fdb_latexmk`、`.out`）。
 
-## Catálogo por Categoría
+<a id="catalog-by-category"></a>
+## 按类别目录
 
 ### Metasurfaces
 
@@ -67,10 +69,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">标题</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">语言</th>
     </tr>
   </thead>
   <tbody>
@@ -124,10 +126,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">标题</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">语言</th>
     </tr>
   </thead>
   <tbody>
@@ -157,10 +159,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">标题</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">语言</th>
     </tr>
   </thead>
   <tbody>
@@ -190,10 +192,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">标题</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">语言</th>
     </tr>
   </thead>
   <tbody>
@@ -217,10 +219,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">标题</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">语言</th>
     </tr>
   </thead>
   <tbody>
@@ -245,7 +247,8 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </tbody>
   </table>
 
-## Estructura del Proyecto
+<a id="project-structure"></a>
+## 项目结构
 
 ```text
 IDEAS/
@@ -256,13 +259,13 @@ IDEAS/
 ├── scripts/
 │   ├── generate_site.mjs
 │   └── enable-hooks.sh
-├── ideas/                         # Notas de ideas en Markdown
+├── ideas/                         # Markdown idea notes
 ├── publications/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # Archivos auxiliares/log de LaTeX opcionales
-├── docs/                          # Sitio web estático + recursos generados
+│       └── artifacts/             # optional LaTeX aux/log files
+├── docs/                          # static website + generated assets
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -271,125 +274,130 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # Variantes multilingües del README
-└── figs/                          # Recursos del README y donaciones
+├── i18n/                          # multilingual README variants
+└── figs/                          # README and donation assets
 ```
 
-## Requisitos Previos
+## 先决条件
 
-- `latexmk` con una distribución TeX funcional (TeX Live o equivalente).
-- Soporte XeLaTeX para compilaciones CJK (para publicaciones en chino/japonés): `xelatex` + fuentes con soporte CJK.
-- Node.js (se recomienda 18+) para generación de recursos del sitio (`scripts/generate_site.mjs`).
-- Git para versionado y flujo de contribución.
+- `latexmk`，以及可用的 TeX 发行版（TeX Live 或同类方案）。
+- CJK 构建所需 XeLaTeX 支持（用于中文/日文出版）：`xelatex` + 支持 CJK 的字体。
+- 用于站点资源生成的 Node.js（建议 18+，对应 `scripts/generate_site.mjs`）。
+- 用于版本管理与协作流程的 Git。
 
-## Instalación
+## 安装
 
 ```bash
 git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-Configuración opcional de hooks locales:
+可选：启用本地 hook：
 
 ```bash
 bash scripts/enable-hooks.sh
 ```
 
-## Compilación
+<a id="build"></a>
+## 构建
 
-- PDFs en inglés/ASCII:
+- 英文/ASCII PDF：
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
-- PDFs en chino (CJK):
+- 中文 PDF（CJK）：
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Compilar todos los artículos (modo PDF):
+- 构建全部论文（PDF 模式）：
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- Limpiar artefactos de LaTeX (dentro de un directorio de artículo):
+- 清理 LaTeX 构建产物（在论文目录内）：
   - `latexmk -C`
 
-## Uso
+<a id="usage"></a>
+## 使用
 
-Flujo común del día a día:
+日常工作流：
 
-1. Agrega o actualiza notas de ideas en `ideas/*.md` (nombre de archivo en kebab-case).
-2. Promueve notas maduras a `publications/<slug>/<slug>.tex`.
-3. Compila el PDF de la publicación con el modo `latexmk` correspondiente.
-4. Si publicas datos del sitio web, regenera recursos estáticos:
+1. 在 `ideas/*.md` 中新增或更新想法笔记（kebab-case 文件名）。
+2. 将成熟笔记提升到 `publications/<slug>/<slug>.tex`。
+3. 使用对应的 `latexmk` 模式编译出版 PDF。
+4. 如需发布网站数据，重新生成静态资源：
    - `node scripts/generate_site.mjs`
-5. Valida los resultados renderizados (`.pdf` y opcionalmente páginas en `docs/`).
+5. 校验渲染结果（`.pdf`，以及可选的 `docs/` 页面）。
 
-## Configuración
+<a id="configuration"></a>
+## 配置
 
-- Existe `mkdocs.yml` y puede usarse para configuración de documentación basada en MkDocs.
-- `.github/workflows/pages.yml` actualmente gestiona el despliegue de GitHub Pages para `docs/`.
-- `docs/assets/i18n.js` y `docs/assets/i18n/*.json` controlan el comportamiento i18n del sitio web.
-- `CNAME` y `docs/CNAME` contienen configuraciones de dominio personalizado.
+- 存在 `mkdocs.yml`，可用于基于 MkDocs 的文档配置。
+- `.github/workflows/pages.yml` 当前用于 `docs/` 的 GitHub Pages 部署。
+- `docs/assets/i18n.js` 与 `docs/assets/i18n/*.json` 控制网站 i18n 行为。
+- `CNAME` 与 `docs/CNAME` 保存自定义域名设置。
 
-Nota de suposición: este README conserva referencias tanto a MkDocs como al flujo de sitio estático personalizado porque ambos están presentes en el repositorio.
+假设说明：本 README 同时保留 MkDocs 与自定义静态站点流水线的描述，因为两者都在仓库中存在。
 
-## Ejemplos
+## 示例
 
-Compilar una publicación en inglés:
+构建一篇英文出版内容：
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-Compilar una publicación en chino:
+构建一篇中文出版内容：
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Regenerar datos/manifiestos de docs:
+重新生成 docs 数据/清单：
 
 ```bash
 node scripts/generate_site.mjs
 ```
 
-## Notas de Desarrollo
+## 开发说明
 
-- Las ecuaciones en Markdown usan `$...$` y `$$...$$`.
-- Los enlaces externos con espacios usan codificación percent‑encoded para un renderizado fiable.
-- Prefiere ediciones aditivas y evita renombrar archivos existentes salvo que sea necesario.
-- El contenido CJK debe usar XeLaTeX y una configuración LaTeX segura para Unicode (por ejemplo `ctexart` cuando aplique).
-- Es aceptable hacer commit de artefactos LaTeX en `publications/<slug>/artifacts/`.
+- Markdown 中公式使用 `$...$` 与 `$$...$$`。
+- 带空格的外部链接使用百分号编码，以保证渲染稳定。
+- 优先采用增量修改；除非必要，避免重命名现有文件。
+- CJK 内容应使用 XeLaTeX 与 Unicode 安全的 LaTeX 配置（例如适用时使用 `ctexart`）。
+- 允许在 `publications/<slug>/artifacts/` 下提交 LaTeX 构建产物。
 
-## Solución de Problemas
+## 故障排查
 
-- `latexmk` command not found:
-  - Instala una distribución TeX y asegúrate de que `latexmk` esté en `PATH`.
-- Problemas de glifos CJK/tofu en PDFs:
-  - Usa modo XeLaTeX y asegúrate de tener instaladas las fuentes CJK requeridas.
-- La compilación se detiene por errores de LaTeX:
-  - Inspecciona `<slug>.log` y vuelve a ejecutar con `-interaction=nonstopmode -halt-on-error`.
-- Los metadatos del sitio web no se actualizan:
-  - Ejecuta de nuevo `node scripts/generate_site.mjs` y verifica los timestamps en `docs/assets/*.json`.
+- `latexmk` command not found：
+  - 安装 TeX 发行版，并确认 `latexmk` 在 `PATH` 中。
+- PDF 出现 CJK 字形/豆腐块问题：
+  - 使用 XeLaTeX 模式，并确保已安装所需 CJK 字体。
+- LaTeX 错误导致构建中断：
+  - 检查 `<slug>.log`，并使用 `-interaction=nonstopmode -halt-on-error` 重试。
+- 网站元数据未更新：
+  - 重新执行 `node scripts/generate_site.mjs`，并检查 `docs/assets/*.json` 时间戳。
 
-## Hoja de Ruta
+## 路线图
 
-- Mantener sincronizado el catálogo del README con nuevas ideas/publicaciones.
-- Seguir reforzando la paridad multilingüe entre los archivos `i18n/README.*.md`.
-- Mejorar la alineación entre la configuración de MkDocs y el pipeline estático desplegado a medida que evoluciona el flujo de docs.
-- Añadir validaciones ligeras para consistencia de README/enlaces/catálogo.
+- 让 README 目录与新增 ideas/publications 保持同步。
+- 继续增强 `i18n/README.*.md` 的多语言一致性。
+- 随 docs 工作流演进，持续改进 MkDocs 配置与已部署静态流水线的一致性。
+- 增加轻量校验，检查 README/链接/目录的一致性。
 
-## Contribución
+<a id="contribution"></a>
+## 贡献
 
-- Usa mensajes de commit imperativos y con alcance (ejemplo: `Update README structure and operational docs`).
-- Mantén los cambios enfocados por tema/artículo.
-- Valida la compilación de LaTeX y la salida renderizada antes de hacer push.
-- Los pull requests deben incluir:
-  - resumen y justificación,
-  - rutas tocadas,
-  - confirmación de compilación cuando sea relevante.
+- 使用祈使语气且有范围的提交信息（示例：`Update README structure and operational docs`）。
+- 变更应按主题/论文聚焦。
+- 推送前请验证 LaTeX 编译与渲染结果。
+- Pull Request 应包含：
+  - 变更摘要与理由，
+  - 涉及路径，
+  - 如有必要，附构建确认。
 
-## Notas
+## 备注
 
-- Las ecuaciones en Markdown usan `$...$` y `$$...$$`.
-- Los enlaces externos con espacios usan codificación percent‑encoded para un renderizado fiable.
+- Markdown 中公式使用 `$...$` 与 `$$...$$`。
+- 带空格的外部链接使用百分号编码，以保证渲染稳定。
 
-## Soporte / Donaciones
+<a id="support--donate"></a>
+## 支持 / 捐赠
 
 <div align="center">
 <table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
@@ -424,8 +432,8 @@ node scripts/generate_site.mjs
 </table>
  </div>
 
-## Licencia
+## 许可证
 
-Actualmente no hay un archivo `LICENSE` en este repositorio.
+本仓库当前不存在 `LICENSE` 文件。
 
-Nota de suposición: hasta que se agregue un archivo de licencia, los términos de reutilización/redistribución no están definidos y deberían ser aclarados por el propietario del repositorio.
+假设说明：在添加许可证文件前，复用/再分发条款尚未定义，应由仓库所有者进一步明确。

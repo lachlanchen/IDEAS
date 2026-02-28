@@ -14,47 +14,47 @@
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
 
-## Resumen
+## Überblick
 
-IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
+IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
 
-Este repositorio sigue un flujo de trabajo centrado en el contenido:
-- Redactar ideas en Markdown bajo `ideas/`.
-- Promover ideas maduras a carpetas de publicación bajo `publications/<slug>/`.
-- Mantener nombres de archivo de publicación que coincidan con el slug (`<slug>.tex`, `<slug>.pdf`).
-- Regenerar PDFs de publicaciones con comandos reproducibles de `latexmk`.
-- Mantener variantes multilingües del README bajo `i18n/` y páginas web estáticas bajo `docs/`.
+Dieses Repository folgt einem Content-first-Workflow:
+- Ideen als Markdown unter `ideas/` verfassen.
+- Ausgereifte Ideen in Publikationsordner unter `publications/<slug>/` überführen.
+- Dateinamen in Publikationen am Slug ausrichten (`<slug>.tex`, `<slug>.pdf`).
+- Publikations-PDFs mit reproduzierbaren `latexmk`-Befehlen neu generieren.
+- Mehrsprachige README-Varianten unter `i18n/` und statische Webseiten unter `docs/` pflegen.
 
-## Enlaces Rápidos
+## Schnellzugriffe
 
-| Sección | Ir a |
+| Abschnitt | Sprung |
 |---|---|
-| Catálogo | [Catálogo por Categoría](#catálogo-por-categoría) |
-| Comandos de compilación | [Compilación](#compilación) |
-| Flujo de trabajo diario | [Uso](#uso) |
-| Estructura del repositorio | [Estructura del Proyecto](#estructura-del-proyecto) |
-| Detalles operativos | [Configuración](#configuración) |
-| Guía de contribución | [Contribución](#contribución) |
-| Soporte | [Soporte / Donaciones](#soporte--donaciones) |
+| Katalog | [Katalog nach Kategorie](#katalog-nach-kategorie) |
+| Build-Befehle | [Build](#build) |
+| Täglicher Workflow | [Nutzung](#nutzung) |
+| Repository-Layout | [Projektstruktur](#projektstruktur) |
+| Betriebsdetails | [Konfiguration](#konfiguration) |
+| Beitragshinweise | [Mitwirken](#mitwirken) |
+| Unterstützung | [Support / Spenden](#support--spenden) |
 
-## Acerca De
+## Über das Projekt
 
-IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
-- Prioridad al contenido: cada idea es un Markdown en `ideas/`, reflejado (cuando madura) a LaTeX bajo `publications/<slug>/<slug>.tex` con un PDF compilado.
-- Convenciones: nombres de archivo en kebab-case; los nombres de publicación coinciden con el slug de su carpeta (`<slug>.tex`, `<slug>.pdf`).
-- Soporte CJK: las publicaciones en chino se compilan con XeLaTeX.
-- Compilaciones reproducibles: usar `latexmk` (ver sección Compilación) para regenerar PDFs.
+IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
+- Content-first: Jede Idee ist Markdown in `ideas/` und wird (wenn ausgereift) in LaTeX unter `publications/<slug>/<slug>.tex` mit kompiliertem PDF gespiegelt.
+- Konventionen: kebab-case-Dateinamen; Publikationsdateien entsprechen dem Ordner-Slug (`<slug>.tex`, `<slug>.pdf`).
+- CJK-Unterstützung: Chinesischsprachige Publikationen werden mit XeLaTeX kompiliert.
+- Reproduzierbare Builds: PDFs mit `latexmk` neu erstellen (siehe Abschnitt Build).
 
-## Características
+## Funktionen
 
-- Flujo versionado de idea a publicación (`ideas/` -> `publications/<slug>/`).
-- Catálogo de investigación organizado por categoría con enlaces directos a Markdown/PDF.
-- Conjunto multilingüe de README en 9 idiomas bajo `i18n/`.
-- Contenido del sitio estático bajo `docs/` con manifiestos generados en `docs/assets/`.
-- Configuración opcional de hooks locales de git mediante `scripts/enable-hooks.sh`.
-- El repositorio incluye artefactos de publicación (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) cuando resultan útiles para la reproducibilidad.
+- Versionierte Idea-to-Publication-Pipeline (`ideas/` -> `publications/<slug>/`).
+- Forschungskatalog nach Kategorien mit direkten Markdown-/PDF-Links.
+- Mehrsprachige README-Sammlung in 9 Sprachen unter `i18n/`.
+- Inhalte für statische Website unter `docs/` mit generierten Manifesten in `docs/assets/`.
+- Optionales lokales Git-Hook-Setup über `scripts/enable-hooks.sh`.
+- Repository enthält Publikationsartefakte (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`), wo dies für Reproduzierbarkeit sinnvoll ist.
 
-## Catálogo por Categoría
+## Katalog nach Kategorie
 
 ### Metasurfaces
 
@@ -67,10 +67,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">Titel</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">Sprache</th>
     </tr>
   </thead>
   <tbody>
@@ -124,10 +124,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">Titel</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">Sprache</th>
     </tr>
   </thead>
   <tbody>
@@ -157,10 +157,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">Titel</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">Sprache</th>
     </tr>
   </thead>
   <tbody>
@@ -190,10 +190,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">Titel</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">Sprache</th>
     </tr>
   </thead>
   <tbody>
@@ -217,10 +217,10 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </colgroup>
   <thead>
     <tr>
-      <th align="left">Title</th>
+      <th align="left">Titel</th>
       <th align="left">Markdown</th>
       <th align="left">PDF</th>
-      <th align="left">Lang</th>
+      <th align="left">Sprache</th>
     </tr>
   </thead>
   <tbody>
@@ -245,7 +245,7 @@ IDEAS es un cuaderno ligero y versionado de notas de investigación y ensayos.
   </tbody>
   </table>
 
-## Estructura del Proyecto
+## Projektstruktur
 
 ```text
 IDEAS/
@@ -256,13 +256,13 @@ IDEAS/
 ├── scripts/
 │   ├── generate_site.mjs
 │   └── enable-hooks.sh
-├── ideas/                         # Notas de ideas en Markdown
+├── ideas/                         # Markdown idea notes
 ├── publications/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # Archivos auxiliares/log de LaTeX opcionales
-├── docs/                          # Sitio web estático + recursos generados
+│       └── artifacts/             # optional LaTeX aux/log files
+├── docs/                          # static website + generated assets
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -271,125 +271,125 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # Variantes multilingües del README
-└── figs/                          # Recursos del README y donaciones
+├── i18n/                          # multilingual README variants
+└── figs/                          # README and donation assets
 ```
 
-## Requisitos Previos
+## Voraussetzungen
 
-- `latexmk` con una distribución TeX funcional (TeX Live o equivalente).
-- Soporte XeLaTeX para compilaciones CJK (para publicaciones en chino/japonés): `xelatex` + fuentes con soporte CJK.
-- Node.js (se recomienda 18+) para generación de recursos del sitio (`scripts/generate_site.mjs`).
-- Git para versionado y flujo de contribución.
+- `latexmk` mit einer funktionierenden TeX-Distribution (TeX Live oder gleichwertig).
+- XeLaTeX-Unterstützung für CJK-Builds (für chinesische/japanische Publikationen): `xelatex` + CJK-fähige Schriftarten.
+- Node.js (empfohlen 18+) für die Generierung von Site-Assets (`scripts/generate_site.mjs`).
+- Git für Versionierung und den Beitrags-Workflow.
 
-## Instalación
+## Installation
 
 ```bash
 git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-Configuración opcional de hooks locales:
+Optionales lokales Hook-Setup:
 
 ```bash
 bash scripts/enable-hooks.sh
 ```
 
-## Compilación
+## Build
 
-- PDFs en inglés/ASCII:
+- Englische/ASCII-PDFs:
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
-- PDFs en chino (CJK):
+- Chinesische PDFs (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Compilar todos los artículos (modo PDF):
+- Alle Papers bauen (PDF-Modus):
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- Limpiar artefactos de LaTeX (dentro de un directorio de artículo):
+- LaTeX-Artefakte bereinigen (innerhalb eines Paper-Verzeichnisses):
   - `latexmk -C`
 
-## Uso
+## Nutzung
 
-Flujo común del día a día:
+Typischer Tagesablauf:
 
-1. Agrega o actualiza notas de ideas en `ideas/*.md` (nombre de archivo en kebab-case).
-2. Promueve notas maduras a `publications/<slug>/<slug>.tex`.
-3. Compila el PDF de la publicación con el modo `latexmk` correspondiente.
-4. Si publicas datos del sitio web, regenera recursos estáticos:
+1. Ideen-Notizen in `ideas/*.md` hinzufügen oder aktualisieren (kebab-case-Dateiname).
+2. Ausgereifte Notizen nach `publications/<slug>/<slug>.tex` überführen.
+3. Das Publikations-PDF mit dem passenden `latexmk`-Modus kompilieren.
+4. Falls Website-Daten veröffentlicht werden, statische Assets neu generieren:
    - `node scripts/generate_site.mjs`
-5. Valida los resultados renderizados (`.pdf` y opcionalmente páginas en `docs/`).
+5. Gerenderte Ausgaben prüfen (`.pdf` und optional Seiten unter `docs/`).
 
-## Configuración
+## Konfiguration
 
-- Existe `mkdocs.yml` y puede usarse para configuración de documentación basada en MkDocs.
-- `.github/workflows/pages.yml` actualmente gestiona el despliegue de GitHub Pages para `docs/`.
-- `docs/assets/i18n.js` y `docs/assets/i18n/*.json` controlan el comportamiento i18n del sitio web.
-- `CNAME` y `docs/CNAME` contienen configuraciones de dominio personalizado.
+- `mkdocs.yml` ist vorhanden und kann für MkDocs-basierte Dokumentationskonfiguration verwendet werden.
+- `.github/workflows/pages.yml` steuert derzeit das GitHub-Pages-Deployment für `docs/`.
+- `docs/assets/i18n.js` und `docs/assets/i18n/*.json` steuern das i18n-Verhalten der Website.
+- `CNAME` und `docs/CNAME` enthalten Einstellungen für benutzerdefinierte Domains.
 
-Nota de suposición: este README conserva referencias tanto a MkDocs como al flujo de sitio estático personalizado porque ambos están presentes en el repositorio.
+Hinweis zur Annahme: Dieses README belässt sowohl Verweise auf MkDocs als auch auf die benutzerdefinierte Static-Site-Pipeline, da beides im Repository vorhanden ist.
 
-## Ejemplos
+## Beispiele
 
-Compilar una publicación en inglés:
+Eine englische Publikation bauen:
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-Compilar una publicación en chino:
+Eine chinesische Publikation bauen:
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Regenerar datos/manifiestos de docs:
+Docs-Daten/Manifeste neu generieren:
 
 ```bash
 node scripts/generate_site.mjs
 ```
 
-## Notas de Desarrollo
+## Entwicklungshinweise
 
-- Las ecuaciones en Markdown usan `$...$` y `$$...$$`.
-- Los enlaces externos con espacios usan codificación percent‑encoded para un renderizado fiable.
-- Prefiere ediciones aditivas y evita renombrar archivos existentes salvo que sea necesario.
-- El contenido CJK debe usar XeLaTeX y una configuración LaTeX segura para Unicode (por ejemplo `ctexart` cuando aplique).
-- Es aceptable hacer commit de artefactos LaTeX en `publications/<slug>/artifacts/`.
+- Gleichungen in Markdown verwenden `$...$` und `$$...$$`.
+- Externe Links mit Leerzeichen sind für zuverlässiges Rendering prozentkodiert.
+- Additive Änderungen bevorzugen und bestehende Dateien nur bei Notwendigkeit umbenennen.
+- CJK-Inhalte sollten XeLaTeX und ein Unicode-sicheres LaTeX-Setup verwenden (zum Beispiel `ctexart`, wo zutreffend).
+- Es ist akzeptabel, LaTeX-Artefakte unter `publications/<slug>/artifacts/` zu committen.
 
-## Solución de Problemas
+## Fehlerbehebung
 
-- `latexmk` command not found:
-  - Instala una distribución TeX y asegúrate de que `latexmk` esté en `PATH`.
-- Problemas de glifos CJK/tofu en PDFs:
-  - Usa modo XeLaTeX y asegúrate de tener instaladas las fuentes CJK requeridas.
-- La compilación se detiene por errores de LaTeX:
-  - Inspecciona `<slug>.log` y vuelve a ejecutar con `-interaction=nonstopmode -halt-on-error`.
-- Los metadatos del sitio web no se actualizan:
-  - Ejecuta de nuevo `node scripts/generate_site.mjs` y verifica los timestamps en `docs/assets/*.json`.
+- `latexmk`-Befehl nicht gefunden:
+  - Eine TeX-Distribution installieren und sicherstellen, dass `latexmk` im `PATH` liegt.
+- CJK-Glyph-/Tofu-Probleme in PDFs:
+  - XeLaTeX-Modus verwenden und sicherstellen, dass erforderliche CJK-Schriftarten installiert sind.
+- Build stoppt bei LaTeX-Fehlern:
+  - `<slug>.log` prüfen und mit `-interaction=nonstopmode -halt-on-error` erneut ausführen.
+- Website-Metadaten werden nicht aktualisiert:
+  - `node scripts/generate_site.mjs` erneut ausführen und Zeitstempel in `docs/assets/*.json` prüfen.
 
-## Hoja de Ruta
+## Roadmap
 
-- Mantener sincronizado el catálogo del README con nuevas ideas/publicaciones.
-- Seguir reforzando la paridad multilingüe entre los archivos `i18n/README.*.md`.
-- Mejorar la alineación entre la configuración de MkDocs y el pipeline estático desplegado a medida que evoluciona el flujo de docs.
-- Añadir validaciones ligeras para consistencia de README/enlaces/catálogo.
+- README-Katalog mit neuen Ideen/Publikationen synchron halten.
+- Mehrsprachige Parität über `i18n/README.*.md` hinweg weiter stärken.
+- Abstimmung zwischen MkDocs-Konfiguration und bereitgestellter Static-Pipeline verbessern, während sich der Docs-Workflow weiterentwickelt.
+- Leichtgewichtige Validierungschecks für README-/Link-/Katalog-Konsistenz ergänzen.
 
-## Contribución
+## Mitwirken
 
-- Usa mensajes de commit imperativos y con alcance (ejemplo: `Update README structure and operational docs`).
-- Mantén los cambios enfocados por tema/artículo.
-- Valida la compilación de LaTeX y la salida renderizada antes de hacer push.
-- Los pull requests deben incluir:
-  - resumen y justificación,
-  - rutas tocadas,
-  - confirmación de compilación cuando sea relevante.
+- Imperative, bereichsbezogene Commit-Messages verwenden (Beispiel: `Update README structure and operational docs`).
+- Änderungen thematisch/Paper-bezogen fokussiert halten.
+- LaTeX-Kompilierung und gerenderte Ausgabe vor dem Pushen validieren.
+- Pull Requests sollten enthalten:
+  - Zusammenfassung und Begründung,
+  - betroffene Pfade,
+  - Build-Bestätigung, wenn relevant.
 
-## Notas
+## Hinweise
 
-- Las ecuaciones en Markdown usan `$...$` y `$$...$$`.
-- Los enlaces externos con espacios usan codificación percent‑encoded para un renderizado fiable.
+- Gleichungen in Markdown verwenden `$...$` und `$$...$$`.
+- Externe Links mit Leerzeichen sind für zuverlässiges Rendering prozentkodiert.
 
-## Soporte / Donaciones
+## Support / Spenden
 
 <div align="center">
 <table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
@@ -424,8 +424,8 @@ node scripts/generate_site.mjs
 </table>
  </div>
 
-## Licencia
+## Lizenz
 
-Actualmente no hay un archivo `LICENSE` en este repositorio.
+In diesem Repository ist derzeit keine `LICENSE`-Datei vorhanden.
 
-Nota de suposición: hasta que se agregue un archivo de licencia, los términos de reutilización/redistribución no están definidos y deberían ser aclarados por el propietario del repositorio.
+Hinweis zur Annahme: Bis eine Lizenzdatei hinzugefügt wird, sind Bedingungen für Wiederverwendung/Weiterverteilung nicht definiert und sollten durch den Repository-Eigentümer geklärt werden.

@@ -1,14 +1,18 @@
+[English](README.md) · [العربية](i18n/README.ar.md) · [Español](i18n/README.es.md) · [Français](i18n/README.fr.md) · [日本語](i18n/README.ja.md) · [한국어](i18n/README.ko.md) · [Tiếng Việt](i18n/README.vi.md) · [中文 (简体)](i18n/README.zh-Hans.md) · [中文（繁體）](i18n/README.zh-Hant.md) · [Deutsch](i18n/README.de.md) · [Русский](i18n/README.ru.md)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
 </p>
 
-🌐 Languages: [English](i18n/README.en.md) | [中文 (简体)](i18n/README.zh-CN.md) | [中文（繁體）](i18n/README.zh-TW.md) | [日本語](i18n/README.ja.md) | [한국어](i18n/README.ko.md) | [Tiếng Việt](i18n/README.vi.md) | [العربية](i18n/README.ar.md) | [Français](i18n/README.fr.md) | [Español](i18n/README.es.md)
 
 # IDEAS
 
 ![Status](https://img.shields.io/badge/status-active-0a7f5a)
 ![Content](https://img.shields.io/badge/content-Markdown%20%2B%20LaTeX-blue)
 ![Languages](https://img.shields.io/badge/i18n-9%20README%20languages-orange)
+![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
+![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
+![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
 
 ## Overview
 
@@ -20,6 +24,18 @@ This repository follows a content-first workflow:
 - Keep publication filenames slug-matching (`<slug>.tex`, `<slug>.pdf`).
 - Regenerate publication PDFs with reproducible `latexmk` commands.
 - Maintain multilingual README variants under `i18n/` and static web pages under `docs/`.
+
+## Quick Links
+
+| Section | Jump |
+|---|---|
+| Catalog | [Catalog by Category](#catalog-by-category) |
+| Build commands | [Build](#build) |
+| Day-to-day workflow | [Usage](#usage) |
+| Repository layout | [Project Structure](#project-structure) |
+| Ops details | [Configuration](#configuration) |
+| Contribution guide | [Contribution](#contribution) |
+| Support | [Support / Donate](#support--donate) |
 
 ## About
 
@@ -86,6 +102,12 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
       <td>Proposal: AI‑Assisted Metasurface Imaging System</td>
       <td><a href="ideas/proposal-ai-assisted-metasurface-imaging-system.md">Markdown</a></td>
       <td><a href="publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>Optical Metasurfaces and Biofabrication: A Feasibility Analysis (Draft)</td>
+      <td><a href="ideas/optical-metasurfaces-and-biofabrication-feasibility-analysis-draft.md">Markdown</a></td>
+      <td>—</td>
       <td>EN</td>
     </tr>
   </tbody>
