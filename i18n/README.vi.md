@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,47 +11,59 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
+---
+
+<a id="overview"></a>
 ## Tổng quan
 
-IDEAS là một sổ tay nhẹ, có quản lý phiên bản, dành cho ghi chú và tiểu luận nghiên cứu.
+IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, gồm các ghi chú và tiểu luận.
 
 Kho này theo quy trình ưu tiên nội dung:
-- Viết ý tưởng ở dạng Markdown trong `ideas/`.
-- Nâng cấp các ý tưởng đã chín muồi thành thư mục xuất bản trong `publications/<slug>/`.
-- Giữ tên tệp xuất bản khớp với slug (`<slug>.tex`, `<slug>.pdf`).
-- Tái tạo PDF xuất bản bằng các lệnh `latexmk` có thể tái lập.
-- Duy trì các README đa ngôn ngữ trong `i18n/` và các trang web tĩnh trong `docs/`.
+- Viết ý tưởng bằng Markdown trong `ideas/`.
+- Nâng cấp các ý tưởng đã trưởng thành thành thư mục xuất bản dưới `publications/<slug>/`.
+- Duy trì tên tệp đầu ra khớp slug (`<slug>.tex`, `<slug>.pdf`).
+- Tái tạo PDF xuất bản bằng các lệnh `latexmk` có thể lặp lại.
+- Duy trì các phiên bản README đa ngôn ngữ trong `i18n/` và các trang tĩnh trong `docs/`.
 
+<a id="quick-links"></a>
 ## Liên kết nhanh
 
 | Mục | Chuyển đến |
 |---|---|
-| Danh mục | [Danh mục theo chủ đề](#danh-mục-theo-chủ-đề) |
-| Lệnh build | [Build](#build) |
-| Quy trình hằng ngày | [Usage](#usage) |
-| Bố cục kho | [Cấu trúc dự án](#cấu-trúc-dự-án) |
-| Chi tiết vận hành | [Configuration](#configuration) |
-| Hướng dẫn đóng góp | [Contribution](#contribution) |
-| Hỗ trợ | [Support / Donate](#support--donate) |
+| 📘 Tổng quan | [Tổng quan](#overview) |
+| 🗂️ Danh mục | [Danh mục theo chủ đề](#catalog-by-category) |
+| 📘 Giới thiệu | [Giới thiệu](#about) |
+| 🧰 Build | [Build](#build) |
+| 🧪 Quy trình hằng ngày | [Sử dụng](#usage) |
+| 🧱 Cấu trúc dự án | [Cấu trúc dự án](#project-structure) |
+| ⚙️ Cấu hình | [Cấu hình](#configuration) |
+| 🧩 Đóng góp | [Đóng góp](#contribution) |
+| ✉️ Liên hệ | [Liên hệ](#contact) |
+| ❤️ Ủng hộ | [Hỗ trợ / Quyên góp](#support) |
 
+<a id="about"></a>
 ## Giới thiệu
 
-IDEAS là một sổ tay nhẹ, có quản lý phiên bản, dành cho ghi chú và tiểu luận nghiên cứu.
-- Ưu tiên nội dung: mỗi ý tưởng là một tệp Markdown trong `ideas/`, và khi đủ chín sẽ được phản chiếu sang LaTeX tại `publications/<slug>/<slug>.tex` cùng PDF đã biên dịch.
-- Quy ước: tên tệp dạng kebab-case; tên tệp xuất bản khớp với slug của thư mục (`<slug>.tex`, `<slug>.pdf`).
-- Hỗ trợ CJK: các ấn phẩm tiếng Trung được biên dịch bằng XeLaTeX.
+IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, gồm các ghi chú và tiểu luận.
+- Ưu tiên nội dung: mỗi ý tưởng là một tệp Markdown trong `ideas/`, sau khi đủ chín sẽ phản chiếu sang LaTeX tại `publications/<slug>/<slug>.tex` cùng PDF đã biên dịch.
+- Quy ước: tên tệp theo dạng kebab-case; tên tệp xuất bản khớp với slug của thư mục (`<slug>.tex`, `<slug>.pdf`).
+- Hỗ trợ CJK: các ấn phẩm tiếng Trung/Nhật biên dịch bằng XeLaTeX.
 - Build tái lập: dùng `latexmk` (xem phần Build) để tái tạo PDF.
 
+<a id="features"></a>
 ## Tính năng
 
-- Pipeline có phiên bản từ ý tưởng đến xuất bản (`ideas/` -> `publications/<slug>/`).
-- Danh mục nghiên cứu theo chủ đề với liên kết trực tiếp tới Markdown/PDF.
+- Pipeline ý tưởng đến xuất bản có phiên bản (`ideas/` -> `publications/<slug>/`).
+- Danh mục nghiên cứu theo chủ đề kèm liên kết Markdown/PDF trực tiếp.
 - Bộ README đa ngôn ngữ gồm 9 ngôn ngữ trong `i18n/`.
 - Nội dung website tĩnh trong `docs/` với manifest sinh tự động trong `docs/assets/`.
-- Thiết lập git hook cục bộ tùy chọn qua `scripts/enable-hooks.sh`.
-- Kho bao gồm các artifact xuất bản (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) khi hữu ích cho tính tái lập.
+- Tùy chọn thiết lập git hook cục bộ qua `scripts/enable-hooks.sh`.
+- Kho có thể chứa artifact xuất bản (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) khi cần cho tái lập.
 
+<a id="catalog-by-category"></a>
 ## Danh mục theo chủ đề
 
 ### Metasurfaces
@@ -245,6 +255,7 @@ IDEAS là một sổ tay nhẹ, có quản lý phiên bản, dành cho ghi chú 
   </tbody>
   </table>
 
+<a id="project-structure"></a>
 ## Cấu trúc dự án
 
 ```text
@@ -261,7 +272,7 @@ IDEAS/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # tệp aux/log LaTeX tùy chọn
+│       └── artifacts/             # tệp phụ trợ LaTeX tùy chọn
 ├── docs/                          # website tĩnh + tài nguyên sinh tự động
 │   ├── index.html
 │   ├── ideas/
@@ -275,13 +286,15 @@ IDEAS/
 └── figs/                          # tài nguyên README và donate
 ```
 
+<a id="prerequisites"></a>
 ## Yêu cầu trước khi chạy
 
 - `latexmk` cùng bản phân phối TeX hoạt động bình thường (TeX Live hoặc tương đương).
-- Hỗ trợ XeLaTeX cho build CJK (ấn phẩm tiếng Trung/Nhật): `xelatex` + font hỗ trợ CJK.
+- Hỗ trợ XeLaTeX cho build CJK (bản in tiếng Trung/Nhật): `xelatex` + font có hỗ trợ CJK.
 - Node.js (khuyến nghị 18+) để sinh tài nguyên website (`scripts/generate_site.mjs`).
 - Git cho quản lý phiên bản và quy trình đóng góp.
 
+<a id="installation"></a>
 ## Cài đặt
 
 ```bash
@@ -295,137 +308,127 @@ Thiết lập hook cục bộ (tùy chọn):
 bash scripts/enable-hooks.sh
 ```
 
+<a id="build"></a>
 ## Build
 
 - English/ASCII PDFs:
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Chinese PDFs (CJK):
+- PDF tiếng Trung (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Build all papers (PDF mode):
+- Build tất cả bài viết (PDF mode):
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- Clean LaTeX artifacts (inside a paper directory):
+- Xóa artifacts trong thư mục bài viết:
   - `latexmk -C`
 
-## Usage
+<a id="usage"></a>
+## Sử dụng
 
-Quy trình làm việc hằng ngày phổ biến:
+Quy trình làm việc hằng ngày:
 
 1. Thêm hoặc cập nhật ghi chú ý tưởng trong `ideas/*.md` (tên tệp kebab-case).
-2. Nâng cấp ghi chú đã chín muồi thành `publications/<slug>/<slug>.tex`.
+2. Chuyển các ý tưởng đã trưởng thành vào `publications/<slug>/<slug>.tex`.
 3. Biên dịch PDF xuất bản bằng chế độ `latexmk` phù hợp.
 4. Nếu xuất bản dữ liệu website, tái tạo tài nguyên tĩnh:
    - `node scripts/generate_site.mjs`
-5. Kiểm tra đầu ra đã render (`.pdf` và tùy chọn các trang trong `docs/`).
+5. Kiểm tra đầu ra đã render (`.pdf` và, nếu có, các trang trong `docs/`).
 
-## Configuration
+<a id="configuration"></a>
+## Cấu hình
 
 - `mkdocs.yml` tồn tại và có thể dùng cho cấu hình tài liệu dựa trên MkDocs.
 - `.github/workflows/pages.yml` hiện điều khiển triển khai GitHub Pages cho `docs/`.
-- `docs/assets/i18n.js` và `docs/assets/i18n/*.json` điều khiển hành vi i18n của website.
+- `docs/assets/i18n.js` và `docs/assets/i18n/*.json` kiểm soát hành vi i18n của website.
 - `CNAME` và `docs/CNAME` chứa thiết lập tên miền tùy chỉnh.
 
-Ghi chú giả định: README này giữ cả tham chiếu MkDocs lẫn pipeline website tĩnh tùy chỉnh vì cả hai đều có trong kho.
+Ghi chú giả định: README này giữ cả tham chiếu MkDocs lẫn pipeline tĩnh vì cả hai đều có trong kho.
 
+<a id="examples"></a>
 ## Ví dụ
 
-Build one English publication:
+Build một bài tiếng Anh:
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-Build one Chinese publication:
+Build một bài tiếng Trung:
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Regenerate docs data/manifests:
+Tái sinh dữ liệu/manifest cho docs:
 
 ```bash
 node scripts/generate_site.mjs
 ```
 
+<a id="development-notes"></a>
 ## Ghi chú phát triển
 
-- Phương trình trong Markdown dùng `$...$` và `$$...$$`.
-- Liên kết ngoài có khoảng trắng được mã hóa percent‑encoding để render ổn định.
-- Ưu tiên chỉnh sửa theo hướng bổ sung và tránh đổi tên tệp hiện có nếu không cần thiết.
-- Nội dung CJK nên dùng XeLaTeX và thiết lập LaTeX an toàn Unicode (ví dụ `ctexart` khi phù hợp).
-- Có thể commit artifact LaTeX trong `publications/<slug>/artifacts/`.
+- Phương trình trong Markdown dùng cú pháp `$...$` và `$$...$$`.
+- Liên kết ngoài có khoảng trắng cần mã hóa percent-encoding để render ổn định.
+- Ưu tiên thay đổi theo hướng cộng dồn và tránh đổi tên tệp hiện có nếu không cần.
+- Nội dung CJK nên dùng XeLaTeX và thiết lập LaTeX Unicode-safe (ví dụ `ctexart` nếu phù hợp).
+- Việc commit artifact LaTeX dưới `publications/<slug>/artifacts/` là chấp nhận được.
 
+<a id="troubleshooting"></a>
 ## Khắc phục sự cố
 
-- `latexmk` command not found:
-  - Cài bản phân phối TeX và đảm bảo `latexmk` có trên `PATH`.
-- CJK glyph/tofu issues in PDFs:
-  - Dùng chế độ XeLaTeX và đảm bảo các font CJK cần thiết đã được cài đặt.
-- Build stops on LaTeX errors:
+- `latexmk` không tìm thấy:
+  - Cài bản phân phối TeX và đảm bảo `latexmk` có trong `PATH`.
+- Lỗi glyph/tofu CJK trong PDF:
+  - Dùng XeLaTeX và đảm bảo các font CJK cần thiết đã được cài.
+- Build dừng do lỗi LaTeX:
   - Kiểm tra `<slug>.log` rồi chạy lại với `-interaction=nonstopmode -halt-on-error`.
-- Website metadata not updating:
-  - Chạy lại `node scripts/generate_site.mjs` và kiểm tra timestamp của `docs/assets/*.json`.
+- Metadata website không cập nhật:
+  - Chạy lại `node scripts/generate_site.mjs` và kiểm tra thời điểm cập nhật của `docs/assets/*.json`.
 
+<a id="roadmap"></a>
 ## Lộ trình
 
-- Giữ danh mục README đồng bộ với các ý tưởng/ấn phẩm mới.
-- Tiếp tục tăng cường mức độ tương đương đa ngôn ngữ giữa các tệp `i18n/README.*.md`.
-- Cải thiện sự nhất quán giữa cấu hình MkDocs và pipeline tĩnh đã triển khai khi quy trình docs phát triển.
-- Thêm các kiểm tra xác thực nhẹ cho tính nhất quán giữa README/liên kết/danh mục.
+- Giữ danh mục README đồng bộ với ý tưởng/ấn phẩm mới.
+- Tiếp tục tăng cường mức độ nhất quán đa ngôn ngữ giữa các `i18n/README.*.md`.
+- Cải thiện sự liên thông giữa cấu hình MkDocs và pipeline tĩnh khi workflow docs tiến hóa.
+- Thêm kiểm tra nhẹ để bảo đảm nhất quán giữa README, liên kết và danh mục.
 
-## Contribution
+<a id="contribution"></a>
+## Đóng góp
 
-- Dùng commit message dạng mệnh lệnh, có phạm vi (ví dụ: `Update README structure and operational docs`).
-- Giữ thay đổi tập trung theo từng chủ đề/bài viết.
-- Xác nhận biên dịch LaTeX và kết quả render trước khi push.
+- Dùng commit message theo lối mệnh lệnh và có phạm vi (ví dụ: `Update README structure and operational docs`).
+- Giữ thay đổi theo từng chủ đề/bài viết.
+- Xác nhận biên dịch LaTeX và đầu ra render trước khi push.
 - Pull request nên bao gồm:
-  - tóm tắt và lý do,
-  - các đường dẫn đã chạm,
+  - bản tóm tắt và lý do,
+  - các đường dẫn đã chỉnh sửa,
   - xác nhận build khi phù hợp.
 
+<a id="notes"></a>
 ## Ghi chú
 
-- Phương trình trong Markdown dùng `$...$` và `$$...$$`.
-- Liên kết ngoài có khoảng trắng được mã hóa percent‑encoding để render ổn định.
+- Phương trình trong Markdown dùng cú pháp `$...$` và `$$...$$`.
+- Liên kết ngoài có khoảng trắng cần mã hóa phần trăm để render ổn định.
 
-## Support / Donate
+<a id="support"></a>
+## Liên hệ
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+Đối với câu hỏi về quy trình repository, cập nhật biên tập hoặc cộng tác:
+- Mở issue trong tracker của repository (nếu đã bật).
+- Tạo một discussion cho các bài review thiết kế hoặc biên tập chi tiết hơn.
+- Về tài trợ và hỗ trợ dự án, xem bảng hỗ trợ ở trên.
 
-## License
+<a id="license"></a>
+## Giấy phép
 
-Hiện chưa có tệp `LICENSE` trong kho này.
+Hiện chưa có tệp `LICENSE` trong repository này.
 
-Ghi chú giả định: cho đến khi có tệp license, các điều khoản tái sử dụng/phân phối lại vẫn chưa được xác định và cần được chủ kho làm rõ.
+Ghi chú giả định: cho đến khi có tệp giấy phép, các điều khoản tái sử dụng/phân phối vẫn chưa được xác định và cần được chủ sở hữu repository làm rõ.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

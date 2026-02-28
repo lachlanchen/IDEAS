@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,48 +11,56 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
-## Overview
+## نظرة عامة
+<a id="overview"></a>
 
-IDEAS هو دفتر ملاحظات خفيف ومُدار بالإصدارات لملاحظات وأفكار بحثية.
+IDEAS هو مفكرة بحثية خفيفة ومرجعية للإصدارات الخاصة بملاحظات ومقالات بحثية.
 
-يتبع هذا المستودع سير عمل يعتمد على المحتوى أولًا:
-- كتابة الأفكار بصيغة Markdown داخل `ideas/`.
-- ترقية الأفكار الناضجة إلى مجلدات نشر داخل `publications/<slug>/`.
-- الحفاظ على تطابق أسماء ملفات النشر مع الـ slug (`<slug>.tex`, `<slug>.pdf`).
-- إعادة توليد ملفات PDF الخاصة بالنشر عبر أوامر `latexmk` قابلة لإعادة الإنتاج.
-- الحفاظ على نسخ README متعددة اللغات داخل `i18n/` وصفحات ويب ثابتة داخل `docs/`.
+يتبع هذا المستودع أسلوب عمل يقوم على أن تكون الفكرة أولًا:
+- تدوين الأفكار بصيغة `Markdown` داخل `ideas/`.
+- ترحيل الأفكار الناضجة إلى مجلدات النشر داخل `publications/<slug>/`.
+- الحفاظ على تطابق أسماء ملفات النشر مع الـ `slug` (`<slug>.tex`, `<slug>.pdf`).
+- إعادة بناء ملفات PDF للنشر باستخدام أوامر `latexmk` القابلة لإعادة التشغيل.
+- الحفاظ على نسخ README متعددة اللغات تحت `i18n/` وصفحات ويب ثابتة تحت `docs/`.
 
-## Quick Links
+## روابط سريعة
+<a id="quick-links"></a>
 
 | القسم | الانتقال |
 |---|---|
-| الفهرس | [Catalog by Category](#catalog-by-category) |
-| أوامر البناء | [Build](#build) |
-| سير العمل اليومي | [Usage](#usage) |
-| بنية المستودع | [Project Structure](#project-structure) |
-| تفاصيل التشغيل | [Configuration](#configuration) |
-| دليل المساهمة | [Contribution](#contribution) |
-| الدعم | [Support / Donate](#support--donate) |
+| 🗂️ الفهرس | [التصنيف حسب الفئة](#catalog-by-category) |
+| 🧰 أوامر البناء | [البناء](#build) |
+| 🧪 سير العمل اليومي | [الاستخدام](#usage) |
+| 🧱 بنية المستودع | [بنية المشروع](#project-structure) |
+| ⚙️ تفاصيل الإعداد | [الإعدادات](#configuration) |
+| 🧩 دليل المساهمة | [المساهمة](#contribution) |
+| ✉️ التواصل | [التواصل](#contact) |
+| ❤️ الدعم | [الدعم/التبرع](#-support) |
 
-## About
+## نبذة
+<a id="about"></a>
 
-IDEAS هو دفتر ملاحظات خفيف ومُدار بالإصدارات لملاحظات وأفكار بحثية.
-- يعتمد على المحتوى أولًا: كل فكرة تكون بصيغة Markdown داخل `ideas/`، وتُعكس (عند نضجها) إلى LaTeX داخل `publications/<slug>/<slug>.tex` مع ملف PDF مُجمّع.
-- الاصطلاحات: أسماء ملفات بنمط kebab-case؛ وأسماء ملفات النشر تطابق slug المجلد (`<slug>.tex`, `<slug>.pdf`).
-- دعم CJK: المنشورات باللغة الصينية تُبنى باستخدام XeLaTeX.
-- بنية قابلة لإعادة الإنتاج: استخدم `latexmk` (راجع قسم Build) لإعادة توليد ملفات PDF.
+IDEAS هو مفكرة بحثية خفيفة ومرجعية للإصدارات لمذكرات وأفكار بحثية.
+- المحتوى أولًا: كل فكرة تبدأ في `ideas/` بصيغة Markdown، ثم تُترجم عند نضجها إلى LaTeX داخل `publications/<slug>/<slug>.tex` مع ملف PDF مُترجم.
+- المعايير: أسماء الملفات بصيغة kebab-case؛ وتطابق ملفات النشر اسم المجلد (`<slug>.tex`, `<slug>.pdf`).
+- دعم CJK: تُبنى منشورات اللغات الصينية باستخدام XeLaTeX.
+- بناء قابل لإعادة الإنتاج: استخدم `latexmk` (انظر قسم البناء) لإعادة توليد ملفات PDF.
 
-## Features
+## المزايا
+<a id="features"></a>
 
-- خط أنابيب مُدار بالإصدارات من الفكرة إلى النشر (`ideas/` -> `publications/<slug>/`).
-- فهرس بحثي منظّم حسب الفئة مع روابط مباشرة إلى Markdown/PDF.
-- مجموعة README متعددة اللغات بـ 9 لغات داخل `i18n/`.
-- محتوى موقع ثابت داخل `docs/` مع ملفات manifests مولّدة داخل `docs/assets/`.
-- إعداد اختياري لخطافات git محليًا عبر `scripts/enable-hooks.sh`.
-- يتضمن المستودع ملفات artifacts للنشر (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) عند الحاجة لضمان قابلية إعادة الإنتاج.
+- سير عمل للأفكار إلى النشر مع تتبع الإصدارات (`ideas/` -> `publications/<slug>/`).
+- دليل أبحاث منظم حسب الفئة مع روابط مباشرة إلى Markdown وPDF.
+- مجموعة README متعددة اللغات (9 لغات) داخل `i18n/`.
+- محتوى الموقع الثابت في `docs/` مع ملفات manifest مخلقة في `docs/assets/`.
+- إعداد اختياري لخطافات Git المحلية عبر `scripts/enable-hooks.sh`.
+- يتضمن المستودع ملفات artifacts للنشر (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) عند الحاجة لدعم القابلية لإعادة الإنتاج.
 
-## Catalog by Category
+<a id="catalog-by-category"></a>
+## التصنيف حسب الفئة
 
 ### Metasurfaces
 
@@ -245,7 +251,8 @@ IDEAS هو دفتر ملاحظات خفيف ومُدار بالإصدارات ل
   </tbody>
   </table>
 
-## Project Structure
+<a id="project-structure"></a>
+## هيكل المشروع
 
 ```text
 IDEAS/
@@ -256,13 +263,13 @@ IDEAS/
 ├── scripts/
 │   ├── generate_site.mjs
 │   └── enable-hooks.sh
-├── ideas/                         # ملاحظات أفكار بصيغة Markdown
+├── ideas/                         # ملاحظات الأفكار
 ├── publications/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # ملفات LaTeX المساعدة/السجل (اختياري)
-├── docs/                          # موقع ثابت + ملفات مولدة
+│       └── artifacts/             # ملفات LaTeX المساعدة/السجلات (اختياري)
+├── docs/                          # موقع ثابت + الأصول المولدة
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -272,30 +279,33 @@ IDEAS/
 │       ├── categories.json
 │       └── i18n/
 ├── i18n/                          # نسخ README متعددة اللغات
-└── figs/                          # أصول README وأصول التبرع
+└── figs/                          # أصول README والتبرع
 ```
 
-## Prerequisites
+<a id="prerequisites"></a>
+## المتطلبات السابقة
 
-- `latexmk` مع توزيعة TeX تعمل (TeX Live أو ما يعادلها).
-- دعم XeLaTeX لبناءات CJK (للمنشورات الصينية/اليابانية): `xelatex` + خطوط تدعم CJK.
-- Node.js (يوصى بالإصدار 18+) لتوليد أصول الموقع (`scripts/generate_site.mjs`).
-- Git لإدارة الإصدارات وسير عمل المساهمة.
+- `latexmk` مع توزيع TeX صالح (TeX Live أو ما يعادل).
+- دعم XeLaTeX لبناءات CJK (للمنشورات الصينية/اليابانية): `xelatex` + خطوط داعمة لـ CJK.
+- Node.js (موصى به 18+) لتوليد أصول الموقع (`scripts/generate_site.mjs`).
+- Git لإدارة الإصدارات وسير مساهمات المشروع.
 
-## Installation
+<a id="installation"></a>
+## التثبيت
 
 ```bash
 git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-إعداد اختياري للـ hooks المحلية:
+إعداد hooks محلي اختياري:
 
 ```bash
 bash scripts/enable-hooks.sh
 ```
 
-## Build
+<a id="build"></a>
+## البناء
 
 - ملفات PDF الإنجليزية/ASCII:
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
@@ -306,27 +316,30 @@ bash scripts/enable-hooks.sh
 - تنظيف ملفات LaTeX المؤقتة (داخل مجلد الورقة):
   - `latexmk -C`
 
-## Usage
+<a id="usage"></a>
+## الاستخدام
 
-سير العمل اليومي المعتاد:
+تدفق العمل اليومي الشائع:
 
 1. أضف أو حدّث ملاحظات الأفكار في `ideas/*.md` (اسم ملف بصيغة kebab-case).
-2. رقِّ الملاحظات الناضجة إلى `publications/<slug>/<slug>.tex`.
-3. جمّع ملف PDF الخاص بالنشر باستخدام وضع `latexmk` المناسب.
-4. عند نشر بيانات الموقع، أعد توليد الأصول الثابتة:
+2. ترقيـة الملاحظات الناضجة إلى `publications/<slug>/<slug>.tex`.
+3. أعد تجميع PDF النشر باستخدام وضع `latexmk` المناسب.
+4. إذا كنت تنشر بيانات الموقع، أعد توليد الأصول الثابتة:
    - `node scripts/generate_site.mjs`
-5. تحقّق من المخرجات المعروضة (`.pdf` واختياريًا صفحات `docs/`).
+5. تحقق من المخرجات المعروضة (`.pdf` وصفحات `docs/` إن رغبت).
 
-## Configuration
+<a id="configuration"></a>
+## الإعدادات
 
-- يوجد `mkdocs.yml` ويمكن استخدامه لإعداد توثيق مبني على MkDocs.
-- الملف `.github/workflows/pages.yml` يدير حاليًا نشر GitHub Pages لمجلد `docs/`.
-- الملف `docs/assets/i18n.js` والملفات `docs/assets/i18n/*.json` تتحكم في سلوك تعدد اللغات بالموقع.
-- الملفان `CNAME` و `docs/CNAME` يحتويان إعدادات النطاق المخصص.
+- يوجد `mkdocs.yml` ويُستخدم لإعداد توثيق قائم على MkDocs.
+- الملف `.github/workflows/pages.yml` يدير حالياً نشر GitHub Pages لمجلد `docs/`.
+- يتحكم `docs/assets/i18n.js` و `docs/assets/i18n/*.json` في سلوك تعدد اللغات في الموقع.
+- يحمل كل من `CNAME` و`docs/CNAME` إعدادات النطاق المخصص.
 
-ملاحظة افتراضية: يحافظ هذا README على الإشارة إلى كل من MkDocs وخط أنابيب الموقع الثابت المخصص لأن كليهما موجود في المستودع.
+ملاحظة افتراضية: هذا README يحافظ على مراجع MkDocs وخط أنابيب الموقع الثابت معًا لأن كليهما موجود حاليًا في المستودع.
 
-## Examples
+<a id="examples"></a>
+## أمثلة
 
 بناء منشور إنجليزي واحد:
 
@@ -342,90 +355,74 @@ cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-إعادة توليد بيانات/manifest الموقع:
+إعادة إنشاء بيانات/ملفات الإشهار للموقع:
 
 ```bash
 node scripts/generate_site.mjs
 ```
 
-## Development Notes
+<a id="development-notes"></a>
+## ملاحظات التطوير
 
-- المعادلات في Markdown تستخدم `$...$` و `$$...$$`.
-- الروابط الخارجية التي تحتوي مسافات تُشفّر بنسبة مئوية لضمان عرض موثوق.
-- فضّل التعديلات الإضافية وتجنّب إعادة تسمية الملفات الموجودة إلا عند الضرورة.
-- محتوى CJK يجب أن يستخدم XeLaTeX وإعداد LaTeX آمنًا مع Unicode (مثل `ctexart` عند الاقتضاء).
-- من المقبول حفظ ملفات LaTeX artifacts داخل `publications/<slug>/artifacts/`.
+- المعادلات في Markdown تُكتب بصيغة `$...$` و `$$...$$`.
+- تُشفَّر المسافات في الروابط الخارجية بنسق URL-encoding لعرض أكثر استقرارًا.
+- يفضّل إجراء تعديلات إضافية وتجنب إعادة تسمية الملفات الموجودة إلا عند الضرورة.
+- يجب أن يستخدم محتوى CJK XeLaTeX وإعداد LaTeX آمنًا مع Unicode (مثال `ctexart` حيث يلزم).
+- مقبول حفظ ملفات LaTeX artifacts ضمن `publications/<slug>/artifacts/`.
 
-## Troubleshooting
+<a id="troubleshooting"></a>
+## استكشاف الأخطاء وإصلاحها
 
-- تعذّر العثور على أمر `latexmk`:
-  - ثبّت توزيعة TeX وتأكد أن `latexmk` موجود في `PATH`.
-- مشاكل محارف CJK/ظهور مربعات (tofu) في ملفات PDF:
+- عدم وجود أمر `latexmk`:
+  - ثبّت توزيع TeX وتأكد من وجود `latexmk` ضمن `PATH`.
+- مشاكل محارف CJK/ظهور “tofu” في ملفات PDF:
   - استخدم وضع XeLaTeX وتأكد من تثبيت خطوط CJK المطلوبة.
 - توقف البناء بسبب أخطاء LaTeX:
-  - راجع `<slug>.log` وأعد التشغيل مع `-interaction=nonstopmode -halt-on-error`.
-- عدم تحديث بيانات الموقع:
-  - أعد تشغيل `node scripts/generate_site.mjs` وتحقق من الطوابع الزمنية لملفات `docs/assets/*.json`.
+  - افحص `<slug>.log` ثم أعد التشغيل باستخدام `-interaction=nonstopmode -halt-on-error`.
+- بيانات الموقع لا تُحدث:
+  - أعد تشغيل `node scripts/generate_site.mjs` وتأكد من طوابع `docs/assets/*.json`.
 
-## Roadmap
+<a id="roadmap"></a>
+## خارطة الطريق
 
-- إبقاء فهرس README متزامنًا مع الأفكار/المنشورات الجديدة.
-- الاستمرار في تعزيز تكافؤ المحتوى بين جميع ملفات `i18n/README.*.md`.
-- تحسين المواءمة بين إعداد MkDocs وخط الأنابيب الثابت المنشور مع تطور سير عمل التوثيق.
-- إضافة فحوصات تحقق خفيفة لتناسق README والروابط والفهرس.
+- إبقاء كتالوج README متزامنًا مع الأفكار والمنشورات الجديدة.
+- تعزيز التكافؤ متعدد اللغات في ملفات `i18n/README.*.md` بشكل مستمر.
+- تحسين التوافق بين إعداد MkDocs وخط أنابيب الموقع الثابت مع تطور سير العمل.
+- إضافة تحقق خفيف لضمان اتساق README والروابط والفهرسة.
 
-## Contribution
+<a id="contribution"></a>
+## المساهمة
 
-- استخدم رسائل commit بصيغة الأمر ومحددة النطاق (مثال: `Update README structure and operational docs`).
-- اجعل التعديلات مركزة حسب الموضوع/الورقة.
-- تحقق من تجميع LaTeX ومن الإخراج النهائي قبل الدفع.
-- يجب أن تتضمن طلبات السحب:
-  - ملخصًا وسبب التغيير،
-  - المسارات التي تم تعديلها،
-  - تأكيد البناء عند الحاجة.
+- استخدم رسائل commit بصيغة الأمر وتحديد النطاق (مثل: `Update README structure and operational docs`).
+- أبقِ التغييرات مركزة بحسب الموضوع/الورقة.
+- تحقق من نجاح تجميع LaTeX والمخرجات المعروضة قبل الدفع.
+- يجب أن تتضمن طلبات السحب (Pull Requests):
+  - ملخصًا وتبريرًا.
+  - المسارات المتأثرة.
+  - تأكيد البناء إن كان ذا صلة.
 
-## Notes
+## الملاحظات
 
-- المعادلات في Markdown تستخدم `$...$` و `$$...$$`.
-- الروابط الخارجية التي تحتوي مسافات تُشفّر بنسبة مئوية لضمان عرض موثوق.
+- المعادلات في Markdown تُكتب بصيغة `$...$` و `$$...$$`.
+- تُشفّر المسافات في الروابط الخارجية بنسق URL-encoding لعرض أكثر موثوقية.
 
-## Support / Donate
+## التواصل
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+للاستفسارات المتعلقة بسير عمل المستودع أو تحديثات التحرير أو التعاون:
+- افتح issue في متتبع مشكلات المستودع (إذا كان مفعّلًا).
+- ابدأ نقاشًا في حال كانت المراجعات مطولة (تصميم/تحرير).
+- لخيارات الرعاية ودعم المشروع، راجع لوحة الدعم أعلاه.
 
-## License
+<a id="license"></a>
+## الرخصة
 
 لا يوجد ملف `LICENSE` حاليًا في هذا المستودع.
 
-ملاحظة افتراضية: إلى أن تتم إضافة ملف ترخيص، تبقى شروط إعادة الاستخدام/إعادة التوزيع غير محددة ويجب توضيحها من قبل مالك المستودع.
+ملاحظة افتراضية: حتى تُضاف رخصة، تبقى شروط الإعادة/إعادة الاستخدام غير محددة ويجب توضيحها من قبل مالك المستودع.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

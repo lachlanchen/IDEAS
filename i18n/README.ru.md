@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,46 +11,49 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
 ## Обзор
 
-IDEAS — это легковесный версионируемый блокнот исследовательских заметок и эссе.
+IDEAS — это лёгкий, версионируемый блокнот исследовательских заметок и эссе.
 
-Этот репозиторий следует подходу content-first:
-- Пишите идеи в Markdown в `ideas/`.
-- Переносите зрелые идеи в папки публикаций в `publications/<slug>/`.
-- Сохраняйте соответствие имён файлов публикаций slug-у (`<slug>.tex`, `<slug>.pdf`).
-- Пересобирайте PDF публикаций воспроизводимыми командами `latexmk`.
-- Поддерживайте многоязычные варианты README в `i18n/` и статические веб-страницы в `docs/`.
+Этот репозиторий использует подход content-first:
+- Формируйте идеи в Markdown в каталоге `ideas/`.
+- Переносите зрелые идеи в папки публикаций `publications/<slug>/`.
+- Соблюдайте соответствие имён файлов публикаций slug-у (`<slug>.tex`, `<slug>.pdf`).
+- Пересобирайте PDF-публикации с помощью воспроизводимых команд `latexmk`.
+- Поддерживайте многоязычные версии README в `i18n/` и статические страницы в `docs/`.
 
 ## Быстрые ссылки
 
 | Раздел | Переход |
 |---|---|
-| Каталог | [Каталог по категориям](#каталог-по-категориям) |
-| Команды сборки | [Сборка](#сборка) |
-| Ежедневный рабочий процесс | [Использование](#использование) |
-| Структура репозитория | [Структура проекта](#структура-проекта) |
-| Операционные детали | [Конфигурация](#конфигурация) |
-| Руководство по вкладу | [Участие](#участие) |
-| Поддержка | [Поддержка / Донат](#поддержка--донат) |
+| 🗂️ Каталог | [Каталог по категориям](#каталог-по-категориям) |
+| 🧰 Команды сборки | [Сборка](#сборка) |
+| 🧪 Ежедневный рабочий процесс | [Использование](#использование) |
+| 🧱 Структура репозитория | [Структура проекта](#структура-проекта) |
+| ⚙️ Операционные детали | [Конфигурация](#конфигурация) |
+| 🧩 Руководство по участию | [Участие](#участие) |
+| ✉️ Контакты | [Контакт](#контакт) |
+| ❤️ Поддержка | [Поддержка / Donate](#-support) |
 
 ## О проекте
 
-IDEAS — это легковесный версионируемый блокнот исследовательских заметок и эссе.
-- Content-first: каждая идея хранится в Markdown в `ideas/`, а при зрелости переносится в LaTeX в `publications/<slug>/<slug>.tex` с собранным PDF.
-- Соглашения: имена файлов в kebab-case; имена файлов публикации соответствуют slug папки (`<slug>.tex`, `<slug>.pdf`).
-- Поддержка CJK: публикации на китайском языке компилируются через XeLaTeX.
-- Воспроизводимые сборки: используйте `latexmk` (см. раздел Build) для пересоздания PDF.
+IDEAS — это лёгкий, версионируемый блокнот исследовательских заметок и эссе.
+- Content-first: каждая идея пишется в `ideas/` в Markdown и при достижении зрелости дублируется в LaTeX как `publications/<slug>/<slug>.tex` с собранным PDF.
+- Принципы: имена файлов в kebab-case; имена публикаций соответствуют slug каталога (`<slug>.tex`, `<slug>.pdf`).
+- Поддержка CJK: публикации на китайском языке компилируются с XeLaTeX.
+- Воспроизводимые сборки: используйте `latexmk` (см. раздел Build) для пересборки PDF.
 
 ## Возможности
 
-- Версионируемый конвейер от идеи к публикации (`ideas/` -> `publications/<slug>/`).
-- Исследовательский каталог, организованный по категориям, с прямыми ссылками на Markdown/PDF.
-- Набор многоязычных README на 9 языках в `i18n/`.
-- Контент статического сайта в `docs/` с сгенерированными манифестами в `docs/assets/`.
+- Версионируемый конвейер «идея → публикация» (`ideas/` -> `publications/<slug>/`).
+- Каталог исследований по категориям с прямыми ссылками на Markdown/PDF.
+- Набор README на 9 языках в каталоге `i18n/`.
+- Контент статического сайта в `docs/` и сгенерированные манифесты в `docs/assets/`.
 - Опциональная локальная настройка git hooks через `scripts/enable-hooks.sh`.
-- Репозиторий включает артефакты публикаций (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) там, где это полезно для воспроизводимости.
+- Репозиторий хранит публикационные артефакты (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) там, где это полезно для воспроизводимости.
 
 ## Каталог по категориям
 
@@ -261,8 +262,8 @@ IDEAS/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # необязательные LaTeX aux/log файлы
-├── docs/                          # статический сайт + сгенерированные ассеты
+│       └── artifacts/             # optional LaTeX aux/log файлы
+├── docs/                          # статический сайт + сгенерированные ресурсы
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -271,16 +272,16 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # многоязычные варианты README
+├── i18n/                          # многоязычные версии README
 └── figs/                          # ассеты README и донатов
 ```
 
 ## Требования
 
 - `latexmk` с рабочим TeX-дистрибутивом (TeX Live или эквивалент).
-- Поддержка XeLaTeX для CJK-сборок (для китайских/японских публикаций): `xelatex` + CJK-совместимые шрифты.
+- Поддержка XeLaTeX для сборок с CJK (для китайских публикаций): `xelatex` + CJK-совместимые шрифты.
 - Node.js (рекомендуется 18+) для генерации ассетов сайта (`scripts/generate_site.mjs`).
-- Git для версионирования и процесса вклада.
+- Git для версионирования и процесса внесения изменений.
 
 ## Установка
 
@@ -289,7 +290,7 @@ git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-Опциональная настройка локальных hooks:
+Опциональная настройка локальных хуков:
 
 ```bash
 bash scripts/enable-hooks.sh
@@ -301,30 +302,30 @@ bash scripts/enable-hooks.sh
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
 - Китайские PDF (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Собрать все статьи (режим PDF):
+- Собрать все публикации (режим PDF):
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- Очистить LaTeX-артефакты (внутри директории статьи):
+- Очистить LaTeX-артефакты (в каталоге конкретной публикации):
   - `latexmk -C`
 
 ## Использование
 
 Типовой ежедневный поток:
 
-1. Добавляйте или обновляйте заметки-идеи в `ideas/*.md` (имя файла в kebab-case).
+1. Добавьте или обновите заметки идей в `ideas/*.md` (имена файлов в kebab-case).
 2. Переносите зрелые заметки в `publications/<slug>/<slug>.tex`.
-3. Компилируйте PDF публикации с подходящим режимом `latexmk`.
-4. Если публикуете данные сайта, пересоздайте статические ассеты:
+3. Соберите PDF публикации подходящим режимом `latexmk`.
+4. Если обновляете веб-данные сайта, пересоберите статические ассеты:
    - `node scripts/generate_site.mjs`
-5. Проверьте результаты рендеринга (`.pdf` и при необходимости страницы `docs/`).
+5. Проверьте отрендеренные результаты (`.pdf` и, при необходимости, страницы `docs/`).
 
 ## Конфигурация
 
-- `mkdocs.yml` присутствует и может использоваться для настройки документации на базе MkDocs.
+- Файл `mkdocs.yml` есть и может использоваться для настройки документации на основе MkDocs.
 - `.github/workflows/pages.yml` сейчас управляет деплоем GitHub Pages для `docs/`.
-- `docs/assets/i18n.js` и `docs/assets/i18n/*.json` управляют i18n-поведением сайта.
+- `docs/assets/i18n.js` и `docs/assets/i18n/*.json` управляют поведением i18n сайта.
 - `CNAME` и `docs/CNAME` содержат настройки пользовательского домена.
 
-Примечание о допущении: этот README сохраняет ссылки и на MkDocs, и на кастомный пайплайн статического сайта, поскольку в репозитории присутствуют оба.
+Примечание: этот README сохраняет ссылки и на MkDocs, и на настраиваемый конвейер статического сайта, так как оба присутствуют в репозитории.
 
 ## Примеры
 
@@ -342,7 +343,7 @@ cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Пересоздать данные/манифесты docs:
+Перегенерировать данные/манифесты сайта:
 
 ```bash
 node scripts/generate_site.mjs
@@ -350,82 +351,61 @@ node scripts/generate_site.mjs
 
 ## Заметки по разработке
 
-- Уравнения в Markdown используют `$...$` и `$$...$$`.
-- Внешние ссылки с пробелами кодируются через percent-encoding для надежного рендеринга.
-- Предпочитайте аддитивные правки и избегайте переименования существующих файлов без необходимости.
-- Для CJK-контента используйте XeLaTeX и Unicode-safe настройку LaTeX (например, `ctexart`, где применимо).
-- Допустимо коммитить LaTeX-артефакты в `publications/<slug>/artifacts/`.
+- Уравнения в Markdown пишутся с помощью `$...$` и `$$...$$`.
+- Внешние ссылки с пробелами кодируются через percent-encoding для надёжного рендеринга.
+- Отдавайте приоритет инкрементальным правкам и избегайте переименования существующих файлов без необходимости.
+- Для CJK-контента используйте XeLaTeX и Unicode-safe конфигурацию LaTeX (например, `ctexart`, где применимо).
+- Допускается коммитить артефакты LaTeX в `publications/<slug>/artifacts/`.
 
 ## Устранение неполадок
 
 - Команда `latexmk` не найдена:
-  - Установите TeX-дистрибутив и убедитесь, что `latexmk` находится в `PATH`.
-- Проблемы с CJK-глифами/tofu в PDF:
+  - Установите TeX-дистрибутив и убедитесь, что `latexmk` доступна в `PATH`.
+- Проблемы с глифами/tofu в PDF для CJK:
   - Используйте режим XeLaTeX и убедитесь, что установлены необходимые CJK-шрифты.
 - Сборка останавливается на ошибках LaTeX:
-  - Проверьте `<slug>.log` и перезапустите с `-interaction=nonstopmode -halt-on-error`.
+  - Посмотрите `<slug>.log` и повторите команду с `-interaction=nonstopmode -halt-on-error`.
 - Метаданные сайта не обновляются:
-  - Повторно запустите `node scripts/generate_site.mjs` и проверьте таймстемпы `docs/assets/*.json`.
+  - Перезапустите `node scripts/generate_site.mjs` и проверьте временные метки файлов `docs/assets/*.json`.
 
 ## Дорожная карта
 
-- Поддерживать синхронизацию каталога README с новыми идеями/публикациями.
-- Продолжать усиливать многоязычный паритет между файлами `i18n/README.*.md`.
-- Улучшать согласованность между конфигом MkDocs и развёрнутым статическим пайплайном по мере развития workflow документации.
-- Добавить легковесные проверки согласованности README/ссылок/каталога.
+- Поддерживать каталог README в актуальном состоянии по мере появления новых идей/публикаций.
+- Продолжать выравнивать мультиязычную полноту между файлами `i18n/README.*.md`.
+- Улучшать согласованность между конфигурацией MkDocs и развернутым статическим конвейером по мере развития workflow документации.
+- Добавить лёгкие проверки корректности README/ссылок/каталога.
 
 ## Участие
 
-- Используйте императивные, scoped-сообщения коммитов (пример: `Update README structure and operational docs`).
-- Сохраняйте изменения сфокусированными по теме/статье.
-- Проверяйте компиляцию LaTeX и результат рендеринга перед push.
+- Используйте повелительные, предметные сообщения коммитов (например: `Update README structure and operational docs`).
+- Держите изменения сфокусированными по теме или статье.
+- Проверяйте сборку LaTeX и результат рендеринга перед push.
 - Pull request должен включать:
-  - summary и rationale,
+  - краткое резюме и обоснование,
   - затронутые пути,
-  - подтверждение сборки, если применимо.
+  - подтверждение сборки, если это уместно.
 
 ## Примечания
 
-- Уравнения в Markdown используют `$...$` и `$$...$$`.
-- Внешние ссылки с пробелами кодируются через percent-encoding для надежного рендеринга.
+- Уравнения в Markdown пишутся с помощью `$...$` и `$$...$$`.
+- Внешние ссылки с пробелами кодируются через percent-encoding для надёжного рендеринга.
 
-## Поддержка / Донат
+## Контакт
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+По вопросам рабочего процесса репозитория, редакторских обновлений или сотрудничества:
+- Откройте issue в трекере репозитория (если он включён).
+- Начните discussion для более детального дизайна или редакторской проверки.
+- Для вариантов спонсорской поддержки см. панель поддержки выше.
 
 ## Лицензия
 
-В этом репозитории сейчас отсутствует файл `LICENSE`.
+В этом репозитории пока отсутствует файл `LICENSE`.
 
-Примечание о допущении: до добавления файла лицензии условия повторного использования/распространения не определены и должны быть уточнены у владельца репозитория.
+Примечание: пока файл лицензии не добавлен, условия использования и распространения остаются неуточнёнными и должны быть согласованы владельцем репозитория.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

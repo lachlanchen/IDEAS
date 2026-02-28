@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,47 +11,51 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
+
+---
 
 ## 概览
 
-IDEAS 是一个轻量、可版本化的研究笔记与论文随笔仓库。
+IDEAS 是一个轻量级、可版本化的研究笔记与论文随笔仓库。
 
-本仓库采用内容优先（content-first）工作流：
-- 在 `ideas/` 下以 Markdown 撰写想法。
-- 将成熟内容提升到 `publications/<slug>/` 下的出版目录。
-- 保持出版文件名与 slug 一致（`<slug>.tex`、`<slug>.pdf`）。
-- 通过可复现的 `latexmk` 命令重新生成 PDF。
-- 在 `i18n/` 维护多语言 README，并在 `docs/` 维护静态网页。
+本仓库遵循内容优先工作流：
+- 在 `ideas/` 下用 Markdown 撰写想法。
+- 将成熟想法提升为 `publications/<slug>/` 下的出版内容。
+- 保持出版文件名与目录 slug 一致（`<slug>.tex`、`<slug>.pdf`）。
+- 使用可复现的 `latexmk` 命令重新生成 PDF。
+- 在 `i18n/` 下维护多语言 README，并在 `docs/` 下维护静态页面。
 
-<a id="quick-links"></a>
 ## 快速链接
 
 | 区块 | 跳转 |
 |---|---|
-| 目录 | [按类别目录](#catalog-by-category) |
-| 构建命令 | [构建](#build) |
-| 日常流程 | [使用](#usage) |
-| 仓库结构 | [项目结构](#project-structure) |
-| 运维细节 | [配置](#configuration) |
-| 贡献指南 | [贡献](#contribution) |
-| 支持 | [支持 / 捐赠](#support--donate) |
+| 🗂️ 目录 | [按类别目录](#catalog-by-category) |
+| 🧰 构建命令 | [构建](#build) |
+| 🧪 日常流程 | [使用](#usage) |
+| 🧱 仓库结构 | [项目结构](#project-structure) |
+| ⚙️ 运维细节 | [配置](#configuration) |
+| 🧩 贡献指南 | [贡献](#contribution) |
+| ✉️ 联系 | [联系方式](#contact) |
+| ❤️ 支持 | [支持 / 捐赠](#-support) |
 
 ## 关于
 
-IDEAS 是一个轻量、可版本化的研究笔记与论文随笔仓库。
-- 内容优先：每个想法都以 `ideas/` 中的 Markdown 管理；成熟后同步到 `publications/<slug>/<slug>.tex` 并编译 PDF。
+IDEAS 是一个轻量级、可版本化的研究笔记与论文随笔仓库。
+- 内容优先：每个想法都以 `ideas/` 中的 Markdown 存放；成熟后镜像到 `publications/<slug>/<slug>.tex` 并编译为 PDF。
 - 约定：文件名使用 kebab-case；出版文件名与目录 slug 保持一致（`<slug>.tex`、`<slug>.pdf`）。
 - CJK 支持：中文出版内容使用 XeLaTeX 编译。
-- 可复现构建：使用 `latexmk`（见 Build 章节）重建 PDF。
+- 可复现构建：使用 `latexmk`（见构建章节）重建 PDF。
 
 ## 特性
 
 - 版本化的 idea-to-publication 流程（`ideas/` -> `publications/<slug>/`）。
-- 按类别组织的研究目录，并提供 Markdown/PDF 直链。
-- 在 `i18n/` 下提供 9 种语言的 README。
-- 在 `docs/` 下维护静态站点内容，并在 `docs/assets/` 下生成清单文件。
-- 支持通过 `scripts/enable-hooks.sh` 可选启用本地 git hook。
-- 在有助于复现的场景下，仓库可包含出版构建产物（`.aux`、`.log`、`.fls`、`.fdb_latexmk`、`.out`）。
+- 按类别组织的研究目录，并提供 Markdown/PDF 直达链接。
+- 在 `i18n/` 下维护 9 种语言的 README。
+- 在 `docs/` 下维护静态站点内容，并在 `docs/assets/` 生成清单文件。
+- 通过 `scripts/enable-hooks.sh` 可选配置本地 Git hook。
+- 仓库在有助于可复现性时保留 LaTeX 构建产物（`.aux`、`.log`、`.fls`、`.fdb_latexmk`、`.out`）。
 
 <a id="catalog-by-category"></a>
 ## 按类别目录
@@ -264,8 +266,8 @@ IDEAS/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # optional LaTeX aux/log files
-├── docs/                          # static website + generated assets
+│       └── artifacts/             # 可选的 LaTeX 中间文件
+├── docs/                          # 静态网站与生成资源
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -274,16 +276,16 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # multilingual README variants
-└── figs/                          # README and donation assets
+├── i18n/                          # 多语言 README 变体
+└── figs/                          # README 与捐赠素材
 ```
 
 ## 先决条件
 
-- `latexmk`，以及可用的 TeX 发行版（TeX Live 或同类方案）。
-- CJK 构建所需 XeLaTeX 支持（用于中文/日文出版）：`xelatex` + 支持 CJK 的字体。
-- 用于站点资源生成的 Node.js（建议 18+，对应 `scripts/generate_site.mjs`）。
-- 用于版本管理与协作流程的 Git。
+- `latexmk` 与可用的 TeX 发行版（TeX Live 或等价）。
+- 中文论文的 XeLaTeX 支持（中文/日文出版）：`xelatex` + 支持 CJK 的字体。
+- Node.js（建议 18+）用于站点资源生成（`scripts/generate_site.mjs`）。
+- 用于版本管理和协作流程的 Git。
 
 ## 安装
 
@@ -292,7 +294,7 @@ git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-可选：启用本地 hook：
+可选本地 hook 设置：
 
 ```bash
 bash scripts/enable-hooks.sh
@@ -305,43 +307,43 @@ bash scripts/enable-hooks.sh
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
 - 中文 PDF（CJK）：
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- 构建全部论文（PDF 模式）：
+- 一次性构建全部论文（PDF 模式）：
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- 清理 LaTeX 构建产物（在论文目录内）：
+- 清理 LaTeX 构建产物（论文目录内）：
   - `latexmk -C`
 
 <a id="usage"></a>
 ## 使用
 
-日常工作流：
+常见日常流程：
 
 1. 在 `ideas/*.md` 中新增或更新想法笔记（kebab-case 文件名）。
-2. 将成熟笔记提升到 `publications/<slug>/<slug>.tex`。
-3. 使用对应的 `latexmk` 模式编译出版 PDF。
-4. 如需发布网站数据，重新生成静态资源：
+2. 将成熟笔记升级为 `publications/<slug>/<slug>.tex`。
+3. 使用合适的 `latexmk` 模式编译出版 PDF。
+4. 如发布网站数据，重新生成静态资源：
    - `node scripts/generate_site.mjs`
-5. 校验渲染结果（`.pdf`，以及可选的 `docs/` 页面）。
+5. 校验渲染结果（`.pdf` 与可选的 `docs/` 页面）。
 
 <a id="configuration"></a>
 ## 配置
 
-- 存在 `mkdocs.yml`，可用于基于 MkDocs 的文档配置。
-- `.github/workflows/pages.yml` 当前用于 `docs/` 的 GitHub Pages 部署。
+- `mkdocs.yml` 存在，可用于基于 MkDocs 的文档配置。
+- `.github/workflows/pages.yml` 当前用于为 `docs/` 进行 GitHub Pages 部署。
 - `docs/assets/i18n.js` 与 `docs/assets/i18n/*.json` 控制网站 i18n 行为。
-- `CNAME` 与 `docs/CNAME` 保存自定义域名设置。
+- `CNAME` 与 `docs/CNAME` 存放自定义域名设置。
 
-假设说明：本 README 同时保留 MkDocs 与自定义静态站点流水线的描述，因为两者都在仓库中存在。
+假设说明：本 README 同时保留 MkDocs 与自定义静态站点流水线说明，因为仓库中两套都在使用或保留。
 
 ## 示例
 
-构建一篇英文出版内容：
+构建一篇英文论文：
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-构建一篇中文出版内容：
+构建一篇中文论文：
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
@@ -357,83 +359,61 @@ node scripts/generate_site.mjs
 ## 开发说明
 
 - Markdown 中公式使用 `$...$` 与 `$$...$$`。
-- 带空格的外部链接使用百分号编码，以保证渲染稳定。
+- 带空格的外部链接请使用百分号编码，以提升渲染可靠性。
 - 优先采用增量修改；除非必要，避免重命名现有文件。
-- CJK 内容应使用 XeLaTeX 与 Unicode 安全的 LaTeX 配置（例如适用时使用 `ctexart`）。
-- 允许在 `publications/<slug>/artifacts/` 下提交 LaTeX 构建产物。
+- CJK 内容应使用 XeLaTeX 并采用 Unicode-safe 的 LaTeX 配置（例如必要时使用 `ctexart`）。
+- 可以在 `publications/<slug>/artifacts/` 下提交 LaTeX 构建产物。
 
 ## 故障排查
 
-- `latexmk` command not found：
-  - 安装 TeX 发行版，并确认 `latexmk` 在 `PATH` 中。
-- PDF 出现 CJK 字形/豆腐块问题：
+- `latexmk` 命令未找到：
+  - 安装 TeX 发行版并确认 `latexmk` 在 `PATH` 中。
+- PDF 中出现 CJK 字形/豆腐块问题：
   - 使用 XeLaTeX 模式，并确保已安装所需 CJK 字体。
 - LaTeX 错误导致构建中断：
   - 检查 `<slug>.log`，并使用 `-interaction=nonstopmode -halt-on-error` 重试。
 - 网站元数据未更新：
-  - 重新执行 `node scripts/generate_site.mjs`，并检查 `docs/assets/*.json` 时间戳。
+  - 重新执行 `node scripts/generate_site.mjs` 并检查 `docs/assets/*.json` 时间戳。
 
 ## 路线图
 
-- 让 README 目录与新增 ideas/publications 保持同步。
-- 继续增强 `i18n/README.*.md` 的多语言一致性。
-- 随 docs 工作流演进，持续改进 MkDocs 配置与已部署静态流水线的一致性。
-- 增加轻量校验，检查 README/链接/目录的一致性。
+- 保持 README 分类目录与新 ideas/publications 同步。
+- 持续提升 `i18n/README.*.md` 的多语言一致性。
+- 随文档流程变化优化 MkDocs 配置与已部署静态流水线的对齐。
+- 增加轻量级校验规则，检查 README/链接/目录一致性。
 
 <a id="contribution"></a>
 ## 贡献
 
-- 使用祈使语气且有范围的提交信息（示例：`Update README structure and operational docs`）。
-- 变更应按主题/论文聚焦。
-- 推送前请验证 LaTeX 编译与渲染结果。
+- 使用祈使式、范围明确的提交信息（例如：`Update README structure and operational docs`）。
+- 按主题/论文集中处理变更。
+- 推送前验证 LaTeX 编译与渲染输出。
 - Pull Request 应包含：
-  - 变更摘要与理由，
+  - 变更摘要与依据，
   - 涉及路径，
-  - 如有必要，附构建确认。
+  - 有关构建确认（如适用）。
 
 ## 备注
 
 - Markdown 中公式使用 `$...$` 与 `$$...$$`。
-- 带空格的外部链接使用百分号编码，以保证渲染稳定。
+- 外部链接中的空格应使用百分号编码，以确保稳定渲染。
 
-<a id="support--donate"></a>
-## 支持 / 捐赠
+## 联系
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+关于仓库工作流、编辑更新或协作合作有疑问时：
+- 在仓库问题追踪器提 issue（若已启用）。
+- 对于较长的设计或编辑评审，建议发起 discussion。
+- 有关赞助与项目支持选项，请见上方支持面板。
 
 ## 许可证
 
-本仓库当前不存在 `LICENSE` 文件。
+仓库当前尚未包含 `LICENSE` 文件。
 
-假设说明：在添加许可证文件前，复用/再分发条款尚未定义，应由仓库所有者进一步明确。
+假设说明：在添加许可证文件之前，复用与再分发条款尚未定义，需由仓库所有者进一步明确。
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

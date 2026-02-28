@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,35 +11,40 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
+
+---
 
 ## Vue d'ensemble
 
 IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
 
 Ce dépôt suit un flux de travail orienté contenu :
-- Rédiger les idées en Markdown dans `ideas/`.
-- Promouvoir les idées mûres vers des dossiers de publication dans `publications/<slug>/`.
-- Conserver des noms de fichiers de publication alignés sur le slug (`<slug>.tex`, `<slug>.pdf`).
-- Régénérer les PDF des publications avec des commandes `latexmk` reproductibles.
-- Maintenir des variantes multilingues du README dans `i18n/` et des pages web statiques dans `docs/`.
+- Rédigez les idées en Markdown sous `ideas/`.
+- Faites monter en maturité les idées vers les dossiers de publication dans `publications/<slug>/`.
+- Conservez des noms de fichiers alignés sur le slug (`<slug>.tex`, `<slug>.pdf`).
+- Régénérez les PDF des publications avec des commandes `latexmk` reproductibles.
+- Maintenez des variantes multilingues du README dans `i18n/` et des pages web statiques dans `docs/`.
 
 ## Liens Rapides
 
 | Section | Aller à |
 |---|---|
-| Catalogue | [Catalogue par catégorie](#catalogue-par-catégorie) |
-| Commandes de build | [Build](#build) |
-| Flux de travail quotidien | [Usage](#usage) |
-| Structure du dépôt | [Structure du projet](#structure-du-projet) |
-| Détails opérationnels | [Configuration](#configuration) |
-| Guide de contribution | [Contribution](#contribution) |
-| Support | [Support / Dons](#support--dons) |
+| 🗂️ Catalogue | [Catalogue par catégorie](#catalogue-par-catégorie) |
+| 🧰 Commandes de build | [Build](#build) |
+| 🧪 Utilisation quotidienne | [Utilisation](#utilisation) |
+| 🧱 Structure du dépôt | [Structure du projet](#structure-du-projet) |
+| ⚙️ Détails opérationnels | [Configuration](#configuration) |
+| 🧩 Guide de contribution | [Contribution](#contribution) |
+| ✉️ Contact | [Contact](#contact) |
+| ❤️ Support | [Support / Donation](#-support) |
 
-## À Propos
+## À propos
 
 IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
-- Contenu d'abord : chaque idée est un Markdown dans `ideas/`, reflété (lorsqu'elle est mature) en LaTeX dans `publications/<slug>/<slug>.tex` avec un PDF compilé.
-- Conventions : noms de fichiers en kebab-case ; les noms de fichiers de publication correspondent au slug de leur dossier (`<slug>.tex`, `<slug>.pdf`).
+- Contenu d'abord : chaque idée est un Markdown dans `ideas/`, répliquée (lorsqu'elle est mature) en LaTeX sous `publications/<slug>/<slug>.tex` avec un PDF compilé.
+- Conventions : noms de fichiers en kebab-case ; les noms de fichiers de publication correspondent à ceux du dossier (`<slug>.tex`, `<slug>.pdf`).
 - Support CJK : les publications en chinois se compilent avec XeLaTeX.
 - Builds reproductibles : utilisez `latexmk` (voir la section Build) pour régénérer les PDF.
 
@@ -49,14 +52,14 @@ IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
 
 - Pipeline versionné de l'idée à la publication (`ideas/` -> `publications/<slug>/`).
 - Catalogue de recherche organisé par catégorie avec des liens directs Markdown/PDF.
-- Ensemble README multilingue en 9 langues dans `i18n/`.
-- Contenu de site statique dans `docs/` avec des manifestes générés dans `docs/assets/`.
-- Configuration optionnelle de hooks git locaux via `scripts/enable-hooks.sh`.
-- Le dépôt inclut des artefacts de publication (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) quand ils sont utiles à la reproductibilité.
+- Ensemble de fichiers README multilingues (9 langues) dans `i18n/`.
+- Contenu web statique dans `docs/` avec des manifestes générés dans `docs/assets/`.
+- Configuration optionnelle des hooks git locaux via `scripts/enable-hooks.sh`.
+- Le dépôt inclut des artefacts de publication (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) lorsque utiles à la reproductibilité.
 
 ## Catalogue par catégorie
 
-### Metasurfaces
+### Métasurfaces
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -113,7 +116,7 @@ IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
   </tbody>
   </table>
 
-### Theory
+### Théorie
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -146,7 +149,7 @@ IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
   </tbody>
   </table>
 
-### AI for Science
+### IA pour la science
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -179,7 +182,7 @@ IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
   </tbody>
   </table>
 
-### Product \& Tools
+### Produit \& Outils
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -261,8 +264,8 @@ IDEAS/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # fichiers auxiliaires/logs LaTeX optionnels
-├── docs/                          # site web statique + ressources générées
+│       └── artifacts/             # fichiers auxiliaires LaTeX optionnels
+├── docs/                          # site statique + assets générés
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -272,14 +275,14 @@ IDEAS/
 │       ├── categories.json
 │       └── i18n/
 ├── i18n/                          # variantes README multilingues
-└── figs/                          # ressources README et dons
+└── figs/                          # bannières et assets README
 ```
 
 ## Prérequis
 
-- `latexmk` avec une distribution TeX fonctionnelle (TeX Live ou équivalent).
-- Support XeLaTeX pour les builds CJK (publications chinoises/japonaises) : `xelatex` + polices compatibles CJK.
-- Node.js (18+ recommandé) pour la génération des ressources du site (`scripts/generate_site.mjs`).
+- `latexmk` avec une distribution TeX opérationnelle (TeX Live ou équivalent).
+- Prise en charge XeLaTeX pour les builds CJK (pour publications chinoises/japonaises) : `xelatex` + polices compatibles CJK.
+- Node.js (recommandé 18+) pour la génération des assets du site (`scripts/generate_site.mjs`).
 - Git pour le versionnement et le flux de contribution.
 
 ## Installation
@@ -289,7 +292,7 @@ git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-Configuration optionnelle des hooks locaux :
+Configuration locale des hooks (facultatif) :
 
 ```bash
 bash scripts/enable-hooks.sh
@@ -301,30 +304,30 @@ bash scripts/enable-hooks.sh
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
 - PDF chinois (CJK) :
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Builder tous les articles (mode PDF) :
+- Construire tous les papiers (mode PDF) :
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- Nettoyer les artefacts LaTeX (dans un dossier d'article) :
+- Nettoyer les artefacts LaTeX (dans un dossier de publication) :
   - `latexmk -C`
 
-## Usage
+## Utilisation
 
-Flux de travail quotidien courant :
+Flux de travail courant :
 
 1. Ajouter ou mettre à jour des notes d'idées dans `ideas/*.md` (nom de fichier en kebab-case).
-2. Promouvoir les notes mûres vers `publications/<slug>/<slug>.tex`.
+2. Promouvoir les notes matures dans `publications/<slug>/<slug>.tex`.
 3. Compiler le PDF de publication avec le mode `latexmk` approprié.
-4. En cas de publication des données du site, régénérer les ressources statiques :
+4. Si vous publiez les données du site, régénérez les assets statiques :
    - `node scripts/generate_site.mjs`
-5. Valider les sorties rendues (`.pdf` et éventuellement les pages `docs/`).
+5. Valider les rendus (`.pdf` et éventuellement les pages `docs/`).
 
 ## Configuration
 
-- `mkdocs.yml` existe et peut être utilisé pour la configuration d'une documentation basée sur MkDocs.
+- `mkdocs.yml` est présent et peut servir à configurer MkDocs pour la documentation.
 - `.github/workflows/pages.yml` pilote actuellement le déploiement GitHub Pages pour `docs/`.
 - `docs/assets/i18n.js` et `docs/assets/i18n/*.json` contrôlent le comportement i18n du site web.
 - `CNAME` et `docs/CNAME` contiennent les paramètres de domaine personnalisé.
 
-Note d'hypothèse : ce README conserve les références au pipeline MkDocs et au pipeline de site statique personnalisé, car les deux sont présents dans le dépôt.
+Note : ce README conserve les références MkDocs et pipeline site statique personnalisé car les deux sont présentes dans le dépôt.
 
 ## Exemples
 
@@ -342,7 +345,7 @@ cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Régénérer les données/manifestes de la documentation :
+Régénérer les données/manifestes docs :
 
 ```bash
 node scripts/generate_site.mjs
@@ -351,81 +354,59 @@ node scripts/generate_site.mjs
 ## Notes de développement
 
 - Les équations en Markdown utilisent `$...$` et `$$...$$`.
-- Les liens externes avec des espaces sont encodés en pourcentage pour un rendu fiable.
-- Préférer des modifications additives et éviter de renommer des fichiers existants sauf nécessité.
-- Le contenu CJK doit utiliser XeLaTeX et une configuration LaTeX sûre vis-à-vis de l'Unicode (par exemple `ctexart` quand applicable).
-- Il est acceptable de versionner les artefacts LaTeX sous `publications/<slug>/artifacts/`.
+- Les liens externes contenant des espaces sont codés en pourcentage pour un rendu fiable.
+- Privilégiez les modifications additives et évitez de renommer les fichiers existants sauf nécessité.
+- Les contenus CJK doivent utiliser XeLaTeX et une configuration LaTeX sûre côté Unicode (par exemple `ctexart` si pertinent).
+- Il est acceptable de committer des artefacts LaTeX dans `publications/<slug>/artifacts/`.
 
 ## Dépannage
 
-- Commande `latexmk` introuvable :
-  - Installer une distribution TeX et s'assurer que `latexmk` est dans le `PATH`.
-- Problèmes de glyphes CJK/tofu dans les PDF :
-  - Utiliser le mode XeLaTeX et s'assurer que les polices CJK requises sont installées.
-- Le build s'arrête sur des erreurs LaTeX :
-  - Examiner `<slug>.log` puis relancer avec `-interaction=nonstopmode -halt-on-error`.
-- Les métadonnées du site ne se mettent pas à jour :
-  - Re-exécuter `node scripts/generate_site.mjs` et vérifier les horodatages de `docs/assets/*.json`.
+- `latexmk` introuvable :
+  - Installez une distribution TeX et vérifiez que `latexmk` est sur le `PATH`.
+- Problèmes de glyphes/tofu CJK dans les PDF :
+  - Utilisez XeLaTeX et assurez-vous que les polices CJK requises sont installées.
+- Les builds s'arrêtent sur des erreurs LaTeX :
+  - Consultez `<slug>.log` et relancez avec `-interaction=nonstopmode -halt-on-error`.
+- Les métadonnées du site web ne se mettent pas à jour :
+  - Relancez `node scripts/generate_site.mjs` et vérifiez les horodatages de `docs/assets/*.json`.
 
 ## Feuille de route
 
-- Maintenir le catalogue README synchronisé avec les nouvelles idées/publications.
-- Continuer à renforcer la parité multilingue entre les fichiers `i18n/README.*.md`.
-- Améliorer l'alignement entre la config MkDocs et le pipeline statique déployé à mesure que le flux docs évolue.
-- Ajouter des vérifications légères de cohérence README/liens/catalogue.
+- Garder le catalogue README synchronisé avec les nouvelles idées/publications.
+- Renforcer la parité multilingue entre les fichiers `i18n/README.*.md`.
+- Améliorer l'alignement entre la configuration MkDocs et le pipeline statique déployé à mesure que l'automatisation évolue.
+- Ajouter des contrôles de validation légers pour la cohérence README/liens/catalogue.
 
 ## Contribution
 
-- Utiliser des messages de commit impératifs et cadrés (exemple : `Update README structure and operational docs`).
-- Garder des changements ciblés par sujet/article.
-- Valider la compilation LaTeX et la sortie rendue avant de pousser.
+- Utilisez des messages de commit impératifs et ciblés (ex. : `Mettre à jour la structure du README et la doc opérationnelle`).
+- Gardez les changements concentrés par sujet/article.
+- Validez la compilation LaTeX et le rendu final avant de publier.
 - Les pull requests doivent inclure :
-  - résumé et justification,
-  - chemins touchés,
-  - confirmation de build si pertinent.
+  - un résumé et une motivation,
+  - les chemins modifiés,
+  - une confirmation de build quand pertinent.
 
 ## Notes
 
 - Les équations en Markdown utilisent `$...$` et `$$...$$`.
-- Les liens externes avec des espaces sont encodés en pourcentage pour un rendu fiable.
+- Les liens externes avec espaces sont encodés en pourcentage pour un rendu fiable.
 
-## Support / Dons
+## ❤️ Support
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
+
+## Contact
+
+Pour toute question sur le flux de travail du dépôt, les mises à jour éditoriales ou la collaboration :
+- Ouvrez une issue dans le suivi des tickets du dépôt (si activé).
+- Lancez une discussion pour des revues de design ou éditoriales plus longues.
+- Pour les options de sponsoring et le soutien du projet, consultez le panneau de support ci-dessus.
 
 ## Licence
 
-Aucun fichier `LICENSE` n'est actuellement présent dans ce dépôt.
+Le fichier `LICENSE` n'est actuellement pas présent dans ce dépôt.
 
-Note d'hypothèse : tant qu'un fichier de licence n'est pas ajouté, les conditions de réutilisation/de redistribution ne sont pas définies et doivent être clarifiées par le propriétaire du dépôt.
+Note d'hypothèse : tant qu'un fichier de licence n'est pas ajouté, les conditions de réutilisation/redistribution restent indéterminées et doivent être précisées par le propriétaire du dépôt.

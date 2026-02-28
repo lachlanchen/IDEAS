@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,46 +11,49 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
 ## 概要
 
-IDEAS は、研究ノートとエッセイを軽量かつバージョン管理で蓄積するノートブックです。
+IDEAS は、研究ノートやエッセイのための軽量なバージョン管理付きノートブックです。
 
 このリポジトリはコンテンツ優先のワークフローを採用しています。
-- `ideas/` に Markdown でアイデアを執筆する。
-- 成熟したアイデアを `publications/<slug>/` の公開フォルダへ昇格する。
-- 公開物のファイル名をスラッグと一致させる（`<slug>.tex`, `<slug>.pdf`）。
-- 再現可能な `latexmk` コマンドで公開 PDF を再生成する。
-- `i18n/` の多言語 README と `docs/` の静的 Web ページを維持する。
+- `ideas/` 配下に Markdown でアイデアを作成します。
+- 成熟したアイデアを `publications/<slug>/` 内の出版フォルダへ昇格します。
+- 出版物のファイル名をスラッグと一致させます（`<slug>.tex`, `<slug>.pdf`）。
+- 再現可能な `latexmk` コマンドで出版用 PDF を再生成します。
+- `i18n/` で多言語 README を維持し、`docs/` で静的 Web ページを維持します。
 
 ## クイックリンク
 
 | セクション | ジャンプ |
 |---|---|
-| カタログ | [カテゴリ別カタログ](#カテゴリ別カタログ) |
-| ビルドコマンド | [ビルド](#ビルド) |
-| 日常ワークフロー | [使い方](#使い方) |
-| リポジトリ構成 | [プロジェクト構成](#プロジェクト構成) |
-| 運用詳細 | [設定](#設定) |
-| コントリビューションガイド | [コントリビューション](#コントリビューション) |
-| サポート | [サポート / 寄付](#サポート--寄付) |
+| 🗂️ カタログ | [カテゴリ別カタログ](#カテゴリ別カタログ) |
+| 🧰 ビルドコマンド | [ビルド](#ビルド) |
+| 🧪 日常ワークフロー | [使い方](#使い方) |
+| 🧱 リポジトリ構成 | [プロジェクト構成](#プロジェクト構成) |
+| ⚙️ 運用詳細 | [設定](#設定) |
+| 🧩 貢献ガイド | [貢献](#貢献) |
+| ✉️ お問い合わせ | [お問い合わせ](#お問い合わせ) |
+| ❤️ サポート | [サポート / 寄付](#-support) |
 
 ## このプロジェクトについて
 
-IDEAS は、研究ノートとエッセイを軽量かつバージョン管理で蓄積するノートブックです。
-- コンテンツ優先: すべてのアイデアは `ideas/` の Markdown として管理され、成熟後は `publications/<slug>/<slug>.tex`（およびコンパイル済み PDF）に反映されます。
-- 命名規約: ファイル名は kebab-case。公開物ファイル名はフォルダのスラッグに一致（`<slug>.tex`, `<slug>.pdf`）。
-- CJK サポート: 中国語の公開物は XeLaTeX でコンパイルします。
-- 再現可能ビルド: `latexmk`（Build セクション参照）で PDF を再生成します。
+IDEAS は研究ノートやエッセイのための軽量なバージョン管理付きノートブックです。
+- コンテンツ優先: 全てのアイデアは `ideas/` に Markdown として保存され、成熟後に `publications/<slug>/<slug>.tex` へ（コンパイル済み PDF と共に）ミラーされます。
+- 命名規約: ファイル名は kebab-case を使用し、出版物ファイル名はフォルダのスラッグと一致させます（`<slug>.tex`, `<slug>.pdf`）。
+- CJK 対応: 中国語の出版物は XeLaTeX でコンパイルします。
+- 再現可能なビルド: `latexmk`（ビルド節参照）で PDF を再生成します。
 
 ## 特徴
 
-- アイデアから公開までのバージョン管理パイプライン（`ideas/` -> `publications/<slug>/`）。
-- カテゴリ別に整理された研究カタログと Markdown/PDF への直接リンク。
-- `i18n/` に 9 言語の多言語 README を収録。
-- `docs/` に静的サイトコンテンツ、`docs/assets/` に生成マニフェストを配置。
-- `scripts/enable-hooks.sh` による任意のローカル Git フック設定。
-- 再現性確保のため、有用な場合は公開物アーティファクト（`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`）を含めます。
+- バージョン管理されたアイデア→出版パイプライン（`ideas/` -> `publications/<slug>/`）。
+- カテゴリ別に整理された研究カタログと直接 Markdown/PDF リンク。
+- `i18n/` 配下の 9 言語対応 README セット。
+- `docs/` 配下に静的サイト用コンテンツを置き、`docs/assets/` に生成済みマニフェストを保持。
+- `scripts/enable-hooks.sh` を使った任意のローカル Git hook 設定。
+- 再現性向上のため、必要に応じて出版物の成果物（`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`）を保存。
 
 ## カテゴリ別カタログ
 
@@ -146,7 +147,7 @@ IDEAS は、研究ノートとエッセイを軽量かつバージョン管理�
   </tbody>
   </table>
 
-### 科学のための AI
+### 科学における AI
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -256,13 +257,13 @@ IDEAS/
 ├── scripts/
 │   ├── generate_site.mjs
 │   └── enable-hooks.sh
-├── ideas/                         # Markdown idea notes
+├── ideas/                         # Markdown アイデアノート
 ├── publications/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # optional LaTeX aux/log files
-├── docs/                          # static website + generated assets
+│       └── artifacts/             # 任意の LaTeX aux/log ファイル
+├── docs/                          # 静的サイト + 生成済みアセット
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -271,16 +272,16 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # multilingual README variants
-└── figs/                          # README and donation assets
+├── i18n/                          # 多言語 README
+└── figs/                          # README と寄付アセット
 ```
 
 ## 前提条件
 
-- `latexmk` が利用可能な TeX 配布（TeX Live など）。
-- CJK ビルド向け XeLaTeX サポート（中国語/日本語公開物用）: `xelatex` + CJK 対応フォント。
-- サイト資産生成用の Node.js（推奨 18+、`scripts/generate_site.mjs`）。
-- バージョン管理およびコントリビューション運用用の Git。
+- `latexmk` と動作する TeX 配布環境（TeX Live など）。
+- CJK 向けビルドのための XeLaTeX 対応（中国語/日本語出版物）: `xelatex` + CJK 対応フォント。
+- サイト資産生成用 Node.js（推奨 18+）: `scripts/generate_site.mjs`。
+- バージョン管理とコラボレーションのための Git。
 
 ## インストール
 
@@ -289,7 +290,7 @@ git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-任意のローカルフック設定:
+必要に応じたローカル hook 設定:
 
 ```bash
 bash scripts/enable-hooks.sh
@@ -303,39 +304,39 @@ bash scripts/enable-hooks.sh
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
 - すべての論文をビルド（PDF モード）:
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- LaTeX アーティファクトをクリーン（論文ディレクトリ内）:
+- LaTeX アーティファクトをクリーンアップ（論文ディレクトリ内）:
   - `latexmk -C`
 
 ## 使い方
 
-日常的な基本フロー:
+日常的な運用フロー:
 
-1. `ideas/*.md`（kebab-case ファイル名）にアイデアノートを追加または更新する。
-2. 成熟したノートを `publications/<slug>/<slug>.tex` に昇格する。
-3. 適切な `latexmk` モードで公開 PDF をコンパイルする。
-4. Web サイト用データを公開する場合は静的アセットを再生成する:
+1. `ideas/*.md` へアイデアノートを追加・更新する（ファイル名は kebab-case）。
+2. 成熟したノートを `publications/<slug>/<slug>.tex` へ昇格する。
+3. 適切な `latexmk` モードで出版 PDF をコンパイルする。
+4. ウェブサイトデータを公開する場合は静的アセットを再生成する:
    - `node scripts/generate_site.mjs`
-5. 出力結果（`.pdf` および必要に応じて `docs/` ページ）を確認する。
+5. レンダリング結果（`.pdf` と必要なら `docs/` ページ）を検証する。
 
 ## 設定
 
 - `mkdocs.yml` が存在し、MkDocs ベースのドキュメント設定に利用できます。
-- `.github/workflows/pages.yml` が現在 `docs/` 向け GitHub Pages デプロイを担っています。
-- `docs/assets/i18n.js` と `docs/assets/i18n/*.json` が Web サイトの i18n 動作を制御します。
-- `CNAME` と `docs/CNAME` にカスタムドメイン設定が含まれます。
+- `.github/workflows/pages.yml` は現在 `docs/` への GitHub Pages 配信を担当しています。
+- `docs/assets/i18n.js` と `docs/assets/i18n/*.json` がウェブサイトの i18n 動作を制御します。
+- `CNAME` と `docs/CNAME` はカスタムドメイン設定を保持します。
 
-前提メモ: この README は、リポジトリ内に両方存在しているため MkDocs と独自静的サイトパイプラインの参照を保持しています。
+前提メモ: この README は両方のパイプラインがリポジトリに存在するため、MkDocs とカスタム静的サイトの両方の参照を維持しています。
 
 ## 例
 
-英語公開物を 1 件ビルド:
+英語論文を 1 件ビルド:
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-中国語公開物を 1 件ビルド:
+中国語論文を 1 件ビルド:
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
@@ -348,84 +349,63 @@ docs データ/マニフェストを再生成:
 node scripts/generate_site.mjs
 ```
 
-## 開発メモ
+## 開発ノート
 
 - Markdown の数式は `$...$` と `$$...$$` を使用します。
-- スペースを含む外部リンクは、安定した描画のため percent‑encode しています。
-- 加筆中心の編集を優先し、必要がない限り既存ファイル名の変更は避けます。
-- CJK コンテンツは XeLaTeX と Unicode 安全な LaTeX 設定（例: 必要に応じた `ctexart`）を使用してください。
-- `publications/<slug>/artifacts/` 配下に LaTeX アーティファクトをコミットしても問題ありません。
+- スペースを含む外部リンクは表示の安定性のためにパーセントエンコードします。
+- 追加編集を優先し、必要がない限り既存ファイル名の変更は避けます。
+- CJK コンテンツは XeLaTeX と Unicode 安全な LaTeX 設定を使用します（例えば該当時に `ctexart` を利用）。
+- 必要に応じて `publications/<slug>/artifacts/` に LaTeX の成果物をコミットしても問題ありません。
 
 ## トラブルシューティング
 
-- `latexmk` command not found:
-  - TeX 配布をインストールし、`latexmk` が `PATH` 上にあることを確認してください。
-- PDF に CJK グリフ欠け/豆腐文字が出る:
-  - XeLaTeX モードを使用し、必要な CJK フォントがインストールされていることを確認してください。
+- `latexmk` コマンドが見つからない:
+  - TeX 配布をインストールし、`latexmk` が `PATH` にあることを確認します。
+- PDF の CJK グリフ/豆腐文字問題:
+  - XeLaTeX モードを使用し、必要な CJK フォントがインストールされていることを確認します。
 - LaTeX エラーでビルドが停止する:
-  - `<slug>.log` を確認し、`-interaction=nonstopmode -halt-on-error` で再実行してください。
-- Web サイトのメタデータが更新されない:
-  - `node scripts/generate_site.mjs` を再実行し、`docs/assets/*.json` のタイムスタンプを確認してください。
+  - `<slug>.log` を確認し、`-interaction=nonstopmode -halt-on-error` で再実行します。
+- ウェブサイトメタデータが更新されない:
+  - `node scripts/generate_site.mjs` を再実行し、`docs/assets/*.json` のタイムスタンプを確認します。
 
 ## ロードマップ
 
-- 新しいアイデア/公開物に合わせて README カタログを同期し続ける。
-- `i18n/README.*.md` 全体で多言語間の整合性を強化し続ける。
-- docs ワークフローの進化に合わせて、MkDocs 設定とデプロイ済み静的パイプラインの整合性を改善する。
-- README/リンク/カタログ整合性の軽量バリデーションチェックを追加する。
+- README カタログを新規アイデア/出版物と同期状態に保つ。
+- `i18n/README.*.md` 全体で多言語の整合を強化し続ける。
+- ドキュメントワークフローの進化に合わせて MkDocs 設定とデプロイ済み静的パイプラインの整合を改善する。
+- README/リンク/カタログの整合性チェックを軽量化する。
 
-## コントリビューション
+## 貢献
 
-- 命令形かつスコープ付きのコミットメッセージを使用してください（例: `Update README structure and operational docs`）。
-- 変更はトピック/論文ごとに焦点を絞ってください。
-- Push 前に LaTeX コンパイルとレンダリング結果を確認してください。
-- Pull Request には以下を含めてください:
-  - 変更概要と理由
+- 命令形で範囲を絞ったコミットメッセージを使う（例: `Update README structure and operational docs`）。
+- 変更は論点／論文ごとに集中する。
+- プッシュ前に LaTeX コンパイルとレンダリング結果を確認する。
+- プルリクエストには以下を含めること。
+  - 変更の要約と根拠
   - 変更したパス
-  - 該当する場合はビルド確認
+  - 必要に応じてビルド確認
 
 ## 注記
 
 - Markdown の数式は `$...$` と `$$...$$` を使用します。
-- スペースを含む外部リンクは、安定した描画のため percent‑encode しています。
+- スペースを含む外部リンクは表示の安定性のためにパーセントエンコードします。
 
-## サポート / 寄付
+## お問い合わせ
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+このリポジトリのワークフロー、編集更新、共同編集についての質問:
+- リポジトリの Issue トラッカー（有効な場合）で Issue を開いてください。
+- より長い設計レビューや編集レビューは Discussion を開始してください。
+- 協賛・支援の方法については、上記サポートパネルをご確認ください。
 
 ## ライセンス
 
-このリポジトリには現在 `LICENSE` ファイルが存在しません。
+現在このリポジトリには `LICENSE` ファイルがありません。
 
-前提メモ: ライセンスファイルが追加されるまでは、再利用・再配布条件は未定義のため、リポジトリ所有者への確認が必要です。
+前提メモ: ライセンスファイルが追加されるまで、再利用・再配布条件は未定義であり、リポジトリ所有者により明確化されるべきです。
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

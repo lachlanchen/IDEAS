@@ -1,9 +1,9 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
+
+<div align="center">
 
 # IDEAS
 
@@ -13,46 +13,53 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
+
+</div>
+
+---
 
 ## Überblick
 
 IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
 
-Dieses Repository folgt einem Content-first-Workflow:
-- Ideen als Markdown unter `ideas/` verfassen.
-- Ausgereifte Ideen in Publikationsordner unter `publications/<slug>/` überführen.
-- Dateinamen in Publikationen am Slug ausrichten (`<slug>.tex`, `<slug>.pdf`).
-- Publikations-PDFs mit reproduzierbaren `latexmk`-Befehlen neu generieren.
-- Mehrsprachige README-Varianten unter `i18n/` und statische Webseiten unter `docs/` pflegen.
+Dieses Repository folgt einem In-Content-First-Workflow:
+- Verfasse Ideen in Markdown unter `ideas/`.
+- Reife Ideen werden in den Veröffentlichungs-Ordnern unter `publications/<slug>/` publiziert.
+- Halte Dateinamen konsistent im Slug-Format (`<slug>.tex`, `<slug>.pdf`).
+- Regeneriere die Publikations-PDFs mit reproduzierbaren `latexmk`-Befehlen.
+- Pflege mehrsprachige README-Varianten unter `i18n/` und statische Webseiten unter `docs/`.
 
 ## Schnellzugriffe
 
 | Abschnitt | Sprung |
 |---|---|
-| Katalog | [Katalog nach Kategorie](#katalog-nach-kategorie) |
-| Build-Befehle | [Build](#build) |
-| Täglicher Workflow | [Nutzung](#nutzung) |
-| Repository-Layout | [Projektstruktur](#projektstruktur) |
-| Betriebsdetails | [Konfiguration](#konfiguration) |
-| Beitragshinweise | [Mitwirken](#mitwirken) |
-| Unterstützung | [Support / Spenden](#support--spenden) |
+| 🗂️ Katalog | [Katalog nach Kategorie](#katalog-nach-kategorie) |
+| 🧰 Build-Befehle | [Build](#build) |
+| 🧪 Alltäglicher Ablauf | [Nutzung](#nutzung) |
+| 🧱 Projektstruktur | [Projektstruktur](#projektstruktur) |
+| ⚙️ Einstellungen | [Konfiguration](#konfiguration) |
+| 🧩 Beitrag | [Mitwirken](#mitwirken) |
+| ✉️ Kontakt | [Kontakt](#kontakt) |
+| ❤️ Support | [Support](#-support) |
 
 ## Über das Projekt
 
 IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
-- Content-first: Jede Idee ist Markdown in `ideas/` und wird (wenn ausgereift) in LaTeX unter `publications/<slug>/<slug>.tex` mit kompiliertem PDF gespiegelt.
-- Konventionen: kebab-case-Dateinamen; Publikationsdateien entsprechen dem Ordner-Slug (`<slug>.tex`, `<slug>.pdf`).
+- Content-First: Jede Idee liegt als Markdown in `ideas/` vor und wird (wenn ausgereift) als LaTeX in `publications/<slug>/<slug>.tex` mit einem kompilierten PDF gespiegelt.
+- Konventionen: Dateinamen im kebab-case; Publikationsdateien müssen dem Ordner-Slug entsprechen (`<slug>.tex`, `<slug>.pdf`).
 - CJK-Unterstützung: Chinesischsprachige Publikationen werden mit XeLaTeX kompiliert.
-- Reproduzierbare Builds: PDFs mit `latexmk` neu erstellen (siehe Abschnitt Build).
+- Reproduzierbare Builds: Nutze `latexmk` (siehe Abschnitt Build), um PDFs neu zu erzeugen.
 
 ## Funktionen
 
 - Versionierte Idea-to-Publication-Pipeline (`ideas/` -> `publications/<slug>/`).
-- Forschungskatalog nach Kategorien mit direkten Markdown-/PDF-Links.
-- Mehrsprachige README-Sammlung in 9 Sprachen unter `i18n/`.
-- Inhalte für statische Website unter `docs/` mit generierten Manifesten in `docs/assets/`.
+- Forschungskatalog kategorisiert mit direkten Markdown-/PDF-Links.
+- Mehrsprachiger README-Satz in 9 Sprachen unter `i18n/`.
+- Statische Site-Inhalte unter `docs/` mit generierten Manifesten in `docs/assets/`.
 - Optionales lokales Git-Hook-Setup über `scripts/enable-hooks.sh`.
-- Repository enthält Publikationsartefakte (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`), wo dies für Reproduzierbarkeit sinnvoll ist.
+- Das Repository enthält Publikations-Artefakte (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) sofern sinnvoll für die Reproduzierbarkeit.
 
 ## Katalog nach Kategorie
 
@@ -256,13 +263,13 @@ IDEAS/
 ├── scripts/
 │   ├── generate_site.mjs
 │   └── enable-hooks.sh
-├── ideas/                         # Markdown idea notes
+├── ideas/                         # Markdown-Ideen-Notizen
 ├── publications/
 │   └── <slug>/
 │       ├── <slug>.tex
 │       ├── <slug>.pdf
-│       └── artifacts/             # optional LaTeX aux/log files
-├── docs/                          # static website + generated assets
+│       └── artifacts/             # optionale LaTeX-Zwischendateien/Logs
+├── docs/                          # statische Webseite + generierte Assets
 │   ├── index.html
 │   ├── ideas/
 │   ├── publications/
@@ -271,16 +278,16 @@ IDEAS/
 │       ├── publications.json
 │       ├── categories.json
 │       └── i18n/
-├── i18n/                          # multilingual README variants
-└── figs/                          # README and donation assets
+├── i18n/                          # multilingual README-Varianten
+└── figs/                          # README- und Spendenassets
 ```
 
 ## Voraussetzungen
 
 - `latexmk` mit einer funktionierenden TeX-Distribution (TeX Live oder gleichwertig).
-- XeLaTeX-Unterstützung für CJK-Builds (für chinesische/japanische Publikationen): `xelatex` + CJK-fähige Schriftarten.
-- Node.js (empfohlen 18+) für die Generierung von Site-Assets (`scripts/generate_site.mjs`).
-- Git für Versionierung und den Beitrags-Workflow.
+- XeLaTeX-Unterstützung für CJK-Builds (für chinesische/japanische Publikationen): `xelatex` + CJK-fähige Schriften.
+- Node.js (empfohlen 18+) für die Generierung von Website-Assets (`scripts/generate_site.mjs`).
+- Git für Versionierung und den Mitwirkungs-Workflow.
 
 ## Installation
 
@@ -301,48 +308,48 @@ bash scripts/enable-hooks.sh
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
 - Chinesische PDFs (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- Alle Papers bauen (PDF-Modus):
+- Alle Paper im PDF-Modus bauen:
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- LaTeX-Artefakte bereinigen (innerhalb eines Paper-Verzeichnisses):
+- LaTeX-Artefakte bereinigen (im Paper-Verzeichnis):
   - `latexmk -C`
 
 ## Nutzung
 
 Typischer Tagesablauf:
 
-1. Ideen-Notizen in `ideas/*.md` hinzufügen oder aktualisieren (kebab-case-Dateiname).
-2. Ausgereifte Notizen nach `publications/<slug>/<slug>.tex` überführen.
-3. Das Publikations-PDF mit dem passenden `latexmk`-Modus kompilieren.
-4. Falls Website-Daten veröffentlicht werden, statische Assets neu generieren:
+1. Füge neue Ideen in `ideas/*.md` hinzu oder aktualisiere sie (Dateiname im kebab-case).
+2. Fördere reife Notizen nach `publications/<slug>/<slug>.tex`.
+3. Kompiliere die Publikations-PDFs mit dem passenden `latexmk`-Modus.
+4. Wenn Websitedaten veröffentlicht werden, generiere statische Assets neu:
    - `node scripts/generate_site.mjs`
-5. Gerenderte Ausgaben prüfen (`.pdf` und optional Seiten unter `docs/`).
+5. Prüfe die gerenderten Ausgaben (`.pdf`) und optional die `docs/`-Seiten.
 
 ## Konfiguration
 
-- `mkdocs.yml` ist vorhanden und kann für MkDocs-basierte Dokumentationskonfiguration verwendet werden.
-- `.github/workflows/pages.yml` steuert derzeit das GitHub-Pages-Deployment für `docs/`.
+- `mkdocs.yml` ist vorhanden und kann für eine MkDocs-basierte Dokumentationskonfiguration verwendet werden.
+- `.github/workflows/pages.yml` steuert aktuell den GitHub-Pages-Deployment-Pfad für `docs/`.
 - `docs/assets/i18n.js` und `docs/assets/i18n/*.json` steuern das i18n-Verhalten der Website.
-- `CNAME` und `docs/CNAME` enthalten Einstellungen für benutzerdefinierte Domains.
+- `CNAME` und `docs/CNAME` enthalten benutzerdefinierte Domain-Einstellungen.
 
-Hinweis zur Annahme: Dieses README belässt sowohl Verweise auf MkDocs als auch auf die benutzerdefinierte Static-Site-Pipeline, da beides im Repository vorhanden ist.
+Annahmehinweis: Dieses README hält sowohl MkDocs- als auch statische Site-Pipeline-Referenzen vor, weil beide im Repository vorhanden sind.
 
 ## Beispiele
 
-Eine englische Publikation bauen:
+Baue eine englische Publikation:
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-Eine chinesische Publikation bauen:
+Baue eine chinesische Publikation:
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-Docs-Daten/Manifeste neu generieren:
+Regeneriere Doc-Daten/Manifeste:
 
 ```bash
 node scripts/generate_site.mjs
@@ -351,81 +358,60 @@ node scripts/generate_site.mjs
 ## Entwicklungshinweise
 
 - Gleichungen in Markdown verwenden `$...$` und `$$...$$`.
-- Externe Links mit Leerzeichen sind für zuverlässiges Rendering prozentkodiert.
-- Additive Änderungen bevorzugen und bestehende Dateien nur bei Notwendigkeit umbenennen.
-- CJK-Inhalte sollten XeLaTeX und ein Unicode-sicheres LaTeX-Setup verwenden (zum Beispiel `ctexart`, wo zutreffend).
-- Es ist akzeptabel, LaTeX-Artefakte unter `publications/<slug>/artifacts/` zu committen.
+- Externe Links mit Leerzeichen sind zur robusten Darstellung prozentkodiert.
+- Bevorzuge additive Änderungen und vermeide das Umbenennen bestehender Dateien, sofern nicht erforderlich.
+- CJK-Inhalte sollten XeLaTeX und ein Unicode-sicheres LaTeX-Setup nutzen (zum Beispiel `ctexart`, sofern zutreffend).
+- Es ist zulässig, LaTeX-Artefakte in `publications/<slug>/artifacts/` zu committen.
 
 ## Fehlerbehebung
 
 - `latexmk`-Befehl nicht gefunden:
-  - Eine TeX-Distribution installieren und sicherstellen, dass `latexmk` im `PATH` liegt.
+  - Installiere eine TeX-Distribution und stelle sicher, dass `latexmk` im `PATH` liegt.
 - CJK-Glyph-/Tofu-Probleme in PDFs:
-  - XeLaTeX-Modus verwenden und sicherstellen, dass erforderliche CJK-Schriftarten installiert sind.
+  - Nutze den XeLaTeX-Modus und stelle sicher, dass die nötigen CJK-Schriftarten installiert sind.
 - Build stoppt bei LaTeX-Fehlern:
-  - `<slug>.log` prüfen und mit `-interaction=nonstopmode -halt-on-error` erneut ausführen.
+  - Prüfe `<slug>.log` und führe mit `-interaction=nonstopmode -halt-on-error` erneut aus.
 - Website-Metadaten werden nicht aktualisiert:
   - `node scripts/generate_site.mjs` erneut ausführen und Zeitstempel in `docs/assets/*.json` prüfen.
 
 ## Roadmap
 
 - README-Katalog mit neuen Ideen/Publikationen synchron halten.
-- Mehrsprachige Parität über `i18n/README.*.md` hinweg weiter stärken.
-- Abstimmung zwischen MkDocs-Konfiguration und bereitgestellter Static-Pipeline verbessern, während sich der Docs-Workflow weiterentwickelt.
-- Leichtgewichtige Validierungschecks für README-/Link-/Katalog-Konsistenz ergänzen.
+- Mehrsprachige Parität über `i18n/README.*.md` weiter ausbauen.
+- Die Abstimmung zwischen MkDocs-Konfiguration und bereitgestellter statischer Pipeline verbessern, während sich der Dokumentations-Workflow weiterentwickelt.
+- Leichtgewichtige Validierungsprüfungen für Konsistenz von README/Links/Katalog ergänzen.
 
 ## Mitwirken
 
-- Imperative, bereichsbezogene Commit-Messages verwenden (Beispiel: `Update README structure and operational docs`).
-- Änderungen thematisch/Paper-bezogen fokussiert halten.
-- LaTeX-Kompilierung und gerenderte Ausgabe vor dem Pushen validieren.
+- Verwende imperative, bereichsbezogene Commit-Messages (Beispiel: `Update README structure and operational docs`).
+- Halte Änderungen thematisch fokussiert nach Themen/Paper.
+- Validiere LaTeX-Kompilierung und gerenderte Ausgabe vor dem Push.
 - Pull Requests sollten enthalten:
   - Zusammenfassung und Begründung,
-  - betroffene Pfade,
-  - Build-Bestätigung, wenn relevant.
+  - berührte Pfade,
+  - bei Relevanz den Build-Nachweis.
 
 ## Hinweise
 
 - Gleichungen in Markdown verwenden `$...$` und `$$...$$`.
-- Externe Links mit Leerzeichen sind für zuverlässiges Rendering prozentkodiert.
+- Externe Links mit Leerzeichen sind für robustes Rendering prozentkodiert.
 
-## Support / Spenden
+## Kontakt
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+Für Fragen zum Repository-Workflow, redaktionellen Updates oder Zusammenarbeit:
+- Öffne ein Issue im Repository-Issue-Tracker (falls aktiviert).
+- Starte eine Diskussion für ausführlichere Design- oder Redaktionseinblicke.
+- Für Sponsoring- und Unterstützungsoptionen siehe das Support-Panel oben.
 
 ## Lizenz
 
-In diesem Repository ist derzeit keine `LICENSE`-Datei vorhanden.
+Aktuell ist keine `LICENSE`-Datei in diesem Repository vorhanden.
 
-Hinweis zur Annahme: Bis eine Lizenzdatei hinzugefügt wird, sind Bedingungen für Wiederverwendung/Weiterverteilung nicht definiert und sollten durch den Repository-Eigentümer geklärt werden.
+Annahmehinweis: Bis eine Lizenzdatei hinzugefügt wird, sind Wiederverwendungs- und Weiterverteilungsbedingungen nicht definiert und sollten vom Repository-Betreiber geklärt werden.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

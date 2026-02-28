@@ -1,9 +1,7 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lachlanchen/lachlanchen/main/logos/banner.png" alt="LazyingArt banner" />
-</p>
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
 
@@ -13,50 +11,53 @@
 ![Build](https://img.shields.io/badge/build-latexmk-1f6feb)
 ![CJK](https://img.shields.io/badge/CJK-XeLaTeX-22863a)
 ![Site](https://img.shields.io/badge/docs-static%20assets-6f42c1)
+![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
+![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
 ## 개요
 
-IDEAS는 연구 노트와 에세이를 위한 가볍고 버전 관리되는 노트북입니다.
+IDEAS는 연구 노트와 에세이를 담는 가볍고 버전 관리되는 노트북입니다.
 
-이 저장소는 콘텐츠 우선 워크플로를 따릅니다.
-- `ideas/` 아래 Markdown으로 아이디어를 작성합니다.
-- 성숙한 아이디어는 `publications/<slug>/` 아래 출판 폴더로 승격합니다.
-- 출판 파일명은 슬러그와 일치하도록 유지합니다(````, ````).
-- 재현 가능한 `latexmk` 명령으로 출판 PDF를 다시 생성합니다.
+이 저장소는 콘텐츠 우선 워크플로를 따릅니다:
+- `ideas/` 하위에 Markdown으로 아이디어를 작성합니다.
+- 성숙한 아이디어는 `publications/<slug>/` 아래의 발행 폴더로 승격합니다.
+- 발행 파일명은 슬러그와 일치하도록 유지합니다 (`<slug>.tex`, `<slug>.pdf`).
+- 재현 가능한 `latexmk` 명령으로 발행 PDF를 다시 빌드합니다.
 - `i18n/` 아래 다국어 README 변형과 `docs/` 아래 정적 웹 페이지를 유지합니다.
 
 ## 빠른 링크
 
 | 섹션 | 이동 |
 |---|---|
-| 카탈로그 | [카테고리별 카탈로그](#카테고리별-카탈로그) |
-| 빌드 명령 | [빌드](#빌드) |
-| 일상 워크플로 | [사용법](#사용법) |
-| 저장소 구조 | [프로젝트 구조](#프로젝트-구조) |
-| 운영 세부사항 | [구성](#구성) |
-| 기여 가이드 | [기여](#기여) |
-| 후원 | [지원 / 후원](#지원--후원) |
+| 🗂️ 카탈로그 | [카테고리별 목록](#카탈로그별-카테고리) |
+| 🧰 빌드 명령 | [빌드](#빌드) |
+| 🧪 일상 워크플로 | [사용법](#사용법) |
+| 🧱 저장소 구성 | [프로젝트 구조](#프로젝트-구조) |
+| ⚙️ 운영 세부사항 | [구성](#구성) |
+| 🧩 기여 가이드 | [기여](#기여) |
+| ✉️ 연락 | [연락처](#연락처) |
+| ❤️ Support | [Support / Donate](#-support) |
 
 ## 소개
 
-IDEAS는 연구 노트와 에세이를 위한 가볍고 버전 관리되는 노트북입니다.
-- 콘텐츠 우선: 모든 아이디어는 `ideas/`의 Markdown이며, 성숙 시 LaTeX(`publications/<slug>/`)으로 미러링되고 컴파일된 PDF를 가집니다.
-- 규칙: 파일명은 kebab-case를 사용하며, 출판 파일명은 폴더 슬러그와 일치합니다(`<slug>.tex`, `<slug>.pdf`).
-- CJK 지원: 중국어 출판물은 XeLaTeX로 컴파일합니다.
-- 재현 가능한 빌드: `latexmk`로 PDF를 재생성합니다(빌드 섹션 참고).
+IDEAS는 연구 노트와 에세이를 담는 가볍고 버전 관리되는 노트북입니다.
+- 콘텐츠 우선: 모든 아이디어는 `ideas/`의 Markdown 파일로 시작하며, 성숙한 항목은 `publications/<slug>/<slug>.tex`로 옮겨져 컴파일된 PDF를 가집니다.
+- 규칙: 파일명은 kebab-case를 사용하고, 발행물 파일명은 폴더 슬러그와 일치합니다(`<slug>.tex`, `<slug>.pdf`).
+- CJK 지원: 중국어 발행물은 XeLaTeX로 컴파일합니다.
+- 재현 가능한 빌드: PDF는 `latexmk`(빌드 섹션 참조)로 재생성합니다.
 
-## 특징
+## 기능
 
-- 버전 관리되는 아이디어→출판 파이프라인(`ideas/` -> `publications/<slug>/`).
-- 카테고리별로 정리된 연구 카탈로그와 Markdown/PDF 직링크.
+- 버전 관리되는 아이디어→발행 파이프라인 (`ideas/` -> `publications/<slug>/`).
+- 카테고리별로 정렬된 연구 카탈로그와 Markdown/PDF 직링크.
 - `i18n/` 아래 9개 언어의 다국어 README 세트.
-- `docs/` 아래 정적 사이트 콘텐츠와 `docs/assets/` 아래 생성된 매니페스트.
-- `scripts/enable-hooks.sh`를 통한 선택적 로컬 git hook 설정.
-- 재현성 확보에 유용한 경우 출판 아티팩트(`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`)를 저장소에 포함.
+- `docs/` 아래 정적 사이트 콘텐츠와 `docs/assets/`에 생성되는 매니페스트.
+- 선택적으로 `scripts/enable-hooks.sh`를 통해 로컬 git hook 설정.
+- 필요한 경우 재현성 확보용 발행 아티팩트(`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`)를 저장소에 포함.
 
-## 카테고리별 카탈로그
+## 카탈로그별 카테고리
 
-### 메타표면
+### 메타서페이스
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -146,7 +147,7 @@ IDEAS는 연구 노트와 에세이를 위한 가볍고 버전 관리되는 노�
   </tbody>
   </table>
 
-### 과학을 위한 AI
+### AI for Science
 
 <table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
   <colgroup>
@@ -259,8 +260,8 @@ IDEAS/
 ├── ideas/                         # Markdown 아이디어 노트
 ├── publications/
 │   └── <slug>/
-│       ├── 
-│       ├── 
+│       ├── <slug>.tex
+│       ├── <slug>.pdf
 │       └── artifacts/             # 선택적 LaTeX aux/log 파일
 ├── docs/                          # 정적 웹사이트 + 생성된 자산
 │   ├── index.html
@@ -272,15 +273,15 @@ IDEAS/
 │       ├── categories.json
 │       └── i18n/
 ├── i18n/                          # 다국어 README 변형
-└── figs/                          # README 및 후원 자산
+└── figs/                          # README 및 기부 배너 자산
 ```
 
-## 사전 요구사항
+## 선행 조건
 
-- 동작 가능한 TeX 배포판(TeX Live 등)과 `latexmk`.
-- CJK 빌드를 위한 XeLaTeX 지원(중국어/일본어 출판물): `xelatex` + CJK 지원 폰트.
-- 사이트 자산 생성용 Node.js(권장 18+) (`scripts/generate_site.mjs`).
-- 버전 관리 및 기여 워크플로를 위한 Git.
+- `latexmk`와 동작하는 TeX 배포판 (TeX Live 또는 동등한 환경).
+- CJK 빌드(중국어/일본어 발행물)의 XeLaTeX 지원: `xelatex` + CJK 지원 폰트.
+- 사이트 자산 생성(`scripts/generate_site.mjs`)을 위한 Node.js(권장 18+).
+- 버전 관리 및 기여를 위한 Git.
 
 ## 설치
 
@@ -289,7 +290,7 @@ git clone <your-fork-or-origin-url>
 cd IDEAS
 ```
 
-선택적 로컬 훅 설정:
+선택적 로컬 hook 설정:
 
 ```bash
 bash scripts/enable-hooks.sh
@@ -297,52 +298,52 @@ bash scripts/enable-hooks.sh
 
 ## 빌드
 
-- 영어/ASCII PDF:
+- 영문/ASCII PDF:
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
-- 중국어 PDF(CJK):
+- 중국어 PDF (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
-- 모든 논문 빌드(PDF 모드):
+- 모든 논문 빌드 (PDF 모드):
   - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
-- LaTeX 아티팩트 정리(논문 디렉터리 내부):
+- LaTeX 산출물 정리(논문 폴더 내부):
   - `latexmk -C`
 
 ## 사용법
 
 일상적인 작업 흐름:
 
-1. `ideas/*.md`에 아이디어 노트를 추가하거나 업데이트합니다(파일명은 kebab-case).
-2. 성숙한 노트를 `publications/<slug>/`로 승격합니다.
-3. 적절한 `latexmk` 모드로 출판 PDF를 컴파일합니다.
-4. 웹사이트 데이터를 게시하는 경우 정적 자산을 재생성합니다.
+1. `ideas/*.md`(`kebab-case` 파일명)에 아이디어 노트를 추가/수정합니다.
+2. 성숙한 노트를 `publications/<slug>/<slug>.tex`로 승격합니다.
+3. 적절한 `latexmk` 모드로 발행 PDF를 컴파일합니다.
+4. 웹사이트 데이터를 발행할 때는 정적 자산을 다시 생성합니다.
    - `node scripts/generate_site.mjs`
-5. 렌더링 결과(`.pdf`, 선택적으로 `docs/` 페이지)를 검증합니다.
+5. 렌더링 결과물(`.pdf` 및 필요 시 `docs/` 페이지)을 검증합니다.
 
 ## 구성
 
 - `mkdocs.yml`이 존재하며 MkDocs 기반 문서 설정에 사용할 수 있습니다.
-- `.github/workflows/pages.yml`이 현재 `docs/`용 GitHub Pages 배포를 담당합니다.
-- `docs/assets/i18n.js` 및 `docs/assets/i18n/*.json`이 웹사이트 i18n 동작을 제어합니다.
-- `CNAME`과 `docs/CNAME`에 커스텀 도메인 설정이 들어 있습니다.
+- `.github/workflows/pages.yml`이 현재 `docs/`의 GitHub Pages 배포를 관리합니다.
+- `docs/assets/i18n.js`와 `docs/assets/i18n/*.json`은 웹사이트의 다국어 동작을 제어합니다.
+- `CNAME`과 `docs/CNAME`은 커스텀 도메인 설정을 저장합니다.
 
-가정 메모: 이 README는 저장소에 둘 다 존재하므로 MkDocs와 커스텀 정적 사이트 파이프라인 참조를 모두 유지합니다.
+가정: 이 README는 저장소에 MkDocs와 커스텀 정적 사이트 파이프라인이 모두 존재하므로, 둘 다 반영하여 유지합니다.
 
 ## 예시
 
-영문 출판물 하나 빌드:
+영문 발행물 하나 빌드:
 
 ```bash
 cd publications/quantum-carpets-fractal-wavefunction-revival
 latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
 ```
 
-중문 출판물 하나 빌드:
+중국어 발행물 하나 빌드:
 
 ```bash
 cd publications/organic-dye-programmed-metasurface-zh
 latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
 ```
 
-docs 데이터/매니페스트 재생성:
+사이트 데이터/매니페스트 재생성:
 
 ```bash
 node scripts/generate_site.mjs
@@ -350,82 +351,61 @@ node scripts/generate_site.mjs
 
 ## 개발 노트
 
-- Markdown 수식은 `$...$`와 `$$...$$`를 사용합니다.
-- 공백이 있는 외부 링크는 안정적인 렌더링을 위해 퍼센트 인코딩합니다.
-- 가급적 덧붙이는 방식으로 수정하고, 필요하지 않으면 기존 파일명을 바꾸지 않습니다.
-- CJK 콘텐츠는 XeLaTeX와 유니코드 안전 LaTeX 설정(예: 필요 시 `ctexart`)을 사용해야 합니다.
-- `publications/<slug>/artifacts/` 아래 LaTeX 아티팩트를 커밋해도 됩니다.
+- Markdown의 수식은 `$...$`와 `$$...$$`를 사용합니다.
+- 공백이 있는 외부 링크는 안정적인 렌더링을 위해 URL 인코딩됩니다.
+- 덧붙임보다 가감은 최소화하고, 필요하지 않은 기존 파일명 변경은 피합니다.
+- CJK 콘텐츠는 XeLaTeX와 Unicode 안전 LaTeX 설정을 사용합니다(예: 적용 가능한 경우 `ctexart`).
+- `publications/<slug>/artifacts/` 아래 LaTeX 산출물 저장은 허용됩니다.
 
 ## 문제 해결
 
-- `latexmk` 명령을 찾을 수 없음:
-  - TeX 배포판을 설치하고 `latexmk`가 `PATH`에 있는지 확인하세요.
-- PDF에서 CJK 글리프/두부(□) 문제가 발생함:
+- `latexmk`를 찾을 수 없는 경우:
+  - TeX 배포판을 설치하고 `PATH`에 `latexmk`가 포함되어 있는지 확인하세요.
+- PDF에서 CJK 글리프가 tofu로 보이는 경우:
   - XeLaTeX 모드를 사용하고 필요한 CJK 폰트가 설치되어 있는지 확인하세요.
-- LaTeX 오류로 빌드가 중단됨:
+- LaTeX 오류로 빌드가 중단될 때:
   - `<slug>.log`를 확인하고 `-interaction=nonstopmode -halt-on-error`로 다시 실행하세요.
-- 웹사이트 메타데이터가 갱신되지 않음:
-  - `node scripts/generate_site.mjs`를 다시 실행하고 `docs/assets/*.json` 타임스탬프를 확인하세요.
+- 웹사이트 메타데이터가 갱신되지 않을 때:
+  - `node scripts/generate_site.mjs`를 다시 실행하고 `docs/assets/*.json`의 타임스탬프를 확인하세요.
 
 ## 로드맵
 
-- README 카탈로그를 새로운 아이디어/출판물과 동기화 상태로 유지.
-- `i18n/README.*.md` 전반의 다국어 동등성을 지속 강화.
-- 문서 워크플로 발전에 맞춰 MkDocs 설정과 배포된 정적 파이프라인 간 정합성 개선.
-- README/링크/카탈로그 일관성을 위한 경량 검증 체크 추가.
+- README 카탈로그를 새 아이디어/발행물과 동기화 상태로 유지합니다.
+- `i18n/README.*.md` 간 다국어 파싱 일치를 계속 강화합니다.
+- 문서 워크플로가 진화함에 따라 MkDocs 설정과 실제 정적 배포 파이프라인 정합성을 개선합니다.
+- README/링크/카탈로그 일관성 검증을 위한 가벼운 체크를 추가합니다.
 
 ## 기여
 
-- 명령형의 범위 있는 커밋 메시지를 사용하세요(예: `Update README structure and operational docs`).
-- 주제/논문 단위로 변경 범위를 집중하세요.
-- 푸시 전에 LaTeX 컴파일과 렌더링 결과를 검증하세요.
-- Pull Request에는 다음이 포함되어야 합니다.
-  - 요약 및 변경 이유,
-  - 변경된 경로,
-  - 필요한 경우 빌드 확인 결과.
+- 명령형이며 범위가 명확한 커밋 메시지를 사용하세요(예: `README 구조 업데이트 및 운영 문서 정비`).
+- 변경은 주제/논문 단위로 집중합니다.
+- 푸시 전 LaTeX 컴파일 및 렌더링 결과 확인을 권장합니다.
+- PR에는 다음이 포함되어야 합니다.
+  - 요약 및 근거,
+  - 수정된 경로 목록,
+  - 필요 시 빌드 확인 결과.
 
 ## 참고
 
 - Markdown 수식은 `$...$`와 `$$...$$`를 사용합니다.
-- 공백이 있는 외부 링크는 안정적인 렌더링을 위해 퍼센트 인코딩합니다.
+- 공백이 포함된 외부 링크는 신뢰성 있는 렌더링을 위해 percent-encoding 됩니다.
 
-## 지원 / 후원
+## 연락처
 
-<div align="center">
-<table width="100%" style="width:100%; table-layout:fixed; margin:0 auto; text-align:center; border-collapse:collapse; word-break:break-word; overflow-wrap:anywhere;">
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate">https://chat.lazying.art/donate</a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://chat.lazying.art/donate"><img src="figs/donate_button.svg" alt="Donate" height="44"></a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://paypal.me/RongzhouChen">
-        <img src="https://img.shields.io/badge/PayPal-Donate-003087?logo=paypal&logoColor=white" alt="Donate with PayPal">
-      </a>
-    </td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;">
-      <a href="https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400">
-        <img src="https://img.shields.io/badge/Stripe-Donate-635bff?logo=stripe&logoColor=white" alt="Donate with Stripe">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>WeChat</strong></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><strong>Alipay</strong></td>
-  </tr>
-  <tr>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="WeChat QR" src="figs/donate_wechat.png" width="240"/></td>
-    <td style="text-align:center; vertical-align:middle; padding:6px 12px;"><img alt="Alipay QR" src="figs/donate_alipay.png" width="240"/></td>
-  </tr>
-</table>
- </div>
+저장소 워크플로, 편집 업데이트, 협업에 대한 질문이 있으시면:
+- 저장소 이슈 트래커에 이슈를 등록하세요(활성화되어 있는 경우).
+- 긴 형식 리뷰나 편집 검토는 discussion을 시작하세요.
+- 후원/프로젝트 지원 옵션은 위의 Support 패널을 참고하세요.
 
 ## 라이선스
 
-이 저장소에는 현재 `LICENSE` 파일이 없습니다.
+현재 이 저장소에는 `LICENSE` 파일이 없습니다.
 
-가정 메모: 라이선스 파일이 추가되기 전까지는 재사용/재배포 조건이 정의되지 않았으므로 저장소 소유자가 명확히 해야 합니다.
+가정: 라이선스 파일이 추가되기 전까지는 재사용/배포 조건이 정의되지 않았으며 저장소 소유자가 명확히 해야 합니다.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
