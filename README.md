@@ -6,7 +6,20 @@
 
 # IDEAS
 
+![Status](https://img.shields.io/badge/status-active-0a7f5a)
+![Content](https://img.shields.io/badge/content-Markdown%20%2B%20LaTeX-blue)
+![Languages](https://img.shields.io/badge/i18n-9%20README%20languages-orange)
 
+## Overview
+
+IDEAS is a lightweight, versioned notebook of research notes and essays.
+
+This repository follows a content-first workflow:
+- Author ideas in Markdown under `ideas/`.
+- Promote mature ideas into publication folders under `publications/<slug>/`.
+- Keep publication filenames slug-matching (`<slug>.tex`, `<slug>.pdf`).
+- Regenerate publication PDFs with reproducible `latexmk` commands.
+- Maintain multilingual README variants under `i18n/` and static web pages under `docs/`.
 
 ## About
 
@@ -15,6 +28,15 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 - Conventions: kebab-case filenames; publication filenames match their folder slug (`<slug>.tex`, `<slug>.pdf`).
 - CJK support: Chinese-language publications compile with XeLaTeX.
 - Reproducible builds: use `latexmk` (see Build section) to regenerate PDFs.
+
+## Features
+
+- Versioned idea-to-publication pipeline (`ideas/` -> `publications/<slug>/`).
+- Research catalog organized by category with direct Markdown/PDF links.
+- Multilingual README set in 9 languages under `i18n/`.
+- Static site content under `docs/` with generated manifests in `docs/assets/`.
+- Optional local git hook setup via `scripts/enable-hooks.sh`.
+- Repository includes publication artifacts (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) where useful for reproducibility.
 
 ## Catalog by Category
 
@@ -201,12 +223,144 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
   </tbody>
   </table>
 
+## Project Structure
+
+```text
+IDEAS/
+├── README.md
+├── AGENTS.md
+├── mkdocs.yml
+├── CNAME
+├── scripts/
+│   ├── generate_site.mjs
+│   └── enable-hooks.sh
+├── ideas/                         # Markdown idea notes
+├── publications/
+│   └── <slug>/
+│       ├── <slug>.tex
+│       ├── <slug>.pdf
+│       └── artifacts/             # optional LaTeX aux/log files
+├── docs/                          # static website + generated assets
+│   ├── index.html
+│   ├── ideas/
+│   ├── publications/
+│   └── assets/
+│       ├── ideas.json
+│       ├── publications.json
+│       ├── categories.json
+│       └── i18n/
+├── i18n/                          # multilingual README variants
+└── figs/                          # README and donation assets
+```
+
+## Prerequisites
+
+- `latexmk` with a working TeX distribution (TeX Live or equivalent).
+- XeLaTeX support for CJK builds (for Chinese/Japanese publications): `xelatex` + CJK-capable fonts.
+- Node.js (recommended 18+) for site asset generation (`scripts/generate_site.mjs`).
+- Git for versioning and contribution workflow.
+
+## Installation
+
+```bash
+git clone <your-fork-or-origin-url>
+cd IDEAS
+```
+
+Optional local hook setup:
+
+```bash
+bash scripts/enable-hooks.sh
+```
+
 ## Build
 
 - English/ASCII PDFs:
   - `cd publications/<slug> && latexmk -pdf -interaction=nonstopmode -halt-on-error <slug>.tex`
 - Chinese PDFs (CJK):
   - `cd publications/<slug> && latexmk -xelatex -interaction=nonstopmode -halt-on-error <slug>.tex`
+- Build all papers (PDF mode):
+  - `find publications -maxdepth 2 -name '*.tex' -execdir latexmk -pdf -interaction=nonstopmode -halt-on-error {} \;`
+- Clean LaTeX artifacts (inside a paper directory):
+  - `latexmk -C`
+
+## Usage
+
+Common day-to-day flow:
+
+1. Add or update idea notes in `ideas/*.md` (kebab-case filename).
+2. Promote mature notes into `publications/<slug>/<slug>.tex`.
+3. Compile the publication PDF with the appropriate `latexmk` mode.
+4. If publishing website data, regenerate static assets:
+   - `node scripts/generate_site.mjs`
+5. Validate rendered outputs (`.pdf` and optionally `docs/` pages).
+
+## Configuration
+
+- `mkdocs.yml` exists and can be used for MkDocs-based documentation configuration.
+- `.github/workflows/pages.yml` currently drives GitHub Pages deployment for `docs/`.
+- `docs/assets/i18n.js` and `docs/assets/i18n/*.json` control website i18n behavior.
+- `CNAME` and `docs/CNAME` hold custom-domain settings.
+
+Assumption note: this README preserves both MkDocs and custom static-site pipeline references because both are present in the repository.
+
+## Examples
+
+Build one English publication:
+
+```bash
+cd publications/quantum-carpets-fractal-wavefunction-revival
+latexmk -pdf -interaction=nonstopmode -halt-on-error quantum-carpets-fractal-wavefunction-revival.tex
+```
+
+Build one Chinese publication:
+
+```bash
+cd publications/organic-dye-programmed-metasurface-zh
+latexmk -xelatex -interaction=nonstopmode -halt-on-error organic-dye-programmed-metasurface-zh.tex
+```
+
+Regenerate docs data/manifests:
+
+```bash
+node scripts/generate_site.mjs
+```
+
+## Development Notes
+
+- Equations in Markdown use `$...$` and `$$...$$`.
+- External links with spaces are percent‑encoded for reliable rendering.
+- Prefer additive edits and avoid renaming existing files unless necessary.
+- CJK content should use XeLaTeX and Unicode-safe LaTeX setup (for example `ctexart` where applicable).
+- It is acceptable to commit LaTeX artifacts under `publications/<slug>/artifacts/`.
+
+## Troubleshooting
+
+- `latexmk` command not found:
+  - Install a TeX distribution and ensure `latexmk` is on `PATH`.
+- CJK glyph/tofu issues in PDFs:
+  - Use XeLaTeX mode and ensure required CJK fonts are installed.
+- Build stops on LaTeX errors:
+  - Inspect `<slug>.log` and rerun with `-interaction=nonstopmode -halt-on-error`.
+- Website metadata not updating:
+  - Re-run `node scripts/generate_site.mjs` and verify `docs/assets/*.json` timestamps.
+
+## Roadmap
+
+- Keep README catalog synchronized with new ideas/publications.
+- Continue strengthening multilingual parity across `i18n/README.*.md` files.
+- Improve alignment between MkDocs config and deployed static pipeline as the docs workflow evolves.
+- Add lightweight validation checks for README/link/catalog consistency.
+
+## Contribution
+
+- Use imperative, scoped commit messages (example: `Update README structure and operational docs`).
+- Keep changes focused by topic/paper.
+- Validate LaTeX compilation and rendered output before pushing.
+- Pull requests should include:
+  - summary and rationale,
+  - paths touched,
+  - build confirmation when relevant.
 
 ## Notes
 
@@ -247,3 +401,9 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
   </tr>
 </table>
  </div>
+
+## License
+
+No `LICENSE` file is currently present in this repository.
+
+Assumption note: until a license file is added, reuse/redistribution terms are undefined and should be clarified by the repository owner.
