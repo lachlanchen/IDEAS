@@ -1,1 +1,5 @@
-{"status":"failed","reason":"missing_self_evolve_result","expected":"/Users/lachlan/.openclaw/workspace/LRE/self_evolve_runs/20260303-001217-ideas-review/codex/latest-result.json"}
+{
+  "status": "failed",
+  "reason": "missing_self_evolve_result",
+  "expected": "/Users/lachlan/.openclaw/workspace/LRE/self_evolve_runs/20260303-001217-ideas-review/codex/latest-result.json"
+}

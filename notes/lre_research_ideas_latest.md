@@ -3,6 +3,7 @@
 Summary: These directions prioritize your strongest repeatable loop (build fast, integrate across domains) while correcting the current bottleneck (weak/noisy evidence). Because artifact quality is currently low, the highest-value near-term work is to ship small validation systems that improve data reliability, force focus across projects, and produce measurable proof artifacts in 7 days.
 
 ## Ideas
+
 - Anchor-First Identity and Evidence Router (LRE Core) [high]
   - Hypothesis: If the pipeline resolves identity from high-confidence anchors first (GitHub + Scholar + personal site) and treats empty/invalid artifacts as hard failures, then downstream idea quality and prioritization accuracy will improve within one run. Assumption: anchor sources are consistently reachable at least 80% of runs.
   - Why fit: Directly targets your stated bottleneck (artifact failures, identity noise) and fits your automation/system-design strengths; it also compounds value for every future research cycle.
