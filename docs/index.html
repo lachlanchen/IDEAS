@@ -1,284 +1,509 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDEAS — Research to Product</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    }
-    .theme-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.6);
-      color: #e2e8f0;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-    }
-    .theme-toggle:hover {
-      border-color: rgba(129, 140, 248, 0.6);
-    }
-    body[data-theme="light"] {
-      color-scheme: light;
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    body[data-theme="light"] .theme-toggle {
-      background: #ffffff;
-      color: #0f172a;
-      border-color: rgba(148, 163, 184, 0.5);
-    }
-    body[data-theme="dark"] {
-      color-scheme: dark;
-    }
-    body[data-theme="light"] .bg-slate-950 { background-color: #f8fafc; }
-    body[data-theme="light"] .bg-slate-950\/70 { background-color: rgba(248, 250, 252, 0.95); }
-    body[data-theme="light"] .bg-slate-900\/50 { background-color: rgba(241, 245, 249, 0.85); }
-    body[data-theme="light"] .bg-slate-900\/70 { background-color: rgba(255, 255, 255, 0.92); }
-    body[data-theme="light"] .bg-slate-900\/80 { background-color: rgba(255, 255, 255, 0.96); }
-    body[data-theme="light"] .bg-slate-800\/60 { background-color: rgba(226, 232, 240, 0.85); }
-    body[data-theme="light"] .bg-slate-800 { background-color: #e2e8f0; }
-    body[data-theme="light"] .bg-indigo-500\/10 { background-color: rgba(59, 130, 246, 0.12); }
-    body[data-theme="light"] .border-slate-800 { border-color: #e2e8f0; }
-    body[data-theme="light"] .border-slate-700 { border-color: #cbd5e1; }
-    body[data-theme="light"] .text-slate-100 { color: #0f172a; }
-    body[data-theme="light"] .text-slate-300 { color: #334155; }
-    body[data-theme="light"] .text-slate-400 { color: #475569; }
-    body[data-theme="light"] .text-indigo-300 { color: #2563eb; }
-    body[data-theme="light"] .text-emerald-300 { color: #047857; }
-    body[data-theme="light"] .hover\:text-indigo-400:hover { color: #1d4ed8; }
-    body[data-theme="light"] .group:hover .group-hover\:text-white { color: #0f172a; }
-  </style>
-  <meta name="color-scheme" content="dark light">
-  <link rel="icon" href="/assets/favicon.png" />
-</head>
-<body class="bg-slate-950 text-slate-100" data-theme="light">
-  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"><img src="https://lazying.art/logos/logo.png" class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0" alt="LazyingArt logo" /> IDEAS</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-indigo-400" data-i18n="nav_home">Home</a>
-        <a href="/ideas/" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications">Publications</a>
-        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-indigo-400" data-i18n="nav_github">GitHub</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle theme">
-          <span class="theme-icon" aria-hidden="true">☀️</span>
-          <span class="theme-label">Light</span>
-        </button>
-        <div id="langSwitcher"></div>
-      </div>
-    </div>
-  </header>
-
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-indigo-700/10 to-transparent"></div>
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight"><span data-i18n="hero_title1">From Idea to Product.</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300" data-i18n="hero_title2">AI‑accelerated research</span></h1>
-          <p class="mt-5 text-slate-300 text-lg" data-i18n="hero_subtitle">A living notebook of photonics, physics, biomedicine, chemistry, finance, and simulation — with workflows, publications, and a pipeline mindset to ship real products.</p>
-          <div class="mt-8 flex gap-4">
-      <a href="/ideas/" class="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-semibold" data-i18n="hero_cta_explore">Explore Ideas</a>
-      <a href="/publications/" class="px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-500" data-i18n="hero_cta_publications">Read Publications</a>
-      <a href="https://coin.lazying.art" class="px-4 py-2 rounded-lg border border-emerald-500 text-emerald-300 text-sm" target="_blank" rel="noopener" title="将 LAC 添加到 MetaMask — 导入 LazyingArtCoin 代币，在 MetaMask 中查看余额和转账记录。">添加到 MetaMask</a>
-          </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IDEAS — Research to Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.6);
+        color: #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+      .theme-toggle:hover {
+        border-color: rgba(129, 140, 248, 0.6);
+      }
+      body[data-theme="light"] {
+        color-scheme: light;
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      body[data-theme="light"] .theme-toggle {
+        background: #ffffff;
+        color: #0f172a;
+        border-color: rgba(148, 163, 184, 0.5);
+      }
+      body[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      body[data-theme="light"] .bg-slate-950 {
+        background-color: #f8fafc;
+      }
+      body[data-theme="light"] .bg-slate-950\/70 {
+        background-color: rgba(248, 250, 252, 0.95);
+      }
+      body[data-theme="light"] .bg-slate-900\/50 {
+        background-color: rgba(241, 245, 249, 0.85);
+      }
+      body[data-theme="light"] .bg-slate-900\/70 {
+        background-color: rgba(255, 255, 255, 0.92);
+      }
+      body[data-theme="light"] .bg-slate-900\/80 {
+        background-color: rgba(255, 255, 255, 0.96);
+      }
+      body[data-theme="light"] .bg-slate-800\/60 {
+        background-color: rgba(226, 232, 240, 0.85);
+      }
+      body[data-theme="light"] .bg-slate-800 {
+        background-color: #e2e8f0;
+      }
+      body[data-theme="light"] .bg-indigo-500\/10 {
+        background-color: rgba(59, 130, 246, 0.12);
+      }
+      body[data-theme="light"] .border-slate-800 {
+        border-color: #e2e8f0;
+      }
+      body[data-theme="light"] .border-slate-700 {
+        border-color: #cbd5e1;
+      }
+      body[data-theme="light"] .text-slate-100 {
+        color: #0f172a;
+      }
+      body[data-theme="light"] .text-slate-300 {
+        color: #334155;
+      }
+      body[data-theme="light"] .text-slate-400 {
+        color: #475569;
+      }
+      body[data-theme="light"] .text-indigo-300 {
+        color: #2563eb;
+      }
+      body[data-theme="light"] .text-emerald-300 {
+        color: #047857;
+      }
+      body[data-theme="light"] .hover\:text-indigo-400:hover {
+        color: #1d4ed8;
+      }
+      body[data-theme="light"] .group:hover .group-hover\:text-white {
+        color: #0f172a;
+      }
+    </style>
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/assets/favicon.png" />
+  </head>
+  <body class="bg-slate-950 text-slate-100" data-theme="light">
+    <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"
+          ><img
+            src="https://lazying.art/logos/logo.png"
+            class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0"
+            alt="LazyingArt logo"
+          />
+          IDEAS</a
+        >
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/" class="hover:text-indigo-400" data-i18n="nav_home">Home</a>
+          <a href="/ideas/" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
+          <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications"
+            >Publications</a
+          >
+          <a
+            href="https://github.com/lachlanchen/IDEAS"
+            class="hover:text-indigo-400"
+            data-i18n="nav_github"
+            >GitHub</a
+          >
+        </nav>
+        <div class="flex items-center gap-3">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-icon" aria-hidden="true">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+          <div id="langSwitcher"></div>
         </div>
-        <div class="relative">
-          <div class="p-1 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-400">
-            <div class="rounded-2xl p-6 bg-slate-900/80 border border-slate-800">
-              <ul class="space-y-3 text-sm">
-                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-emerald-400 mt-2"></span><span><b>QC + MD + AI:</b> End‑to‑end small molecule simulation pipeline with automation.</span></li>
-                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-sky-400 mt-2"></span><span><b>Metasurface Imaging:</b> AI‑assisted design, library sweeps, Fourier optics, and validation.</span></li>
-                <li class="flex items-start gap-3"><span class="w-2 h-2 rounded-full bg-fuchsia-400 mt-2"></span><span><b>DORAEMON:</b> Tap‑and‑Charge concept with rigorous EM coupling and circuit limits.</span></li>
-              </ul>
-              <div class="mt-6 grid grid-cols-3 gap-2 text-center">
-                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold">11</div><div class="text-xs text-slate-400" data-i18n="stats_ideas">Ideas</div></div>
-                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold" id="pubCount">—</div><div class="text-xs text-slate-400" data-i18n="stats_publications">Publications</div></div>
-                <div class="p-3 rounded-lg bg-slate-800/60"><div class="text-2xl font-extrabold">∞</div><div class="text-xs text-slate-400" data-i18n="stats_potential">Potential</div></div>
+      </div>
+    </header>
+
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-indigo-700/10 to-transparent"></div>
+      <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+              <span data-i18n="hero_title1">From Idea to Product.</span><br /><span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300"
+                data-i18n="hero_title2"
+                >AI‑accelerated research</span
+              >
+            </h1>
+            <p class="mt-5 text-slate-300 text-lg" data-i18n="hero_subtitle">
+              A living notebook of photonics, physics, biomedicine, chemistry, finance, and
+              simulation — with workflows, publications, and a pipeline mindset to ship real
+              products.
+            </p>
+            <div class="mt-8 flex gap-4">
+              <a
+                href="/ideas/"
+                class="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-semibold"
+                data-i18n="hero_cta_explore"
+                >Explore Ideas</a
+              >
+              <a
+                href="/publications/"
+                class="px-5 py-3 rounded-lg border border-slate-700 hover:border-slate-500"
+                data-i18n="hero_cta_publications"
+                >Read Publications</a
+              >
+              <a
+                href="https://coin.lazying.art"
+                class="px-4 py-2 rounded-lg border border-emerald-500 text-emerald-300 text-sm"
+                target="_blank"
+                rel="noopener"
+                title="将 LAC 添加到 MetaMask — 导入 LazyingArtCoin 代币，在 MetaMask 中查看余额和转账记录。"
+                >添加到 MetaMask</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <div class="p-1 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-400">
+              <div class="rounded-2xl p-6 bg-slate-900/80 border border-slate-800">
+                <ul class="space-y-3 text-sm">
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mt-2"></span
+                    ><span
+                      ><b>QC + MD + AI:</b> End‑to‑end small molecule simulation pipeline with
+                      automation.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-sky-400 mt-2"></span
+                    ><span
+                      ><b>Metasurface Imaging:</b> AI‑assisted design, library sweeps, Fourier
+                      optics, and validation.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-fuchsia-400 mt-2"></span
+                    ><span
+                      ><b>DORAEMON:</b> Tap‑and‑Charge concept with rigorous EM coupling and circuit
+                      limits.</span
+                    >
+                  </li>
+                </ul>
+                <div class="mt-6 grid grid-cols-3 gap-2 text-center">
+                  <div class="p-3 rounded-lg bg-slate-800/60">
+                    <div class="text-2xl font-extrabold">11</div>
+                    <div class="text-xs text-slate-400" data-i18n="stats_ideas">Ideas</div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-slate-800/60">
+                    <div class="text-2xl font-extrabold" id="pubCount">—</div>
+                    <div class="text-xs text-slate-400" data-i18n="stats_publications">
+                      Publications
+                    </div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-slate-800/60">
+                    <div class="text-2xl font-extrabold">∞</div>
+                    <div class="text-xs text-slate-400" data-i18n="stats_potential">Potential</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="max-w-6xl mx-auto px-4 py-10">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold" data-i18n="latest_ideas">Latest Ideas</h2>
-      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="view_all">View all →</a>
-    </div>
-    <div id="ideasGrid" class="grid md:grid-cols-3 gap-6"></div>
-  </section>
-
-  <section class="max-w-6xl mx-auto px-4 py-10">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold" data-i18n="browse_categories">Browse by Category</h2>
-      <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="explore">Explore</a>
-    </div>
-    <div id="catChips" class="flex flex-wrap gap-2"></div>
-    <div id="catSections" class="mt-8 space-y-10"></div>
-  </section>
-
-  <section class="bg-slate-900/50 border-y border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-10">
-      <div>
-        <h3 class="text-xl font-bold mb-2" data-i18n="pipeline_title">Productization Pipeline</h3>
-        <p class="text-slate-300" data-i18n="pipeline_desc">We treat ideas like products: specs → prototypes → validation → docs → release. Automation, reproducible builds, and clean handoffs are first‑class.</p>
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold" data-i18n="latest_ideas">Latest Ideas</h2>
+        <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="view_all"
+          >View all →</a
+        >
       </div>
-      <div class="col-span-2 grid sm:grid-cols-2 gap-4">
-        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b data-i18n="step1_title">1. Specify</b><p class="text-sm text-slate-300 mt-1" data-i18n="step1_desc">Define targets, metrics, resources.</p></div>
-        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b data-i18n="step2_title">2. Simulate</b><p class="text-sm text-slate-300 mt-1" data-i18n="step2_desc">QC/MD/EM pipelines and sweeps.</p></div>
-        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b data-i18n="step3_title">3. Optimize</b><p class="text-sm text-slate-300 mt-1" data-i18n="step3_desc">AI‑assisted optimization + surrogates.</p></div>
-        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700"><b data-i18n="step4_title">4. Publish</b><p class="text-sm text-slate-300 mt-1" data-i18n="step4_desc">LaTeX PDFs, figures, and code.</p></div>
-      </div>
-    </div>
-  </section>
+      <div id="ideasGrid" class="grid md:grid-cols-3 gap-6"></div>
+    </section>
 
-  <!-- Ecosystem links -->
-  <section class="bg-slate-900/50 border-y border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <div class="mb-6">
-        <span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 text-xs tracking-wide">ECOSYSTEM</span>
-        <h2 class="mt-2 text-2xl font-bold">LazyingArt Network</h2>
-        <p class="text-slate-300">Explore our connected sites and apps.</p>
+    <section class="max-w-6xl mx-auto px-4 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold" data-i18n="browse_categories">Browse by Category</h2>
+        <a href="/ideas/" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="explore"
+          >Explore</a
+        >
       </div>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">LazyingArt</div>
-          <div class="text-slate-400">lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://onlyideas.art" target="_blank" rel="noopener">
-          <div class="font-bold">OnlyIdeas</div>
-          <div class="text-slate-400">onlyideas.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://chat.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">EchoMind</div>
-          <div class="text-slate-400">chat.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://paper.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">PaperAgent</div>
-          <div class="text-slate-400">paper.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://coin.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">LazyingArtCoin</div>
-          <div class="text-slate-400">coin.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://earn.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">LazyEarn</div>
-          <div class="text-slate-400">earn.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://learn.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">LazyLearn</div>
-          <div class="text-slate-400">learn.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://robot.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">IdeasRobot</div>
-          <div class="text-slate-400">robot.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://glass.lazying.art" target="_blank" rel="noopener">
-          <div class="font-bold">IdeasGlass</div>
-          <div class="text-slate-400">glass.lazying.art →</div>
-        </a>
-        <a class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition" href="https://ideas.onlyideas.art" target="_blank" rel="noopener">
-          <div class="font-bold">IDEAS</div>
-          <div class="text-slate-400">ideas.onlyideas.art →</div>
-        </a>
+      <div id="catChips" class="flex flex-wrap gap-2"></div>
+      <div id="catSections" class="mt-8 space-y-10"></div>
+    </section>
+
+    <section class="bg-slate-900/50 border-y border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-10">
+        <div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="pipeline_title">Productization Pipeline</h3>
+          <p class="text-slate-300" data-i18n="pipeline_desc">
+            We treat ideas like products: specs → prototypes → validation → docs → release.
+            Automation, reproducible builds, and clean handoffs are first‑class.
+          </p>
+        </div>
+        <div class="col-span-2 grid sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700">
+            <b data-i18n="step1_title">1. Specify</b>
+            <p class="text-sm text-slate-300 mt-1" data-i18n="step1_desc">
+              Define targets, metrics, resources.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700">
+            <b data-i18n="step2_title">2. Simulate</b>
+            <p class="text-sm text-slate-300 mt-1" data-i18n="step2_desc">
+              QC/MD/EM pipelines and sweeps.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700">
+            <b data-i18n="step3_title">3. Optimize</b>
+            <p class="text-sm text-slate-300 mt-1" data-i18n="step3_desc">
+              AI‑assisted optimization + surrogates.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700">
+            <b data-i18n="step4_title">4. Publish</b>
+            <p class="text-sm text-slate-300 mt-1" data-i18n="step4_desc">
+              LaTeX PDFs, figures, and code.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script src="/assets/i18n.js"></script>
-  <script>
-    function catColor(cat){
-      const map = {
-        'Metasurfaces':'from-fuchsia-500 to-pink-500',
-        'Theory':'from-amber-500 to-yellow-400',
-        'DORAEMON':'from-emerald-500 to-teal-400',
-        'AI for Science':'from-sky-500 to-cyan-400',
-        'Product & Tools':'from-indigo-500 to-violet-500',
-        'General':'from-slate-500 to-slate-400'
-      }; return map[cat]||map['General'];
-    }
+    <!-- Ecosystem links -->
+    <section class="bg-slate-900/50 border-y border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="mb-6">
+          <span class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 text-xs tracking-wide"
+            >ECOSYSTEM</span
+          >
+          <h2 class="mt-2 text-2xl font-bold">LazyingArt Network</h2>
+          <p class="text-slate-300">Explore our connected sites and apps.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">LazyingArt</div>
+            <div class="text-slate-400">lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://onlyideas.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">OnlyIdeas</div>
+            <div class="text-slate-400">onlyideas.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://chat.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">EchoMind</div>
+            <div class="text-slate-400">chat.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://paper.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">PaperAgent</div>
+            <div class="text-slate-400">paper.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://coin.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">LazyingArtCoin</div>
+            <div class="text-slate-400">coin.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://earn.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">LazyEarn</div>
+            <div class="text-slate-400">earn.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://learn.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">LazyLearn</div>
+            <div class="text-slate-400">learn.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://robot.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">IdeasRobot</div>
+            <div class="text-slate-400">robot.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://glass.lazying.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">IdeasGlass</div>
+            <div class="text-slate-400">glass.lazying.art →</div>
+          </a>
+          <a
+            class="group p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition"
+            href="https://ideas.onlyideas.art"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="font-bold">IDEAS</div>
+            <div class="text-slate-400">ideas.onlyideas.art →</div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    async function loadIdeas() {
-      try {
-        const ideas = await fetch('/assets/ideas.json').then(r=>r.json());
-        const pubs = await fetch('/assets/publications.json').then(r=>r.json()).catch(()=>[]);
-        document.getElementById('pubCount').textContent = pubs.length || '0';
-        const root = document.getElementById('ideasGrid');
-        const top = ideas.slice(0, 6);
-        root.innerHTML = top.map(x => `
+    <script src="/assets/i18n.js"></script>
+    <script>
+      function catColor(cat) {
+        const map = {
+          Metasurfaces: "from-fuchsia-500 to-pink-500",
+          Theory: "from-amber-500 to-yellow-400",
+          DORAEMON: "from-emerald-500 to-teal-400",
+          "AI for Science": "from-sky-500 to-cyan-400",
+          "Product & Tools": "from-indigo-500 to-violet-500",
+          General: "from-slate-500 to-slate-400",
+        };
+        return map[cat] || map["General"];
+      }
+
+      async function loadIdeas() {
+        try {
+          const ideas = await fetch("/assets/ideas.json").then((r) => r.json());
+          const pubs = await fetch("/assets/publications.json")
+            .then((r) => r.json())
+            .catch(() => []);
+          document.getElementById("pubCount").textContent = pubs.length || "0";
+          const root = document.getElementById("ideasGrid");
+          const top = ideas.slice(0, 6);
+          root.innerHTML = top
+            .map(
+              (x) => `
           <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
             <div class="text-xs flex items-center gap-2">
-              <span class="inline-block rounded-full bg-slate-800 border border-slate-700 px-2 py-0.5">${x.author || 'IDEAS'}</span>
+              <span class="inline-block rounded-full bg-slate-800 border border-slate-700 px-2 py-0.5">${x.author || "IDEAS"}</span>
               <span class="inline-block rounded-full bg-gradient-to-r ${catColor(x.category)} px-2 py-0.5 text-slate-900 font-semibold">${x.category}</span>
             </div>
             <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
-            <div class="mt-2 text-sm text-slate-400">${(x.excerpt||'').replace(/</g,'&lt;')}</div>
-          </a>`).join('');
+            <div class="mt-2 text-sm text-slate-400">${(x.excerpt || "").replace(/</g, "&lt;")}</div>
+          </a>`,
+            )
+            .join("");
 
-        // Category chips
-        const cats = [...new Set(ideas.map(i=>i.category))];
-        const chipRoot = document.getElementById('catChips');
-        chipRoot.innerHTML = cats.map(c => `<a href="/ideas/?category=${encodeURIComponent(c)}" class="inline-block text-sm rounded-full bg-gradient-to-r ${catColor(c)} text-slate-900 font-semibold px-3 py-1">${c}</a>`).join('');
+          // Category chips
+          const cats = [...new Set(ideas.map((i) => i.category))];
+          const chipRoot = document.getElementById("catChips");
+          chipRoot.innerHTML = cats
+            .map(
+              (c) =>
+                `<a href="/ideas/?category=${encodeURIComponent(c)}" class="inline-block text-sm rounded-full bg-gradient-to-r ${catColor(c)} text-slate-900 font-semibold px-3 py-1">${c}</a>`,
+            )
+            .join("");
 
-        // Category sections (featured 4 each)
-        const secRoot = document.getElementById('catSections');
-        secRoot.innerHTML = cats.map(c => {
-          const items = ideas.filter(i=>i.category===c).slice(0,4).map(x => `
+          // Category sections (featured 4 each)
+          const secRoot = document.getElementById("catSections");
+          secRoot.innerHTML = cats
+            .map((c) => {
+              const items = ideas
+                .filter((i) => i.category === c)
+                .slice(0, 4)
+                .map(
+                  (x) => `
             <a href="/ideas/${x.slug}.html" class="group block p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
-              <div class="text-xs text-indigo-300">${x.author||'IDEAS'}</div>
+              <div class="text-xs text-indigo-300">${x.author || "IDEAS"}</div>
               <div class="mt-1 font-bold">${x.title}</div>
-            </a>`).join('');
-          return `<div>
+            </a>`,
+                )
+                .join("");
+              return `<div>
             <div class="flex items-center justify-between mb-3">
               <h3 class="text-lg font-bold">${c}</h3>
               <a href="/ideas/?category=${encodeURIComponent(c)}" class="text-sm text-slate-400 hover:text-indigo-400" data-i18n="see_more">See more →</a>
             </div>
             <div class="grid md:grid-cols-4 gap-4">${items}</div>
           </div>`;
-        }).join('');
-        // Apply i18n to newly injected content
-        if (window.__i18n && typeof window.__i18n.apply === 'function') window.__i18n.apply();
-      } catch (e) { console.error(e); }
-    }
-    loadIdeas();
+            })
+            .join("");
+          // Apply i18n to newly injected content
+          if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      loadIdeas();
 
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      const themeKey = 'ideas-theme';
-      const themeIcon = themeToggle.querySelector('.theme-icon');
-      const themeLabel = themeToggle.querySelector('.theme-label');
-      const applyTheme = (theme) => {
-        document.body.dataset.theme = theme;
-        document.documentElement.style.colorScheme = theme;
-        const isDark = theme === 'dark';
-        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-        if (themeIcon) themeIcon.textContent = isDark ? '🌙' : '☀️';
-        if (themeLabel) themeLabel.textContent = isDark ? 'Dark' : 'Light';
-      };
-      const storedTheme = localStorage.getItem(themeKey);
-      applyTheme(storedTheme || 'light');
-      themeToggle.addEventListener('click', () => {
-        const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(themeKey, nextTheme);
-        applyTheme(nextTheme);
-      });
-    }
-  </script>
-</body>
+      const themeToggle = document.getElementById("themeToggle");
+      if (themeToggle) {
+        const themeKey = "ideas-theme";
+        const themeIcon = themeToggle.querySelector(".theme-icon");
+        const themeLabel = themeToggle.querySelector(".theme-label");
+        const applyTheme = (theme) => {
+          document.body.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          const isDark = theme === "dark";
+          themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+          if (themeIcon) themeIcon.textContent = isDark ? "🌙" : "☀️";
+          if (themeLabel) themeLabel.textContent = isDark ? "Dark" : "Light";
+        };
+        const storedTheme = localStorage.getItem(themeKey);
+        applyTheme(storedTheme || "light");
+        themeToggle.addEventListener("click", () => {
+          const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+          localStorage.setItem(themeKey, nextTheme);
+          applyTheme(nextTheme);
+        });
+      }
+    </script>
+  </body>
 </html>

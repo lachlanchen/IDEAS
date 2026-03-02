@@ -1,6 +1,5 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
-
 [![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
@@ -14,7 +13,6 @@
 ![Pipeline](https://img.shields.io/badge/pipeline-idea%20%E2%86%92%20publication-1f6feb)
 ![Ops](https://img.shields.io/badge/ops-locales%20%2F%20catalog-0b7285)
 
-
 ---
 
 ## 概覽
@@ -22,6 +20,7 @@
 IDEAS 是一個輕量、可版本化的研究筆記與隨筆專案。
 
 本庫採用內容優先的工作流程：
+
 - 在 `ideas/` 下以 Markdown 撰寫想法。
 - 將成熟的想法轉為 `publications/<slug>/` 下的出版內容。
 - 保持出版檔名與資料夾 slug 對應（`<slug>.tex`、`<slug>.pdf`）。
@@ -30,20 +29,21 @@ IDEAS 是一個輕量、可版本化的研究筆記與隨筆專案。
 
 ## 快速連結
 
-| 區段 | 跳轉 |
-|---|---|
-| 🗂️ 目錄 | [依類別目錄](#catalog-by-category) |
-| 🧰 建置指令 | [建置](#build) |
-| 🧪 日常流程 | [用法](#usage) |
-| 🧱 專案架構 | [專案結構](#project-structure) |
-| ⚙️ 運維明細 | [設定](#configuration) |
-| 🧩 貢獻指引 | [貢獻](#contribution) |
-| ✉️ 聯絡 | [聯絡](#contact) |
-| ❤️ Support | [Support / Donate](#-support) |
+| 區段        | 跳轉                               |
+| ----------- | ---------------------------------- |
+| 🗂️ 目錄     | [依類別目錄](#catalog-by-category) |
+| 🧰 建置指令 | [建置](#build)                     |
+| 🧪 日常流程 | [用法](#usage)                     |
+| 🧱 專案架構 | [專案結構](#project-structure)     |
+| ⚙️ 運維明細 | [設定](#configuration)             |
+| 🧩 貢獻指引 | [貢獻](#contribution)              |
+| ✉️ 聯絡     | [聯絡](#contact)                   |
+| ❤️ Support  | [Support / Donate](#-support)      |
 
 ## 關於
 
 IDEAS 是一個輕量、可版本化的研究筆記與隨筆專案。
+
 - 內容優先：每個想法都先以 `ideas/` 中的 Markdown 存放；成熟後同步到 `publications/<slug>/<slug>.tex` 並編譯為 PDF。
 - 慣例：檔名採用 kebab-case；出版檔名與資料夾 slug 保持一致（`<slug>.tex`、`<slug>.pdf`）。
 - 可重現建置：使用 `latexmk`（見建置章節）重建 PDF。
@@ -58,6 +58,7 @@ IDEAS 是一個輕量、可版本化的研究筆記與隨筆專案。
 - 倘若有助於可重現性，儲存 LaTeX 建置產物（`.aux`、`.log`、`.fls`、`.fdb_latexmk`、`.out`）。
 
 <a id="catalog-by-category"></a>
+
 ## 按類別目錄
 
 ### Metasurfaces
@@ -250,6 +251,7 @@ IDEAS 是一個輕量、可版本化的研究筆記與隨筆專案。
   </table>
 
 <a id="project-structure"></a>
+
 ## 專案結構
 
 ```text
@@ -301,6 +303,7 @@ bash scripts/enable-hooks.sh
 ```
 
 <a id="build"></a>
+
 ## 建置
 
 - 英文 / ASCII PDF：
@@ -313,6 +316,7 @@ bash scripts/enable-hooks.sh
   - `latexmk -C`
 
 <a id="usage"></a>
+
 ## 使用
 
 常見日常流程：
@@ -325,6 +329,7 @@ bash scripts/enable-hooks.sh
 5. 驗證渲染結果（`.pdf` 與可選的 `docs/` 頁面）。
 
 <a id="configuration"></a>
+
 ## 組態
 
 - `mkdocs.yml` 存在，可作為 MkDocs 文件設定使用。
@@ -383,6 +388,7 @@ node scripts/generate_site.mjs
 - 加入輕量化驗證，檢查 README/連結/目錄一致性。
 
 <a id="contribution"></a>
+
 ## 貢獻
 
 - 使用祈使式且具範圍的提交訊息（例如：`Update README structure and operational docs`）。
@@ -401,6 +407,7 @@ node scripts/generate_site.mjs
 ## 聯絡
 
 關於本庫的工作流程、編修更新或協作合作有任何問題：
+
 - 在本庫 issue tracker 開啟 issue（若已啟用）。
 - 若是較長的設計或編修 review，可開啟 discussion。
 - 關於贊助與專案支援方案，請見上方 Support 面板。
@@ -411,9 +418,8 @@ node scripts/generate_site.mjs
 
 假設說明：在新增授權檔案前，重複使用與再分發條款未被定義，需由本庫擁有者進一步明確。
 
-
 ## ❤️ Support
 
-| Donate | PayPal | Stripe |
-| --- | --- | --- |
+| Donate                                                                                                                                                                                                                                                                                                                                                     | PayPal                                                                                                                                                                                                                                                                                                                                                          | Stripe                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

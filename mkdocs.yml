@@ -42,7 +42,7 @@ extra:
 
 nav:
   - Home: index.md
-  - Ideas: 
+  - Ideas:
       - ideas/index.md
   - Publications:
       - publications/index.md

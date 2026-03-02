@@ -1,7 +1,8 @@
 # Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow
+
 Author: LazyingArt
 
-Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed* metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into **n(λ), k(λ)** you can feed into S4.
+Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design _molecularly programmed_ metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into **n(λ), k(λ)** you can feed into S4.
 
 ---
 
@@ -10,18 +11,18 @@ Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** 
 ### 1) Molecularly tuned perfect absorber (critical coupling)
 
 Design a guided‑mode resonance (or lamellar grating) metasurface whose linewidth and center frequency are matched to a dye’s excitonic line so that **all incident light is dissipated in the dye layer** at the target wavelength (e.g., visible red).
-*Impact:* ultrathin sensors, display pixels, or quenchers for fluorescence backgrounds.
-*Method:* TD‑DFT (Gaussian) → oscillator strengths → effective medium via Clausius–Mossotti/Lorentz–Lorenz → **S4** for R/T/A spectra and field confinement. S4 is an RCWA solver specifically for layered periodic structures with a Lua interface. ([Stanford University][1])
+_Impact:_ ultrathin sensors, display pixels, or quenchers for fluorescence backgrounds.
+_Method:_ TD‑DFT (Gaussian) → oscillator strengths → effective medium via Clausius–Mossotti/Lorentz–Lorenz → **S4** for R/T/A spectra and field confinement. S4 is an RCWA solver specifically for layered periodic structures with a Lua interface. ([Stanford University][1])
 
 ### 2) All‑optical switch with photochromes (e.g., azobenzene/spiropyran)
 
 Compute two states (trans/cis) to get two dispersion models, then simulate a metasurface operating at a **high phase‑sensitivity point**. You’ll see a large spectral/phase shift on UV/blue pumping.
-*Impact:* low‑energy, reversible pixel‑level modulators.
+_Impact:_ low‑energy, reversible pixel‑level modulators.
 
 ### 3) Protein/DNA overlayer index engineering
 
-A 5–20 nm biomolecular overlayer (protein monolayer, DNA brush) measurably shifts a narrow metasurface resonance. Compute its *complex* refractive index from polarizability; predict **limits of detection** for biosensing.
-*Impact:* immediately testable with standard surface functionalization protocols; simple wet lab.
+A 5–20 nm biomolecular overlayer (protein monolayer, DNA brush) measurably shifts a narrow metasurface resonance. Compute its _complex_ refractive index from polarizability; predict **limits of detection** for biosensing.
+_Impact:_ immediately testable with standard surface functionalization protocols; simple wet lab.
 
 ### 4) Excitonic anisotropy & orientation control
 
@@ -46,7 +47,7 @@ Many dyes are dipolar. If you align them (spin‑coat in E‑field, stretch film
 Open the Gaussian log/fchk in Multiwfn → Spectrum/Excitations module → export **discrete lines** (Ej, fj). Multiwfn’s manual documents the spectrum utilities and exports. ([SoberEva][3])
 
 **C. From molecules to materials (physics bridge)**
-Use the Lorentz model for the *molecular polarizability*
+Use the Lorentz model for the _molecular polarizability_
 [
 \alpha_\text{mol}(\omega);=;\sum_j \frac{e^2}{m_e},\frac{f_j}{\omega_j^2-\omega^2-i\gamma_j\omega},
 ]
@@ -65,7 +66,7 @@ Define a periodic stack (e.g., air / patterned dielectric / dye film / substrate
 4. sweep geometry to hit **critical coupling** or maximize phase slope.
    S4 is an RCWA/Fourier‑modal solver designed for these 2D‑periodic layered structures. ([Stanford University][1])
 
-> Practical tip: for a host polymer (e.g., PMMA, PVA), convert its known (n_\text{host}) to a host polarizability term and *add it* in the Lorentz–Lorenz mixing (X_\text{total}=X_\text{host}+X_\text{dye}) before inverting to (\varepsilon_r). ([Wikipedia][4])
+> Practical tip: for a host polymer (e.g., PMMA, PVA), convert its known (n*\text{host}) to a host polarizability term and *add it* in the Lorentz–Lorenz mixing (X*\text{total}=X*\text{host}+X*\text{dye}) before inverting to (\varepsilon_r). ([Wikipedia][4])
 
 ---
 
@@ -73,9 +74,9 @@ Define a periodic stack (e.g., air / patterned dielectric / dye film / substrate
 
 The script below parses a **Gaussian TD‑DFT** log, builds a Lorentz‑oscillator polarizability from ((E_j,f_j)), mixes it to a bulk film via **Clausius–Mossotti**, and writes a CSV of (\lambda), (n), (k). It assumes:
 
-* damping (\gamma_j) supplied as a single FWHM‑like parameter in eV (you can refine per line if you have linewidths),
-* a **host refractive index** (optional) added via Lorentz–Lorenz,
-* a **wt%** and **film density** to compute molecule density (N).
+- damping (\gamma_j) supplied as a single FWHM‑like parameter in eV (you can refine per line if you have linewidths),
+- a **host refractive index** (optional) added via Lorentz–Lorenz,
+- a **wt%** and **film density** to compute molecule density (N).
 
 > You can feed the CSV into S4 by updating the material each wavelength step.
 
@@ -299,19 +300,19 @@ S4 is an RCWA/Fourier‑modal solver purpose‑built for bi‑periodic layered s
 
 ## Practical design checklist
 
-* **Convergence in RCWA:** increase Fourier orders until R+T+A stabilizes; metal gratings need more orders. S4’s paper discusses stability and performance. ([Stanford University][1])
-* **Linewidths:** your γ (meV–100 meV) sets absorption strength; start modest (50–120 meV) then adjust.
-* **Host mixing:** use **Lorentz–Lorenz** to combine host and dye; don’t just add ε. ([Wikipedia][4])
-* **Orientation:** if molecules align, you’ll need tensor ε; start isotropic, then extend.
-* **Validation:** compare the **uniform film** (no pattern) absorbance from S4 with Kramers–Kronig‑consistent (n,k) to confirm your physics pipeline before adding a grating.
+- **Convergence in RCWA:** increase Fourier orders until R+T+A stabilizes; metal gratings need more orders. S4’s paper discusses stability and performance. ([Stanford University][1])
+- **Linewidths:** your γ (meV–100 meV) sets absorption strength; start modest (50–120 meV) then adjust.
+- **Host mixing:** use **Lorentz–Lorenz** to combine host and dye; don’t just add ε. ([Wikipedia][4])
+- **Orientation:** if molecules align, you’ll need tensor ε; start isotropic, then extend.
+- **Validation:** compare the **uniform film** (no pattern) absorbance from S4 with Kramers–Kronig‑consistent (n,k) to confirm your physics pipeline before adding a grating.
 
 ---
 
 ## Why this is publishable sooner rather than later
 
-* The **toolchain is mature**: Gaussian TD/TD‑DFT and Multiwfn’s spectrum utilities are standard; S4 is a widely used RCWA code for metasurfaces. ([SoberEva][3])
-* The **theory bridge is classical** and robust (Lorentz–Lorenz / Clausius–Mossotti). ([Wikipedia][4])
-* The **experiments are accessible**: spin‑coat a dye‑doped polymer on a nanoimprinted/interference‑lithography grating; or functionalize a commercial grating with a photochrome SAM—both routine in typical EEE/biomed labs.
+- The **toolchain is mature**: Gaussian TD/TD‑DFT and Multiwfn’s spectrum utilities are standard; S4 is a widely used RCWA code for metasurfaces. ([SoberEva][3])
+- The **theory bridge is classical** and robust (Lorentz–Lorenz / Clausius–Mossotti). ([Wikipedia][4])
+- The **experiments are accessible**: spin‑coat a dye‑doped polymer on a nanoimprinted/interference‑lithography grating; or functionalize a commercial grating with a photochrome SAM—both routine in typical EEE/biomed labs.
 
 ---
 
@@ -327,11 +328,11 @@ S4 is an RCWA/Fourier‑modal solver purpose‑built for bi‑periodic layered s
 
 ### References & pointers
 
-* **S4 (RCWA/FMM) solver**: official paper detailing method and Lua scripting interface. ([Stanford University][1])
-* **S4 repository page** (for building and examples). ([GitHub][6])
-* **Gaussian TD‑DFT** overview and output structure (excited states & oscillator strengths). ([Gaussian][2])
-* **Clausius–Mossotti / Lorentz–Lorenz** relations for mixing microscopic polarizability to macroscopic ε or n. ([Wikipedia][4])
-* **On oscillator‑strength accuracy in TD‑DFT** (why calibration to experiment is wise). ([Pfloos][5])
+- **S4 (RCWA/FMM) solver**: official paper detailing method and Lua scripting interface. ([Stanford University][1])
+- **S4 repository page** (for building and examples). ([GitHub][6])
+- **Gaussian TD‑DFT** overview and output structure (excited states & oscillator strengths). ([Gaussian][2])
+- **Clausius–Mossotti / Lorentz–Lorenz** relations for mixing microscopic polarizability to macroscopic ε or n. ([Wikipedia][4])
+- **On oscillator‑strength accuracy in TD‑DFT** (why calibration to experiment is wise). ([Pfloos][5])
 
 ---
 

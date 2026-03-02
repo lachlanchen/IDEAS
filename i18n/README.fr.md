@@ -1,6 +1,5 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
-
 [![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
@@ -21,6 +20,7 @@
 IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
 
 Ce dépôt suit un flux de travail orienté contenu :
+
 - Rédigez les idées en Markdown sous `ideas/`.
 - Faites monter en maturité les idées vers les dossiers de publication dans `publications/<slug>/`.
 - Conservez des noms de fichiers alignés sur le slug (`<slug>.tex`, `<slug>.pdf`).
@@ -29,20 +29,21 @@ Ce dépôt suit un flux de travail orienté contenu :
 
 ## Liens Rapides
 
-| Section | Aller à |
-|---|---|
-| 🗂️ Catalogue | [Catalogue par catégorie](#catalogue-par-catégorie) |
-| 🧰 Commandes de build | [Build](#build) |
-| 🧪 Utilisation quotidienne | [Utilisation](#utilisation) |
-| 🧱 Structure du dépôt | [Structure du projet](#structure-du-projet) |
-| ⚙️ Détails opérationnels | [Configuration](#configuration) |
-| 🧩 Guide de contribution | [Contribution](#contribution) |
-| ✉️ Contact | [Contact](#contact) |
-| ❤️ Support | [Support / Donation](#-support) |
+| Section                    | Aller à                                             |
+| -------------------------- | --------------------------------------------------- |
+| 🗂️ Catalogue               | [Catalogue par catégorie](#catalogue-par-catégorie) |
+| 🧰 Commandes de build      | [Build](#build)                                     |
+| 🧪 Utilisation quotidienne | [Utilisation](#utilisation)                         |
+| 🧱 Structure du dépôt      | [Structure du projet](#structure-du-projet)         |
+| ⚙️ Détails opérationnels   | [Configuration](#configuration)                     |
+| 🧩 Guide de contribution   | [Contribution](#contribution)                       |
+| ✉️ Contact                 | [Contact](#contact)                                 |
+| ❤️ Support                 | [Support / Donation](#-support)                     |
 
 ## À propos
 
 IDEAS est un carnet léger et versionné de notes de recherche et d'essais.
+
 - Contenu d'abord : chaque idée est un Markdown dans `ideas/`, répliquée (lorsqu'elle est mature) en LaTeX sous `publications/<slug>/<slug>.tex` avec un PDF compilé.
 - Conventions : noms de fichiers en kebab-case ; les noms de fichiers de publication correspondent à ceux du dossier (`<slug>.tex`, `<slug>.pdf`).
 - Support CJK : les publications en chinois se compilent avec XeLaTeX.
@@ -394,13 +395,14 @@ node scripts/generate_site.mjs
 
 ## ❤️ Support
 
-| Donate | PayPal | Stripe |
-| --- | --- | --- |
+| Donate                                                                                                                                                                                                                                                                                                                                                     | PayPal                                                                                                                                                                                                                                                                                                                                                          | Stripe                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
 ## Contact
 
 Pour toute question sur le flux de travail du dépôt, les mises à jour éditoriales ou la collaboration :
+
 - Ouvrez une issue dans le suivi des tickets du dépôt (si activé).
 - Lancez une discussion pour des revues de design ou éditoriales plus longues.
 - Pour les options de sponsoring et le soutien du projet, consultez le panneau de support ci-dessus.

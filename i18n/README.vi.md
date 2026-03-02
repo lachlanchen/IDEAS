@@ -1,6 +1,5 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
-
 [![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 # IDEAS
@@ -17,11 +16,13 @@
 ---
 
 <a id="overview"></a>
+
 ## Tổng quan
 
 IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, gồm các ghi chú và tiểu luận.
 
 Kho này theo quy trình ưu tiên nội dung:
+
 - Viết ý tưởng bằng Markdown trong `ideas/`.
 - Nâng cấp các ý tưởng đã trưởng thành thành thư mục xuất bản dưới `publications/<slug>/`.
 - Duy trì tên tệp đầu ra khớp slug (`<slug>.tex`, `<slug>.pdf`).
@@ -29,31 +30,35 @@ Kho này theo quy trình ưu tiên nội dung:
 - Duy trì các phiên bản README đa ngôn ngữ trong `i18n/` và các trang tĩnh trong `docs/`.
 
 <a id="quick-links"></a>
+
 ## Liên kết nhanh
 
-| Mục | Chuyển đến |
-|---|---|
-| 📘 Tổng quan | [Tổng quan](#overview) |
-| 🗂️ Danh mục | [Danh mục theo chủ đề](#catalog-by-category) |
-| 📘 Giới thiệu | [Giới thiệu](#about) |
-| 🧰 Build | [Build](#build) |
-| 🧪 Quy trình hằng ngày | [Sử dụng](#usage) |
-| 🧱 Cấu trúc dự án | [Cấu trúc dự án](#project-structure) |
-| ⚙️ Cấu hình | [Cấu hình](#configuration) |
-| 🧩 Đóng góp | [Đóng góp](#contribution) |
-| ✉️ Liên hệ | [Liên hệ](#contact) |
-| ❤️ Ủng hộ | [Hỗ trợ / Quyên góp](#support) |
+| Mục                    | Chuyển đến                                   |
+| ---------------------- | -------------------------------------------- |
+| 📘 Tổng quan           | [Tổng quan](#overview)                       |
+| 🗂️ Danh mục            | [Danh mục theo chủ đề](#catalog-by-category) |
+| 📘 Giới thiệu          | [Giới thiệu](#about)                         |
+| 🧰 Build               | [Build](#build)                              |
+| 🧪 Quy trình hằng ngày | [Sử dụng](#usage)                            |
+| 🧱 Cấu trúc dự án      | [Cấu trúc dự án](#project-structure)         |
+| ⚙️ Cấu hình            | [Cấu hình](#configuration)                   |
+| 🧩 Đóng góp            | [Đóng góp](#contribution)                    |
+| ✉️ Liên hệ             | [Liên hệ](#contact)                          |
+| ❤️ Ủng hộ              | [Hỗ trợ / Quyên góp](#support)               |
 
 <a id="about"></a>
+
 ## Giới thiệu
 
 IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, gồm các ghi chú và tiểu luận.
+
 - Ưu tiên nội dung: mỗi ý tưởng là một tệp Markdown trong `ideas/`, sau khi đủ chín sẽ phản chiếu sang LaTeX tại `publications/<slug>/<slug>.tex` cùng PDF đã biên dịch.
 - Quy ước: tên tệp theo dạng kebab-case; tên tệp xuất bản khớp với slug của thư mục (`<slug>.tex`, `<slug>.pdf`).
 - Hỗ trợ CJK: các ấn phẩm tiếng Trung/Nhật biên dịch bằng XeLaTeX.
 - Build tái lập: dùng `latexmk` (xem phần Build) để tái tạo PDF.
 
 <a id="features"></a>
+
 ## Tính năng
 
 - Pipeline ý tưởng đến xuất bản có phiên bản (`ideas/` -> `publications/<slug>/`).
@@ -64,6 +69,7 @@ IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, g�
 - Kho có thể chứa artifact xuất bản (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) khi cần cho tái lập.
 
 <a id="catalog-by-category"></a>
+
 ## Danh mục theo chủ đề
 
 ### Metasurfaces
@@ -256,6 +262,7 @@ IDEAS là một sổ tay nghiên cứu nhẹ, có kiểm soát phiên bản, g�
   </table>
 
 <a id="project-structure"></a>
+
 ## Cấu trúc dự án
 
 ```text
@@ -287,6 +294,7 @@ IDEAS/
 ```
 
 <a id="prerequisites"></a>
+
 ## Yêu cầu trước khi chạy
 
 - `latexmk` cùng bản phân phối TeX hoạt động bình thường (TeX Live hoặc tương đương).
@@ -295,6 +303,7 @@ IDEAS/
 - Git cho quản lý phiên bản và quy trình đóng góp.
 
 <a id="installation"></a>
+
 ## Cài đặt
 
 ```bash
@@ -309,6 +318,7 @@ bash scripts/enable-hooks.sh
 ```
 
 <a id="build"></a>
+
 ## Build
 
 - English/ASCII PDFs:
@@ -321,6 +331,7 @@ bash scripts/enable-hooks.sh
   - `latexmk -C`
 
 <a id="usage"></a>
+
 ## Sử dụng
 
 Quy trình làm việc hằng ngày:
@@ -333,6 +344,7 @@ Quy trình làm việc hằng ngày:
 5. Kiểm tra đầu ra đã render (`.pdf` và, nếu có, các trang trong `docs/`).
 
 <a id="configuration"></a>
+
 ## Cấu hình
 
 - `mkdocs.yml` tồn tại và có thể dùng cho cấu hình tài liệu dựa trên MkDocs.
@@ -343,6 +355,7 @@ Quy trình làm việc hằng ngày:
 Ghi chú giả định: README này giữ cả tham chiếu MkDocs lẫn pipeline tĩnh vì cả hai đều có trong kho.
 
 <a id="examples"></a>
+
 ## Ví dụ
 
 Build một bài tiếng Anh:
@@ -366,6 +379,7 @@ node scripts/generate_site.mjs
 ```
 
 <a id="development-notes"></a>
+
 ## Ghi chú phát triển
 
 - Phương trình trong Markdown dùng cú pháp `$...$` và `$$...$$`.
@@ -375,6 +389,7 @@ node scripts/generate_site.mjs
 - Việc commit artifact LaTeX dưới `publications/<slug>/artifacts/` là chấp nhận được.
 
 <a id="troubleshooting"></a>
+
 ## Khắc phục sự cố
 
 - `latexmk` không tìm thấy:
@@ -387,6 +402,7 @@ node scripts/generate_site.mjs
   - Chạy lại `node scripts/generate_site.mjs` và kiểm tra thời điểm cập nhật của `docs/assets/*.json`.
 
 <a id="roadmap"></a>
+
 ## Lộ trình
 
 - Giữ danh mục README đồng bộ với ý tưởng/ấn phẩm mới.
@@ -395,6 +411,7 @@ node scripts/generate_site.mjs
 - Thêm kiểm tra nhẹ để bảo đảm nhất quán giữa README, liên kết và danh mục.
 
 <a id="contribution"></a>
+
 ## Đóng góp
 
 - Dùng commit message theo lối mệnh lệnh và có phạm vi (ví dụ: `Update README structure and operational docs`).
@@ -406,29 +423,32 @@ node scripts/generate_site.mjs
   - xác nhận build khi phù hợp.
 
 <a id="notes"></a>
+
 ## Ghi chú
 
 - Phương trình trong Markdown dùng cú pháp `$...$` và `$$...$$`.
 - Liên kết ngoài có khoảng trắng cần mã hóa phần trăm để render ổn định.
 
 <a id="support"></a>
+
 ## Liên hệ
 
 Đối với câu hỏi về quy trình repository, cập nhật biên tập hoặc cộng tác:
+
 - Mở issue trong tracker của repository (nếu đã bật).
 - Tạo một discussion cho các bài review thiết kế hoặc biên tập chi tiết hơn.
 - Về tài trợ và hỗ trợ dự án, xem bảng hỗ trợ ở trên.
 
 <a id="license"></a>
+
 ## Giấy phép
 
 Hiện chưa có tệp `LICENSE` trong repository này.
 
 Ghi chú giả định: cho đến khi có tệp giấy phép, các điều khoản tái sử dụng/phân phối vẫn chưa được xác định và cần được chủ sở hữu repository làm rõ.
 
-
 ## ❤️ Support
 
-| Donate | PayPal | Stripe |
-| --- | --- | --- |
+| Donate                                                                                                                                                                                                                                                                                                                                                     | PayPal                                                                                                                                                                                                                                                                                                                                                          | Stripe                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

@@ -1,39 +1,62 @@
 #!/usr/bin/env node
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
 // Simple utility to slugify filenames (keep kebab-case)
-const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9\-]+/g, '-').replace(/^-+|-+$/g, '');
+const slugify = (s) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 // Extract title, author, excerpt from Markdown
 function parseMeta(markdown) {
   const lines = markdown.split(/\r?\n/);
-  let title = '';
-  let author = '';
-  let excerpt = '';
+  let title = "";
+  let author = "";
+  let excerpt = "";
   let i = 0;
   for (; i < lines.length; i++) {
     const l = lines[i].trim();
-    if (l.startsWith('#')) { title = l.replace(/^#+\s*/, '').replace(/\*\*/g, '').trim(); i++; break; }
+    if (l.startsWith("#")) {
+      title = l
+        .replace(/^#+\s*/, "")
+        .replace(/\*\*/g, "")
+        .trim();
+      i++;
+      break;
+    }
   }
   // author line (Author: ...)
   for (let j = i; j < Math.min(lines.length, i + 6); j++) {
     const l = lines[j].trim();
     const m = l.match(/^Author:\s*(.+)$/i);
-    if (m) { author = m[1].trim(); i = j + 1; break; }
+    if (m) {
+      author = m[1].trim();
+      i = j + 1;
+      break;
+    }
   }
   // first non-empty paragraph for excerpt
   let para = [];
   for (let j = i; j < lines.length; j++) {
     const l = lines[j];
-    if (l.trim() === '') {
-      if (para.length) break; else continue;
+    if (l.trim() === "") {
+      if (para.length) {
+        break;
+      } else {
+        continue;
+      }
     }
-    if (l.startsWith('#')) break; // stop at next header
+    if (l.startsWith("#")) {
+      break;
+    } // stop at next header
     para.push(l);
   }
-  excerpt = para.join(' ').trim();
-  if (excerpt.length > 320) excerpt = excerpt.slice(0, 317) + '...';
+  excerpt = para.join(" ").trim();
+  if (excerpt.length > 320) {
+    excerpt = excerpt.slice(0, 317) + "...";
+  }
   return { title, author, excerpt };
 }
 
@@ -96,12 +119,16 @@ function ideaDetailTemplate({ title, author, html, alts }) {
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">${title}</h1>
       <div class="flex items-center justify-between mb-4">
-        ${author ? `<p class=\"text-slate-400\"><span data-i18n=\"by\">by</span> ${author}</p>` : '<span></span>'}
-        ${Array.isArray(alts) && alts.length > 1 ? `
-        <div class=\"text-sm\">
-          <span class=\"text-slate-400 mr-2\" data-i18n=\"content_language\">Content language</span>
-          ${alts.map(a => `<a class=\"inline-block px-2 py-0.5 rounded border border-slate-700 hover:border-indigo-400 mr-1\" href=\"/ideas/${a.slug}.html\">${a.label}</a>`).join('')}
-        </div>` : ''}
+        ${author ? `<p class="text-slate-400"><span data-i18n="by">by</span> ${author}</p>` : "<span></span>"}
+        ${
+          Array.isArray(alts) && alts.length > 1
+            ? `
+        <div class="text-sm">
+          <span class="text-slate-400 mr-2" data-i18n="content_language">Content language</span>
+          ${alts.map((a) => `<a class="inline-block px-2 py-0.5 rounded border border-slate-700 hover:border-indigo-400 mr-1" href="/ideas/${a.slug}.html">${a.label}</a>`).join("")}
+        </div>`
+            : ""
+        }
       </div>
       <article class="prose prose-invert prose-slate max-w-none">${html}</article>
     </div>
@@ -112,17 +139,17 @@ function ideaDetailTemplate({ title, author, html, alts }) {
 async function renderMarkdown(md) {
   // Use marked if available, otherwise a minimal fallback
   try {
-    const { marked } = await import('marked');
+    const { marked } = await import("marked");
     return marked.parse(md);
   } catch {
     // minimal fallback: paragraphs and links
     return md
-      .replace(/^#\s+(.*)$/gm, '<h1>$1</h1>')
-      .replace(/^##\s+(.*)$/gm, '<h2>$1</h2>')
-      .replace(/^###\s+(.*)$/gm, '<h3>$1</h3>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\* (.*)/g, '<li>$1</li>')
-      .replace(/\n\n/g, '<p></p>')
+      .replace(/^#\s+(.*)$/gm, "<h1>$1</h1>")
+      .replace(/^##\s+(.*)$/gm, "<h2>$1</h2>")
+      .replace(/^###\s+(.*)$/gm, "<h3>$1</h3>")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\* (.*)/g, "<li>$1</li>")
+      .replace(/\n\n/g, "<p></p>")
       .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
   }
 }
@@ -130,57 +157,90 @@ async function renderMarkdown(md) {
 function categoryForSlug(slug) {
   const s = slug.toLowerCase();
   // Metasurfaces
-  if (s.includes('metasurface') || s.includes('s4') || s.includes('metalens')) return 'Metasurfaces';
+  if (s.includes("metasurface") || s.includes("s4") || s.includes("metalens")) {
+    return "Metasurfaces";
+  }
   // Theory / Physics
-  if (s.includes('kramers') || s.includes('quantum-carpets') || s.includes('fractal')) return 'Theory';
+  if (s.includes("kramers") || s.includes("quantum-carpets") || s.includes("fractal")) {
+    return "Theory";
+  }
   // DORAEMON
-  if (s.startsWith('doraemon-')) return 'DORAEMON';
+  if (s.startsWith("doraemon-")) {
+    return "DORAEMON";
+  }
   // AI for Science (Optimization, Imaging, Chemistry)
-  if (s.includes('mpempba') || s.includes('quantum-chemistry') || s.includes('molecular') || s.includes('imaging-system')) return 'AI for Science';
+  if (
+    s.includes("mpempba") ||
+    s.includes("quantum-chemistry") ||
+    s.includes("molecular") ||
+    s.includes("imaging-system")
+  ) {
+    return "AI for Science";
+  }
   // Product & Tools
-  if (s.includes('file-management') || s.includes('file-management')) return 'Product & Tools';
-  return 'General';
+  if (s.includes("file-management") || s.includes("file-management")) {
+    return "Product & Tools";
+  }
+  return "General";
 }
 
 function languageForSlug(slug) {
-  if (slug.endsWith('-zh') || slug.includes('zh')) return 'zh';
-  if (slug.endsWith('-ja') || slug.includes('-ja')) return 'ja';
-  return 'en';
+  if (slug.endsWith("-zh") || slug.includes("zh")) {
+    return "zh";
+  }
+  if (slug.endsWith("-ja") || slug.includes("-ja")) {
+    return "ja";
+  }
+  return "en";
 }
 
-function baseIdForSlug(slug){
+function baseIdForSlug(slug) {
   return slug
-    .replace(/-zh-cn$/i,'').replace(/-zh-tw$/i,'').replace(/-zh$/i,'')
-    .replace(/-ja$/i,'').replace(/-ko$/i,'').replace(/-vi$/i,'')
-    .replace(/-ar$/i,'').replace(/-fr$/i,'').replace(/-es$/i,'');
+    .replace(/-zh-cn$/i, "")
+    .replace(/-zh-tw$/i, "")
+    .replace(/-zh$/i, "")
+    .replace(/-ja$/i, "")
+    .replace(/-ko$/i, "")
+    .replace(/-vi$/i, "")
+    .replace(/-ar$/i, "")
+    .replace(/-fr$/i, "")
+    .replace(/-es$/i, "");
 }
 
-function labelForLang(code){
+function labelForLang(code) {
   const L = {
-    'en':'English', 'zh-CN':'简体中文', 'zh-TW':'繁體中文', 'zh':'中文',
-    'ja':'日本語', 'ko':'한국어', 'vi':'Tiếng Việt', 'ar':'العربية', 'fr':'Français', 'es':'Español'
+    en: "English",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文",
+    zh: "中文",
+    ja: "日本語",
+    ko: "한국어",
+    vi: "Tiếng Việt",
+    ar: "العربية",
+    fr: "Français",
+    es: "Español",
   };
   return L[code] || code;
 }
 
 async function main() {
   const root = process.cwd();
-  const ideasDir = path.join(root, 'ideas');
-  const pubsDir = path.join(root, 'publications');
-  const outIdeasDir = path.join(root, 'docs', 'ideas');
-  const outAssetsDir = path.join(root, 'docs', 'assets');
+  const ideasDir = path.join(root, "ideas");
+  const pubsDir = path.join(root, "publications");
+  const outIdeasDir = path.join(root, "docs", "ideas");
+  const outAssetsDir = path.join(root, "docs", "assets");
   await ensureDir(outIdeasDir);
   await ensureDir(outAssetsDir);
 
-  const files = (await fs.readdir(ideasDir)).filter(f => f.endsWith('.md'));
+  const files = (await fs.readdir(ideasDir)).filter((f) => f.endsWith(".md"));
   const ideas = [];
   const groups = {};
   // First pass: parse metadata and group by baseId
   for (const file of files) {
     const mdPath = path.join(ideasDir, file);
-    const raw = await fs.readFile(mdPath, 'utf8');
+    const raw = await fs.readFile(mdPath, "utf8");
     const { title, author, excerpt } = parseMeta(raw);
-    const slug = file.replace(/\.md$/, '');
+    const slug = file.replace(/\.md$/, "");
     const category = categoryForSlug(slug);
     const lang = languageForSlug(slug);
     const baseId = baseIdForSlug(slug);
@@ -190,16 +250,23 @@ async function main() {
   }
   // Second pass: render pages with language alternatives
   for (const rec of ideas) {
-    const alts = (groups[rec.baseId]||[]).map(r => ({ slug: r.slug, code: r.lang, label: labelForLang(r.lang) }));
+    const alts = (groups[rec.baseId] || []).map((r) => ({
+      slug: r.slug,
+      code: r.lang,
+      label: labelForLang(r.lang),
+    }));
     const html = await renderMarkdown(rec._raw);
     const page = ideaDetailTemplate({ title: rec.title, author: rec.author, html, alts });
-    await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page, 'utf8');
+    await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page, "utf8");
     delete rec._raw;
   }
-  await fs.writeFile(path.join(outAssetsDir, 'ideas.json'), JSON.stringify(ideas, null, 2));
+  await fs.writeFile(path.join(outAssetsDir, "ideas.json"), JSON.stringify(ideas, null, 2));
   // categories manifest
-  const catMap = ideas.reduce((acc, x) => { acc[x.category] = (acc[x.category]||0)+1; return acc; }, {});
-  await fs.writeFile(path.join(outAssetsDir, 'categories.json'), JSON.stringify(catMap, null, 2));
+  const catMap = ideas.reduce((acc, x) => {
+    acc[x.category] = (acc[x.category] || 0) + 1;
+    return acc;
+  }, {});
+  await fs.writeFile(path.join(outAssetsDir, "categories.json"), JSON.stringify(catMap, null, 2));
 
   // Publications manifest
   const pubItems = [];
@@ -207,21 +274,29 @@ async function main() {
   for (const cat of pubCats) {
     const catDir = path.join(pubsDir, cat);
     const stat = await fs.stat(catDir).catch(() => null);
-    if (!stat || !stat.isDirectory()) continue;
+    if (!stat || !stat.isDirectory()) {
+      continue;
+    }
     const entries = await fs.readdir(catDir);
     for (const f of entries) {
-      if (f.endsWith('.pdf')) {
+      if (f.endsWith(".pdf")) {
         const category = categoryForSlug(cat);
         pubItems.push({
           slug: cat,
-          title: cat.replace(/[-_]/g, ' '),
+          title: cat.replace(/[-_]/g, " "),
           href: `/publications/${cat}/${f}`,
-          category
+          category,
         });
       }
     }
   }
-  await fs.writeFile(path.join(outAssetsDir, 'publications.json'), JSON.stringify(pubItems, null, 2));
+  await fs.writeFile(
+    path.join(outAssetsDir, "publications.json"),
+    JSON.stringify(pubItems, null, 2),
+  );
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

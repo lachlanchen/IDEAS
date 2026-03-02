@@ -1,6 +1,5 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
-
 [![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
 
 <div align="center">
@@ -25,6 +24,7 @@
 IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
 
 Dieses Repository folgt einem In-Content-First-Workflow:
+
 - Verfasse Ideen in Markdown unter `ideas/`.
 - Reife Ideen werden in den Veröffentlichungs-Ordnern unter `publications/<slug>/` publiziert.
 - Halte Dateinamen konsistent im Slug-Format (`<slug>.tex`, `<slug>.pdf`).
@@ -33,20 +33,21 @@ Dieses Repository folgt einem In-Content-First-Workflow:
 
 ## Schnellzugriffe
 
-| Abschnitt | Sprung |
-|---|---|
-| 🗂️ Katalog | [Katalog nach Kategorie](#katalog-nach-kategorie) |
-| 🧰 Build-Befehle | [Build](#build) |
-| 🧪 Alltäglicher Ablauf | [Nutzung](#nutzung) |
-| 🧱 Projektstruktur | [Projektstruktur](#projektstruktur) |
-| ⚙️ Einstellungen | [Konfiguration](#konfiguration) |
-| 🧩 Beitrag | [Mitwirken](#mitwirken) |
-| ✉️ Kontakt | [Kontakt](#kontakt) |
-| ❤️ Support | [Support](#-support) |
+| Abschnitt              | Sprung                                            |
+| ---------------------- | ------------------------------------------------- |
+| 🗂️ Katalog             | [Katalog nach Kategorie](#katalog-nach-kategorie) |
+| 🧰 Build-Befehle       | [Build](#build)                                   |
+| 🧪 Alltäglicher Ablauf | [Nutzung](#nutzung)                               |
+| 🧱 Projektstruktur     | [Projektstruktur](#projektstruktur)               |
+| ⚙️ Einstellungen       | [Konfiguration](#konfiguration)                   |
+| 🧩 Beitrag             | [Mitwirken](#mitwirken)                           |
+| ✉️ Kontakt             | [Kontakt](#kontakt)                               |
+| ❤️ Support             | [Support](#-support)                              |
 
 ## Über das Projekt
 
 IDEAS ist ein leichtgewichtiges, versioniertes Notizbuch für Forschungsnotizen und Essays.
+
 - Content-First: Jede Idee liegt als Markdown in `ideas/` vor und wird (wenn ausgereift) als LaTeX in `publications/<slug>/<slug>.tex` mit einem kompilierten PDF gespiegelt.
 - Konventionen: Dateinamen im kebab-case; Publikationsdateien müssen dem Ordner-Slug entsprechen (`<slug>.tex`, `<slug>.pdf`).
 - CJK-Unterstützung: Chinesischsprachige Publikationen werden mit XeLaTeX kompiliert.
@@ -399,6 +400,7 @@ node scripts/generate_site.mjs
 ## Kontakt
 
 Für Fragen zum Repository-Workflow, redaktionellen Updates oder Zusammenarbeit:
+
 - Öffne ein Issue im Repository-Issue-Tracker (falls aktiviert).
 - Starte eine Diskussion für ausführlichere Design- oder Redaktionseinblicke.
 - Für Sponsoring- und Unterstützungsoptionen siehe das Support-Panel oben.
@@ -409,9 +411,8 @@ Aktuell ist keine `LICENSE`-Datei in diesem Repository vorhanden.
 
 Annahmehinweis: Bis eine Lizenzdatei hinzugefügt wird, sind Wiederverwendungs- und Weiterverteilungsbedingungen nicht definiert und sollten vom Repository-Betreiber geklärt werden.
 
-
 ## ❤️ Support
 
-| Donate | PayPal | Stripe |
-| --- | --- | --- |
+| Donate                                                                                                                                                                                                                                                                                                                                                     | PayPal                                                                                                                                                                                                                                                                                                                                                          | Stripe                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |

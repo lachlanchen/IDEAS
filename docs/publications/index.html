@@ -1,72 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Publications — IDEAS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
-</head>
-<body class="bg-slate-950 text-slate-100">
-  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"><img src="https://lazying.art/logos/logo.png" class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0" alt="LazyingArt logo" /> IDEAS</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-indigo-400" data-i18n="nav_home">Home</a>
-        <a href="/ideas/" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
-        <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications">Publications</a>
-        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-indigo-400" data-i18n="nav_github">GitHub</a>
-      </nav>
-      <div id="langSwitcher" class="ml-4"></div>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Publications — IDEAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100">
+    <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"
+          ><img
+            src="https://lazying.art/logos/logo.png"
+            class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0"
+            alt="LazyingArt logo"
+          />
+          IDEAS</a
+        >
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/" class="hover:text-indigo-400" data-i18n="nav_home">Home</a>
+          <a href="/ideas/" class="hover:text-indigo-400" data-i18n="nav_ideas">Ideas</a>
+          <a href="/publications/" class="hover:text-indigo-400" data-i18n="nav_publications"
+            >Publications</a
+          >
+          <a
+            href="https://github.com/lachlanchen/IDEAS"
+            class="hover:text-indigo-400"
+            data-i18n="nav_github"
+            >GitHub</a
+          >
+        </nav>
+        <div id="langSwitcher" class="ml-4"></div>
+      </div>
+    </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <h1 class="text-3xl font-extrabold" data-i18n="publications_title">Publications</h1>
-    <div id="filters" class="flex flex-wrap gap-2 mt-4"></div>
-    <div id="pubs" class="grid md:grid-cols-3 gap-6 mt-8"></div>
-  </main>
+    <main class="max-w-6xl mx-auto px-4 py-10">
+      <h1 class="text-3xl font-extrabold" data-i18n="publications_title">Publications</h1>
+      <div id="filters" class="flex flex-wrap gap-2 mt-4"></div>
+      <div id="pubs" class="grid md:grid-cols-3 gap-6 mt-8"></div>
+    </main>
 
-  <script src="/assets/i18n.js"></script>
-  <script>
-    let pubs = [];
-    let currentCat = null;
-    function catColor(cat){
-      const map = {
-        'Metasurfaces':'from-fuchsia-500 to-pink-500',
-        'Theory':'from-amber-500 to-yellow-400',
-        'DORAEMON':'from-emerald-500 to-teal-400',
-        'AI for Science':'from-sky-500 to-cyan-400',
-        'Product & Tools':'from-indigo-500 to-violet-500',
-        'General':'from-slate-500 to-slate-400'
-      }; return map[cat]||map['General'];
-    }
-    function renderFilters(){
-      const cats = [...new Set(pubs.map(p=>p.category))];
-      const root = document.getElementById('filters');
-      const ALL = (window.__i18n && window.__i18n.dict && window.__i18n.dict.all) || 'All';
-      root.innerHTML = [ALL, ...cats].map(c => {
-        const active = (c===currentCat) || (c==='All' && !currentCat);
-        const cls = active? 'ring-2 ring-indigo-400' : '';
-        const label = c==='All' ? ALL : c;
-        const color = c==='All' ? 'from-slate-600 to-slate-500' : catColor(c);
-        return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
-      }).join('');
-      root.querySelectorAll('button').forEach(b => b.addEventListener('click', ()=>{
-        const v = b.getAttribute('data-cat');
-        currentCat = (v==='All')? null : v;
-        render();
-        renderFilters();
-      }));
-    }
-    function render(){
-      const root = document.getElementById('pubs');
-      let list = pubs;
-      if (currentCat) list = list.filter(p=>p.category===currentCat);
-      root.innerHTML = list.map(p => `
+    <script src="/assets/i18n.js"></script>
+    <script>
+      let pubs = [];
+      let currentCat = null;
+      function catColor(cat) {
+        const map = {
+          Metasurfaces: "from-fuchsia-500 to-pink-500",
+          Theory: "from-amber-500 to-yellow-400",
+          DORAEMON: "from-emerald-500 to-teal-400",
+          "AI for Science": "from-sky-500 to-cyan-400",
+          "Product & Tools": "from-indigo-500 to-violet-500",
+          General: "from-slate-500 to-slate-400",
+        };
+        return map[cat] || map["General"];
+      }
+      function renderFilters() {
+        const cats = [...new Set(pubs.map((p) => p.category))];
+        const root = document.getElementById("filters");
+        const ALL = (window.__i18n && window.__i18n.dict && window.__i18n.dict.all) || "All";
+        root.innerHTML = [ALL, ...cats]
+          .map((c) => {
+            const active = c === currentCat || (c === "All" && !currentCat);
+            const cls = active ? "ring-2 ring-indigo-400" : "";
+            const label = c === "All" ? ALL : c;
+            const color = c === "All" ? "from-slate-600 to-slate-500" : catColor(c);
+            return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
+          })
+          .join("");
+        root.querySelectorAll("button").forEach((b) =>
+          b.addEventListener("click", () => {
+            const v = b.getAttribute("data-cat");
+            currentCat = v === "All" ? null : v;
+            render();
+            renderFilters();
+          }),
+        );
+      }
+      function render() {
+        const root = document.getElementById("pubs");
+        let list = pubs;
+        if (currentCat) list = list.filter((p) => p.category === currentCat);
+        root.innerHTML = list
+          .map(
+            (p) => `
         <a href="${p.href}" target="_blank" class="block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
           <div class=\"text-xs inline-flex items-center gap-2\">
             <span class=\"inline-block rounded-full bg-gradient-to-r ${catColor(p.category)} px-2 py-0.5 text-slate-900 font-semibold\">${p.category}</span>
@@ -74,14 +110,16 @@
           </div>
           <div class=\"mt-1 font-bold text-lg\">${p.title}</div>
           <div class=\"mt-2 text-sm text-slate-400\" data-i18n=\"open_pdf\">Open PDF</div>
-        </a>`).join('');
-    }
-    async function load(){
-      pubs = await fetch('/assets/publications.json').then(r=>r.json());
-      renderFilters();
-      render();
-    }
-    load();
-  </script>
-</body>
+        </a>`,
+          )
+          .join("");
+      }
+      async function load() {
+        pubs = await fetch("/assets/publications.json").then((r) => r.json());
+        renderFilters();
+        render();
+      }
+      load();
+    </script>
+  </body>
 </html>
