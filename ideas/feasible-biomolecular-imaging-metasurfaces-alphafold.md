@@ -50,6 +50,26 @@ python scripts/alphafold_server/poll_and_download.py \
 
 This calculation is meaningful because it tests the exact biological object we want as the metasurface building block: a closed 24-copy cage. A good result should show a symmetric cage, confident chain folds, coherent inter-chain interfaces, and no severe clashes. If it fails, the next feasible backup is Dps dodecamer, a smaller 12-copy protein cage.
 
+Additional DNA/RNA/protein jobs were then submitted:
+
+```text
+11_gcn4_bzip_ap1_dna_metasurface_lock
+  2 x GCN4 bZIP protein + AP-1 dsDNA
+  Result: complete and downloaded
+
+13_ms2_coat_rna_hairpin_imaging_adapter
+  2 x MS2 coat protein + MS2 RNA hairpin
+  Result: complete and downloaded
+
+14_dps_dodecamer_dna_nanocage_array_seed
+  12 x E. coli Dps + short dsDNA
+  Result: submitted; pending
+```
+
+The first completed mixed result is encouraging. The GCN4-DNA model has model 0 ranking score 1.09, ipTM 0.77, pTM 0.77, and no clash. Protein-DNA pair ipTM values are 0.73-0.74, and minimum protein-DNA PAE values are around 1.08-1.14 A. The design interpretation is direct: a short AP-1 DNA site can serve as a molecular orientation lock for a bZIP protein handle on DNA origami or DNA-patterned imaging metasurfaces.
+
+The second completed mixed result is stronger. The MS2 coat protein-RNA hairpin model has model 0 ranking score 0.98, ipTM 0.90, pTM 0.90, and no clash. The protein-RNA pair ipTM is 0.86 with minimum PAE about 1.17-1.29 A. This makes MS2 a realistic RNA-addressable adapter for imaging surfaces, especially if the protein is fused to a fluorescent protein, enzyme tag, SpyTag, or nanoparticle-binding peptide.
+
 ## Candidate Roadmap
 
 ### Candidate 1: Ferritin-Loaded Imaging Metasurface
