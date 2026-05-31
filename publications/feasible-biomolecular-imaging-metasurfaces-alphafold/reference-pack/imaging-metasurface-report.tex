@@ -1,0 +1,333 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+
+\graphicspath{{figures/}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\newcommand{\job}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\angstrom}{\AA}
+\newcommand{\agintiflow}{AgInTiFlow}
+
+\title{\vspace{-1.0cm}Protein and Nucleic-Acid Building Blocks for Biomolecular Imaging Metasurfaces}
+\author{Lachlan Chen\\AgInTi Lab, LazyingArt LLC}
+\date{Auto-curated by \agintiflow{} (\url{https://flow.lazying.art})}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report summarizes a structure-guided screen of protein, DNA, and RNA modules for biomolecular imaging metasurfaces. The working concept is a hybrid optical material: proteins, RNA, and DNA provide nanometer-scale geometry, while optical contrast is supplied by dyes, mineral cores, metal-binding handles, or surface-coupled cargo. The current local dataset contains 24 downloaded AlphaFold result packages from the 27 submitted imaging/metasurface jobs. Three submitted jobs, \job{27_dps_gold_peptide_dodecamer_nanocage}, \job{29_ferritin_h_spytag_24mer_nanocage}, and \job{33_ferritin_h12_l12_mixed_nanocage}, were still not exposed as downloadable result packages at report generation. Earlier BiTE antibody calculations are not included in this analysis.
+\end{abstract}
+
+\section{Main Result}
+
+The most feasible architecture is a protein-cage metasurface in which Dps or ferritin supplies the nanoscale scaffold, streptavidin/biotin or SpyCatcher/SpyTag provides surface coupling, and MS2/PP7 RNA hairpins provide orthogonal address labels. The structural screen supports Dps as the lead scaffold: unmodified Dps, His6-Dps, and SpyTag-Dps all retain strong dodecameric assembly confidence. MS2 and PP7 are strong RNA-addressing modules and can be used as two independent channels for patterned placement or multiplexed imaging. Streptavidin remains the cleanest general-purpose immobilization adapter.
+
+The optical role of the biomolecules should be geometric programming rather than high-index scattering by the protein itself. Protein-only particles are weak optical scatterers; loaded cages or decorated cages are more realistic. A practical first experiment is therefore a Dps-His6 or streptavidin-coupled cage array on a Ni-NTA or biotinylated substrate, with dye, iron-oxide-like, or gold-like cargo. First-order array pitches in water are approximately 400 nm for 532 nm excitation, 489 nm for 650 nm, and 590 nm for 785 nm.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{optics_extinction.png}
+\caption{Optical screening of cage-like scatterers. The design implication is that protein cages should be treated as programmable nanoscale carriers; useful imaging contrast comes from cargo, mineral core, dye loading, or inorganic decoration.}
+\label{fig:optics}
+\end{figure}
+
+\section{Lead Structural Modules}
+
+\subsection{Dps Nanocage Scaffold}
+
+The Dps family is the strongest structural result. Unmodified Dps has ipTM 0.96 and pTM 0.96, indicating a coherent dodecamer. The His6 and SpyTag variants remain strong, with ipTM 0.93 and 0.91 respectively. These are the best candidates for near-term array experiments because the cage geometry is compact, the oligomeric interfaces are high confidence, and terminal handles can be used for surface coupling without disrupting the core scaffold.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps24_backbone.png}
+\caption*{Backbone render}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps24_pae.png}
+\caption*{PAE map}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps24_contact.png}
+\caption*{Contact probabilities}
+\end{minipage}
+\caption{\job{24_dps_dodecamer_nanocage}. The compact dodecamer is the cleanest cage scaffold in the current dataset.}
+\label{fig:dps24}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps25_backbone.png}
+\caption*{Dps-His6}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps25_pae.png}
+\caption*{Dps-His6 PAE}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps26_backbone.png}
+\caption*{Dps-SpyTag}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{dps26_pae.png}
+\caption*{Dps-SpyTag PAE}
+\end{minipage}
+\caption{Dps handle variants. His6 is the simplest immobilization handle; SpyTag gives a covalent modular route while preserving high core confidence.}
+\label{fig:dps_handles}
+\end{figure}
+
+\subsection{RNA Addressing Modules}
+
+MS2 and PP7 are the best orthogonal addressing modules. The MS2 RNA adapter has ipTM 0.90 and pTM 0.90; the PP7 adapter has ipTM 0.90 and pTM 0.91. Both show low minimum PAE at the protein--RNA interface and coherent coat-protein dimerization. This supports an addressable metasurface concept in which RNA hairpins place two independent protein handles at designed sites.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ms2_backbone.png}
+\caption*{MS2 backbone}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ms2_pae.png}
+\caption*{MS2 PAE}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ms2_contact.png}
+\caption*{MS2 contacts}
+\end{minipage}
+\vspace{0.3cm}
+
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{pp7_backbone.png}
+\caption*{PP7 backbone}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{pp7_pae.png}
+\caption*{PP7 PAE}
+\end{minipage}
+\hfill
+\begin{minipage}{0.31\textwidth}
+\centering
+\includegraphics[width=\linewidth]{pp7_contact.png}
+\caption*{PP7 contacts}
+\end{minipage}
+\caption{Orthogonal RNA-binding adapters. MS2 and PP7 are the preferred pair for programmable two-channel placement.}
+\label{fig:rna_adapters}
+\end{figure}
+
+\subsection{Ferritin Cages}
+
+Ferritin is attractive because it is a larger 24-mer cage and can host mineral-like cargo, but the current confidence is more variable than Dps. Ferritin H-His6 is the best downloaded ferritin result (ipTM 0.85, pTM 0.86). Ferritin L is also usable (ipTM 0.79, pTM 0.80). The gold-peptide ferritin variant is weaker (ipTM 0.66), consistent with flexible terminal cargo handles reducing global confidence. Ferritin is therefore a secondary scaffold for larger payload experiments rather than the first structural choice.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ferritin28_backbone.png}
+\caption*{H-His6}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ferritin28_pae.png}
+\caption*{H-His6 PAE}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ferritin32_backbone.png}
+\caption*{L 24-mer}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{ferritin32_pae.png}
+\caption*{L 24-mer PAE}
+\end{minipage}
+\caption{Ferritin cage candidates. Ferritin offers larger cargo volume than Dps but currently shows lower and more variable assembly confidence.}
+\label{fig:ferritin}
+\end{figure}
+
+\subsection{Surface and Covalent Connectors}
+
+Streptavidin tetramer and SpyCatcher/SpyTag are suitable connector modules. Streptavidin gives a direct path to biotinylated DNA, proteins, and surfaces. SpyCatcher/SpyTag provides a covalent protein bridge for modular cage-to-surface or cage-to-DNA coupling. These modules are not the optical scatterers; they are the mechanical and biochemical interface layer.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{strep34_backbone.png}
+\caption*{Streptavidin}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{strep34_pae.png}
+\caption*{Streptavidin PAE}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{spy36_backbone.png}
+\caption*{Spy complex}
+\end{minipage}
+\hfill
+\begin{minipage}{0.23\textwidth}
+\centering
+\includegraphics[width=\linewidth]{spy36_pae.png}
+\caption*{Spy complex PAE}
+\end{minipage}
+\caption{Connector modules for immobilization and modular assembly.}
+\label{fig:connectors}
+\end{figure}
+
+\section{Candidate Ranking}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.31\textwidth}ccccp{0.31\textwidth}}
+\toprule
+Candidate & ipTM & pTM & Disorder & Status & Design role \\
+\midrule
+\job{24_dps_dodecamer_nanocage} & 0.96 & 0.96 & 0.08 & downloaded & Best core scaffold. \\
+\job{25_dps_his6_dodecamer_nanocage} & 0.93 & 0.93 & 0.14 & downloaded & Best immobilizable cage. \\
+\job{26_dps_spytag_dodecamer_nanocage} & 0.91 & 0.92 & 0.16 & downloaded & Best covalent-handle cage. \\
+\job{13_ms2_coat_rna_hairpin_imaging_adapter} & 0.90 & 0.90 & 0.15 & downloaded & RNA address channel 1. \\
+\job{20_pp7_coat_rna_hairpin_adapter} & 0.90 & 0.91 & 0.13 & downloaded & RNA address channel 2. \\
+\job{34_streptavidin_tetramer_adapter} & 0.87 & 0.88 & 0.06 & downloaded & Biotin surface adapter. \\
+\job{28_ferritin_h_his6_24mer_nanocage} & 0.85 & 0.86 & 0.00 & downloaded & Larger cage for cargo. \\
+\job{36_spycatcher_spytag_complex} & 0.83 & 0.71 & 0.38 & downloaded & Covalent connector. \\
+\job{32_ferritin_l_24mer_nanocage} & 0.79 & 0.80 & 0.00 & downloaded & Secondary ferritin scaffold. \\
+\job{11_gcn4_bzip_ap1_dna_metasurface_lock} & 0.77 & 0.77 & 0.64 & downloaded & DNA-orientation lock. \\
+\bottomrule
+\end{tabular}
+\caption{Highest-value candidates from the downloaded local dataset. ipTM and pTM are model-0 values.}
+\label{tab:ranking}
+\end{table}
+
+\section{Full Download and Metric Status}
+
+\begin{longtable}{p{0.43\textwidth}ccp{0.25\textwidth}}
+\caption{Downloaded and pending imaging/metasurface AlphaFold jobs.}\label{tab:full_status}\\
+\toprule
+Job & ipTM & pTM & Status \\
+\midrule
+\endfirsthead
+\toprule
+Job & ipTM & pTM & Status \\
+\midrule
+\endhead
+\job{11_gcn4_bzip_ap1_dna_metasurface_lock} & 0.77 & 0.77 & downloaded \\
+\job{12_ferritin_h_24mer_metasurface_nanocage} & 0.59 & 0.61 & downloaded \\
+\job{13_ms2_coat_rna_hairpin_imaging_adapter} & 0.90 & 0.90 & downloaded \\
+\job{14_dps_dodecamer_dna_nanocage_array_seed} & 0.92 & 0.92 & downloaded \\
+\job{15_gcn4_spytag_ap1_dna_lock} & 0.69 & 0.67 & downloaded \\
+\job{16_gcn4_gold_peptide_ap1_dna_lock} & 0.71 & 0.69 & downloaded \\
+\job{17_gcn4_his6_ap1_dna_lock} & 0.71 & 0.70 & downloaded \\
+\job{18_ms2_spytag_rna_adapter} & 0.82 & 0.81 & downloaded \\
+\job{19_ms2_sfgfp_rna_imaging_adapter} & 0.62 & 0.65 & downloaded \\
+\job{20_pp7_coat_rna_hairpin_adapter} & 0.90 & 0.91 & downloaded \\
+\job{21_pp7_spytag_rna_adapter} & 0.84 & 0.84 & downloaded \\
+\job{22_lambda_n_boxb_rna_adapter} & 0.62 & 0.57 & downloaded \\
+\job{23_tat_tar_rna_adapter} & 0.40 & 0.50 & downloaded \\
+\job{24_dps_dodecamer_nanocage} & 0.96 & 0.96 & downloaded \\
+\job{25_dps_his6_dodecamer_nanocage} & 0.93 & 0.93 & downloaded \\
+\job{26_dps_spytag_dodecamer_nanocage} & 0.91 & 0.92 & downloaded \\
+\job{27_dps_gold_peptide_dodecamer_nanocage} & -- & -- & not yet downloadable \\
+\job{28_ferritin_h_his6_24mer_nanocage} & 0.85 & 0.86 & downloaded \\
+\job{29_ferritin_h_spytag_24mer_nanocage} & -- & -- & not yet downloadable \\
+\job{30_ferritin_h_gold_peptide_24mer_nanocage} & 0.66 & 0.67 & downloaded \\
+\job{31_ferritin_h_avitag_24mer_nanocage} & 0.77 & 0.78 & downloaded \\
+\job{32_ferritin_l_24mer_nanocage} & 0.79 & 0.80 & downloaded \\
+\job{33_ferritin_h12_l12_mixed_nanocage} & -- & -- & not yet downloadable \\
+\job{34_streptavidin_tetramer_adapter} & 0.87 & 0.88 & downloaded \\
+\job{35_streptavidin_spytag_tetramer_adapter} & 0.83 & 0.83 & downloaded \\
+\job{36_spycatcher_spytag_complex} & 0.83 & 0.71 & downloaded \\
+\job{37_spycatcher_gcn4_ap1_dna_fusion} & 0.45 & 0.48 & downloaded \\
+\bottomrule
+\end{longtable}
+
+\section{Interpretation for Experimental Design}
+
+\paragraph{First build.}
+Use Dps-His6 on a Ni-NTA or His-compatible surface, then load or decorate the cage with optical cargo. This is the most direct path because Dps-His6 retains high assembly confidence and the handle is short, simple, and experimentally familiar.
+
+\paragraph{Addressable build.}
+Use MS2 and PP7 RNA hairpins as orthogonal placement labels. These adapters have high confidence and can be coupled to DNA-origami or RNA-patterned surfaces to create two independently addressable protein positions.
+
+\paragraph{Connector build.}
+Use streptavidin/biotin for robust immobilization and SpyCatcher/SpyTag when covalent protein coupling is needed. These modules should be placed outside the primary optical resonator volume unless their spacing is part of the designed geometry.
+
+\paragraph{Ferritin build.}
+Use ferritin when the larger internal volume is more important than the cleanest assembly score. Ferritin-His6 is the best current ferritin option. Gold-peptide ferritin should be treated cautiously because flexible appended peptide handles reduce global confidence.
+
+\section{Data Products}
+
+The report is based on the local imaging/metasurface campaign files:
+\begin{itemize}
+  \item Result zips: \job{references/alphafold_server_results/}
+  \item Extracted structures: \job{alphafold-results/}
+  \item PAE/contact/backbone figures: \job{alphafold-results/figures/}
+  \item Summary metrics: \job{references/alphafold_server_results/result_metrics.tsv}
+  \item Detailed metrics: \job{alphafold-results/detailed_*_metrics.tsv}
+\end{itemize}
+
+\begin{thebibliography}{9}
+
+\bibitem{alphafold3}
+Abramson et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. \emph{Nature}. \url{https://www.nature.com/articles/s41586-024-07487-w}
+
+\bibitem{alphafoldserver}
+EMBL-EBI Training. Introducing AlphaFold 3 and AlphaFold Server. \url{https://www.ebi.ac.uk/training/online/courses/alphafold/alphafold-3-and-alphafold-server/introducing-alphafold-3/}
+
+\bibitem{dnaorigami_plasmonics}
+Kuzyk et al. DNA-based self-assembly of chiral plasmonic nanostructures with tailored optical response. \emph{Nature}. \url{https://www.nature.com/articles/nature10889}
+
+\bibitem{dnaorigami_switching}
+Kuzyk et al. Reconfigurable 3D plasmonic metamolecules. \emph{Nature Communications}. \url{https://www.nature.com/articles/ncomms3948}
+
+\bibitem{protein_nanocages}
+Protein nanocages and bioinorganic design review. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC9112962/}
+
+\bibitem{rna_adapters}
+RNA-binding protein adapter systems for imaging and assembly. \url{https://pubmed.ncbi.nlm.nih.gov/40983766/}
+
+\end{thebibliography}
+
+\end{document}

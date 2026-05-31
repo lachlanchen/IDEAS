@@ -1,0 +1,597 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=0.72in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+
+\graphicspath{{figures/}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.3em}
+\newcommand{\af}{AlphaFold}
+\newcommand{\agintiflow}{AgInTiFlow}
+\newcommand{\angstrom}{\AA}
+
+\title{\vspace{-1.0cm}Feasibility Roadmap for an AlphaFold-Guided Biomolecular Imaging Metasurface}
+\author{Lachlan Chen\\AgInTi Lab, LazyingArt LLC}
+\date{Auto-curated by \agintiflow{} (\url{https://flow.lazying.art})}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report converts the biomolecular imaging metasurface concept into a practical execution roadmap. The conclusion is direct: the project is feasible, but the first working version must be deliberately simple. The first publishable prototype should be a Dps-His6 protein nanocage immobilized on a Ni-NTA surface, carrying or recruiting an optical cargo, with a measured optical signal and a matching structure-to-optics model. This route avoids the main failure mode of the project: combining protein expression, oligomer assembly, surface chemistry, cargo loading, periodic ordering, electromagnetic simulation, and imaging readout before any single layer has been validated. The roadmap gives a stage-by-stage plan, decision gates, failure fixes, required collaborators, and evidence base.
+\end{abstract}
+
+\section{Executive Decision}
+
+The project should not begin with a complete DNA/protein/RNA metasurface. That version is scientifically exciting, but it combines too many uncertain layers at once. The working route is:
+
+\begin{enumerate}
+\item Build a biology-first surface-bound nanocage system.
+\item Show that it immobilizes reproducibly.
+\item Add a strong optical cargo or label.
+\item Measure a simple optical signal.
+\item Transfer the working biological layer onto a real metasurface or periodic optical chip.
+\end{enumerate}
+
+The first prototype is:
+
+\begin{center}
+\textbf{Dps-His6 nanocage on a Ni-NTA surface, with optical cargo and optical readout.}
+\end{center}
+
+This route is realistic because each layer has precedent: Dps/ferritin-like cages are established nanomaterial templates; His-tag/Ni-NTA capture is standard surface chemistry; SpyTag/SpyCatcher offers a covalent backup route; MS2/PP7 gives orthogonal RNA addressing; DNA-origami plasmonics proves that biomolecular scaffolds can position metal nanoparticles; and metasurface biosensing already uses surface-bound biomolecules to shift resonances or enhance fluorescence.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{workflow_pipeline.png}
+\caption{Practical workflow. The project becomes feasible when each layer has a measured output before moving to the next: sequence, structure, geometry, optical abstraction, simulation, ranking, and wet-lab validation.}
+\label{fig:workflow}
+\end{figure}
+
+\section{What Is Actually New}
+
+The novelty is not that \af{} predicts optical spectra. It does not. The novelty is a usable bridge:
+
+\begin{center}
+\textbf{biomolecular sequence/complex design} $\rightarrow$ \textbf{\af{} structure prediction} $\rightarrow$ \textbf{geometry extraction} $\rightarrow$ \textbf{optical model} $\rightarrow$ \textbf{experiment} $\rightarrow$ \textbf{imaging readout}.
+\end{center}
+
+The strongest defensible claim is:
+
+\begin{quote}
+\textbf{We introduce a structure-guided workflow for converting protein, DNA, and RNA assemblies into optical metasurface design variables, and validate it with a bio-programmed nanocage imaging surface.}
+\end{quote}
+
+This is a realistic claim. A stronger claim, such as a fully de novo biomolecular metasurface with Nature-level impact, will require a physical prototype with surprising optical performance.
+
+\section{Why the Dps-His6 Route Is the First Route}
+
+\subsection{Biological Feasibility}
+
+Dps is a compact ferritin-like dodecamer. Its main advantage over ferritin for the first experiment is simplicity: it is smaller, the local \af{} screen gives very high confidence for the Dps core, and His6 or SpyTag variants remain structurally strong. Ferritin is still valuable, especially for larger cargo, but it should be a second-generation scaffold.
+
+\subsection{Surface Feasibility}
+
+His-tag/Ni-NTA capture is common, cheap, and fast. It is not the strongest possible immobilization chemistry, but it is ideal for the first proof because failure is easy to diagnose. If His6/Ni-NTA is unstable, the project can switch to SpyTag/SpyCatcher or biotin/streptavidin without changing the whole biological concept.
+
+\subsection{Optical Feasibility}
+
+Protein-only scattering is weak. The protein cage should be treated as a nanoscale carrier and positioning element, not as the main optical material. Optical signal should come from dye, gold, iron oxide, quantum dots, or a resonant substrate.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{nanocage_extinction_screening.png}
+\caption{Cargo makes the signal.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{array_pitch_screening_heatmap.png}
+\caption{Array pitch gives optical tuning.}
+\end{subfigure}
+\caption{First-pass optical screens. The design implication is simple: do not rely on protein-only contrast; add a high-contrast cargo or use a resonant substrate.}
+\label{fig:optics}
+\end{figure}
+
+\section{Feasibility Matrix}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.17\linewidth}p{0.13\linewidth}p{0.27\linewidth}p{0.20\linewidth}p{0.13\linewidth}}
+\toprule
+Module & Feasibility & Evidence & Main risk & Decision \\
+\midrule
+Dps cage & High & Conserved dodecameric ferritin-like cage; nanotechnology precedent. & Expression or aggregation depends on construct. & First scaffold. \\
+Ferritin cage & High biology, medium first prototype & 24-mer nanocage with broad imaging and nanomaterial use. & Larger and slower to optimize. & Second scaffold. \\
+His6/Ni-NTA & High & Standard oriented protein capture on solid surfaces. & Reversible binding and background. & First surface chemistry. \\
+SpyTag/SpyCatcher & High & Spontaneous covalent isopeptide linkage; broad materials use. & Linker can disrupt oligomers. & Backup and modular route. \\
+MS2/PP7 & High & Orthogonal RNA hairpin/coat protein systems for RNA imaging. & RNA stability and stoichiometry. & Add after surface proof. \\
+DNA origami plasmonics & High precedent, medium difficulty & Gold nanoparticle helices and chiral plasmonic surfaces are published. & Requires DNA origami and nanoparticle handling. & Stretch path. \\
+Metasurface chip & Medium & Resonance-shift and fluorescence metasurface biosensors exist. & Fabrication and optical alignment. & Add after flat-surface proof. \\
+\af{} screening & High as filter & Supports protein/DNA/RNA/ligand/ion complexes. & Does not prove kinetics or surface behavior. & Use for prioritization. \\
+\bottomrule
+\end{tabular}
+\caption{Feasibility by layer. The project becomes low-risk only when each layer is validated independently.}
+\label{tab:feasibility}
+\end{table}
+
+\section{Local AlphaFold Evidence}
+
+The current local \af{} campaign supports a practical candidate ranking. Dps, Dps-His6, and Dps-SpyTag are the cleanest core scaffold family. MS2 and PP7 are strong orthogonal RNA adapters. Streptavidin and SpyCatcher/SpyTag are credible connector modules. Ferritin-H-His6 is a useful second-generation scaffold.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{candidate_score_summary.png}
+\caption{Local model-0 confidence summary for downloaded imaging/metasurface candidates. The first experimental route should prioritize the highest-confidence, easiest-to-build modules rather than the most elaborate architecture.}
+\label{fig:score}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{lead_candidate_af_panels.png}
+\caption{Representative \af{} panels for lead candidates. The most actionable result is that Dps-based cages, MS2/PP7 adapters, streptavidin, and SpyCatcher/SpyTag provide a realistic biological toolkit.}
+\label{fig:af-panels}
+\end{figure}
+
+\section{The Roadmap That Can Really Work}
+
+\subsection{Stage 0: Freeze the First Version}
+
+Goal: avoid endless ideation.
+
+Pick one first architecture:
+
+\begin{center}
+\textbf{Dps-His6 nanocage on Ni-NTA surface.}
+\end{center}
+
+Optional backup:
+
+\begin{center}
+\textbf{Dps-SpyTag plus SpyCatcher surface.}
+\end{center}
+
+Do not include DNA origami, RNA addressing, ferritin, chiral nanorods, and de novo protein design in the first build. Those are later layers.
+
+Deliverables:
+
+\begin{itemize}
+\item final Dps-His6 sequence;
+\item optional final Dps-SpyTag sequence;
+\item \af{} model package and geometry table;
+\item expected oligomer size, handle location, and optical cargo plan.
+\end{itemize}
+
+Pass gate:
+
+\begin{itemize}
+\item high Dps core confidence;
+\item low core disorder;
+\item terminal tag does not visibly destroy dodecamer assembly;
+\item construct is acceptable to biological collaborators.
+\end{itemize}
+
+\subsection{Stage 1: Biology MVP}
+
+Goal: prove the protein can be made and remains a cage.
+
+Ask collaborators to express and purify Dps-His6. If resources allow, also prepare Dps-SpyTag and SpyCatcher.
+
+Minimum assays:
+
+\begin{itemize}
+\item SDS-PAGE for expression and purity;
+\item SEC or native PAGE for oligomeric state;
+\item DLS, AFM, negative-stain TEM, or SEC-MALS if available;
+\item optional mass spectrometry for exact construct confirmation.
+\end{itemize}
+
+Pass criteria:
+
+\begin{itemize}
+\item soluble protein is obtained;
+\item purity is good enough for surface work;
+\item dominant species matches dodecamer-sized Dps;
+\item DLS PDI is low or microscopy shows reasonably uniform particles;
+\item no severe precipitation over the experiment window.
+\end{itemize}
+
+Failure fixes:
+
+\begin{itemize}
+\item move His6 from N terminus to C terminus or vice versa;
+\item add a short flexible linker such as \texttt{GGGGS};
+\item shorten or remove unstable terminal handles;
+\item switch expression host, induction temperature, or solubility tag;
+\item test unmodified Dps as the assembly control.
+\end{itemize}
+
+\subsection{Stage 2: Surface Immobilization MVP}
+
+Goal: prove that the cage can be placed on a surface.
+
+Surface options in order of ease:
+
+\begin{enumerate}
+\item commercial Ni-NTA plate, slide, or biosensor chip;
+\item NTA-SAM on gold-coated glass;
+\item Ni-NTA functionalized glass;
+\item biotin/streptavidin surface if using a biotinylated route;
+\item SpyCatcher-coated surface if using Dps-SpyTag.
+\end{enumerate}
+
+Minimum assays:
+
+\begin{itemize}
+\item fluorescence readout if Dps is labeled;
+\item anti-His or anti-Dps immunostaining;
+\item AFM on a flat surface;
+\item QCM-D, SPR, or BLI if available;
+\item wash stability test.
+\end{itemize}
+
+Pass criteria:
+
+\begin{itemize}
+\item binding is clearly above surface-only and no-His controls;
+\item signal remains after washing;
+\item spatial coverage is reasonably uniform;
+\item surface density is tunable by protein concentration or incubation time.
+\end{itemize}
+
+Controls:
+
+\begin{itemize}
+\item surface only;
+\item Dps without His tag;
+\item unrelated His-tagged protein;
+\item imidazole or EDTA competition;
+\item SpyCatcher-negative control if using SpyTag.
+\end{itemize}
+
+\subsection{Stage 3: Add Optical Contrast}
+
+Goal: make the biological layer visible to optics.
+
+Recommended options:
+
+\begin{enumerate}
+\item fluorescently label Dps or a connector protein;
+\item attach streptavidin-gold nanoparticles to a biotinylated handle;
+\item attach gold nanoparticles through SpyCatcher/SpyTag chemistry;
+\item load or mineralize the cage with iron oxide or another core;
+\item attach dyes or quantum dots through biotin, maleimide, click chemistry, or Spy chemistry.
+\end{enumerate}
+
+Minimum readouts:
+
+\begin{itemize}
+\item fluorescence microscopy;
+\item UV-Vis absorption;
+\item dark-field scattering;
+\item simple transmission/reflection spectrum;
+\item optional circular dichroism only after a chiral structure exists.
+\end{itemize}
+
+Pass criteria:
+
+\begin{itemize}
+\item cargo-loaded surface gives at least 5x signal over protein-only surface;
+\item signal scales with protein concentration or surface density;
+\item signal survives washing;
+\item biological controls remain low.
+\end{itemize}
+
+\subsection{Stage 4: Simple Optical Surface Before Real Metasurface}
+
+Goal: get a paper-quality optical result without waiting for complex nanofabrication.
+
+Build the first device on Ni-NTA glass, gold-coated NTA-SAM slide, commercial SPR/BLI chip, or a simple patterned substrate.
+
+Measure:
+
+\begin{itemize}
+\item before/after binding spectrum;
+\item time-course binding curve if using SPR/BLI/QCM;
+\item fluorescence or dark-field image;
+\item surface density estimate;
+\item protein-only versus cargo-loaded comparison.
+\end{itemize}
+
+Pass criteria:
+
+\begin{itemize}
+\item reproducible optical change across at least 3 independent samples;
+\item coefficient of variation below 20--30\%;
+\item controls are clearly separated;
+\item signal trend is explainable by the optical model.
+\end{itemize}
+
+\subsection{Stage 5: Real Metasurface Upgrade}
+
+Only after Stage 4 works, transfer the biology to a metasurface.
+
+Best first formats:
+
+\begin{enumerate}
+\item high-Q dielectric metasurface with a surface resonance;
+\item plasmonic nanohole or nanodisk array;
+\item periodic gold nanostructure with Ni-NTA or biotin chemistry;
+\item silicon or SiN nanodisk array functionalized for protein binding.
+\end{enumerate}
+
+Measure resonance shift after Dps binding, resonance shift after cargo loading, fluorescence enhancement, scattering/absorption separation, or polarization response.
+
+Pass criteria:
+
+\begin{itemize}
+\item resonance shift exceeds measurement noise;
+\item controls do not produce the same shift;
+\item cargo-loaded cages give larger or spectrally distinct response;
+\item optical model matches the trend.
+\end{itemize}
+
+\subsection{Stage 6: High-Impact Extension}
+
+After the basic surface works, choose one extension:
+
+\begin{enumerate}
+\item chiral plasmonic pixel: DNA/protein scaffold positions gold nanorods or nanoparticles with left/right handedness;
+\item RNA-addressed two-channel pixel: MS2 and PP7 place two labels or cages on one surface;
+\item ferritin cargo metasurface: ferritin carries larger mineral or plasmonic cargo;
+\item biological state sensor: target binding changes spacing, density, or cargo position.
+\end{enumerate}
+
+The chiral plasmonic route is the most exciting. The Dps-His6 route is the safest.
+
+\section{Decision Gates}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.08\linewidth}p{0.28\linewidth}p{0.29\linewidth}p{0.27\linewidth}}
+\toprule
+Gate & Question & Pass & If fail \\
+\midrule
+G1 & Does Dps-His6 express solubly? & Soluble band and usable purification yield. & Change tag, host, induction, or use unmodified Dps. \\
+G2 & Is the cage intact? & SEC/native PAGE/DLS/TEM consistent with dodecamer. & Change tag terminus/linker or remove tag. \\
+G3 & Does it bind surface? & Signal above no-His/surface controls. & Optimize Ni-NTA or switch to biotin/SpyTag. \\
+G4 & Does binding survive washing? & Retained signal after wash. & Use SpyCatcher/SpyTag covalent route. \\
+G5 & Does cargo increase signal? & At least 5x signal over protein-only control. & Switch cargo to gold/dye/QD or increase cargo density. \\
+G6 & Is signal reproducible? & n >= 3, CV below 20--30\%. & Improve surface prep and blocking. \\
+G7 & Does model explain trend? & Correct peak, shift, or order of magnitude. & Refine geometry/material assumptions. \\
+G8 & Does metasurface improve readout? & Larger shift or enhancement than flat surface. & Choose higher-Q design or stronger cargo. \\
+\bottomrule
+\end{tabular}
+\caption{Hard pass/fail gates. These prevent the project from drifting into attractive but unvalidated complexity.}
+\label{tab:gates}
+\end{table}
+
+\section{Timeline}
+
+\begin{longtable}{p{0.14\linewidth}p{0.23\linewidth}p{0.28\linewidth}p{0.24\linewidth}}
+\caption{Execution timeline that can realistically produce data.}\\
+\toprule
+Time & Goal & Work & Output \\
+\midrule
+\endfirsthead
+\toprule
+Time & Goal & Work & Output \\
+\midrule
+\endhead
+Week 1 & Freeze constructs & Choose Dps-His6 and optional Dps-SpyTag; review tag location; check \af{} geometry. & Final construct table and order list. \\
+Weeks 2--4 & Express and purify & Express Dps-His6; purify by Ni-NTA; verify oligomer state. & Purified protein, gel, SEC/native PAGE/DLS/TEM evidence. \\
+Weeks 4--6 & Surface binding & Immobilize on Ni-NTA surface; run controls; wash. & Binding image, sensorgram, or surface signal. \\
+Weeks 6--8 & Cargo signal & Add fluorescent label, gold, iron oxide, dye, or quantum dot. & Protein-only versus cargo-loaded signal. \\
+Weeks 8--12 & Model match & Build optical model from measured geometry and density. & Simulation plot and experiment/model comparison. \\
+Months 3--6 & Metasurface transfer & Functionalize a high-Q or plasmonic chip and repeat binding/cargo tests. & First bio-programmed metasurface dataset. \\
+Months 6--12 & High-impact extension & Add MS2/PP7, ferritin, chiral plasmonic geometry, or target response. & Stronger paper novelty. \\
+\bottomrule
+\end{longtable}
+
+\section{Who Does What}
+
+\subsection{Biology Team}
+
+Deliver:
+
+\begin{itemize}
+\item Dps-His6 construct and optional Dps-SpyTag;
+\item expression and purification protocol;
+\item gel images and oligomer-state evidence;
+\item surface binding and wash-stability evidence;
+\item cargo attachment or loading evidence;
+\item raw data with sample concentrations and buffers.
+\end{itemize}
+
+\subsection{Optics Team}
+
+Deliver:
+
+\begin{itemize}
+\item flat-surface optical measurement;
+\item resonance/scattering/fluorescence measurement;
+\item simple metasurface chip or access route;
+\item measurement of signal-to-background and reproducibility.
+\end{itemize}
+
+\subsection{Computation Team}
+
+Deliver:
+
+\begin{itemize}
+\item \af{} and local prediction records;
+\item geometry extraction from CIF files;
+\item optical abstraction of cages, cargo, and surface density;
+\item TORCWA for periodic cells;
+\item Meep or Tidy3D for 3D particle/cage simulations;
+\item reports and versioned data tables.
+\end{itemize}
+
+\section{What Not To Do First}
+
+Avoid these as first experiments:
+
+\begin{itemize}
+\item full DNA-origami metasurface with multiple gold nanorods;
+\item de novo designed protein cages;
+\item live-cell integration;
+\item many different material-binding peptides at once;
+\item whole-protein Gaussian calculations;
+\item final metasurface fabrication before biology binding works;
+\item claiming top-tier impact before a physical prototype.
+\end{itemize}
+
+These are later-stage ideas. Starting with them will slow the project down.
+
+\section{Minimum Tool and Shopping List}
+
+\subsection{Biology}
+
+\begin{itemize}
+\item Dps-His6 gene or plasmid;
+\item optional Dps-SpyTag gene or plasmid;
+\item optional SpyCatcher or SpyCatcher003 plasmid;
+\item BL21(DE3) or suitable expression host;
+\item Ni-NTA resin and Ni-NTA surface;
+\item SEC column or native PAGE setup;
+\item DLS, AFM, TEM, or access to one;
+\item fluorescent labeling kit or anti-His/anti-Dps antibody;
+\item optional streptavidin-gold or biotinylated nanoparticles.
+\end{itemize}
+
+\subsection{Optics}
+
+\begin{itemize}
+\item UV-Vis spectrometer;
+\item fluorescence microscope;
+\item dark-field microscope for gold nanoparticles;
+\item simple transmission/reflection setup;
+\item optional SPR, BLI, or QCM;
+\item later: high-Q dielectric or plasmonic metasurface chip.
+\end{itemize}
+
+\subsection{Computation}
+
+\begin{itemize}
+\item \af{} Server for final predictions;
+\item Chai-1, Protenix, or Boltz-style local model for scalable screening;
+\item OpenMM or GROMACS for short relaxation if needed;
+\item TORCWA for periodic arrays;
+\item Meep or Tidy3D for full 3D simulation;
+\item Python scripts for geometry, plotting, and reports.
+\end{itemize}
+
+\section{Publication Routes}
+
+\subsection{Short Paper}
+
+Claim:
+
+\begin{quote}
+\textbf{\af{}-guided selection and experimental validation of protein nanocage surface layers for optical imaging substrates.}
+\end{quote}
+
+Required figures:
+
+\begin{enumerate}
+\item workflow diagram;
+\item \af{} structure screen;
+\item Dps expression and assembly validation;
+\item surface immobilization;
+\item cargo-loaded optical signal;
+\item simple simulation matching the trend.
+\end{enumerate}
+
+\subsection{Stronger Paper}
+
+Add:
+
+\begin{itemize}
+\item real metasurface chip;
+\item resonance shift or fluorescence enhancement;
+\item multiple biological modules;
+\item reproducible imaging field;
+\item stronger simulation/experiment agreement.
+\end{itemize}
+
+\subsection{Top-Tier Paper}
+
+Needs at least one surprising result:
+
+\begin{itemize}
+\item chiral plasmonic bio-metasurface with measured handedness switching;
+\item multiplexed MS2/PP7 programmable imaging pixels;
+\item target binding dynamically reconfigures optical response;
+\item scalable self-assembled bio-optical surface outperforming conventional functionalization.
+\end{itemize}
+
+\section{Expected Data Products}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{expected_data_dashboard.png}
+\caption{Expected data examples after the first full validation loop. These are synthetic example readouts showing the types of plots needed for a convincing paper: spectra, differential optical response, ranking features, and imaging contrast.}
+\label{fig:expected}
+\end{figure}
+
+\section{Bottom Line}
+
+The easiest route with a real chance of working is:
+
+\begin{enumerate}
+\item Dps-His6.
+\item Ni-NTA surface.
+\item Fluorescent, gold, iron-oxide, or quantum-dot cargo.
+\item Simple optical readout.
+\item \af{}-derived geometry and optical model.
+\item Metasurface transfer after flat-surface success.
+\end{enumerate}
+
+This plan is practical because it gives early data even if the final metasurface is delayed. It also creates a clean collaboration boundary: biology proves assembly and surface chemistry; optics proves the imaging signal; computation connects molecular structure to optical design.
+
+\clearpage
+\section{Evidence Base}
+
+\begin{thebibliography}{18}
+\bibitem{dps-review} Dps is a conserved dodecameric ferritin-like DNA-binding protein with nanotechnology relevance. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC9112962/}
+\bibitem{ferritin-superfamily} Ferritin and Dps cages as supramolecular templates for materials synthesis. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3763752/}
+\bibitem{ferritin-biomedical} Ferritin nanocages for imaging, diagnosis, and therapeutic applications. \url{https://www.nature.com/articles/s12276-022-00859-0}
+\bibitem{protein-cages} Protein cages, rings, and tubes as nanodevice components, including Dps and ferritin size context. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3781744/}
+\bibitem{ninta-patterning} Protein immobilization on Ni(II)-NTA patterns for oriented His-tag capture. \url{https://research.vu.nl/en/publications/protein-immobilization-on-niii-ion-patterns-prepared-by-microcont/}
+\bibitem{nta-sam} His-tag/Ni-NTA SAM protocol for QCM and SPR-style measurement. \url{https://www.dojindo.com/products/manual/N475e.pdf}
+\bibitem{spy-toolbox} SpyTag/SpyCatcher technology for irreversible protein conjugation and materials. \url{https://pubs.rsc.org/en/content/articlehtml/2020/sc/d0sc01878c}
+\bibitem{protein-ligation} Nature-inspired protein ligation review. \url{https://www.nature.com/articles/s41570-023-00468-z}
+\bibitem{pp7} PP7 coat protein RNA recognition site. \url{https://academic.oup.com/nar/article/30/19/4138/2376092}
+\bibitem{ms2pp7} MS2/PP7 for background-free RNA imaging. \url{https://www.nature.com/articles/srep03615}
+\bibitem{pp7structure} Structural basis for PP7 and MS2 RNA-protein recognition. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3152963/}
+\bibitem{dnaorigami} DNA-based self-assembly of chiral plasmonic nanostructures. \url{https://www.nature.com/articles/nature10889}
+\bibitem{switchablecd} Surface-bound DNA-origami chiral plasmonic structures with switchable CD spectra. \url{https://www.nature.com/articles/ncomms3948}
+\bibitem{metasurface-biosensing} All-dielectric metasurface biosensing methods. \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC11770831/}
+\bibitem{dielectric-sensors} Dielectric metasurfaces for label-free sensing, spectroscopy, and chiral sensing. \url{https://pubs.acs.org/doi/10.1021/acsphotonics.0c01030}
+\bibitem{alphafold3} AlphaFold 3 biomolecular interaction prediction. \url{https://www.nature.com/articles/s41586-024-07487-w}
+\bibitem{torcwa} TORCWA GPU-accelerated RCWA and gradient-based metasurface design. \url{https://www.sciencedirect.com/science/article/pii/S0010465522002715}
+\bibitem{meep} Meep open-source FDTD electromagnetic simulation. \url{https://meep.readthedocs.io/}
+\end{thebibliography}
+
+\end{document}

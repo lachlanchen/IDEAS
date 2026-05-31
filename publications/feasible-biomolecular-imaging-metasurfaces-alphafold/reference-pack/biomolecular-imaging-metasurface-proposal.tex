@@ -1,0 +1,304 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=0.72in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{enumitem}
+
+\graphicspath{{figures/}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\setlist[itemize]{leftmargin=1.2em}
+\setlist[enumerate]{leftmargin=1.3em}
+\newcommand{\af}{AlphaFold}
+\newcommand{\agintiflow}{AgInTiFlow}
+\newcommand{\angstrom}{\AA}
+
+\title{\vspace{-1.0cm}AlphaFold-Guided Biomolecular Metasurfaces for Imaging}
+\author{Lachlan Chen\\AgInTi Lab, LazyingArt LLC}
+\date{Auto-curated by \agintiflow{} (\url{https://flow.lazying.art})}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report proposes a feasible computational-to-experimental program for biomolecular imaging metasurfaces. The central idea is to use proteins, DNA, and RNA as programmable nanoscale geometry layers, while metals, dyes, mineral cores, or high-index substrates supply the optical contrast. The local project already contains a structure screen of 27 imaging/metasurface \af{} jobs, with 24 downloaded result packages and regenerated model-0 structure, PAE, contact, geometry, and optical-screening figures. The strongest near-term system is a Dps-His6 or Dps-SpyTag nanocage array connected to a metasurface substrate, with MS2/PP7 RNA adapters and streptavidin/SpyCatcher connectors available for addressable placement. The report also lays out the expected experimental readouts, publication figures, and next calculation steps.
+\end{abstract}
+
+\section{Project Goal}
+
+The target project is not simply to predict protein structures. The goal is to build a bridge from biomolecular sequence design to optical imaging function:
+
+\begin{center}
+\textbf{sequence and complex design} $\rightarrow$ \textbf{predicted 3D geometry} $\rightarrow$ \textbf{optical unit cell} $\rightarrow$ \textbf{imaging response}.
+\end{center}
+
+\af{} and related biomolecular predictors are valuable because they can screen mixed protein/DNA/RNA assemblies before synthesis. Electromagnetic solvers are still required for spectra, polarization, circular dichroism, and field enhancement. For this project, S4 is optional. Periodic layered arrays can be simulated with S4, but the locally available TORCWA path is better suited for differentiable inverse design; Tidy3D or Meep should be used for full 3D particle/cage geometries.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{expected_chiral_metasurface_concept.png}
+\caption{Expected high-level concept. Biomolecular scaffolds organize optical cargo into nanoscale geometries, producing spectral, polarization, or chiral imaging contrast. This is a conceptual expected-result figure, not an experimental measurement.}
+\label{fig:concept}
+\end{figure}
+
+\section{Problem and Impact}
+
+Metasurface imaging is powerful because it can compress spectral, polarization, and phase-sensitive optics into a thin device. The weakness is that most metasurfaces are static lithographic structures. Biomolecular self-assembly solves a different problem: proteins, DNA, and RNA can place molecular components with nanometer-scale control, recognize biological states, and reconfigure or bind selectively in aqueous conditions. The missing layer is a reliable workflow that maps biomolecular design into optical device variables.
+
+The impact is a new class of bio-programmed optical pixels. A successful platform could support hyperspectral microscopy, circular-dichroism imaging, biosensing-on-chip, multimodal optical/magnetic readout, and compact biological state sensors. The important design rule is that protein or DNA alone has weak optical contrast. The biomolecule should program geometry and selectivity; the optical signal should come from gold, iron oxide, dyes, quantum dots, TiO2, SiN, silicon, or a resonant substrate.
+
+\section{Workflow}
+
+The project should be executed as a reproducible structure-to-optics loop. Each candidate produces a record containing sequence inputs, predicted structures, geometry measurements, optical abstraction, simulated spectra, and a buildability score.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{workflow_pipeline.png}
+\caption{Planned workflow for an \agintiflow{}-style repository data product. The key conversion is from molecular structure to optical geometry: cage diameter, handle projection, attachment points, lattice pitch, chirality, and cargo position.}
+\label{fig:workflow}
+\end{figure}
+
+\section{Actual AlphaFold Campaign Results}
+
+The current imaging/metasurface campaign contains DNA locks, RNA adapters, Dps cages, ferritin cages, streptavidin adapters, and SpyCatcher/SpyTag connectors. Of 27 tracked jobs, 24 were downloaded and rendered. Three jobs were tracked but not yet available as result packages: Dps-gold peptide dodecamer, ferritin-H-SpyTag, and mixed H/L ferritin.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{candidate_score_summary.png}
+\caption{Model-0 confidence summary for all downloaded imaging/metasurface candidates. Dps cages, MS2/PP7 RNA adapters, streptavidin, and SpyCatcher/SpyTag are the cleanest practical modules.}
+\label{fig:score-summary}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\input{tables/lead_candidate_table.tex}
+\caption{Lead candidates selected from the downloaded \af{} campaign. ipTM and pTM are model-0 values; span is the maximum coordinate span measured from the model-0 CIF.}
+\label{tab:leads}
+\end{table}
+
+\section{Structural Interpretation}
+
+\subsection{Dps Nanocages}
+
+Dps is the lead scaffold family. The unmodified dodecamer is the cleanest result in the screen with ipTM 0.96 and pTM 0.96. The His6 and SpyTag variants remain strong, with ipTM values of 0.93 and 0.91. This makes Dps the first experimental scaffold because it is compact, high confidence, and easier to immobilize densely than a larger ferritin cage.
+
+The immediate experiment should use Dps-His6 on Ni-NTA or related metal-chelating chemistry. The second route should use Dps-SpyTag to couple the cage covalently to SpyCatcher-patterned surfaces or DNA/protein adapters. If optical contrast is weak, the cage should be loaded or decorated with gold-like, iron-oxide-like, dye, or quantum-dot cargo.
+
+\subsection{Ferritin Nanocages}
+
+Ferritin remains attractive because it is larger and has a well-known cargo cavity, but the present predictions are less uniformly strong than Dps. Ferritin-H-His6 is the best ferritin result in the downloaded set, with ipTM 0.85 and pTM 0.86. Ferritin L is also usable. The ferritin-gold-peptide variant is weaker, consistent with flexible terminal material-binding handles reducing global confidence. Ferritin should therefore be treated as a high-capacity second-generation scaffold rather than the first build.
+
+\subsection{RNA Addressing Modules}
+
+MS2 and PP7 are strong orthogonal RNA-addressing modules. MS2-RNA has ipTM 0.90 and pTM 0.90; PP7-RNA has ipTM 0.90 and pTM 0.91. These modules are well suited for spatial barcoding, two-channel addressing, and patterned placement of optical labels. MS2-sfGFP is structurally less clean because the large fluorescent fusion lowers global confidence, but it remains useful as a fluorescent readout concept.
+
+\subsection{Connectors and Surface Interfaces}
+
+Streptavidin is the cleanest general adapter. The tetramer has ipTM 0.87 and pTM 0.88, and the SpyTag version remains usable. SpyCatcher/SpyTag itself gives a strong covalent connector. These modules should be used to attach cages and RNA/DNA locks to substrates, not as the main optical scatterers.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{lead_candidate_af_panels.png}
+\caption{Representative model-0 panels for the lead structure classes. Each row shows backbone geometry, PAE, and contact-probability information for one selected candidate.}
+\label{fig:lead-af}
+\end{figure}
+
+\section{Geometry-to-Optics Conversion}
+
+The local geometry extraction already gives chain count, residue count, atom count, radius of gyration, coordinate span, and bounding-box diagonal for each downloaded structure. These are enough to build first optical abstractions:
+
+\begin{itemize}
+\item Dps is modeled as a compact cage or loaded sphere with diameter near the extracted maximum span.
+\item Ferritin is modeled as a larger cage or shell with internal cargo.
+\item RNA and DNA locks are modeled as attachment geometry and orientation constraints.
+\item His6, SpyTag, AviTag, and material-binding peptides are modeled as surface handles with uncertainty envelopes.
+\item Periodic arrays are swept by pitch and surrounding refractive index.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\linewidth]{structure_geometry_summary.png}
+\caption{Structure geometry summary from the downloaded \af{} CIF models. Compact high-confidence structures are easier to translate into optical unit cells; very flexible terminal handles should be represented as positional uncertainty, not as rigid optical material.}
+\label{fig:geometry}
+\end{figure}
+
+\section{Optical Screening}
+
+The first-pass optics screen treats cages as small scatterers with protein shells and optional optical cargo. This is intentionally simple: it ranks concepts before spending time on full RCWA/FDTD. The result is clear. Protein-only cages are weak optical scatterers; loaded or decorated cages are the practical route.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{nanocage_extinction_screening.png}
+\caption{Nanocage extinction screen.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{array_pitch_screening_heatmap.png}
+\caption{Array pitch screen.}
+\end{subfigure}
+\caption{Optical screens using simplified biomolecular cage abstractions. Gold-like cargo gives the strongest visible/NIR response. Starting pitches in water are approximately 400 nm for 532 nm, 489 nm for 650 nm, and 590 nm for 785 nm.}
+\label{fig:optics}
+\end{figure}
+
+\section{Expected Data Products}
+
+The next report should contain measured or simulated spectra, circular-dichroism response, imaging channel separation, and a ranked candidate table. The expected signal is not that protein itself produces a strong metasurface response. The expected signal is that a protein/DNA/RNA layer controls where high-contrast material sits and how it changes under biological addressing.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{expected_data_dashboard.png}
+\caption{Expected data examples for the next stage. The spectra and image patch are synthetic examples of desired readouts: cargo-enhanced extinction, handedness-dependent differential transmission, multi-factor ranking, and a multiplexed imaging field.}
+\label{fig:expected-data}
+\end{figure}
+
+\section{Experimental Plan}
+
+\subsection{Experiment 1: Dps-His6 Nanocage Array}
+
+Prepare a Ni-NTA or related chelating surface and immobilize Dps-His6. Characterize surface density and ordering with AFM, SEM, fluorescence, or scattering microscopy. The expected positive result is a monodisperse cage layer with controllable pitch or density. The optical test is transmission, dark-field scattering, or fluorescence readout before and after loading cargo.
+
+Success criteria:
+\begin{itemize}
+\item cage coverage is spatially uniform over the field of view;
+\item pitch or nearest-neighbor distribution has coefficient of variation below about 15--20\%;
+\item cargo-loaded arrays show at least a fivefold visible/NIR extinction or contrast increase over protein-only controls.
+\end{itemize}
+
+\subsection{Experiment 2: MS2/PP7 Orthogonal Addressing}
+
+Use MS2 and PP7 hairpin systems to place two distinct protein handles or fluorescent labels. The expected positive result is low cross-talk between channels and reproducible spatial placement. This experiment tests whether biomolecular addressing can program different optical pixels on the same substrate.
+
+\subsection{Experiment 3: Chiral Plasmonic Pixel}
+
+Use DNA/protein scaffolds to arrange two or more gold nanorods or nanoparticles in a left- or right-handed configuration. The expected result is a differential circular-polarization signal whose sign flips with handedness. This is the most publishable optical demonstration if the assembly can be fabricated reproducibly.
+
+\subsection{Experiment 4: High-Q Metasurface Functional Layer}
+
+Place the biomolecular layer on a SiN, TiO2, silicon, or plasmonic metasurface that already has a strong resonance. The expected positive result is a resonance shift, linewidth change, or polarization change after specific binding. This route is experimentally easiest because the high-Q substrate supplies the optical leverage.
+
+\section{Next AlphaFold and Simulation Batch}
+
+The next queued \af{} jobs, numbered 38--60 in the repository, focus on material-facing handles: gold-binding peptides, R5 silica-mineralization peptide, QBP1 quartz-binding peptide, TBP1 titanium-binding peptide, and rigidified His6/Dps designs. These jobs directly address the main weakness of the first screen: strong optical function requires a reliable bridge from biomolecular geometry to inorganic or dye-like optical material.
+
+After the next download, the same pipeline should generate:
+
+\begin{enumerate}
+\item model-0 and top-ranked CIF structures;
+\item PAE and contact-probability panels;
+\item handle projection distances and angular uncertainty;
+\item TORCWA/FDTD unit cells for the best Dps, ferritin, streptavidin, and GCN4-DNA handle variants;
+\item a candidate ranking table combining structure confidence, optical leverage, and buildability.
+\end{enumerate}
+
+\section{Publication Strategy}
+
+The most defensible paper claim is:
+
+\begin{quote}
+\textbf{We introduce an \af{}-to-electromagnetics workflow that converts biomolecular sequence and complex predictions into optical metasurface design variables, enabling systematic design of bio-programmed imaging pixels.}
+\end{quote}
+
+For a computational paper, the required evidence is a complete pipeline with many candidates, reproducible scripts, clear selection metrics, and simulated optical readouts for the best structures. For a high-impact experimental paper, the required evidence is at least one physical prototype: a cage array, a chiral plasmonic pixel, or a biomolecular layer on a high-Q metasurface with measured optical response.
+
+\section{Recommended Near-Term Build}
+
+The best near-term build is Dps-His6 or Dps-SpyTag on a patterned optical substrate:
+
+\begin{itemize}
+\item structure scaffold: Dps dodecamer, Dps-His6, or Dps-SpyTag;
+\item address layer: streptavidin/biotin or SpyCatcher/SpyTag;
+\item optional orthogonal labels: MS2 and PP7 RNA adapters;
+\item optical cargo: gold-like, iron-oxide-like, dye, or quantum-dot cargo;
+\item device pitch: start around 400 nm, 489 nm, and 590 nm for green, red, and 785 nm/NIR channels in water-like media;
+\item primary measurement: extinction/scattering spectrum, polarization contrast, or resonance shift.
+\end{itemize}
+
+\clearpage
+\appendix
+
+\section{All Downloaded AlphaFold Figures}
+
+The following montages reuse the downloaded and regenerated \af{} image panels for all 24 downloaded imaging/metasurface jobs. They are included to make the structure screen visually auditable in one document.
+
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_backbone_montage.png}
+\caption{Model-0 backbone montage for all downloaded imaging/metasurface structures.}
+\label{fig:backbone-montage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_pae_montage.png}
+\caption{Model-0 PAE montage for all downloaded imaging/metasurface structures.}
+\label{fig:pae-montage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_contact_montage.png}
+\caption{Model-0 contact-probability montage for all downloaded imaging/metasurface structures.}
+\label{fig:contact-montage}
+\end{figure}
+\end{landscape}
+
+\section{All Candidate Metrics}
+
+\small
+\input{tables/all_candidate_table.tex}
+\normalsize
+
+\section{Reproducibility}
+
+The report-local figure assets and tables were generated with:
+
+\begin{verbatim}
+source scripts/env/activate_protein_optics.sh
+python publication/biomolecular-imaging-metasurface-proposal/make_figures.py
+\end{verbatim}
+
+The key data inputs are:
+
+\begin{itemize}
+\item \path{references/imaging_metasurface_campaign_status.tsv}
+\item \path{references/imaging_metasurface_structure_geometry.tsv}
+\item \path{references/imaging_metasurface_optics_screening.csv}
+\item \path{references/imaging_metasurface_array_pitch_screening.csv}
+\item \path{alphafold-results/figures/}
+\end{itemize}
+
+\begin{thebibliography}{12}
+\bibitem{alphafold3} Abramson et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. \emph{Nature}. \url{https://www.nature.com/articles/s41586-024-07487-w}
+\bibitem{afserver} EMBL-EBI Training. Introducing AlphaFold 3 and AlphaFold Server. \url{https://www.ebi.ac.uk/training/online/courses/alphafold/alphafold-3-and-alphafold-server/introducing-alphafold-3/}
+\bibitem{s4} Liu and Fan. S4: A free electromagnetic solver for layered periodic structures. \emph{Computer Physics Communications}. \url{https://www.sciencedirect.com/science/article/pii/S0010465512001658}
+\bibitem{torcwa} Kim and Lee. TORCWA: GPU-accelerated rigorous coupled-wave analysis. \emph{Computer Physics Communications}. \url{https://www.sciencedirect.com/science/article/pii/S0010465522002715}
+\bibitem{meep} Meep FDTD documentation. \url{https://meep.readthedocs.io/}
+\bibitem{tidy3d} Tidy3D simulation API documentation. \url{https://docs.simulation.cloud/projects/tidy3d/en/latest/api/_autosummary/tidy3d.Simulation.html}
+\bibitem{dnaorigami} Kuzyk et al. DNA-based self-assembly of chiral plasmonic nanostructures with tailored optical response. \emph{Nature}. \url{https://www.nature.com/articles/nature10889}
+\bibitem{dnananophotonics} Review of DNA-origami nanophotonics. \url{https://pubs.acs.org/doi/10.1021/acsphotonics.7b01580}
+\bibitem{chiralmeta} DNA-origami chiral plasmonic metasurface. \url{https://publikationen.bibliothek.kit.edu/1000170617}
+\bibitem{proteinlattice} Designed protein lattices organizing ferritin/apoferritin arrays. \url{https://www.nature.com/articles/s41467-021-23966-4}
+\bibitem{rfdiffusion} Watson et al. De novo design of protein structure and function with RFdiffusion. \emph{Nature}. \url{https://www.nature.com/articles/s41586-023-06415-8}
+\bibitem{protenix} Protenix open-source biomolecular structure prediction framework. \url{https://github.com/bytedance/Protenix}
+\end{thebibliography}
+
+\end{document}

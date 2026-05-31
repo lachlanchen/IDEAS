@@ -1,0 +1,402 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=0.78in]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+\graphicspath{{figures/}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\setlist[itemize]{leftmargin=1.4em}
+\setlist[enumerate]{leftmargin=1.5em}
+\newcommand{\af}{AlphaFold}
+\newcommand{\agintiflow}{AgInTiFlow}
+\newcommand{\angstrom}{\AA}
+
+\title{\vspace{-1.0cm}给生物合作者的项目说明：用蛋白、DNA 和 RNA 构建可成像的纳米结构}
+\author{Lachlan Chen\\AgInTi Lab, LazyingArt LLC}
+\date{由 \agintiflow{} 自动整理：\url{https://flow.lazying.art}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+这份报告写给熟悉蛋白、DNA、RNA、生化实验和细胞/分子成像的合作者。我们想做的不是让生物团队去做复杂光学仿真，而是请生物团队帮助我们把几个可靠的生物纳米模块做出来、验证它们能否正确组装和定位。光学部分可以理解为一块很薄的纳米芯片或玻片表面：如果蛋白、DNA、RNA 能把金纳米颗粒、染料、铁氧化物、量子点或其他高对比材料放到特定位置，这个表面就可能产生可测的颜色、偏振、手性或光谱信号。我们已经用 \af{} 对 27 个候选生物模块做了结构筛选，其中 24 个已经下载并整理出结构图、PAE 图、接触概率图和几何指标。当前最建议优先做的是 Dps-His6 或 Dps-SpyTag 纳米笼，其次是 MS2/PP7 RNA 定位模块、链霉亲和素/生物素连接模块和 SpyCatcher/SpyTag 共价连接模块。
+\end{abstract}
+
+\section{一句话说明}
+
+我们希望把生物大分子当作“纳米级积木”和“定位工具”：蛋白、DNA、RNA 决定东西放在哪里，真正产生强光学信号的可以是金、铁氧化物、染料、量子点或高折射率材料。
+
+因此，生物合作者最重要的任务是：
+
+\begin{enumerate}
+\item 判断候选蛋白/DNA/RNA 构建是否合理，哪些容易表达、纯化、修饰和组装。
+\item 帮助制备优先级最高的模块，例如 Dps-His6、Dps-SpyTag、MS2/PP7 RNA 适配器、链霉亲和素和 SpyCatcher/SpyTag。
+\item 用常规生物化学和成像方法确认这些模块是否正确折叠、寡聚、结合和定位。
+\item 给出实验可行性反馈：哪些序列需要改短、加 linker、换标签、换宿主、换纯化策略。
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{expected_chiral_metasurface_concept.png}
+\caption{项目概念图。左侧是 DNA、RNA、蛋白等生物模块，中间是被这些模块定位的光学材料，右侧是可能读出的成像信号。图中强调的是“生物结构负责定位，光学材料负责信号”。}
+\label{fig:concept}
+\end{figure}
+
+\section{什么是“超表面”？为什么和生物有关？}
+
+这里的“超表面”可以先不按光学教材理解。对生物合作者来说，可以把它想成一块很薄的纳米图案化玻片。普通玻片只是承载样品；这种玻片表面有周期性纳米结构，能够改变光的颜色、偏振、强度或相位。如果表面上再接上特定蛋白、DNA 或 RNA，就有机会把生物识别事件转成光学信号。
+
+关键点是：我们不希望蛋白本身承担所有光学功能。蛋白和核酸的光学对比度通常不强，但它们非常擅长三件事：
+
+\begin{itemize}
+\item 识别：例如 RNA hairpin 与对应 coat protein 结合，生物素与链霉亲和素结合；
+\item 组装：例如 Dps 或 ferritin 形成稳定纳米笼；
+\item 定位：例如 His6、SpyTag、AviTag、DNA/RNA 地址序列把模块放到指定位置。
+\end{itemize}
+
+光学上真正强的部分可以是金纳米颗粒、金纳米棒、铁氧化物、荧光染料、量子点、TiO2、SiN 或硅基芯片结构。生物团队负责“把东西放对”，光学团队负责“算和测放对之后光会怎样变”。
+
+\section{我们已经做了什么}
+
+我们先用 \af{} 做了一轮结构筛选。目标不是证明最终实验一定成功，而是提前排除明显不稳定或几何上不合适的组合，并找出最值得进入湿实验的模块。
+
+这轮筛选包括 27 个成像/超表面相关候选，其中 24 个已经有下载结果。每个结果包含结构模型、PAE 误差图、链间接触概率、寡聚状态和几何尺寸。简单说，ipTM 和 pTM 越高，说明模型整体和复合物界面越可信；disorder 越低，说明无序区域越少。对我们这个项目，结构清楚、寡聚稳定、标签不破坏主体结构，比单纯追求最大分子量更重要。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{candidate_score_summary.png}
+\caption{\af{} 候选模块的结构置信度概览。Dps 纳米笼、MS2/PP7 RNA 适配器、链霉亲和素和 SpyCatcher/SpyTag 是当前最干净、最容易推进的模块。}
+\label{fig:score}
+\end{figure}
+
+\section{当前最建议生物团队先做的模块}
+
+\subsection{第一优先级：Dps-His6 纳米笼}
+
+Dps 是一个小型十二聚体蛋白笼。我们的结构结果显示，未修饰 Dps 的整体置信度最高，Dps-His6 和 Dps-SpyTag 仍然保持很好的十二聚体结构。Dps-His6 的优点是实验路线直接：His6 可以和 Ni-NTA 或其他金属螯合表面结合，也方便纯化和固定。
+
+我们希望生物团队评估并尽量完成：
+
+\begin{itemize}
+\item Dps-His6 的表达载体、宿主和纯化策略；
+\item SEC、native PAGE、DLS、负染电镜或 AFM 证明它主要形成十二聚体；
+\item His6 标签是否暴露、是否影响寡聚；
+\item 是否能固定到 Ni-NTA 表面或 Ni-NTA 功能化材料上；
+\item 固定后是否仍能保留笼状结构和可装载/修饰能力。
+\end{itemize}
+
+成功标准可以很实际：蛋白可表达、可纯化，主要为预期寡聚状态，表面固定后有均一覆盖，且不出现明显聚集。
+
+\subsection{第二优先级：Dps-SpyTag 与 SpyCatcher/SpyTag}
+
+SpyCatcher/SpyTag 的价值是形成共价连接。如果 Dps-SpyTag 结构和表达都可行，它可以把 Dps 笼稳定接到 SpyCatcher 修饰的表面、DNA 支架或其他蛋白模块上。我们的 \af{} 结果支持 SpyCatcher/SpyTag 作为模块化连接器使用。
+
+请生物团队重点判断：
+
+\begin{itemize}
+\item SpyTag 放在 Dps 末端是否会影响十二聚体；
+\item linker 长度是否需要缩短、加硬或换成更柔性的连接；
+\item SpyCatcher 反应效率是否足够；
+\item 是否可以用 SDS-PAGE、质谱或凝胶迁移验证共价连接。
+\end{itemize}
+
+\subsection{第三优先级：MS2 和 PP7 RNA 定位系统}
+
+MS2 和 PP7 是两个互相独立的 RNA hairpin/coat-protein 系统。我们的结果显示 MS2-RNA 和 PP7-RNA 都有很好的结构置信度，适合做“两个频道”的定位模块。生物上可以理解为：RNA 序列提供地址，MS2 或 PP7 蛋白识别对应地址。
+
+希望生物团队帮助：
+
+\begin{itemize}
+\item 选择成熟可靠的 MS2/PP7 hairpin 序列；
+\item 设计带标签的 MS2/PP7 coat protein；
+\item 测试 MS2 和 PP7 的正交性，即 MS2 不明显结合 PP7 hairpin，PP7 不明显结合 MS2 hairpin；
+\item 评估 RNA 稳定性、体外组装条件和荧光/凝胶验证方案。
+\end{itemize}
+
+\subsection{第四优先级：链霉亲和素/生物素模块}
+
+链霉亲和素是非常成熟的连接模块。它可以连接生物素化 DNA、生物素化蛋白、生物素化表面或生物素化纳米颗粒。我们的结果中，链霉亲和素四聚体非常干净，带 SpyTag 的版本也可以考虑。
+
+这部分最适合做快速验证：如果某个 Dps、DNA 或 RNA 模块难以直接固定，可以先通过生物素-链霉亲和素体系把它接到表面。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{lead_candidate_af_panels.png}
+\caption{当前代表性候选模块的 \af{} 图。每行分别显示一个候选的主链结构、PAE 图和接触概率图。生物合作者主要关注结构是否紧凑、寡聚是否合理、标签是否可能过度无序。}
+\label{fig:lead-panels}
+\end{figure}
+
+\section{为什么不是直接先做 ferritin？}
+
+Ferritin 很有吸引力，因为它是更大的 24 聚体蛋白笼，能装载矿物核或其他 cargo。但从当前结构筛选看，Dps 更干净、更小、更适合先做。Ferritin-H-His6 仍然值得保留为第二代方案；ferritin-gold peptide 这种带柔性材料结合肽的版本置信度较低，可能需要更好的 linker 或更短的材料结合肽。
+
+因此建议路线是：
+
+\begin{enumerate}
+\item 先用 Dps-His6 做出稳定固定和基础光学读出；
+\item 同时保留 ferritin-H-His6 作为大 cargo 笼的备选；
+\item 等第一轮实验知道表面固定和信号读出条件后，再把 ferritin 和材料结合肽纳入优化。
+\end{enumerate}
+
+\section{我们需要生物团队具体交付什么}
+
+\subsection{A. 构建体可行性审查}
+
+请从生物学角度审查以下模块是否容易做：
+
+\begin{itemize}
+\item Dps、Dps-His6、Dps-SpyTag；
+\item ferritin-H-His6、ferritin-L；
+\item streptavidin、streptavidin-SpyTag；
+\item SpyCatcher/SpyTag；
+\item MS2 coat protein + MS2 hairpin RNA；
+\item PP7 coat protein + PP7 hairpin RNA；
+\item 可选：GCN4-DNA lock、带金/硅/钛结合肽的短 peptide fusion。
+\end{itemize}
+
+希望反馈包括：表达宿主、标签位置、纯化标签、linker 建议、可能聚集风险、需要购买还是克隆、是否已有现成质粒或文献体系。
+
+\subsection{B. 小规模表达与纯化}
+
+第一批建议只做少数模块，不要一次做太多：
+
+\begin{enumerate}
+\item Dps-His6；
+\item Dps-SpyTag；
+\item SpyCatcher；
+\item streptavidin 或商业链霉亲和素体系；
+\item MS2-RNA 与 PP7-RNA 的最小验证系统。
+\end{enumerate}
+
+如果资源有限，最小集合是 Dps-His6 + SpyCatcher/SpyTag + MS2/PP7 其中一个 RNA 体系。
+
+\subsection{C. 组装和结合验证}
+
+我们希望得到的生物实验数据包括：
+
+\begin{itemize}
+\item SEC 或 native PAGE：证明 Dps/ferritin 是否形成预期寡聚体；
+\item SDS-PAGE 或质谱：证明 SpyTag/SpyCatcher 是否形成共价产物；
+\item EMSA、荧光各向异性或凝胶迁移：证明 MS2/PP7 与各自 RNA hairpin 结合；
+\item DLS、AFM、负染电镜或 TEM：证明纳米笼大小是否均一；
+\item 表面固定实验：证明 His6、biotin、SpyTag 等标签能把模块放到表面。
+\end{itemize}
+
+\subsection{D. 给光学团队的数据格式}
+
+生物团队不需要做复杂光学分析，但希望每个样品能记录这些信息：
+
+\begin{itemize}
+\item 样品名称、序列版本、标签位置和 linker；
+\item 表达条件、纯化条件、缓冲液、浓度；
+\item 主要寡聚状态和估计尺寸；
+\item 是否聚集、是否沉淀、是否稳定；
+\item 表面固定条件和洗涤后保留比例；
+\item 如果有荧光或吸收信号，记录原始光谱或图像。
+\end{itemize}
+
+这些数据可以直接进入后续结构-光学模型，用来决定纳米结构尺寸、表面密度、间距和可用读出方式。
+
+\section{第一轮实验设计}
+
+\subsection{实验 1：Dps-His6 表面固定}
+
+目标：证明 Dps-His6 能在 Ni-NTA 或类似表面上形成比较均一的固定层。
+
+建议读出：
+
+\begin{itemize}
+\item His6 纯化后的 SEC/native PAGE；
+\item 表面固定前后的荧光或免疫检测；
+\item AFM/SEM/负染电镜观察尺寸和分布；
+\item 洗涤稳定性测试。
+\end{itemize}
+
+预期结果：Dps-His6 主要保持十二聚体，不严重聚集，表面固定后仍有可检测且均一的覆盖。
+
+\subsection{实验 2：Dps-SpyTag 共价连接}
+
+目标：验证 Dps-SpyTag 能与 SpyCatcher 连接，并且不破坏 Dps 主体结构。
+
+建议读出：
+
+\begin{itemize}
+\item 反应前后 SDS-PAGE 条带迁移；
+\item SEC 或 native PAGE 确认寡聚状态；
+\item 不同 linker 或反应条件比较。
+\end{itemize}
+
+预期结果：出现明确共价连接产物，Dps 不发生明显不可逆聚集。
+
+\subsection{实验 3：MS2/PP7 正交 RNA 定位}
+
+目标：证明 MS2 和 PP7 能作为两个独立定位频道。
+
+建议读出：
+
+\begin{itemize}
+\item MS2 protein + MS2 hairpin 的结合；
+\item PP7 protein + PP7 hairpin 的结合；
+\item MS2 protein + PP7 hairpin、PP7 protein + MS2 hairpin 的交叉结合阴性对照；
+\item 荧光标记或凝胶迁移作为第一轮读出。
+\end{itemize}
+
+预期结果：同源组合明显结合，交叉组合弱或不结合。
+
+\subsection{实验 4：装载或连接高对比材料}
+
+目标：让生物纳米笼或定位模块带上真正强的光学信号来源。
+
+可选路线：
+
+\begin{itemize}
+\item Dps/ferritin 装载铁氧化物或矿物核；
+\item 外表面连接金纳米颗粒、染料或量子点；
+\item 用生物素-链霉亲和素把纳米颗粒接到 DNA/RNA/蛋白模块；
+\item 用材料结合肽连接金、硅、石英或 TiO2 表面。
+\end{itemize}
+
+预期结果：带 cargo 的样品比 protein-only 对照有明显更强的吸收、散射、荧光或暗场信号。
+
+\section{光学团队会做什么}
+
+生物团队拿到可用样品后，光学团队会负责：
+
+\begin{itemize}
+\item 把生物模块尺寸转成纳米光学模型；
+\item 计算不同间距、密度、cargo 和表面材料下的光谱变化；
+\item 测试绿色、红色和近红外波段，例如 532 nm、650 nm、785 nm；
+\item 设计玻片/芯片表面图案；
+\item 测量透射、散射、荧光、偏振或手性信号。
+\end{itemize}
+
+所以第一轮生物实验不需要证明“超表面”已经完成。第一轮只要证明模块能稳定存在、能结合、能定位、能带 cargo，就已经足够推动下一步。
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{nanocage_extinction_screening.png}
+\caption{不同 cargo 的预期光学强弱。}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{array_pitch_screening_heatmap.png}
+\caption{不同阵列间距的预期读出。}
+\end{subfigure}
+\caption{给生物合作者的解读：protein-only 通常信号弱；如果纳米笼携带金、铁氧化物、染料或其他高对比 cargo，信号会更有机会被光学系统检测到。}
+\label{fig:optics-simple}
+\end{figure}
+
+\section{建议的样品优先级}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.18\linewidth}p{0.23\linewidth}p{0.25\linewidth}p{0.24\linewidth}}
+\toprule
+优先级 & 模块 & 生物学任务 & 为什么重要 \\
+\midrule
+1 & Dps-His6 & 表达、纯化、确认十二聚体、表面固定 & 最容易做成第一版纳米笼阵列 \\
+1 & Dps-SpyTag + SpyCatcher & 验证共价连接和寡聚保持 & 以后可接到多种表面或 DNA/蛋白模块 \\
+1 & MS2/PP7 RNA 系统 & 验证正交 RNA 结合 & 提供两个可编程定位频道 \\
+2 & Streptavidin/biotin & 连接生物素化 DNA、蛋白、表面或颗粒 & 最成熟的快速连接体系 \\
+2 & Ferritin-H-His6 & 表达和寡聚验证 & 更大 cargo 笼，适合第二代方案 \\
+3 & GCN4-DNA lock & DNA 结合和方向控制验证 & 后续可用于 DNA origami 或手性结构 \\
+3 & 材料结合肽 fusion & 评估表达和无序风险 & 用于连接金、硅、石英或 TiO2 \\
+\bottomrule
+\end{tabular}
+\caption{建议的生物实验优先级。第一轮目标是做出最稳、最容易验证、最能连接表面的模块。}
+\label{tab:priority}
+\end{table}
+
+\section{我们希望合作者反馈的问题}
+
+请生物合作者重点回答这些问题：
+
+\begin{enumerate}
+\item Dps-His6 和 Dps-SpyTag 哪个更容易先做出来？
+\item Dps 的 N 端或 C 端加标签，哪一端更可能不破坏十二聚体？
+\item 是否已有成熟 Dps、ferritin、MS2、PP7、SpyCatcher/SpyTag 或 streptavidin 载体？
+\item MS2/PP7 的 RNA hairpin 是否适合体外组装，还是更适合细胞内表达体系？
+\item 如果要连接金纳米颗粒、染料或量子点，生物团队更熟悉哪种偶联化学？
+\item 哪些 readout 最快：gel shift、SEC、DLS、AFM、TEM、荧光显微、流式、plate reader？
+\item 哪些构建体有明显生物安全、表达毒性、聚集或成本问题？
+\end{enumerate}
+
+\section{可以从哪里开始}
+
+建议从一个很小的合作包开始：
+
+\begin{enumerate}
+\item 生物团队先审查 Dps-His6、Dps-SpyTag、SpyCatcher、MS2/PP7 的构建方案；
+\item 选择 2--3 个最容易获得的质粒或合成片段；
+\item 做小量表达和纯化；
+\item 用 SEC/native PAGE/DLS 或凝胶迁移确认模块状态；
+\item 光学团队同步准备 Ni-NTA/biotin/SpyCatcher 表面和基础显微读出；
+\item 第一轮样品只要能稳定固定和被检测，就进入 cargo 加载和光谱测试。
+\end{enumerate}
+
+如果第一轮成功，第二轮再扩展到 ferritin、大 cargo、DNA/RNA 多地址阵列和手性 plasmonic 结构。
+
+\section{附录：全部 \af{} 图像概览}
+
+下面的图不是要求生物合作者逐个分析，而是方便快速看到我们已经筛过哪些结构。重点看前面推荐的 Dps、MS2、PP7、streptavidin 和 SpyCatcher/SpyTag。
+
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_backbone_montage.png}
+\caption{所有已下载候选的主链结构概览。}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_pae_montage.png}
+\caption{所有已下载候选的 PAE 概览。PAE 越低、结构块越清楚，通常越适合作为刚性模块。}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{alphafold_contact_montage.png}
+\caption{所有已下载候选的接触概率概览。它帮助判断链间界面是否稳定。}
+\end{figure}
+\end{landscape}
+
+\section{结论}
+
+对生物团队来说，这个项目的核心不是学习超表面理论，而是帮助我们建立一套可靠的生物纳米定位工具。当前最清楚的路线是：
+
+\begin{center}
+\textbf{Dps 纳米笼 + His6/SpyTag 固定 + MS2/PP7 地址系统 + 高对比 cargo}
+\end{center}
+
+只要我们能证明这些模块可以稳定表达、纯化、组装、固定并携带可检测 cargo，光学团队就能把它们接入纳米芯片和成像读出。这个合作的第一阶段应以“把最可靠的生物积木做出来”为目标。
+
+\end{document}

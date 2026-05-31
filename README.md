@@ -156,7 +156,7 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
     <tr>
       <td>Feasible Biomolecular Imaging Metasurfaces with AlphaFold</td>
       <td><a href="ideas/feasible-biomolecular-imaging-metasurfaces-alphafold.md">Markdown</a></td>
-      <td>—</td>
+      <td><a href="publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap.pdf">Roadmap</a> · <a href="publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap-cn.pdf">路线图</a> · <a href="publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-collaborator-cn.pdf">Collaborator</a> · <a href="publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-proposal.pdf">Proposal</a> · <a href="publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/imaging-metasurface-report.pdf">Report</a></td>
       <td>EN</td>
     </tr>
   </tbody>

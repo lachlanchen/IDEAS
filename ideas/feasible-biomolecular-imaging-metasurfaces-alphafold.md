@@ -9,9 +9,64 @@ The feasible idea is a hybrid imaging metasurface where biomolecules control nan
 
 AlphaFold should be used as a molecular-geometry engine, not as the metasurface solver. It can test whether a protein cage closes, whether protein handles remain exposed, and whether a protein-DNA orientation lock is plausible. RCWA or FDTD then predicts the imaging/metasurface response.
 
+## Consolidated ProteinStructure Reference Pack
+
+This idea now consolidates the ProteinStructure publication outputs into one canonical IDEAS entry. The five source reports are treated as supporting references for a single biomolecular imaging metasurface program: build molecularly addressable protein/DNA/RNA scaffolds, load or couple them to high-contrast optical cargo, and validate their metasurface behavior with optical simulation and experiment.
+
+Bundled reference files:
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Reference</th>
+      <th align="left">Role in this idea</th>
+      <th align="left">PDF</th>
+      <th align="left">TeX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Biomolecular Metasurface Feasibility Roadmap</td>
+      <td>English execution roadmap: decision gates, timelines, team roles, and first-build recommendation.</td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap.pdf">PDF</a></td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap.tex">TeX</a></td>
+    </tr>
+    <tr>
+      <td>Biomolecular Metasurface Feasibility Roadmap (Chinese)</td>
+      <td>Chinese roadmap covering novelty, Dps-His6 route, feasibility matrix, tools, purchasing, and publication path.</td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap-cn.pdf">PDF</a></td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap-cn.tex">TeX</a></td>
+    </tr>
+    <tr>
+      <td>Biomolecular Imaging Metasurface Collaborator Brief (Chinese)</td>
+      <td>Collaborator-facing brief explaining the metasurface concept, biological modules, first experiments, and feedback questions.</td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-collaborator-cn.pdf">PDF</a></td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-collaborator-cn.tex">TeX</a></td>
+    </tr>
+    <tr>
+      <td>Biomolecular Imaging Metasurface Proposal</td>
+      <td>Formal proposal with AlphaFold campaign results, structural interpretation, geometry-to-optics conversion, optical screening, and experimental plan.</td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-proposal.pdf">PDF</a></td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-proposal.tex">TeX</a></td>
+    </tr>
+    <tr>
+      <td>Imaging Metasurface Report</td>
+      <td>Compact report containing lead structural modules, candidate ranking, metric status, and experimental interpretation.</td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/imaging-metasurface-report.pdf">PDF</a></td>
+      <td><a href="../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/imaging-metasurface-report.tex">TeX</a></td>
+    </tr>
+  </tbody>
+</table>
+
+The combined decision from these reports is sharper than the earlier single-candidate sketch: ferritin remains biologically credible, but the first experimentally actionable route should move toward a **Dps-His6 nanocage array** with MS2/PP7 RNA adapters as orthogonal addressable modules. Ferritin is still useful as a second-route nanocage and imaging-cargo reference, but the latest AlphaFold campaign makes Dps and RNA adapters the lead build.
+
 ## Most Feasible Candidate
 
-The best first candidate is a human ferritin H-chain 24-mer nanocage array.
+The updated best first candidate is a **Dps-His6 nanocage array on Ni-NTA glass**, followed by optically loaded cage experiments and RNA-addressable MS2/PP7 modules.
+
+Dps is now favored as the first wet-lab build because the newer AlphaFold campaign shows stronger structural confidence for the Dps/DNA nanocage route than for the ferritin H-chain route. The practical first device is a dense Dps cage monolayer or patterned array where His6/Ni-NTA chemistry supplies immobilization, while loaded metal/dye cargo or nearby plasmonic particles supply the optical contrast.
+
+The earlier best candidate was a human ferritin H-chain 24-mer nanocage array, and it remains a valuable second route.
 
 Ferritin is attractive because it is already a symmetric protein nanocage, not a design fantasy. Maxi-ferritins form 24-subunit hollow cages with an outer diameter near 12 nm and an inner cavity near 8 nm. Ferritin nanocages have been used as nanoreactors and carriers for iron oxide, gold, near-infrared dyes, and multimodal imaging probes. That makes them a credible bridge between molecular biology and optical imaging.
 
@@ -22,6 +77,59 @@ The device concept is:
 3. Immobilize cages as a 2D array on a transparent substrate.
 4. Tune lattice pitch and cargo size for dark-field scattering, fluorescence enhancement, photothermal contrast, optoacoustic contrast, or magneto-optic sensing.
 5. Use AlphaFold models to validate cage geometry and engineered tag placement before wet-lab production.
+
+## Current Lead Modules
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Module</th>
+      <th align="left">Role</th>
+      <th align="left">Decision</th>
+      <th align="left">Key AlphaFold evidence</th>
+      <th align="left">Experimental use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dps dodecamer + dsDNA</td>
+      <td>Protein nanocage and array seed</td>
+      <td>Lead</td>
+      <td>ipTM 0.92, pTM 0.92, ranking 0.96</td>
+      <td>First nanocage array; His6/Ni-NTA immobilization; loaded cage optical readout</td>
+    </tr>
+    <tr>
+      <td>MS2 coat protein + RNA hairpin</td>
+      <td>RNA-addressable adapter</td>
+      <td>Lead</td>
+      <td>ipTM 0.90, pTM 0.90, ranking 0.98</td>
+      <td>Orthogonal RNA handle for fluorescence, enzyme tags, SpyTag, or nanoparticle-binding peptides</td>
+    </tr>
+    <tr>
+      <td>PP7 coat protein + RNA hairpin</td>
+      <td>Second RNA-addressable adapter</td>
+      <td>Lead</td>
+      <td>ipTM 0.90, pTM 0.91, ranking 0.97</td>
+      <td>Second orthogonal channel for two-color or multi-address metasurface layouts</td>
+    </tr>
+    <tr>
+      <td>GCN4 bZIP + AP-1 dsDNA</td>
+      <td>Protein-DNA orientation lock</td>
+      <td>Usable</td>
+      <td>ipTM 0.77, pTM 0.77, ranking 1.09</td>
+      <td>DNA/protein orientation lock for DNA origami or patterned DNA surfaces</td>
+    </tr>
+    <tr>
+      <td>Ferritin H-chain 24-mer</td>
+      <td>Larger protein nanocage</td>
+      <td>Low priority for first build</td>
+      <td>ipTM 0.59, pTM 0.61, ranking 0.62 in the current campaign</td>
+      <td>Defer until Dps/RNA route establishes the workflow; still useful for loaded imaging cargo concepts</td>
+    </tr>
+  </tbody>
+</table>
+
+The lead module decision is not based on optical strength from the protein itself. It is based on geometry, assembly plausibility, handle exposure, and route-to-experiment speed. The optical metasurface signal should come from cargo, particle coupling, substrate resonance, or dense dye loading.
 
 ## AlphaFold Calculation
 
@@ -66,16 +174,33 @@ Additional DNA/RNA/protein jobs were then submitted:
 
 14_dps_dodecamer_dna_nanocage_array_seed
   12 x E. coli Dps + short dsDNA
-  Result: submitted; pending
+  Result: complete and downloaded in the later ProteinStructure reference pack
 ```
 
 The first completed mixed result is encouraging. The GCN4-DNA model has model 0 ranking score 1.09, ipTM 0.77, pTM 0.77, and no clash. Protein-DNA pair ipTM values are 0.73-0.74, and minimum protein-DNA PAE values are around 1.08-1.14 A. The design interpretation is direct: a short AP-1 DNA site can serve as a molecular orientation lock for a bZIP protein handle on DNA origami or DNA-patterned imaging metasurfaces.
 
 The second completed mixed result is stronger. The MS2 coat protein-RNA hairpin model has model 0 ranking score 0.98, ipTM 0.90, pTM 0.90, and no clash. The protein-RNA pair ipTM is 0.86 with minimum PAE about 1.17-1.29 A. This makes MS2 a realistic RNA-addressable adapter for imaging surfaces, especially if the protein is fused to a fluorescent protein, enzyme tag, SpyTag, or nanoparticle-binding peptide.
 
+The later ProteinStructure reference pack completes the Dps route and changes the first-build priority. Dps/DNA is now a lead module with ipTM 0.92, pTM 0.92, ranking 0.96, and a clean interpretation as a small protein cage suitable for surface arraying. PP7/RNA is also a lead module with ipTM 0.90, pTM 0.91, ranking 0.97, giving a second RNA-addressable channel alongside MS2. By contrast, the ferritin H-chain 24-mer result is lower confidence in this campaign and should be treated as a second-stage route rather than the immediate first build.
+
 ## Candidate Roadmap
 
-### Candidate 1: Ferritin-Loaded Imaging Metasurface
+### Candidate 1: Dps-His6 Loaded Nanocage Metasurface
+
+Use Dps as a compact protein cage and immobilize it on Ni-NTA-functionalized glass or patterned surfaces through His6 chemistry. The lowest-risk optical experiments are dark-field/transmission screening after loading or coupling the cages with absorbing/scattering cargo, fluorescence enhancement using dense dye labels, and resonance-shift measurements on a high-Q photonic substrate. This is the most practical first route because it combines a strong AlphaFold result, a smaller multimer than ferritin, standard His-tag surface chemistry, and a direct experimental gate.
+
+Useful next variants:
+
+- His6-Dps for Ni-NTA glass binding.
+- Dps-SpyTag for covalent capture through SpyCatcher-patterned surfaces.
+- Dps with internal or external mineralization motifs for cargo nucleation.
+- Dps plus short DNA handles for array addressability.
+
+### Candidate 2: MS2/PP7 RNA-Addressed Imaging Surface
+
+Use orthogonal MS2 and PP7 coat protein/RNA hairpin pairs as addressable molecular sockets. Each RNA hairpin marks a location or channel, while the coat protein carries a fluorescent protein, enzyme tag, SpyTag, or nanoparticle-binding peptide. This is especially attractive for two-color imaging, multi-channel biological barcodes, and switchable molecular layouts.
+
+### Candidate 3: Ferritin-Loaded Imaging Metasurface
 
 Use ferritin as a monodisperse 12 nm cage and array it into a surface. The lowest-risk optical experiments are dark-field scattering with gold-loaded cages, fluorescence enhancement with dye-labeled cages near plasmonic particles, and photothermal/optoacoustic readout with absorbing cargo. This is the most practical path because it starts from a known protein assembly and requires only modest sequence edits for immobilization.
 
@@ -86,28 +211,72 @@ Useful next variants:
 - N-terminal SpyTag or biotin acceptor peptide for programmable arraying.
 - Internal mineralization peptide if cargo nucleation needs stronger control.
 
-### Candidate 2: DNA-Origami Plasmonic Meta-Pixel
+### Candidate 4: DNA-Origami Plasmonic Meta-Pixel
 
 DNA origami is better than protein for precise addressability. It can place gold nanorods, silver particles, dyes, and quantum dots with nanometer-scale control. The optical literature already supports DNA-origami nanoantennas, nanorulers, optoacoustic gold-nanorod hybrids, and planar optical metasurface concepts.
 
 The feasible version is not to predict a whole DNA origami with AlphaFold. Instead, use AlphaFold to model protein-DNA locks, such as a bZIP dimer bound to a short AP-1 DNA site. The DNA tile handles large-scale layout; the protein lock controls orientation or biochemical switching.
 
-### Candidate 3: Dps 12-mer Hybrid Cage
-
-Dps is a smaller ferritin-like dodecamer. It may be better for dense arrays, shorter AlphaFold jobs, and DNA-associated assembly. It is a good fallback if the 24-copy ferritin prediction is slow or ambiguous.
-
-### Candidate 4: Designed Protein-Cage Lattices
+### Candidate 5: Designed Protein-Cage Lattices
 
 Protein nanocages can be redesigned into 1D, 2D, and 3D arrays. This is more publishable if successful, but it is less immediate because it needs new protein-interface engineering. It should follow after ferritin array measurements establish the optical workflow.
+
+## Experimental Gates
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Gate</th>
+      <th align="left">Assay</th>
+      <th align="left">Pass threshold</th>
+      <th align="left">Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dps-His6 surface array</td>
+      <td>AFM/SEM plus fluorescence on Ni-NTA glass</td>
+      <td>Pitch coefficient of variation below 15%; signal/background above 5</td>
+      <td>Confirms that the biological scaffold can form a usable surface population</td>
+    </tr>
+    <tr>
+      <td>Loaded cage optical screen</td>
+      <td>Dark-field or transmission spectrum</td>
+      <td>At least 5x extinction enhancement between 500 and 700 nm</td>
+      <td>Confirms that cargo, not bare protein, supplies measurable optical contrast</td>
+    </tr>
+    <tr>
+      <td>MS2/PP7 orthogonal placement</td>
+      <td>Two-color imaging or DNA/RNA barcode readout</td>
+      <td>Cross-channel leakage below 20%</td>
+      <td>Confirms independent addressability for multi-channel metasurface layouts</td>
+    </tr>
+    <tr>
+      <td>Chiral plasmonic pixel</td>
+      <td>Circular differential transmission</td>
+      <td>Absolute CD peak above 0.05 in water</td>
+      <td>Tests whether biomolecular geometry can create a real chiral optical signal</td>
+    </tr>
+    <tr>
+      <td>High-Q substrate coupling</td>
+      <td>Resonance shift after cage binding</td>
+      <td>Shift above 3 linewidths or above 5 nm</td>
+      <td>Tests compatibility with photonic-crystal or resonant metasurface readout</td>
+    </tr>
+  </tbody>
+</table>
+
+The first publishable milestone does not require a complete free-space metalens. A stronger near-term target is a biomolecularly programmed optical surface with measurable extinction, fluorescence enhancement, chiral response, or resonance shift. The paper can then argue that the same scaffold strategy extends to imaging metasurfaces once pitch, cargo loading, and substrate coupling are controlled.
 
 ## Why This Can Work
 
 The biological side is mature enough: ferritin self-assembly, ferritin cargo loading, DNA origami nanoparticle placement, and protein-cage modification are all established. The optical side is also clear: metasurface behavior comes from periodic high-contrast scatterers and near-field coupling, not from the protein shell alone. The useful novelty is to make the optical surface molecularly programmable, biocompatible, and compatible with imaging probes.
 
-The best first paper-shaped result would be a "protein-nanocage imaging metasurface" where AlphaFold-guided ferritin engineering produces a clean cage, the wet-lab assembly creates a monolayer, and optical measurements show a measurable scattering, fluorescence, photothermal, or resonance-shift signal. The deeper second paper is a programmable DNA/protein metasurface where protein-DNA locks switch particle orientation or chiral response.
+The best first paper-shaped result would be a "protein-nanocage imaging metasurface" where AlphaFold-guided Dps engineering produces a clean cage, wet-lab assembly creates a surface monolayer or patterned array, and optical measurements show a measurable scattering, fluorescence, photothermal, or resonance-shift signal. The deeper second paper is a programmable DNA/RNA/protein metasurface where protein-DNA locks and MS2/PP7 RNA adapters switch particle orientation, cargo identity, or chiral response.
 
 ## References
 
+- ProteinStructure reference pack: [English roadmap PDF](../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap.pdf), [Chinese roadmap PDF](../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-metasurface-feasibility-roadmap-cn.pdf), [Chinese collaborator brief PDF](../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-collaborator-cn.pdf), [formal proposal PDF](../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/biomolecular-imaging-metasurface-proposal.pdf), and [compact report PDF](../publications/feasible-biomolecular-imaging-metasurfaces-alphafold/reference-pack/imaging-metasurface-report.pdf).
 - EMBL-EBI AlphaFold Server guide: https://www.ebi.ac.uk/training/online/courses/alphafold/alphafold-3-and-alphafold-server/alphafold-server-your-gateway-to-alphafold-3/
 - Google DeepMind AlphaFold 3 input documentation: https://github.com/google-deepmind/alphafold3/blob/main/docs/input.md
 - Zhang and Orner, "Self-Assembly in the Ferritin Nano-Cage Protein Superfamily", Int. J. Mol. Sci. 2011: https://www.mdpi.com/1422-0067/12/8/5406

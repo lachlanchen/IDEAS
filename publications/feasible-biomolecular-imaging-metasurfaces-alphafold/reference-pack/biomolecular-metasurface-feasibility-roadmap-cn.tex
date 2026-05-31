@@ -1,0 +1,597 @@
+\documentclass[11pt]{ctexart}
+
+\usepackage[a4paper,margin=0.72in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+
+\graphicspath{{figures/}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\setlist[itemize]{leftmargin=1.4em}
+\setlist[enumerate]{leftmargin=1.5em}
+\newcommand{\af}{AlphaFold}
+\newcommand{\agintiflow}{AgInTiFlow}
+\newcommand{\angstrom}{\AA}
+
+\title{\vspace{-1.0cm}AlphaFold 指导的生物分子成像超表面可行性路线图}
+\author{Lachlan Chen\\AgInTi Lab, LazyingArt LLC}
+\date{由 \agintiflow{} 自动整理（\url{https://flow.lazying.art}）}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本报告把“生物分子成像超表面”的概念转化为可以执行的实验路线图。结论很直接：项目可行，但第一个能工作的版本必须尽量简单。最适合作为首个可发表原型的路线，是把 Dps-His6 蛋白纳米笼固定到 Ni-NTA 表面，携带或招募一个光学信号源，然后测量光学响应，并建立从结构到光学模型的对应关系。这条路线避免了项目最大的失败模式：在没有验证任何单层模块之前，同时叠加蛋白表达、寡聚体组装、表面化学、货物装载、周期排布、电磁仿真和成像读出。报告给出分阶段计划、决策门槛、失败后的修正方案、协作分工和证据基础。
+\end{abstract}
+
+\section{执行结论}
+
+项目不应该从完整的 DNA/蛋白/RNA 超表面开始。那个版本很有科学吸引力，但一次性叠加了太多不确定环节。真正可工作的路线应当是：
+
+\begin{enumerate}
+\item 先构建以生物模块为核心的表面固定纳米笼系统。
+\item 证明它可以稳定、可重复地固定在表面。
+\item 加入强光学货物或标签。
+\item 测量一个简单、可靠的光学信号。
+\item 再把已经工作的生物层转移到真实超表面或周期性光学芯片上。
+\end{enumerate}
+
+第一个原型建议为：
+
+\begin{center}
+\textbf{固定在 Ni-NTA 表面的 Dps-His6 纳米笼，配合光学货物和光学读出。}
+\end{center}
+
+这条路线现实，因为每一层都有成熟先例：Dps/铁蛋白样纳米笼是已有纳米材料模板；His-tag/Ni-NTA 是标准表面捕获化学；SpyTag/SpyCatcher 可以作为共价固定备选；MS2/PP7 可以提供正交 RNA 定位；DNA 折纸等离激元体系已经证明生物分子支架能以纳米精度定位金属纳米颗粒；超表面生物传感也已经使用表面固定生物分子来引起共振移动或增强荧光。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{workflow_pipeline.png}
+\caption{实际工作流。只有在每一层都有可测量输出之后，项目才真正可控：序列、结构、几何、光学抽象、仿真、排序和湿实验验证。}
+\label{fig:workflow-cn}
+\end{figure}
+
+\section{真正的新意在哪里}
+
+新意不是说 \af{} 可以预测光谱。它不能。真正的新意是建立一个可用的桥梁：
+
+\begin{center}
+\textbf{生物分子序列/复合体设计} $\rightarrow$ \textbf{\af{} 结构预测} $\rightarrow$ \textbf{几何参数提取} $\rightarrow$ \textbf{光学模型} $\rightarrow$ \textbf{实验} $\rightarrow$ \textbf{成像读出}。
+\end{center}
+
+最稳妥、最容易 defend 的表述是：
+
+\begin{quote}
+\textbf{我们建立一种结构指导的工作流，把蛋白、DNA 和 RNA 组装体转化为可用于光学超表面设计的几何变量，并用生物编程的纳米笼成像表面进行验证。}
+\end{quote}
+
+这是现实的论点。更强的论点，例如完全从头设计的生物分子超表面并达到顶刊级影响力，需要真实物理原型和出乎意料的光学性能支撑。
+
+\section{为什么第一条路线选择 Dps-His6}
+
+\subsection{生物可行性}
+
+Dps 是紧凑的铁蛋白样十二聚体。相对铁蛋白，Dps 作为第一个实验对象的优势是简单：尺寸更小，本地 \af{} 筛选显示 Dps 核心置信度很高，并且 His6 或 SpyTag 变体仍然保持较强结构稳定性。铁蛋白仍然有价值，尤其适合更大的货物，但更适合作为第二代支架。
+
+\subsection{表面可行性}
+
+His-tag/Ni-NTA 捕获便宜、常见、速度快。它不是最强的固定化学，但非常适合第一个 proof，因为失败原因容易诊断。如果 His6/Ni-NTA 不稳定，项目可以切换到 SpyTag/SpyCatcher 或 biotin/streptavidin，而不需要推翻整个生物设计。
+
+\subsection{光学可行性}
+
+单纯蛋白的散射很弱。蛋白纳米笼应该被当作纳米尺度载体和定位元件，而不是主要光学材料。光学信号应来自染料、金、氧化铁、量子点或共振基底。
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{nanocage_extinction_screening.png}
+\caption{货物提供主要信号。}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{array_pitch_screening_heatmap.png}
+\caption{阵列间距提供光学调谐。}
+\end{subfigure}
+\caption{第一轮光学筛选。设计含义很简单：不要依赖蛋白本身的弱对比度；应加入高对比度货物，或使用共振基底。}
+\label{fig:optics-cn}
+\end{figure}
+
+\section{可行性矩阵}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.16\linewidth}p{0.12\linewidth}p{0.28\linewidth}p{0.22\linewidth}p{0.13\linewidth}}
+\toprule
+模块 & 可行性 & 证据 & 主要风险 & 决策 \\
+\midrule
+Dps 纳米笼 & 高 & 保守的十二聚体铁蛋白样结构；已有纳米技术先例。 & 表达和聚集依赖具体构建体。 & 第一支架。 \\
+铁蛋白纳米笼 & 生物学高，首个原型中等 & 24 聚体纳米笼，已广泛用于成像和纳米材料。 & 更大，优化更慢。 & 第二支架。 \\
+His6/Ni-NTA & 高 & 标准的 His-tag 定向捕获表面化学。 & 可逆结合和背景信号。 & 第一表面化学。 \\
+SpyTag/SpyCatcher & 高 & 自发共价异肽键连接，材料应用很多。 & linker 可能扰乱寡聚体。 & 备选和模块化路线。 \\
+MS2/PP7 & 高 & 正交 RNA 发卡/外壳蛋白系统，常用于 RNA 成像。 & RNA 稳定性和化学计量。 & 表面 proof 后加入。 \\
+DNA 折纸等离激元 & 先例强，难度中等 & 金纳米颗粒螺旋和手性等离激元表面已有发表。 & 需要 DNA 折纸和纳米颗粒操作能力。 & 扩展路线。 \\
+超表面芯片 & 中等 & 已有共振移动和荧光增强型超表面生物传感器。 & 加工和光路对准。 & 平面表面 proof 后加入。 \\
+\af{} 筛选 & 作为过滤器可行性高 & 支持蛋白/DNA/RNA/配体/离子复合体建模。 & 不能证明动力学或表面行为。 & 用于优先级排序。 \\
+\bottomrule
+\end{tabular}
+\caption{按层拆分的可行性。只有每一层独立验证后，项目总体风险才会下降。}
+\label{tab:feasibility-cn}
+\end{table}
+
+\section{本地 AlphaFold 证据}
+
+目前本地 \af{} 计算支持一个实用的候选排序。Dps、Dps-His6 和 Dps-SpyTag 是最干净的核心支架家族。MS2 和 PP7 是强的正交 RNA 适配器。Streptavidin 和 SpyCatcher/SpyTag 是可信的连接模块。Ferritin-H-His6 是有价值的第二代支架。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{candidate_score_summary.png}
+\caption{已下载成像/超表面候选体的本地 model-0 置信度总结。第一个实验路线应优先选择置信度高、最容易构建的模块，而不是最复杂的架构。}
+\label{fig:score-cn}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{lead_candidate_af_panels.png}
+\caption{代表性 \af{} 候选结构图。最可操作的结论是：Dps 纳米笼、MS2/PP7 适配器、streptavidin 和 SpyCatcher/SpyTag 共同构成了现实可用的生物工具箱。}
+\label{fig:af-panels-cn}
+\end{figure}
+
+\section{真正能执行的路线图}
+
+\subsection{阶段 0：冻结第一个版本}
+
+目标：避免无限发散。
+
+选择一个第一架构：
+
+\begin{center}
+\textbf{Ni-NTA 表面上的 Dps-His6 纳米笼。}
+\end{center}
+
+可选备份：
+
+\begin{center}
+\textbf{Dps-SpyTag 加 SpyCatcher 表面。}
+\end{center}
+
+第一个版本不要同时加入 DNA 折纸、RNA 定位、铁蛋白、手性金纳米棒和从头蛋白设计。这些都是后续层。
+
+交付物：
+
+\begin{itemize}
+\item 最终 Dps-His6 序列；
+\item 可选的最终 Dps-SpyTag 序列；
+\item \af{} 模型包和几何参数表；
+\item 预期寡聚体尺寸、固定手柄位置和光学货物方案。
+\end{itemize}
+
+通过门槛：
+
+\begin{itemize}
+\item Dps 核心置信度高；
+\item 核心无明显无序；
+\item 末端标签没有明显破坏十二聚体组装；
+\item 构建体能被生物合作者接受。
+\end{itemize}
+
+\subsection{阶段 1：生物最小可行产品}
+
+目标：证明蛋白能做出来，并且仍然是纳米笼。
+
+请合作者表达和纯化 Dps-His6。如果资源允许，同时准备 Dps-SpyTag 和 SpyCatcher。
+
+最低实验：
+
+\begin{itemize}
+\item SDS-PAGE 验证表达和纯度；
+\item SEC 或 native PAGE 验证寡聚状态；
+\item 如果条件允许，做 DLS、AFM、负染 TEM 或 SEC-MALS；
+\item 可选质谱确认构建体精确性。
+\end{itemize}
+
+通过标准：
+
+\begin{itemize}
+\item 获得可溶蛋白；
+\item 纯度足够用于表面实验；
+\item 主要物种符合 Dps 十二聚体尺寸；
+\item DLS PDI 较低，或显微图显示颗粒比较均一；
+\item 在实验时间窗口内没有严重沉淀。
+\end{itemize}
+
+失败修正：
+
+\begin{itemize}
+\item 把 His6 从 N 端换到 C 端，或反过来；
+\item 加入短柔性 linker，例如 \texttt{GGGGS}；
+\item 缩短或删除不稳定的末端手柄；
+\item 更换表达宿主、诱导温度或溶解标签；
+\item 用未修饰 Dps 作为组装对照。
+\end{itemize}
+
+\subsection{阶段 2：表面固定最小可行产品}
+
+目标：证明纳米笼可以被放到表面上。
+
+表面选择按容易程度排序：
+
+\begin{enumerate}
+\item 商业 Ni-NTA 板、玻片或传感芯片；
+\item 金包玻璃上的 NTA-SAM；
+\item Ni-NTA 功能化玻璃；
+\item 如果使用生物素化路线，则用 biotin/streptavidin 表面；
+\item 如果使用 Dps-SpyTag，则用 SpyCatcher 包被表面。
+\end{enumerate}
+
+最低实验：
+
+\begin{itemize}
+\item 如果 Dps 被荧光标记，直接做荧光读出；
+\item anti-His 或 anti-Dps 免疫染色；
+\item 平面表面的 AFM；
+\item 如果有条件，做 QCM-D、SPR 或 BLI；
+\item 洗涤稳定性测试。
+\end{itemize}
+
+通过标准：
+
+\begin{itemize}
+\item 信号明显高于表面空白和 no-His 对照；
+\item 洗涤后仍保留信号；
+\item 空间覆盖比较均匀；
+\item 表面密度可通过蛋白浓度或孵育时间调节。
+\end{itemize}
+
+对照：
+
+\begin{itemize}
+\item 只有表面；
+\item 不带 His tag 的 Dps；
+\item 无关 His-tag 蛋白；
+\item imidazole 或 EDTA 竞争；
+\item 如果使用 SpyTag，则加入 SpyCatcher 阴性对照。
+\end{itemize}
+
+\subsection{阶段 3：加入光学对比}
+
+目标：让生物层能被光学方法清楚看到。
+
+推荐选择：
+
+\begin{enumerate}
+\item 荧光标记 Dps 或连接蛋白；
+\item 通过生物素化手柄接 streptavidin-gold 纳米颗粒；
+\item 通过 SpyCatcher/SpyTag 化学接金纳米颗粒；
+\item 在纳米笼内装载或矿化氧化铁或其他核心；
+\item 通过 biotin、maleimide、click chemistry 或 Spy 化学接染料/量子点。
+\end{enumerate}
+
+最低读出：
+
+\begin{itemize}
+\item 荧光显微成像；
+\item UV-Vis 吸收；
+\item 暗场散射；
+\item 简单透射/反射光谱；
+\item 只有在存在手性结构后，才考虑圆二色性。
+\end{itemize}
+
+通过标准：
+
+\begin{itemize}
+\item 载货表面相对蛋白空白表面至少有 5 倍信号；
+\item 信号随蛋白浓度或表面密度变化；
+\item 信号经洗涤后保留；
+\item 生物对照保持低信号。
+\end{itemize}
+
+\subsection{阶段 4：先做简单光学表面，再做真实超表面}
+
+目标：在等待复杂纳米加工之前，先得到论文级光学结果。
+
+第一个器件可以用 Ni-NTA 玻片、金表面 NTA-SAM 玻片、商业 SPR/BLI 芯片或简单图案化基底。
+
+测量内容：
+
+\begin{itemize}
+\item 结合前/后的光谱；
+\item 如果使用 SPR/BLI/QCM，记录时间过程结合曲线；
+\item 荧光或暗场图像；
+\item 表面密度估计；
+\item 蛋白空白与载货表面对比。
+\end{itemize}
+
+通过标准：
+
+\begin{itemize}
+\item 至少 3 个独立样本中得到可重复光学变化；
+\item 变异系数低于 20--30\%；
+\item 对照组清楚分离；
+\item 信号趋势能被光学模型解释。
+\end{itemize}
+
+\subsection{阶段 5：升级到真实超表面}
+
+只有阶段 4 成功后，才把生物层转移到超表面。
+
+最适合的第一批格式：
+
+\begin{enumerate}
+\item 具有表面共振的高 Q 介质超表面；
+\item 等离激元纳米孔或纳米盘阵列；
+\item 带 Ni-NTA 或 biotin 化学的周期性金纳米结构；
+\item 用于蛋白结合的硅或 SiN 纳米盘阵列。
+\end{enumerate}
+
+测量 Dps 结合后的共振移动、载货后的共振移动、荧光增强、散射/吸收分离或偏振响应。
+
+通过标准：
+
+\begin{itemize}
+\item 共振移动超过测量噪声；
+\item 对照不会产生相同移动；
+\item 载货纳米笼产生更强或光谱上可区分的响应；
+\item 光学模型与趋势一致。
+\end{itemize}
+
+\subsection{阶段 6：高影响力扩展}
+
+基础表面成功后，选择一个扩展方向：
+
+\begin{enumerate}
+\item 手性等离激元像素：DNA/蛋白支架以左手或右手几何定位金纳米棒或纳米颗粒；
+\item RNA 定位双通道像素：MS2 和 PP7 在同一表面放置两个标签或纳米笼；
+\item 铁蛋白货物超表面：铁蛋白携带更大的矿物或等离激元货物；
+\item 生物状态传感器：靶标结合改变间距、密度或货物位置。
+\end{enumerate}
+
+手性等离激元路线最有想象力。Dps-His6 路线最安全。
+
+\section{决策门槛}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.08\linewidth}p{0.29\linewidth}p{0.29\linewidth}p{0.26\linewidth}}
+\toprule
+门槛 & 问题 & 通过标准 & 如果失败 \\
+\midrule
+G1 & Dps-His6 是否可溶表达？ & 有可溶条带并能获得可用纯化产量。 & 换标签、宿主、诱导条件，或先用未修饰 Dps。 \\
+G2 & 纳米笼是否完整？ & SEC/native PAGE/DLS/TEM 与十二聚体一致。 & 改标签端点/linker 或去掉标签。 \\
+G3 & 是否结合表面？ & 信号高于 no-His 和表面对照。 & 优化 Ni-NTA 或切换到 biotin/SpyTag。 \\
+G4 & 结合能否经受洗涤？ & 洗涤后保留信号。 & 使用 SpyCatcher/SpyTag 共价路线。 \\
+G5 & 货物是否增强信号？ & 相对蛋白空白至少 5 倍信号。 & 换成金/染料/量子点或提高货物密度。 \\
+G6 & 信号是否可重复？ & $n \ge 3$，CV 低于 20--30\%。 & 改进表面制备和封闭。 \\
+G7 & 模型能否解释趋势？ & 峰位、移动方向或数量级正确。 & 修正几何和材料参数假设。 \\
+G8 & 超表面是否改善读出？ & 相比平面表面有更大移动或增强。 & 选择更高 Q 设计或更强货物。 \\
+\bottomrule
+\end{tabular}
+\caption{硬性通过/失败门槛。这些门槛能防止项目滑向好看但未经验证的复杂方案。}
+\label{tab:gates-cn}
+\end{table}
+
+\section{时间线}
+
+\begin{longtable}{p{0.14\linewidth}p{0.23\linewidth}p{0.29\linewidth}p{0.23\linewidth}}
+\caption{现实可产生数据的执行时间线。}\\
+\toprule
+时间 & 目标 & 工作 & 输出 \\
+\midrule
+\endfirsthead
+\toprule
+时间 & 目标 & 工作 & 输出 \\
+\midrule
+\endhead
+第 1 周 & 冻结构建体 & 选择 Dps-His6 和可选 Dps-SpyTag；检查标签位置；确认 \af{} 几何。 & 最终构建体表和订购清单。 \\
+第 2--4 周 & 表达与纯化 & 表达 Dps-His6；Ni-NTA 纯化；验证寡聚状态。 & 纯化蛋白、胶图、SEC/native PAGE/DLS/TEM 证据。 \\
+第 4--6 周 & 表面结合 & 固定到 Ni-NTA 表面；做对照；洗涤。 & 结合图像、sensorgram 或表面信号。 \\
+第 6--8 周 & 货物信号 & 加入荧光标签、金、氧化铁、染料或量子点。 & 蛋白空白与载货信号对比。 \\
+第 8--12 周 & 模型匹配 & 基于测得几何和密度建立光学模型。 & 仿真图和实验/模型对比。 \\
+第 3--6 个月 & 转移到超表面 & 功能化高 Q 或等离激元芯片并重复结合/载货测试。 & 第一套生物编程超表面数据。 \\
+第 6--12 个月 & 高影响力扩展 & 加入 MS2/PP7、铁蛋白、手性等离激元几何或靶标响应。 & 更强论文新意。 \\
+\bottomrule
+\end{longtable}
+
+\section{各团队分工}
+
+\subsection{生物团队}
+
+交付：
+
+\begin{itemize}
+\item Dps-His6 构建体和可选 Dps-SpyTag；
+\item 表达和纯化流程；
+\item 胶图和寡聚状态证据；
+\item 表面结合和洗涤稳定性证据；
+\item 货物连接或装载证据；
+\item 带样本浓度和缓冲液信息的原始数据。
+\end{itemize}
+
+\subsection{光学团队}
+
+交付：
+
+\begin{itemize}
+\item 平面表面光学测量；
+\item 共振、散射或荧光测量；
+\item 简单超表面芯片或芯片获取路径；
+\item 信噪比和重复性测量。
+\end{itemize}
+
+\subsection{计算团队}
+
+交付：
+
+\begin{itemize}
+\item \af{} 和本地预测记录；
+\item 从 CIF 文件提取几何参数；
+\item 对纳米笼、货物和表面密度进行光学抽象；
+\item 用 TORCWA 计算周期单元；
+\item 用 Meep 或 Tidy3D 做完整 3D 粒子/纳米笼仿真；
+\item 报告和版本化数据表。
+\end{itemize}
+
+\section{不要一开始就做什么}
+
+不要把下面这些作为第一批实验：
+
+\begin{itemize}
+\item 带多个金纳米棒的完整 DNA 折纸超表面；
+\item 从头设计蛋白纳米笼；
+\item 活细胞整合；
+\item 同时测试很多材料结合肽；
+\item 对完整蛋白做 Gaussian 计算；
+\item 在生物结合成功前就加工最终超表面；
+\item 在有物理原型之前声称顶刊级影响力。
+\end{itemize}
+
+这些是后期方向。过早开始会显著拖慢项目。
+
+\section{最低工具和采购清单}
+
+\subsection{生物}
+
+\begin{itemize}
+\item Dps-His6 基因或质粒；
+\item 可选 Dps-SpyTag 基因或质粒；
+\item 可选 SpyCatcher 或 SpyCatcher003 质粒；
+\item BL21(DE3) 或其他合适表达宿主；
+\item Ni-NTA 树脂和 Ni-NTA 表面；
+\item SEC 柱或 native PAGE 条件；
+\item DLS、AFM、TEM 或相应平台；
+\item 荧光标记试剂盒或 anti-His/anti-Dps 抗体；
+\item 可选 streptavidin-gold 或生物素化纳米颗粒。
+\end{itemize}
+
+\subsection{光学}
+
+\begin{itemize}
+\item UV-Vis 光谱仪；
+\item 荧光显微镜；
+\item 用于金纳米颗粒的暗场显微镜；
+\item 简单透射/反射测量系统；
+\item 可选 SPR、BLI 或 QCM；
+\item 后续需要高 Q 介质或等离激元超表面芯片。
+\end{itemize}
+
+\subsection{计算}
+
+\begin{itemize}
+\item 用 \af{} Server 做最终预测；
+\item 用 Chai-1、Protenix 或 Boltz 类本地模型做可扩展筛选；
+\item 必要时用 OpenMM 或 GROMACS 做短程结构松弛；
+\item 用 TORCWA 做周期阵列；
+\item 用 Meep 或 Tidy3D 做完整 3D 仿真；
+\item 用 Python 脚本做几何、绘图和报告。
+\end{itemize}
+
+\section{发表路线}
+
+\subsection{短论文}
+
+主张：
+
+\begin{quote}
+\textbf{\af{} 指导的蛋白纳米笼表面层筛选与实验验证，用于光学成像基底。}
+\end{quote}
+
+必须有的图：
+
+\begin{enumerate}
+\item 工作流图；
+\item \af{} 结构筛选；
+\item Dps 表达和组装验证；
+\item 表面固定；
+\item 载货后的光学信号；
+\item 与趋势匹配的简单仿真。
+\end{enumerate}
+
+\subsection{更强论文}
+
+增加：
+
+\begin{itemize}
+\item 真实超表面芯片；
+\item 共振移动或荧光增强；
+\item 多个生物模块；
+\item 可重复的成像视场；
+\item 更强的仿真/实验一致性。
+\end{itemize}
+
+\subsection{顶刊级论文}
+
+至少需要一个意外且强的结果：
+
+\begin{itemize}
+\item 具有可测量手性切换的手性等离激元生物超表面；
+\item 多路 MS2/PP7 可编程成像像素；
+\item 靶标结合动态重构光学响应；
+\item 可扩展自组装生物光学表面优于常规功能化方法。
+\end{itemize}
+
+\section{预期数据产品}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{expected_data_dashboard.png}
+\caption{第一轮完整验证后应形成的数据类型示例。这些是合成示例读出，用来说明一篇有说服力论文需要哪些图：光谱、差分光学响应、候选排序特征和成像对比。}
+\label{fig:expected-cn}
+\end{figure}
+
+\section{底线}
+
+最容易真正跑通的路线是：
+
+\begin{enumerate}
+\item Dps-His6。
+\item Ni-NTA 表面。
+\item 荧光、金、氧化铁或量子点货物。
+\item 简单光学读出。
+\item \af{} 提取几何并建立光学模型。
+\item 平面表面成功后再转移到超表面。
+\end{enumerate}
+
+这个计划实际，因为即使最终超表面延后，也能很早产生数据。它也给出清晰的协作边界：生物团队证明组装和表面化学；光学团队证明成像信号；计算团队把分子结构连接到光学设计。
+
+\clearpage
+\section{证据基础}
+
+\begin{thebibliography}{18}
+\bibitem{dps-review} Dps 是保守的十二聚体铁蛋白样 DNA 结合蛋白，具有纳米技术相关性。 \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC9112962/}
+\bibitem{ferritin-superfamily} 铁蛋白和 Dps 纳米笼可作为材料合成的超分子模板。 \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3763752/}
+\bibitem{ferritin-biomedical} 铁蛋白纳米笼用于成像、诊断和治疗应用。 \url{https://www.nature.com/articles/s12276-022-00859-0}
+\bibitem{protein-cages} 蛋白笼、环和管作为纳米器件组件，包括 Dps 和铁蛋白尺寸背景。 \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3781744/}
+\bibitem{ninta-patterning} Ni(II)-NTA 图案用于 His-tag 蛋白定向固定。 \url{https://research.vu.nl/en/publications/protein-immobilization-on-niii-ion-patterns-prepared-by-microcont/}
+\bibitem{nta-sam} 用于 QCM 和 SPR 类测量的 His-tag/Ni-NTA SAM 流程。 \url{https://www.dojindo.com/products/manual/N475e.pdf}
+\bibitem{spy-toolbox} SpyTag/SpyCatcher 技术用于不可逆蛋白连接和材料应用。 \url{https://pubs.rsc.org/en/content/articlehtml/2020/sc/d0sc01878c}
+\bibitem{protein-ligation} 受自然启发的蛋白连接综述。 \url{https://www.nature.com/articles/s41570-023-00468-z}
+\bibitem{pp7} PP7 外壳蛋白 RNA 识别位点。 \url{https://academic.oup.com/nar/article/30/19/4138/2376092}
+\bibitem{ms2pp7} MS2/PP7 用于低背景 RNA 成像。 \url{https://www.nature.com/articles/srep03615}
+\bibitem{pp7structure} PP7 和 MS2 RNA-蛋白识别的结构基础。 \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC3152963/}
+\bibitem{dnaorigami} 基于 DNA 的手性等离激元纳米结构自组装。 \url{https://www.nature.com/articles/nature10889}
+\bibitem{switchablecd} 表面固定 DNA 折纸手性等离激元结构及可切换圆二色谱。 \url{https://www.nature.com/articles/ncomms3948}
+\bibitem{metasurface-biosensing} 全介质超表面生物传感方法。 \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC11770831/}
+\bibitem{dielectric-sensors} 介质超表面用于无标记传感、光谱和手性传感。 \url{https://pubs.acs.org/doi/10.1021/acsphotonics.0c01030}
+\bibitem{alphafold3} AlphaFold 3 生物分子相互作用预测。 \url{https://www.nature.com/articles/s41586-024-07487-w}
+\bibitem{torcwa} TORCWA：GPU 加速 RCWA 和基于梯度的超表面设计。 \url{https://www.sciencedirect.com/science/article/pii/S0010465522002715}
+\bibitem{meep} Meep 开源 FDTD 电磁仿真。 \url{https://meep.readthedocs.io/}
+\end{thebibliography}
+
+\end{document}
