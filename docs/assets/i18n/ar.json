@@ -32,5 +32,18 @@
   "explore": "استكشف",
   "see_more": "المزيد →",
   "all": "الكل",
-  "content_language": "لغة المحتوى"
+  "content_language": "لغة المحتوى",
+  "cat_metasurfaces": "الأسطح الفائقة",
+  "cat_theory": "النظرية",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "الذكاء الاصطناعي للعلوم",
+  "cat_product_and_tools": "المنتجات والأدوات",
+  "cat_biomedicine": "الطب الحيوي",
+  "cat_language_models": "نماذج اللغة",
+  "cat_general": "عام",
+  "hero_bullet_qc": "الكيمياء الكمية + الديناميك الجزيئي + الذكاء الاصطناعي: خط أنابيب آلي لمحاكاة الجزيئات الصغيرة.",
+  "hero_bullet_metasurface": "تصوير الأسطح الفائقة: تصميم بمساعدة الذكاء الاصطناعي، مسح مكتبات، بصريات فورييه، وتحقق.",
+  "hero_bullet_doraemon": "DORAEMON: مفهوم اللمس والشحن مع اقتران كهرومغناطيسي وحدود دوائر صارمة.",
+  "hero_bullet_organoidvision": "OrganoidVision: عضيات شبكية كحساسات تصوير حدثية تكيفية.",
+  "hero_bullet_ilm": "ILM: نمذجة لغة بصور الحروف، وأكواد حاصل الضرب، والتوليد بالانتشار."
 }

@@ -1,5 +1,8 @@
 # Feasible Biomolecular Imaging Metasurfaces with AlphaFold
 
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
+
 ## Thesis
 
 The feasible idea is a hybrid imaging metasurface where biomolecules control nanoscale geometry and inorganic or dye cargo supplies optical contrast. Pure protein or DNA is usually too weak optically to be the resonator. A practical system uses ferritin, DNA origami, or protein cages to place Au/Ag particles, iron oxide, quantum dots, or dense fluorophore clusters into a periodic or quasi-periodic optical surface.

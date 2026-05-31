@@ -1,7 +1,7 @@
 # The Quantum Carpets: Fractal Patterns in Wavefunction Revival
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 ## Introduction
 
 Quantum carpets are intricate self-replicating interference patterns that emerge during the time evolution of a wavefunction in a bounded quantum system[ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=“quantum carpet”%2C which was introduced,( 25). When a localized wave packet spreads and reflects off confining boundaries (e.g. infinite potential well walls), it interferes with itself to produce a striking “carpet-like” pattern in the space–time plot of probability density. A key feature of quantum carpets is the **quantum revival**: after a certain **revival time** $T_{\text{rev}}$, the wave packet reassembles into (or close to) its initial form[ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/1808.09708#:~:text=“quantum carpet”%2C which was introduced,( 25). Between launch and full revival, the wavefunction exhibits partial revivals and complex interference fringes that reveal **fractal-like self-similarity** at various scales. This phenomenon connects wave mechanics with concepts from fractal geometry and even number theory, as the interference condition for revivals involves rational relationships in the energy spectrum. In this paper, we extend the idea of quantum carpets into a comprehensive study, providing a solid theoretical derivation of the effect and proposing a simple computer-based experiment (simulation) to observe it. The problem we address is clear: **How do fractal interference patterns arise from quantum wavepacket dynamics, and how can one elegantly demonstrate and utilize this phenomenon?** Our method combines analytical insight (using the well-understood infinite square well model) with an elegant numerical simulation, and we discuss meaningful impacts across physics, optics, and computational fields.

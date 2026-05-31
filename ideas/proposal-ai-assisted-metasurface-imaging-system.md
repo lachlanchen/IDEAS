@@ -1,7 +1,7 @@
 # **Proposal for AI-Assisted Simulation of a Metasurface Imaging System**
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 ## **1. Introduction and Objectives**
 
 Metasurfaces are ultrathin, planar optical elements composed of sub-wavelength structures (“meta-atoms”) that can manipulate light’s phase, amplitude, and polarization with high precision. By arranging meta-atoms across a surface, one can create flat optical devices – such as **metalenses** and **meta-holograms** – capable of focusing light or forming images in ways traditionally achieved by bulky lenses or diffractive optics[mdpi.com](https://www.mdpi.com/2304-6732/12/10/947#:~:text=holographic%20imaging%20enables%20rapid%20metasurface,focusing%2C%20beam%20shaping%2C%20and%20aberration). In a metasurface imaging system, each meta-atom imparts a designed phase shift or polarization change to incident light, enabling complex wavefront shaping for high-resolution imaging, beam focusing, or holography.

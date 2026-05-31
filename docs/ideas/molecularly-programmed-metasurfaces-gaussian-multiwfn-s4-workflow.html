@@ -24,7 +24,7 @@
 <body class="bg-slate-950 text-slate-100">
   <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 font-extrabold tracking-wide"><img src="https://lazying.art/logos/logo.png" class="w-[48px] h-[48px] rounded-lg bg-white p-2 object-contain shrink-0" alt="LazyingArt logo" /> IDEAS</a>
+      <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
         <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
@@ -34,27 +34,28 @@
       <div id="langSwitcher" class="ml-4"></div>
     </div>
   </header>
-  
+
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow</h1>
       <div class="flex items-center justify-between mb-4">
-        <p class="text-slate-400"><span data-i18n="by">by</span> LazyingArt</p>
-        
+        <p class="text-slate-400"><span data-i18n="by">by</span> Lachlan Chen, AgInTiFlow<br><span class="text-slate-500">AgInTi Lab, LazyingArt LLC</span></p>
+
       </div>
-      <article class="prose prose-invert prose-slate max-w-none"><h1>Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow</h1>
-Author: LazyingArt<p></p>Absolutely—pairing <strong>Gaussian</strong> + <strong>Multiwfn</strong> (molecular optics) with <strong>S4</strong> (metasurface RCWA) is not only feasible, it’s a sharp way to design *molecularly programmed<li>metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into <strong>n(λ), k(λ)</strong> you can feed into S4.</li><p></p>---<p></p><h2>What you can do that’s interesting, feasible, and meaningful</h2><p></p><h3>1) Molecularly tuned perfect absorber (critical coupling)</h3><p></p>Design a guided‑mode resonance (or lamellar grating) metasurface whose linewidth and center frequency are matched to a dye’s excitonic line so that <strong>all incident light is dissipated in the dye layer</strong> at the target wavelength (e.g., visible red).
-*Impact:<li>ultrathin sensors, display pixels, or quenchers for fluorescence backgrounds.</li>
-*Method:<li>TD‑DFT (Gaussian) → oscillator strengths → effective medium via Clausius–Mossotti/Lorentz–Lorenz → <strong>S4</strong> for R/T/A spectra and field confinement. S4 is an RCWA solver specifically for layered periodic structures with a Lua interface. ([Stanford University][1])</li><p></p><h3>2) All‑optical switch with photochromes (e.g., azobenzene/spiropyran)</h3><p></p>Compute two states (trans/cis) to get two dispersion models, then simulate a metasurface operating at a <strong>high phase‑sensitivity point</strong>. You’ll see a large spectral/phase shift on UV/blue pumping.
-*Impact:<li>low‑energy, reversible pixel‑level modulators.</li><p></p><h3>3) Protein/DNA overlayer index engineering</h3><p></p>A 5–20 nm biomolecular overlayer (protein monolayer, DNA brush) measurably shifts a narrow metasurface resonance. Compute its *complex<li>refractive index from polarizability; predict <strong>limits of detection</strong> for biosensing.</li>
-*Impact:<li>immediately testable with standard surface functionalization protocols; simple wet lab.</li><p></p><h3>4) Excitonic anisotropy & orientation control</h3><p></p>Many dyes are dipolar. If you align them (spin‑coat in E‑field, stretch film, or brush on SAMs), you get anisotropic ε. Compute direction‑dependent polarizability and simulate <strong>polarization‑dependent metasurface phase</strong>.<p></p>> Why this pairing works: S4 handles the <strong>electromagnetic lattice response</strong>; Gaussian/Multiwfn give you the <strong>molecular resonances and oscillator strengths</strong>; Clausius–Mossotti/Lorentz–Lorenz turns the microscopic polarizability into a <strong>macroscopic ε(ω)</strong> that you can pass to S4 wavelength‑by‑wavelength. ([Stanford University][1])<p></p>---<p></p><h2>End‑to‑end workflow (physics + tools)</h2><p></p><strong>A. Quantum chemistry (Gaussian)</strong><p></p>1. Optimize geometry (ground state).
+      <article class="prose prose-invert prose-slate max-w-none"><h1>Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow</h1><p></p>Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
+Absolutely—pairing <strong>Gaussian</strong> + <strong>Multiwfn</strong> (molecular optics) with <strong>S4</strong> (metasurface RCWA) is not only feasible, it’s a sharp way to design _molecularly programmed_ metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into <strong>n(λ), k(λ)</strong> you can feed into S4.<p></p>---<p></p><h2>What you can do that’s interesting, feasible, and meaningful</h2><p></p><h3>1) Molecularly tuned perfect absorber (critical coupling)</h3><p></p>Design a guided‑mode resonance (or lamellar grating) metasurface whose linewidth and center frequency are matched to a dye’s excitonic line so that <strong>all incident light is dissipated in the dye layer</strong> at the target wavelength (e.g., visible red).
+_Impact:_ ultrathin sensors, display pixels, or quenchers for fluorescence backgrounds.
+_Method:_ TD‑DFT (Gaussian) → oscillator strengths → effective medium via Clausius–Mossotti/Lorentz–Lorenz → <strong>S4</strong> for R/T/A spectra and field confinement. S4 is an RCWA solver specifically for layered periodic structures with a Lua interface. ([Stanford University][1])<p></p><h3>2) All‑optical switch with photochromes (e.g., azobenzene/spiropyran)</h3><p></p>Compute two states (trans/cis) to get two dispersion models, then simulate a metasurface operating at a <strong>high phase‑sensitivity point</strong>. You’ll see a large spectral/phase shift on UV/blue pumping.
+_Impact:_ low‑energy, reversible pixel‑level modulators.<p></p><h3>3) Protein/DNA overlayer index engineering</h3><p></p>A 5–20 nm biomolecular overlayer (protein monolayer, DNA brush) measurably shifts a narrow metasurface resonance. Compute its _complex_ refractive index from polarizability; predict <strong>limits of detection</strong> for biosensing.
+_Impact:_ immediately testable with standard surface functionalization protocols; simple wet lab.<p></p><h3>4) Excitonic anisotropy & orientation control</h3><p></p>Many dyes are dipolar. If you align them (spin‑coat in E‑field, stretch film, or brush on SAMs), you get anisotropic ε. Compute direction‑dependent polarizability and simulate <strong>polarization‑dependent metasurface phase</strong>.<p></p>> Why this pairing works: S4 handles the <strong>electromagnetic lattice response</strong>; Gaussian/Multiwfn give you the <strong>molecular resonances and oscillator strengths</strong>; Clausius–Mossotti/Lorentz–Lorenz turns the microscopic polarizability into a <strong>macroscopic ε(ω)</strong> that you can pass to S4 wavelength‑by‑wavelength. ([Stanford University][1])<p></p>---<p></p><h2>End‑to‑end workflow (physics + tools)</h2><p></p><strong>A. Quantum chemistry (Gaussian)</strong><p></p>1. Optimize geometry (ground state).
 2. TD‑DFT for excited states (choose range‑separated hybrid if CT character is expected; e.g., CAM‑B3LYP/ωB97X‑D).
 3. (Optional) Solvent or host environment via PCM to capture spectral shifts.
    Gaussian prints lines like:
    `Excited State   1:  Singlet-A  2.35 eV  527.5 nm  f=0.51  <S**2>=0.0000`
    You need the <strong>excitation energies</strong> (Ej) and <strong>oscillator strengths</strong> (fj). ([Gaussian][2])<p></p><strong>B. Extract & sanity‑check (Multiwfn)</strong>
 Open the Gaussian log/fchk in Multiwfn → Spectrum/Excitations module → export <strong>discrete lines</strong> (Ej, fj). Multiwfn’s manual documents the spectrum utilities and exports. ([SoberEva][3])<p></p><strong>C. From molecules to materials (physics bridge)</strong>
-Use the Lorentz model for the *molecular polarizability*
+Use the Lorentz model for the _molecular polarizability_
 [
 \alpha_\text{mol}(\omega);=;\sum_j \frac{e^2}{m_e},\frac{f_j}{\omega_j^2-\omega^2-i\gamma_j\omega},
 ]
@@ -67,9 +68,9 @@ Define a periodic stack (e.g., air / patterned dielectric / dye film / substrate
 2. set plane‑wave incidence and polarization,
 3. compute R, T, A and near fields,
 4. sweep geometry to hit <strong>critical coupling</strong> or maximize phase slope.
-   S4 is an RCWA/Fourier‑modal solver designed for these 2D‑periodic layered structures. ([Stanford University][1])<p></p>> Practical tip: for a host polymer (e.g., PMMA, PVA), convert its known (n_\text{host}) to a host polarizability term and *add it<li>in the Lorentz–Lorenz mixing (X_\text{total}=X_\text{host}+X_\text{dye}) before inverting to (\varepsilon_r). ([Wikipedia][4])</li><p></p>---<p></p><h2>Ready‑to‑run code: TD‑DFT → (n(\lambda),k(\lambda))</h2><p></p>The script below parses a <strong>Gaussian TD‑DFT</strong> log, builds a Lorentz‑oscillator polarizability from ((E_j,f_j)), mixes it to a bulk film via <strong>Clausius–Mossotti</strong>, and writes a CSV of (\lambda), (n), (k). It assumes:<p></p><li>damping (\gamma_j) supplied as a single FWHM‑like parameter in eV (you can refine per line if you have linewidths),</li>
-<li>a <strong>host refractive index</strong> (optional) added via Lorentz–Lorenz,</li>
-<li>a <strong>wt%</strong> and <strong>film density</strong> to compute molecule density (N).</li><p></p>> You can feed the CSV into S4 by updating the material each wavelength step.<p></p>```python
+   S4 is an RCWA/Fourier‑modal solver designed for these 2D‑periodic layered structures. ([Stanford University][1])<p></p>> Practical tip: for a host polymer (e.g., PMMA, PVA), convert its known (n*\text{host}) to a host polarizability term and *add it<li>in the Lorentz–Lorenz mixing (X*\text{total}=X*\text{host}+X*\text{dye}) before inverting to (\varepsilon_r). ([Wikipedia][4])</li><p></p>---<p></p><h2>Ready‑to‑run code: TD‑DFT → (n(\lambda),k(\lambda))</h2><p></p>The script below parses a <strong>Gaussian TD‑DFT</strong> log, builds a Lorentz‑oscillator polarizability from ((E_j,f_j)), mixes it to a bulk film via <strong>Clausius–Mossotti</strong>, and writes a CSV of (\lambda), (n), (k). It assumes:<p></p>- damping (\gamma_j) supplied as a single FWHM‑like parameter in eV (you can refine per line if you have linewidths),
+- a <strong>host refractive index</strong> (optional) added via Lorentz–Lorenz,
+- a <strong>wt%</strong> and <strong>film density</strong> to compute molecule density (N).<p></p>> You can feed the CSV into S4 by updating the material each wavelength step.<p></p>```python
 #!/usr/bin/env python3
 <h1>gaussian_to_nk.py</h1>
 <h1>Convert Gaussian TD-DFT excited states (Ej, fj) to dispersive n(λ), k(λ)</h1>
@@ -207,21 +208,21 @@ python3 gaussian_to_nk.py \
 #p TD(NStates=20) CAM-B3LYP/6-31+G(d,p) Geom=AllCheck Guess=Read SCRF=(PCM,Solvent=Chloroform)<p></p>Title: TD-DFT excited states
 ```<p></p>This will print the <strong>Excited State</strong> lines (energies in eV, oscillator strengths f) that the script parses. ([Gaussian][2])<p></p>---<p></p><h2>Driving S4 with your dispersion</h2><p></p>S4 expects you to define materials and layers, then sweep wavelength. A standard loop is:<p></p>1. <strong>Add materials & layers</strong> (air / patterned dielectric / your <strong>dye film with n,k(λ)</strong> / substrate).
 2. For each λ, <strong>update the dye film material</strong> with the corresponding n,k (from CSV) and evaluate R/T/A + fields.
-3. <strong>Sweep geometry</strong> (period, fill factor, thickness) to hit critical coupling or to maximize phase slope (for modulators).<p></p>S4 is an RCWA/Fourier‑modal solver purpose‑built for bi‑periodic layered structures with a Lua scripting interface; see the original code paper for model details and performance characteristics. ([Stanford University][1])<p></p>---<p></p><h2>Practical design checklist</h2><p></p><li><strong>Convergence in RCWA:</strong> increase Fourier orders until R+T+A stabilizes; metal gratings need more orders. S4’s paper discusses stability and performance. ([Stanford University][1])</li>
-<li><strong>Linewidths:</strong> your γ (meV–100 meV) sets absorption strength; start modest (50–120 meV) then adjust.</li>
-<li><strong>Host mixing:</strong> use <strong>Lorentz–Lorenz</strong> to combine host and dye; don’t just add ε. ([Wikipedia][4])</li>
-<li><strong>Orientation:</strong> if molecules align, you’ll need tensor ε; start isotropic, then extend.</li>
-<li><strong>Validation:</strong> compare the <strong>uniform film</strong> (no pattern) absorbance from S4 with Kramers–Kronig‑consistent (n,k) to confirm your physics pipeline before adding a grating.</li><p></p>---<p></p><h2>Why this is publishable sooner rather than later</h2><p></p><li>The <strong>toolchain is mature</strong>: Gaussian TD/TD‑DFT and Multiwfn’s spectrum utilities are standard; S4 is a widely used RCWA code for metasurfaces. ([SoberEva][3])</li>
-<li>The <strong>theory bridge is classical</strong> and robust (Lorentz–Lorenz / Clausius–Mossotti). ([Wikipedia][4])</li>
-<li>The <strong>experiments are accessible</strong>: spin‑coat a dye‑doped polymer on a nanoimprinted/interference‑lithography grating; or functionalize a commercial grating with a photochrome SAM—both routine in typical EEE/biomed labs.</li><p></p>---<p></p><h2>If you want a first target this week</h2><p></p>1. Pick a visible dye with a strong S1←S0 (absorption peak ~550–650 nm).
+3. <strong>Sweep geometry</strong> (period, fill factor, thickness) to hit critical coupling or to maximize phase slope (for modulators).<p></p>S4 is an RCWA/Fourier‑modal solver purpose‑built for bi‑periodic layered structures with a Lua scripting interface; see the original code paper for model details and performance characteristics. ([Stanford University][1])<p></p>---<p></p><h2>Practical design checklist</h2><p></p>- <strong>Convergence in RCWA:</strong> increase Fourier orders until R+T+A stabilizes; metal gratings need more orders. S4’s paper discusses stability and performance. ([Stanford University][1])
+- <strong>Linewidths:</strong> your γ (meV–100 meV) sets absorption strength; start modest (50–120 meV) then adjust.
+- <strong>Host mixing:</strong> use <strong>Lorentz–Lorenz</strong> to combine host and dye; don’t just add ε. ([Wikipedia][4])
+- <strong>Orientation:</strong> if molecules align, you’ll need tensor ε; start isotropic, then extend.
+- <strong>Validation:</strong> compare the <strong>uniform film</strong> (no pattern) absorbance from S4 with Kramers–Kronig‑consistent (n,k) to confirm your physics pipeline before adding a grating.<p></p>---<p></p><h2>Why this is publishable sooner rather than later</h2><p></p>- The <strong>toolchain is mature</strong>: Gaussian TD/TD‑DFT and Multiwfn’s spectrum utilities are standard; S4 is a widely used RCWA code for metasurfaces. ([SoberEva][3])
+- The <strong>theory bridge is classical</strong> and robust (Lorentz–Lorenz / Clausius–Mossotti). ([Wikipedia][4])
+- The <strong>experiments are accessible</strong>: spin‑coat a dye‑doped polymer on a nanoimprinted/interference‑lithography grating; or functionalize a commercial grating with a photochrome SAM—both routine in typical EEE/biomed labs.<p></p>---<p></p><h2>If you want a first target this week</h2><p></p>1. Pick a visible dye with a strong S1←S0 (absorption peak ~550–650 nm).
 2. Run the TD‑DFT → export Ej,fj → generate <strong>n,k</strong> with the script.
 3. In S4, design a <strong>1D lamellar grating</strong> (period ~( \lambda/n ), thickness ~100–300 nm) on glass; place a 30–60 nm dye‑doped film atop.
 4. Optimize fill factor and film thickness to minimize R and T at λ0 (maximize A).
-5. Verify sensitivity: vary wt% (e.g., 0.2–2%) and observe the R/T/A change.<p></p>---<p></p><h3>References & pointers</h3><p></p><li><strong>S4 (RCWA/FMM) solver</strong>: official paper detailing method and Lua scripting interface. ([Stanford University][1])</li>
-<li><strong>S4 repository page</strong> (for building and examples). ([GitHub][6])</li>
-<li><strong>Gaussian TD‑DFT</strong> overview and output structure (excited states & oscillator strengths). ([Gaussian][2])</li>
-<li><strong>Clausius–Mossotti / Lorentz–Lorenz</strong> relations for mixing microscopic polarizability to macroscopic ε or n. ([Wikipedia][4])</li>
-<li><strong>On oscillator‑strength accuracy in TD‑DFT</strong> (why calibration to experiment is wise). ([Pfloos][5])</li><p></p>---<p></p>If you’d like, I can adapt the script to <strong>tensor anisotropy</strong> (for oriented dyes), or sketch a <strong>Lua driver</strong> that ingests the CSV and sweeps a grating geometry in S4.<p></p>[1]: https://web.stanford.edu/group/fan/publication/Liu_ComputerPhysicsCommunications_183_2233_2012.pdf?utm_source=chatgpt.com "A free electromagnetic solver for layered periodic structures"
+5. Verify sensitivity: vary wt% (e.g., 0.2–2%) and observe the R/T/A change.<p></p>---<p></p><h3>References & pointers</h3><p></p>- <strong>S4 (RCWA/FMM) solver</strong>: official paper detailing method and Lua scripting interface. ([Stanford University][1])
+- <strong>S4 repository page</strong> (for building and examples). ([GitHub][6])
+- <strong>Gaussian TD‑DFT</strong> overview and output structure (excited states & oscillator strengths). ([Gaussian][2])
+- <strong>Clausius–Mossotti / Lorentz–Lorenz</strong> relations for mixing microscopic polarizability to macroscopic ε or n. ([Wikipedia][4])
+- <strong>On oscillator‑strength accuracy in TD‑DFT</strong> (why calibration to experiment is wise). ([Pfloos][5])<p></p>---<p></p>If you’d like, I can adapt the script to <strong>tensor anisotropy</strong> (for oriented dyes), or sketch a <strong>Lua driver</strong> that ingests the CSV and sweeps a grating geometry in S4.<p></p>[1]: https://web.stanford.edu/group/fan/publication/Liu_ComputerPhysicsCommunications_183_2233_2012.pdf?utm_source=chatgpt.com "A free electromagnetic solver for layered periodic structures"
 [2]: https://gaussian.com/td/?utm_source=chatgpt.com "TD"
 [3]: https://sobereva.com/multiwfn/misc/Multiwfn_3.8_dev.pdf?utm_source=chatgpt.com "Multiwfn manual"
 [4]: https://en.wikipedia.org/wiki/Clausius%E2%80%93Mossotti_relation?utm_source=chatgpt.com "Clausius–Mossotti relation"
@@ -232,7 +233,7 @@ python3 gaussian_to_nk.py \
   </section>
   <footer class="border-t border-slate-800 mt-20">
     <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400 flex justify-between">
-      <span>© 2025 IDEAS</span>
+      <span>© 2026 IDEAS</span>
       <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
     </div>
   </footer>

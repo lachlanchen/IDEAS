@@ -1,79 +1,127 @@
 [
   {
+    "slug": "cross-lingual-imagized-language-model",
+    "title": "Cross-Lingual Imagized Language Model: A Mathematical Derivation",
+    "href": "/publications/cross-lingual-imagized-language-model/cross-lingual-imagized-language-model.pdf",
+    "category": "Language Models"
+  },
+  {
     "slug": "designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4",
-    "title": "designing molecularly programmed metasurfaces gaussian multiwfn s4",
+    "title": "Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4",
     "href": "/publications/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4/designing-molecularly-programmed-metasurfaces-gaussian-multiwfn-s4.pdf",
     "category": "Metasurfaces"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research",
-    "title": "doraemon tap and charge deep research",
+    "title": "Strengthening the DORAEMON ``Tap-and-Charge'' System Proposal",
     "href": "/publications/doraemon-tap-and-charge-deep-research/doraemon-tap-and-charge-deep-research.pdf",
     "category": "DORAEMON"
   },
   {
     "slug": "doraemon-tap-and-charge-deep-research-ja",
-    "title": "doraemon tap and charge deep research ja",
+    "title": "DORAEMON「タップ・アンド・チャージ」システム提案の強化版（日本語版）",
     "href": "/publications/doraemon-tap-and-charge-deep-research-ja/doraemon-tap-and-charge-deep-research-ja.pdf",
     "category": "DORAEMON"
   },
   {
     "slug": "doraemon-tap-and-charge-explainer-zh",
-    "title": "doraemon tap and charge explainer zh",
+    "title": "用通俗中文讲清楚：DORAEMON「一碰即充」完整说明",
     "href": "/publications/doraemon-tap-and-charge-explainer-zh/doraemon-tap-and-charge-explainer-zh.pdf",
     "category": "DORAEMON"
   },
   {
+    "slug": "imagized-language-model",
+    "title": "Imagized Language Model: Comprehensive Technical Documentation",
+    "href": "/publications/imagized-language-model/imagized-language-model.pdf",
+    "category": "Language Models"
+  },
+  {
+    "slug": "imagized-language-model-deep-dive",
+    "title": "Imagized Language Modeling with Factorized Glyph Embeddings and Diffusion-Based Generation An Unsupervised Multilingual Framework",
+    "href": "/publications/imagized-language-model-deep-dive/imagized-language-model-deep-dive.pdf",
+    "category": "Language Models"
+  },
+  {
+    "slug": "imagized-language-model-math-validation",
+    "title": "Mathematical Foundations of the Imagized Language Model (ILM)",
+    "href": "/publications/imagized-language-model-math-validation/imagized-language-model-math-validation.pdf",
+    "category": "Language Models"
+  },
+  {
+    "slug": "imagized-language-model-structured-technical-documentation",
+    "title": "Imagized Language Model: Structured Technical Documentation",
+    "href": "/publications/imagized-language-model-structured-technical-documentation/imagized-language-model-structured-technical-documentation.pdf",
+    "category": "Language Models"
+  },
+  {
     "slug": "investigating-mpempba-effect-deep-learning-imaging",
-    "title": "investigating mpempba effect deep learning imaging",
+    "title": "Investigating the ``Mpempba Effect'' in Deep Learning and Imaging",
     "href": "/publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf",
     "category": "AI for Science"
   },
   {
     "slug": "llm-powered-file-management-feasibility-market-design",
-    "title": "llm powered file management feasibility market design",
+    "title": "LLM-Powered File Management: Feasibility, Market, and Design",
     "href": "/publications/llm-powered-file-management-feasibility-market-design/llm-powered-file-management-feasibility-market-design.pdf",
     "category": "Product & Tools"
   },
   {
     "slug": "molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow",
-    "title": "molecularly programmed metasurfaces gaussian multiwfn s4 workflow",
+    "title": "Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow",
     "href": "/publications/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow/molecularly-programmed-metasurfaces-gaussian-multiwfn-s4-workflow.pdf",
     "category": "Metasurfaces"
   },
   {
     "slug": "nonlinear-kramers-kronig-kerr-media",
-    "title": "nonlinear kramers kronig kerr media",
+    "title": "The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity",
     "href": "/publications/nonlinear-kramers-kronig-kerr-media/nonlinear-kramers-kronig-kerr-media.pdf",
     "category": "Theory"
   },
   {
     "slug": "optical-metasurfaces-and-biofabrication-feasibility-analysis",
-    "title": "optical metasurfaces and biofabrication feasibility analysis",
+    "title": "Optical Metasurfaces and Biofabrication: A Feasibility Analysis",
     "href": "/publications/optical-metasurfaces-and-biofabrication-feasibility-analysis/optical-metasurfaces-and-biofabrication-feasibility-analysis.pdf",
     "category": "Metasurfaces"
   },
   {
     "slug": "organic-dye-programmed-metasurface-zh",
-    "title": "organic dye programmed metasurface zh",
+    "title": "有机染料调控的纳米超表面：让超薄结构把光吃干抹净",
     "href": "/publications/organic-dye-programmed-metasurface-zh/organic-dye-programmed-metasurface-zh.pdf",
     "category": "Metasurfaces"
   },
   {
+    "slug": "organoidintelligence-feasibility-roadmap",
+    "title": "OrganoidIntelligence: Resource Map, Bioelectronic Interface Strategy and First-Demo Roadmap",
+    "href": "/publications/organoidintelligence-feasibility-roadmap/organoidintelligence-feasibility-roadmap.pdf",
+    "category": "Biomedicine"
+  },
+  {
+    "slug": "organoidintelligence-resource-map",
+    "title": "OrganoidIntelligence: A Resource Map for Wetware Computing, Disease Models and Neural Interfaces",
+    "href": "/publications/organoidintelligence-resource-map/organoidintelligence-resource-map.pdf",
+    "category": "Biomedicine"
+  },
+  {
+    "slug": "organoidvision-bio-hybrid-vision-systems",
+    "title": "OrganoidVision: Engineering Retinal Organoids as Advanced Imaging Sensors",
+    "href": "/publications/organoidvision-bio-hybrid-vision-systems/organoidvision-bio-hybrid-vision-systems.pdf",
+    "category": "Biomedicine"
+  },
+  {
     "slug": "proposal-ai-assisted-metasurface-imaging-system",
-    "title": "proposal ai assisted metasurface imaging system",
+    "title": "Proposal for AI-Assisted Simulation of a Metasurface Imaging System",
     "href": "/publications/proposal-ai-assisted-metasurface-imaging-system/proposal-ai-assisted-metasurface-imaging-system.pdf",
     "category": "Metasurfaces"
   },
   {
     "slug": "proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation",
-    "title": "proposal integrating quantum chemistry md ai small molecule simulation",
+    "title": "Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation",
     "href": "/publications/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation/proposal-integrating-quantum-chemistry-md-ai-small-molecule-simulation.pdf",
     "category": "AI for Science"
   },
   {
     "slug": "quantum-carpets-fractal-wavefunction-revival",
-    "title": "quantum carpets fractal wavefunction revival",
+    "title": "The Quantum Carpets: Fractal Patterns in Wavefunction Revival",
     "href": "/publications/quantum-carpets-fractal-wavefunction-revival/quantum-carpets-fractal-wavefunction-revival.pdf",
     "category": "Theory"
   }

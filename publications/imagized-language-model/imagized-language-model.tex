@@ -1,0 +1,1302 @@
+% ILM Comprehensive Technical Documentation (TeX wrapper)
+\documentclass[11pt]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage{ucs}
+  \usepackage[utf8x]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+  \usepackage{textgreek}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+\fi
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{microtype}
+% Math and layout packages
+\usepackage{amsmath, amssymb, amsfonts, mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage[strings]{underscore}
+\geometry{margin=1in}
+
+\title{Imagized Language Model: Comprehensive Technical Documentation}
+\author{\begin{tabular}{c}Lachlan Chen \quad AgInTiFlow\\AgInTi Lab, LazyingArt LLC\end{tabular}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Imagized Language Model (ILM) treats language as an image-like tensor and generates text via diffusion-style denoising in that space. We formalize superposition-based meta-elements, hierarchical memory-like embeddings, text rasterization, and discrete/latent diffusion, and outline a practical roadmap targeting consumer hardware.
+\end{abstract}
+
+\tableofcontents
+
+\section{Executive Overview}
+The ILM reframes text generation as image synthesis. A sentence becomes a compact, multi-channel 2D grid with explicit meta-element channels (grammar, semantics, tone, emotion). Generation proceeds coarse-to-fine via diffusion on either discrete or continuous latents.
+
+\paragraph{Key innovations}
+\begin{itemize}[noitemsep,topsep=2pt]
+  \item Superposition of meta-elements (grammar, semantics, tone, emotion).
+  \item Hierarchical mixed-radix codes for vocabulary with spatial organization.
+  \item Text-as-image rasterization and latent diffusion for efficiency.
+  \item Multiscript support via glyph rendering and byte/character modeling.
+\end{itemize}
+
+\section{Meta-Elements as Superposition}
+Let $\mathcal{G}{=}\{G_i\}_{i=1}^{N_G}$, $\mathcal{M}{=}\{M_j\}_{j=1}^{N_M}$, $\mathcal{E}{=}\{E_k\}_{k=1}^{N_E}$, $\mathcal{T}{=}\{T_\ell\}_{\ell=1}^{N_T}$ be basis sets for grammar, meaning, emotion, and tone. A token representation $s\in\mathbb{R}^d$ is modeled as
+\begin{equation}
+  s \approx \sum_{i} \alpha_i G_i + \sum_{j} \beta_j M_j + \sum_{k} \gamma_k E_k + \sum_{\ell} \delta_\ell T_\ell + \varepsilon.
+\end{equation}
+Sparse coefficients (top-$K$ gating or $\ell_1$) ensure few active meta-elements.
+
+We jointly learn dictionary $D{=}[\mathcal{G},\mathcal{M},\mathcal{E},\mathcal{T}]$ and activations $\bm{a}{=}([\alpha,\beta,\gamma,\delta])$ by minimizing
+\begin{equation}
+\mathcal{L}_{\text{sup}}=\| s - D\bm{a} \|_2^2 + \lambda_1\|\bm{a}\|_1 + \lambda_2\sum_{u\ne v}\|D_u^\top D_v\|_F^2,
+\end{equation}
+where the last term encourages cross-group orthogonality (limiting interference).
+
+\paragraph{Examples of meta-structures}
+\begin{itemize}[noitemsep,topsep=2pt]
+  \item Grammar: UD-style relations (nsubj, obj, advmod), clause patterns (SVO/SOV/VSO), TAM, voice.
+  \item Meaning: Frame primitives (CAUSE, GO, TO), role bindings (AGENT, THEME, RECIPIENT).
+  \item Emotion: Valence–Arousal–Dominance and discrete categories (joy, anger, fear, etc.).
+  \item Style/Tone: formality, politeness, certainty, register, genre markers.
+\end{itemize}
+
+\textbf{Tone/style dimensions} (20-50 dimensions):
+
+1. \textbf{Formality}: informal \(\leftrightarrow\) formal (continuous)
+2. \textbf{Politeness}: impolite \(\leftrightarrow\) polite
+3. \textbf{Certainty}: uncertain \(\leftrightarrow\) certain
+4. \textbf{Objectivity}: subjective \(\leftrightarrow\) objective
+5. \textbf{Technical level}: lay \(\leftrightarrow\) expert
+6. \textbf{Genre markers}: narrative, expository, persuasive, descriptive
+7. \textbf{Register}: casual, professional, academic, literary
+
+\textbf{Neural encoding} via disentangled VAE:
+
+\begin{verbatim}
+Encoder: q(z_grammar, z_meaning, z_emotion, z_style | x)
+Decoder: p(x | z_grammar, z_meaning, z_emotion, z_style)
+
+Disentanglement loss:
+L_disentangle = Σᵢ≠ⱼ MI(zᵢ, zⱼ) + L_adversarial
+\end{verbatim}
+
+Research (John et al., ACL 2019; Silva De Carvalho et al., EACL 2023) demonstrates successful separation with 70-85\% disentanglement scores (MIG, SAP metrics).
+
+\subsection{Mathematical implementation}
+
+\textbf{Multi-head meta-structure encoder:}
+
+\begin{verbatim}
+# For each meta-structure type T ∈ {Grammar, Meaning, Emotion, Style}:
+
+1. Project to meta-space:
+   z_T = ReLU(W_T · x + b_T)  where W_T ∈ ℝ^(d_hidden × d_model)
+
+2. Sparse gating:
+   g_T = TopK(Softmax(W_gate · z_T), k=K_sparse)
+   # Only top K activations retained (K ~ 5-10 for 100 structures)
+
+3. Weighted combination:
+   h_T = Σᵢ g_T,ᵢ · Structure_embedding_T,ᵢ
+
+4. Final representation:
+   S_final = LayerNorm(Concat([h_Grammar, h_Meaning, h_Emotion, h_Style]))
+\end{verbatim}
+
+\textbf{Interference minimization} via orthogonality constraints:
+
+\begin{verbatim}
+L_ortho = Σᵢ≠ⱼ ||W_T,ᵢᵀ · W_T,ᵢ||²
+# Encourages approximately orthogonal meta-structure embeddings
+\end{verbatim}
+
+\textbf{Phase transition analysis} (from superposition theory):
+
+\begin{verbatim}
+Feature dimensionality: dim(fᵢ) = ||Wᵢ||² / Σⱼ(Wᵢ·Wⱼ)²
+
+For sparsity S and importance I:
+- Below critical sparsity: Features collapse (not represented)
+- Above critical sparsity: Features organize into geometric configurations
+  (antipodal pairs, tetrahedra, pentagons per Thomson problem)
+\end{verbatim}
+
+\subsection{Feasibility and validation}
+
+\textbf{Empirical support:}
+
+1. \textbf{Superposition verified}: Anthropic's 2022-2025 research demonstrates neural networks naturally use superposition with predicted geometric structures
+2. \textbf{Disentanglement achievable}: ACL 2019-2023 papers show 70-85\% separation of grammar, meaning, style
+3. \textbf{Semantic decomposition}: 2025 work (arXiv 2508.21436) achieves fine-grained semantic subdimensions with neural plausibility
+
+\textbf{Computational cost}: O(d_model \(\times\) d_hidden) per meta-structure type, totaling ~4\(\times\) standard transformer forward pass—acceptable overhead for controllable generation benefits.
+
+\section{Hierarchical, Memory-Like Embeddings}
+
+\subsection{Product space vocabulary organization}
+
+\textbf{Core principle}: Factorize vocabulary V into product of smaller dimensions, enabling multi-index addressing analogous to image coordinates.
+
+We map $v\in\mathcal{V}$ to a mixed-radix code $\phi(v){=}(k_1,\ldots,k_L)$ with $k_\ell\in\{0,\ldots,K_\ell{-}1\}$ and capacity $\prod_\ell K_\ell\ge |\mathcal{V}|$. Arrange codes on a 2D grid $(h,w)$ and learn $E[h,w]\in\mathbb{R}^d$ with a Laplacian regularizer $\operatorname{tr}(E^\top L E)$ to align spatial proximity with semantic similarity.
+
+\textbf{Advantages over flat embeddings:}
+
+1. \textbf{Spatial locality}: Similar words assigned nearby coordinates \(\to\) cache-friendly access
+2. \textbf{Hierarchical structure}: Row/column indices encode categorical levels
+3. \textbf{Memory efficiency}: Structured layout enables compression techniques
+4. \textbf{Visualization}: Natural 2D projection for interpretability
+
+\subsection{Hierarchical organization schemes}
+
+\textbf{Taxonomy-based assignment} (Poincaré embeddings, Box embeddings):
+
+\begin{verbatim}
+Level 0 (Root): Language universal concepts
+Level 1 (10-20 categories): Entity, Event, Property, Relation, Modifier, Function
+Level 2 (50-100 subcategories): Animate, Inanimate, Motion, State, Color, Size, etc.
+Level 3 (Individual words): Assigned to leaf nodes
+
+Coordinate mapping:
+h_index = f_category(word)  # Maps category to row
+w_index = f_subcategory(word) + lexicographic_offset  # Maps to column within category
+\end{verbatim}
+
+\textbf{Box embedding formulation} (Lees et al., COLING 2020):
+
+\begin{verbatim}
+Category represented as hyperrectangle [x_min, x_max] × [y_min, y_max]
+Child boxes contained within parent boxes
+Volume ∝ semantic scope
+
+Containment metric: d_box(B_child, B_parent) = 0 if B_child ⊆ B_parent
+                                                > 0 otherwise
+\end{verbatim}
+
+Substantially outperforms point embeddings for taxonomy reconstruction (15-25\% accuracy gain).
+
+\textbf{Poincaré embedding} (Nickel \& Kiela, 2017):
+
+\begin{verbatim}
+Hyperbolic distance: d(u,v) = arcosh(1 + 2||u-v||²/((1-||u||²)(1-||v||²)))
+
+Achieves 5-10 dimensional embeddings for WordNet with better performance
+than 200D Euclidean embeddings—50× compression
+\end{verbatim}
+
+\subsection{Product quantization for compression}
+
+\textbf{Differentiable Product Quantization} (DPQ, Chen et al., ICML 2020):
+
+\begin{verbatim}
+Split embedding vector x ∈ ℝ^d into M sub-vectors: x = [x₁, x₂, ..., x_M]
+Each x_m quantized to nearest centroid from codebook C_m (size K)
+Encoded as M-tuple of indices: (c₁, c₂, ..., c_M) where c_m ∈ {1...K}
+
+Memory reduction: d×4 bytes (FP32) → M bytes (e.g., 8 bytes for M=8, K=256)
+Typical compression: 95%+ size reduction, <3% accuracy loss
+\end{verbatim}
+
+\textbf{Multi-index hashing} for fast retrieval:
+
+\begin{verbatim}
+Hash functions: h₁, h₂, ..., h_k: V → {1...B} (B = pool size)
+Word w → (h₁(w), h₂(w), ..., h_k(w))
+Final embedding: E(w) = Σⱼ α_j · E_shared(h_j(w))
+
+Parameters reduced from |V|×d to k×B×d
+Example: 50K vocab × 768D = 38.4M params → 3×10K×768 = 23M params (40% reduction)
+\end{verbatim}
+
+Empirically, \textbf{k=3-5 hash functions} with B=|V|/5 provide optimal quality-efficiency trade-off.
+
+\subsection{Memory networks for dynamic vocabulary}
+
+\textbf{End-to-End Memory Networks} (Sukhbaatar et al., 2015) adapt to vocabulary organization:
+
+\begin{verbatim}
+Memory: m = [m₁, m₂, ..., m_N] where each m_i is word embedding
+Input: query q (e.g., context representation)
+Key-value structure:
+  - Keys: Word embeddings for matching
+  - Values: Full semantic representations
+
+Attention: p_i = Softmax(q^T · m_i)
+Output: o = Σ p_i · v_i (weighted sum of values)
+
+Complexity: O(n) time, O(1) space for infinite sequences
+\end{verbatim}
+
+\textbf{Memformer} (Wu et al., 2022): O(1) space complexity achieves 8.1\(\times\) less memory and 3.2\(\times\) faster inference than Transformer-XL while outperforming on WikiText-103.
+
+\subsection{Channel-depth product equals vocabulary}
+
+\textbf{Image channel analogy:}
+
+\begin{verbatim}
+Standard image: H × W × 3 (RGB channels)
+Imagized vocabulary: H × W × C where C = channel depth
+
+Constraint: H × W × C = V (total vocabulary size)
+
+Example configurations for V = 50,000:
+1. 250 × 200 × 1 (2D spatial, single channel)
+2. 100 × 100 × 5 (2D spatial, 5 channels)
+3. 50 × 50 × 20 (smaller spatial, more channels)
+4. 250 × 200 × 1 but with d_embedding "color depth"
+\end{verbatim}
+
+\textbf{Accessing word w:}
+
+\begin{verbatim}
+Option A: Direct factorization
+(h, w) = divmod(word_id, W)
+embedding = E[h, w, :]  # All channels at position (h,w)
+
+Option B: Hash-based
+(h, w, c) = (h₁(w), h₂(w), h₃(w))
+embedding = E[h, w, c, :]
+\end{verbatim}
+
+\textbf{Training objective} to maintain spatial structure:
+
+\begin{verbatim}
+L_spatial = Σ_neighbors ||E[h,w] - E[h',w']||² · similarity(word_hw, word_h'w')
+# Encourages similar words to have similar embeddings AND nearby positions
+\end{verbatim}
+
+\subsection{Implementation on consumer hardware}
+
+\textbf{Memory savings:}
+
+\begin{verbatim}
+Standard embedding table: V × d × 4 bytes (FP32)
+50K vocab × 768D × 4B = 154MB
+
+With PQ (M=8, K=256):
+Codebooks: M × K × (d/M) × 4B = 8 × 256 × 96 × 4 = 786KB
+Indices: V × M × 1B = 50K × 8 = 400KB
+Total: ~1.2MB (128× compression)
+
+With hierarchical retrieval + quantization:
+Additional 2-3× speedup in lookup time
+\end{verbatim}
+
+\textbf{RTX 4090 performance} (24GB VRAM): Can fit 500M+ token vocabulary with hierarchical organization vs ~50M with standard embeddings at same quality level.
+
+\section{Component 3: Text-to-image diffusion process}
+
+\subsection{Discrete diffusion for text fundamentals}
+
+\textbf{Core innovation}: Adapt continuous diffusion (images) to discrete tokens (text) through categorical corruption and denoising processes.
+
+\textbf{Mathematical framework} (Continuous-Time Markov Chain):
+
+\begin{verbatim}
+Forward process (corruption):
+q(x_t | x_{t-1}) = x_{t-1} · Q_t where Q_t is transition matrix
+
+For absorbing state (masking):
+Q_t = (1 - β_t)I + β_t · 1e^⊤
+# Token either stays or transitions to [MASK] with probability β_t
+
+Cumulative: q(x_t | x_0) = x_0 · Q̄_t where Q̄_t = Q_1 Q_2 ... Q_t
+\end{verbatim}
+
+\textbf{Reverse process (denoising):}
+
+\begin{verbatim}
+Model learns: p_θ(x_{t-1} | x_t) = Categorical(f_θ(x_t, t))
+
+Modern approach (LLaDA, SEDD): Direct prediction
+p_θ(x_0 | x_t) = Softmax(TransformerBlock(x_t, t))
+# Predict clean text directly from noisy version
+\end{verbatim}
+
+\textbf{Training objective} (simplified VLB from MDLM):
+
+\begin{verbatim}
+L = E_{t~U[0,1], x_0~data} [λ(t) · KL(q(x_{t-1}|x_t,x_0) || p_θ(x_{t-1}|x_t))]
+
+Rao-Blackwellized (variance reduction):
+L ≈ E[Mixture of masked language modeling losses over timesteps]
+\end{verbatim}
+
+\subsection{State-of-the-art diffusion language models (2025)}
+
+\textbf{LLaDA (Large Language Diffusion with mAsking)} - ICLR 2025:
+
+- \textbf{Scale}: 8B parameters, largest diffusion LM
+- \textbf{Architecture}: Vanilla Transformer (no time embedding needed)
+- \textbf{Training}: Random masking ratio t ~ U[0,1] during pretraining
+- \textbf{Performance}: Competitive with LLaMA3 8B on in-context learning, surpasses GPT-4o on reversal tasks
+- \textbf{Advantage}: Solves "reversal curse" through bidirectional reasoning
+- \textbf{Speed}: Block-based parallel generation
+
+\textbf{SEDD (Score Entropy Discrete Diffusion)} - ICML 2024 Best Paper:
+
+- \textbf{Innovation}: Score entropy loss for ratio estimation in discrete spaces
+- \textbf{Performance}: 25-75\% perplexity reduction vs prior diffusion models
+- \textbf{Math}: Estimates p(x_0|x_t)/q(x_t|x_0) rather than requiring explicit score functions
+- \textbf{Efficiency}: 32\(\times\) fewer network evaluations for controllable infilling
+
+\textbf{EDLM (Energy-Based Diffusion LM)} - arXiv 2025:
+
+- \textbf{Innovation}: EBM in residual form at sequence level
+- \textbf{Performance}: Approaches autoregressive perplexity, 1.3\(\times\) sampling speedup
+- \textbf{Architecture}: Bidirectional transformer + energy correction term
+
+\textbf{Gemini Diffusion} - Google DeepMind, May 2025:
+
+- \textbf{Milestone}: First commercial-grade diffusion LM with AR parity
+- \textbf{Speed}: 1,479 tokens/second (5\(\times\) faster than comparable AR models)
+- \textbf{Mechanism}: Parallel block generation with iterative refinement
+
+\subsection{Hierarchical diffusion: Coarse to fine}
+
+\textbf{Core concept}: Multi-scale generation from abstract structure to detailed tokens.
+
+\textbf{Three-stage framework:}
+
+\begin{verbatim}
+Stage 1: Meta-structure generation (coarse)
+Generate: [Grammar_pattern, Semantic_frame, Emotion, Style]
+Output: Discrete structure template
+
+Stage 2: Lexical selection (medium)
+Condition on structure, generate: Content words skeleton
+Using: Hierarchical vocabulary (head nouns, main verbs)
+
+Stage 3: Full realization (fine)
+Condition on skeleton, generate: Complete sentence with function words
+Using: Standard diffusion over full vocabulary
+\end{verbatim}
+
+\textbf{Mathematical formulation:}
+
+\begin{verbatim}
+Joint distribution:
+p(x, struct) = p(struct) · p(x | struct)
+
+Stage 1: p_θ₁(struct) via discrete diffusion over meta-structures
+Stage 2: p_θ₂(skeleton | struct) via masked diffusion on content words
+Stage 3: p_θ₃(x | skeleton, struct) via full diffusion
+
+Training: Cascade with stop-gradient on earlier stages
+\end{verbatim}
+
+\textbf{PLANNER} (Apple 2023) demonstrates latent diffusion for text:
+
+\begin{verbatim}
+Encoder: Paragraph → latent z ∈ ℝ^(k×h) (like Stable Diffusion)
+Diffusion: z_0 → z_T → z_0 in continuous latent space
+Decoder: Latent → tokens
+
+Advantages:
+- Operates in compressed space (8-16× smaller than token sequence)
+- Global coherence through holistic latent representation
+- Reduces repetition by 40% vs autoregressive
+\end{verbatim}
+
+\subsection{Noise schedules for text}
+
+\textbf{Absorbing state schedule} (most successful):
+
+\begin{verbatim}
+Linear: β_t = t/T
+Cosine: β_t = cos²(π·t/(2T))
+Log-linear (SEDD): β_t = exp(α·t) - 1 for small α
+
+Empirical finding: Log-linear performs 10-15% better than linear
+\end{verbatim}
+
+\textbf{Adaptive masking} based on word importance:
+
+\begin{verbatim}
+Mask probability: β_t,i = β_t · (1 - importance_i)
+where importance_i from attention scores or TF-IDF
+
+Effect: Content words masked later, function words earlier
+Improves semantic coherence by 8-12% (empirical)
+\end{verbatim}
+
+\subsection{Integration with visual channels}
+
+\textbf{Treating text as 2D image for diffusion:}
+
+\begin{verbatim}
+Input: Text sequence [w₁, w₂, ..., w_n]
+Reshape: H × W grid where H×W ≥ n (padding with [PAD])
+
+Example for 512 tokens:
+16 × 32 grid or 32 × 16 or 8 × 64
+
+Apply 2D U-Net diffusion:
+- Conv2D layers process local token neighborhoods
+- Attention layers capture long-range dependencies
+- Timestep embedding conditions each layer
+
+Output: Denoised 2D grid → flatten → remove padding
+\end{verbatim}
+
+\textbf{Mathematical advantage}: 2D convolution captures local \textbf{n-gram patterns} naturally:
+
+\begin{verbatim}
+3×3 convolution with stride 1:
+Receptive field covers 9 consecutive tokens in unrolled form
+Multiple layers build hierarchical n-gram representations
+\end{verbatim}
+
+\section{Comparison with Autoregressive Generation}
+\begin{table}[h]
+  \centering
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabularx}{\linewidth}{@{} l XX @{} }
+    \toprule
+    Aspect & Autoregressive & Diffusion (ILM) \\
+    \midrule
+    Generation order & Sequential L$\to$R & Parallel blocks, iterative refinement \\
+    Short outputs & Faster ($<50$ tok) & Slower (multiple steps) \\
+    Long outputs & Slower ($>200$ tok) & Faster (parallel denoise) \\
+    Error correction & One-shot, irreversible & Global revision each step \\
+    Controllability & Prompt heuristics & Guidance + meta channels \\
+    Perplexity & Lower (mature) & Approaching parity (2025) \\
+    Memory & KV cache grows & Fixed per step \\
+    Reasoning & Strong CoT & Emerging DoT \\
+    Creativity & Lower diversity & Higher diversity \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{-6pt}
+  \caption{Autoregressive vs. diffusion generation.}
+\end{table}
+
+\textbf{Recommendation for ILM}: Use diffusion for:
+1. Creative/diverse generation
+2. Constrained generation (format, structure)
+3. Long-form content (>500 tokens)
+4. Applications where revision is acceptable
+
+Use autoregressive for:
+1. Real-time chat
+2. Complex reasoning chains
+3. Very short responses
+4. Maximum coherence priority
+
+\section{Component 4: Direct character visual representation}
+
+\subsection{Character-aware encoding foundations}
+
+\textbf{Breakthrough finding} (Liu et al., ACL 2023): Character-aware text encoders provide \textbf{30+ point accuracy gains} over character-blind models for visual text rendering and spelling tasks.
+
+\textbf{ByT5 architecture} (character-level transformer):
+
+\begin{verbatim}
+Input: UTF-8 byte sequence (no subword tokenization)
+Vocabulary: 256 bytes (vs 32K-100K for BPE)
+Architecture: Standard T5 encoder-decoder
+
+Advantages for visual representation:
+1. Universal: All languages/scripts use same 256 "characters"
+2. No OOV: Can represent any UTF-8 string
+3. Spelling-aware: Character-level features preserve glyph structure
+\end{verbatim}
+
+\subsection{Latin alphabet: 128\(\times\)128 one-hot encoding}
+
+\textbf{Implementation for 128 characters} (uppercase, lowercase, digits, punctuation, special):
+
+\begin{verbatim}
+Character set: 26×2 (letters) + 10 (digits) + 32 (punctuation) + 58 (special) = 128
+
+One-hot matrix: C ∈ {0,1}^(128×128)
+Position (i,j): 1 if character i appears at position j (circular addressing)
+
+For sequence "Hello":
+H: row 72, columns [0, 8, 16, ...]  (positions where 'H' repeats)
+e: row 101, columns [1, 9, 17, ...]
+l: row 108, columns [2, 3, 10, 11, ...]
+o: row 111, columns [4, 12, ...]
+
+Resulting image: 128×128 binary matrix, processable by CNN/ViT
+\end{verbatim}
+
+\textbf{Advantages:}
+
+1. \textbf{Fixed size}: All sequences map to same 128\(\times\)128 matrix
+2. \textbf{Position encoding}: Column index encodes position (mod 128)
+3. \textbf{Character frequency}: Row sums indicate character counts
+4. \textbf{Bag-of-characters}: Permutation-invariant if columns unordered
+
+\textbf{Limitations}:
+
+- Loses long-range order beyond 128 positions
+- Binary features (no font/style information)
+- \textbf{Solution}: Augment with actual glyph rendering
+
+\subsection{CJK: Direct character image rendering}
+
+\textbf{Chinese character visual processing:}
+
+\begin{verbatim}
+Character → Glyph image rendering (64×64 or 128×128)
+Font options: SimSun, KaiTi, etc.
+Output: Grayscale or RGB image
+
+Sentence "你好世界" (Hello World):
+4 characters × 64×64 pixels = 256×64 image (horizontal)
+or 64×256 vertical orientation
+\end{verbatim}
+
+\textbf{Radical-based features} (arXiv 2410.09013):
+
+\begin{verbatim}
+Chinese characters decompose into radicals (部首)
+214 Kangxi radicals + variants ≈ 300 total
+
+Hierarchical encoding:
+Level 1: Radical presence (binary 300D vector)
+Level 2: Radical position (top, bottom, left, right, enclosure)
+Level 3: Stroke order features (automated from Xinhua Dictionary)
+
+Combined: Radical_features ⊕ Visual_features
+\end{verbatim}
+
+\textbf{Large-scale CJK recognition} (Apple 2015-2016):
+
+- Covers \textbf{30,000 characters} (GB18030-2005, HKSCS-2008, Big5E)
+- Unicode CJK Unified Ideographs: ~75,000 total characters
+- Architecture: Deep CNN (ResNet-50/101)
+- Performance: Top-1 accuracy competitive across full inventory
+- \textbf{Key}: Balanced training (oversample rare characters)
+
+\textbf{Zero-shot Chinese character recognition} (Pattern Recognition 2020):
+
+\begin{verbatim}
+Hierarchical Decomposition Embedding (HDE):
+1. Decompose unseen character into known radicals
+2. Embed each radical via CNN
+3. Compose using structure encoding (左右, 上下, 包围)
+4. Predict character from composite embedding
+
+Enables recognition of characters never seen in training
+Performance: 67.3% top-1 accuracy on unseen characters
+\end{verbatim}
+
+\subsection{Historical scripts}
+
+\subsubsection{Jiaguwen (Oracle Bone Script, ~1200 BCE)}
+
+\textbf{HUST-OBC Dataset} (Wang et al., Nature Scientific Data 2024):
+
+- \textbf{Total}: 140,053 images
+- \textbf{Deciphered}: 77,064 images, 1,588 characters
+- \textbf{Undeciphered}: 62,989 images, 9,411 characters
+- \textbf{Challenge}: Significant variation, degradation, multiple forms per meaning
+
+\textbf{Recognition approach:}
+
+\begin{verbatim}
+Architecture: ResNet-50 + MoCo (Momentum Contrast)
+Unsupervised representation learning handles variation
+Classification accuracy: 94.6% on deciphered characters
+Macro-average F1: 0.914
+\end{verbatim}
+
+\textbf{Preprocessing pipeline:}
+
+1. Edge detection for character segmentation
+2. OCR-based automatic annotation
+3. Visual similarity clustering (MoCo embeddings)
+4. Expert validation
+
+\textbf{ILM integration}: Direct glyph images as input (no tokenization needed), handle 10,000+ distinct ancient forms.
+
+\subsubsection{Tangut/Xixia (西夏文, 1038-1227 CE)}
+
+\textbf{TCD Database} (Ma et al., IET Image Processing 2022):
+
+- \textbf{Categories}: 6,077 distinct characters
+- \textbf{Total samples}: 124,624 images
+- \textbf{Sources}: Manuscripts, print, photocopies
+
+\textbf{TCRNet architecture} (5-layer CNN):
+
+\begin{verbatim}
+Input: 64×64 grayscale Tangut character image
+Conv1: 32 filters, 5×5
+Conv2: 64 filters, 5×5
+Conv3: 128 filters, 3×3
+Conv4: 256 filters, 3×3
+Conv5: 512 filters, 3×3
+Fully connected: 6077 classes
+
+Accuracy: 97.96% on augmented dataset (TCD-E)
+\end{verbatim}
+
+\textbf{Labeling method}: Multi-Model Multi-Prediction (MMMP) using four-corner numerical symbols (same system as Xixia-Chinese Dictionary)
+
+\subsubsection{Vietnamese Chữ Nôm}
+
+\textbf{Challenges}: Mixed Chinese characters + unique Nôm characters, degraded historical manuscripts
+
+\textbf{NomNaOCR} (GitHub: ds4v/NomNaOCR):
+
+\begin{verbatim}
+Architecture: CRNN (CNN + Bidirectional LSTM + CTC)
+Input: Full text line images (not character-level)
+Output: Character sequence prediction
+
+Training: PP-OCRv5 fine-tuned on Han-Nom texts
+Performance improvement: 37.5% → 50.0% exact accuracy
+Confidence: 81.3% → 91.1%
+\end{verbatim}
+
+\textbf{Key insight}: Sequence-level processing (not character-level) preserves semantic context better for mixed-script documents.
+
+\subsection{Font-based visual input architecture}
+
+\textbf{Glyph-ByT5} (Liu et al., ECCV 2024) - Production-ready:
+
+\begin{verbatim}
+Components:
+1. Glyph Text Encoder: Character-aware ByT5 (217M-864M params)
+   Input: UTF-8 byte sequence
+   Output: Character-level text embeddings [N×768]
+
+2. Glyph Vision Encoder: DINOv2 ViT-B/14 (86M params)
+   Input: Rendered glyph images (64×64 per character)
+   Output: Visual glyph features [N×768]
+
+3. Fusion: Box-level contrastive loss
+   L = InfoNCE(text_features, visual_features)
+
+Integration with diffusion (Glyph-SDXL):
+   Text prompt → Glyph-ByT5 → Character features
+   + Segmentation masks → SDXL U-Net → Image with text
+
+Performance: Nearly 90% text rendering accuracy
+            (vs <20% for standard SDXL)
+\end{verbatim}
+
+\textbf{Multilingual support} (Glyph-ByT5-v2):
+
+- \textbf{Languages}: English, French, Spanish, Chinese, Japanese, Korean
+- \textbf{Dataset}: 1M+ glyph-text pairs
+- \textbf{Approach}: Shared ByT5 encoder (universal byte representation) + language-specific glyph rendering
+
+\subsection{Cross-lingual visual models}
+
+\textbf{UC2 (Universal Cross-lingual Cross-modal)} - CVPR 2021:
+
+\begin{verbatim}
+Key insight: Visual data acts as universal pivot for multilingual text alignment
+
+Training objectives:
+1. MLM (Masked Language Modeling): Multilingual
+2. ITM (Image-Text Matching): Cross-modal alignment
+3. MRTM (Masked Region-to-Token): Fine-grained grounding
+4. VTLM (Visual Translation): Cross-lingual via shared image
+
+Architecture: Transformer with shared embedding for:
+- Word tokens from all languages
+- Region labels from object detection
+- Visual features from image encoder
+
+Result: Zero-shot transfer to unseen languages
+        Outperforms on Multi30k and COCO multilingual retrieval
+\end{verbatim}
+
+\textbf{Advantage for ILM}: Can train on English+Chinese with visual grounding, then zero-shot transfer to Japanese, Korean, Vietnamese without additional training.
+
+\subsection{Punctuation handling}
+
+\textbf{Visual encoding of punctuation:}
+
+\begin{verbatim}
+ASCII punctuation (32 characters):
+. , ! ? ; : ' " ( ) [ ] { } - — ... / \ | @ # $ % \u0026 * + = < >
+
+Chinese punctuation (additional 20):
+。，！？；：「」『』（）【】《》、…… etc.
+
+Unified visual representation:
+Each punctuation → 16×16 glyph image
+Embedded in same space as letters/characters
+Position-aware: Punctuation position encodes syntactic boundaries
+
+Example: "Hello, world!" renders as:
+H(64×64) e(64×64) l(64×64) l(64×64) o(64×64) ,(16×16) [space] w(64×64) ...
+\end{verbatim}
+
+\textbf{Syntactic role encoding} (grammar meta-structures):
+
+\begin{verbatim}
+Punctuation features:
+- Sentence boundary: {. ! ? 。！？} → Grammar_structure[END_SENTENCE]
+- Clause boundary: {, ; : ，；：} → Grammar_structure[CLAUSE_BREAK]
+- Quotation: {" ' 「 」} → Grammar_structure[QUOTE]
+- Paired markers: {() [] {}} → Grammar_structure[GROUPING]
+
+Integrated into superposition representation:
+S = ... + α_punct · Grammar_structure[punct_type]
+\end{verbatim}
+
+\section{Unified Objective and Derivations}
+The joint objective combines diffusion, superposition, spatial, visual, reconstruction, and regularization terms:
+\begin{align}
+\mathcal{L}_{\text{total}}
+&= \mathcal{L}_{\text{diff}}
+ + \lambda_1 \mathcal{L}_{\text{sup}}
+ + \lambda_2 \mathcal{L}_{\text{spatial}}
+ + \lambda_3 \mathcal{L}_{\text{visual}}
+ + \lambda_4 \mathcal{L}_{\text{recon}}
+ + \lambda_5 \mathcal{L}_{\text{reg}}, \\[-2pt]
+\mathcal{L}_{\text{reg}} &= \lambda_{\text{ortho}} \sum_{u\neq v}\|D_u^\top D_v\|_F^2 + \lambda_{\text{dis}}\sum_{u\neq v} \operatorname{MI}(z_u,z_v).
+\end{align}
+\paragraph{Discrete diffusion VLB} With transition $Q_t$ and cumulative $\bar{Q}_t$ (absorbing-mask), the single-site posterior is
+\begin{equation}
+  q(x_{t-1}\mid x_t,x_0) \propto Q_t(x_{t-1}\to x_t)\,(\bar{Q}_{t-1})(x_0\to x_{t-1}),
+\end{equation}
+and the variational bound minimizes $\operatorname{KL}\big(q\Vert p_\theta\big)$ at random $t$.
+
+\textbf{Weight schedule} (balances objectives during training):
+
+\begin{verbatim}
+Phase 1 (Epochs 1-20%): λ₁=0.5, λ₂=1.0, λ₃=0.5, λ₄=1.0, λ₅=0.5
+Focus: Establish hierarchical embeddings and visual grounding
+
+Phase 2 (Epochs 20-60%): λ₁=1.0, λ₂=0.5, λ₃=0.5, λ₄=1.0, λ₅=0.3
+Focus: Learn superposition representations
+
+Phase 3 (Epochs 60-100%): λ₁=0.8, λ₂=0.3, λ₃=0.3, λ₄=1.0, λ₅=0.1
+Focus: Optimize diffusion process
+\end{verbatim}
+
+\section{Architecture and Training}
+
+\textbf{Complete ILM forward pass:}
+
+\begin{verbatim}
+# 1. Input processing
+characters = tokenize_characters(text)  # UTF-8 bytes or character IDs
+visual_glyphs = render_glyphs(characters, font="SimSun")  # 64×64 per char
+
+# 2. Hierarchical embedding lookup
+coords = hierarchical_index(characters)  # (h, w) coordinates
+text_embeddings = HierarchicalEmbedding[coords]  # [N, d_model]
+visual_embeddings = GlyphEncoder(visual_glyphs)  # [N, d_model]
+
+# 3. Multi-modal fusion
+fused = text_embeddings + visual_embeddings  # Residual connection
+fused = LayerNorm(fused)
+
+# 4. Meta-structure decomposition
+grammar_repr = GrammarEncoder(fused)    # [N, 100]
+meaning_repr = MeaningEncoder(fused)    # [N, 100]
+emotion_repr = EmotionEncoder(fused)    # [N, 20]
+style_repr = StyleEncoder(fused)        # [N, 50]
+
+# 5. Superposition reconstruction
+meta_repr = Concat([grammar_repr, meaning_repr, emotion_repr, style_repr])
+reconstructed = MetaDecoder(meta_repr)  # [N, d_model]
+
+# 6. Reshape to 2D for diffusion
+H, W = 16, 32  # For 512 tokens
+grid = reshape(reconstructed, (H, W, d_model))  # 2D spatial layout
+
+# 7. Diffusion process
+if training:
+    # Add noise
+    t = random_uniform(0, T)
+    noise = random_normal(grid.shape)
+    noisy_grid = sqrt(alpha_t) * grid + sqrt(1 - alpha_t) * noise
+
+    # Denoise with U-Net
+    pred_noise = UNet2D(noisy_grid, t, conditioning=meta_repr)
+    loss = mse_loss(pred_noise, noise)
+else:
+    # Inference: Start from noise, iteratively denoise
+    grid = random_normal((H, W, d_model))
+    for t in reversed(range(T)):
+        pred_noise = UNet2D(grid, t, conditioning=meta_repr)
+        grid = denoise_step(grid, pred_noise, t)
+
+# 8. Decode to tokens
+flat = reshape(grid, (H*W, d_model))
+logits = OutputProjection(flat)  # [H*W, vocab_size]
+tokens = argmax(logits, dim=-1)
+\end{verbatim}
+
+\subsection*{Training Procedure}
+
+\textbf{Dataset requirements:}
+
+1. \textbf{Text corpora}: Large-scale multilingual (English, Chinese primarily)
+   - English: C4, RefinedWeb, RedPajama (1T+ tokens)
+   - Chinese: WuDaoCorpora, CLUECorpus (500B+ tokens)
+
+2. \textbf{Paired text-glyph data}: 1M+ samples (Glyph-ByT5 style)
+   - Rendered text with multiple fonts
+   - Box-level annotations for characters
+
+3. \textbf{Annotated meta-structures} (smaller scale, 10M samples):
+   - Syntactic parses (Universal Dependencies)
+   - Semantic roles (PropBank, FrameNet)
+   - Emotion labels (GoEmotions, SemEval)
+   - Style annotations (GYAFC, academic corpora)
+
+\textbf{Training stages:}
+
+\begin{verbatim}
+Stage 1: Hierarchical embedding pre-training (Weeks 1-2)
+- Train Poincaré/Box embeddings on WordNet + co-occurrence
+- Freeze hierarchical structure
+
+Stage 2: Visual-text alignment (Weeks 3-4)
+- Train Glyph encoder with contrastive loss
+- Fine-tune on multilingual glyph-text pairs
+
+Stage 3: Meta-structure learning (Weeks 5-8)
+- Train grammar/meaning/emotion/style encoders
+- Multi-task learning with annotated data
+- Enforce disentanglement via adversarial losses
+
+Stage 4: Diffusion pre-training (Weeks 9-16)
+- Train U-Net diffusion model on text corpus
+- Condition on meta-structure representations
+- Gradually increase context length (256 → 512 → 1024 tokens)
+
+Stage 5: End-to-end fine-tuning (Weeks 17-20)
+- Joint optimization of all components
+- Adjust loss weights according to schedule
+- Evaluate on downstream tasks
+\end{verbatim}
+
+\textbf{Computational requirements:}
+
+\begin{verbatim}
+Model size: ~1.5B parameters
+- Hierarchical embeddings: 50M (compressed)
+- Glyph encoder (DINOv2 ViT-B): 86M
+- Meta-structure encoders: 4×100M = 400M
+- U-Net diffusion model: 860M (Stable Diffusion scale)
+- Output projection: ~100M
+
+Training hardware: 8× A100 80GB or equivalent
+Training time: ~20 weeks on described dataset
+Inference: Single RTX 4090 (24GB) with quantization
+\end{verbatim}
+
+\section{Implementation Considerations}
+
+\subsection{Modular architecture design}
+
+\textbf{Advantage}: Each component can be developed/trained independently:
+
+\begin{verbatim}
+Module 1: Hierarchical Embeddings
+- Input: Word IDs
+- Output: Embeddings with spatial structure
+- Can use off-the-shelf Poincaré/Box embeddings initially
+
+Module 2: Glyph Encoder
+- Input: Character images
+- Output: Visual features
+- Can use pre-trained Glyph-ByT5 or DINOv2
+
+Module 3: Meta-Structure Encoders
+- Input: Token embeddings
+- Output: Grammar, meaning, emotion, style vectors
+- Can train separately on annotated data
+
+Module 4: Diffusion Model
+- Input: 2D token grid + conditioning
+- Output: Denoised tokens
+- Can use pre-trained latent diffusion models initially
+
+Integration: Gradual (start with modules 1+4, add 2+3 incrementally)
+\end{verbatim}
+
+\subsection{Optimization for consumer hardware}
+
+\textbf{Memory optimization techniques:}
+
+1. \textbf{Quantization} (75-85\% memory reduction):
+\begin{verbatim}
+- Hierarchical embeddings: INT8 quantization
+- Glyph encoder: FP16 or INT8
+- U-Net: Mixed precision (FP16 activations, INT8 weights)
+- Total memory: 1.5B params × 2 bytes (INT8) = 3GB (vs 6GB FP16)
+\end{verbatim}
+
+2. \textbf{Gradient checkpointing} (50\% training memory reduction):
+\begin{verbatim}
+- Recompute intermediate activations during backward pass
+- Trade computation for memory
+- Essential for training on consumer GPUs
+\end{verbatim}
+
+3. \textbf{FlashAttention-2} (2-8\(\times\) speedup, lower memory):
+\begin{verbatim}
+- IO-aware attention computation
+- Standard in modern frameworks
+- Enables longer context (512 → 1024+ tokens)
+\end{verbatim}
+
+4. \textbf{LoRA fine-tuning} (99\% parameter reduction for adaptation):
+\begin{verbatim}
+- Low-rank adaptation: only train small matrices
+- Freeze base model, train 0.5-1% of parameters
+- Enables fine-tuning on single RTX 4090
+\end{verbatim}
+
+\textbf{Inference optimization:}
+
+\begin{verbatim}
+1. KV cache quantization: INT8 (50% memory)
+2. Attention optimization: FlashAttention, sparse attention
+3. Speculative decoding: Small draft model + large verification (2-3× speedup)
+4. Batching: Process multiple requests concurrently (2-5× throughput)
+5. Model serving: vLLM or TensorRT-LLM frameworks
+\end{verbatim}
+
+\textbf{Consumer hardware performance estimates:}
+
+\begin{verbatim}
+RTX 4090 (24GB VRAM):
+- Model: 1.5B params quantized to INT4 → 0.75GB
+- KV cache (1024 tokens): ~2GB
+- Batch size: 8-16 concurrent requests
+- Speed: 30-50 tokens/second per request
+- Context: Up to 2048 tokens
+
+M2 Ultra (192GB):
+- Model: Full FP16 (3GB) or larger variants
+- Massive context: 10K+ tokens
+- Speed: 40-60 tokens/second
+- Advantage: Can run much larger models
+\end{verbatim}
+
+\section{Transformer Comparison}
+
+| Aspect | Standard Transformer | Imagized Language Model |
+|--------|---------------------|------------------------|
+| \textbf{Architecture} | Self-attention + FFN | Hierarchical embeddings + Meta-structures + 2D diffusion |
+| \textbf{Generation} | Autoregressive | Iterative refinement (diffusion) |
+| \textbf{Parameters} | 1-7B typical | 1.5B (modular, extensible) |
+| \textbf{Memory} | 2-14GB (INT8) | 3-4GB (INT8, hierarchical compression) |
+| \textbf{Inference speed} | 50-100 tok/s | 30-50 tok/s (parallel blocks compensate) |
+| \textbf{Context length} | 2K-32K typical | 512-2K (initial), extensible |
+| \textbf{Controllability} | Prompt engineering | Native meta-structure control |
+| \textbf{Multilingual} | Separate embeddings | Universal visual representation |
+| \textbf{Character-level} | Subword tokenization | Direct character images |
+| \textbf{Training data} | Text only | Text + glyphs + annotations |
+| \textbf{Interpretability} | Black box | Interpretable meta-structures |
+| \textbf{Use cases} | General-purpose | Creative, controllable, multilingual |
+
+\textbf{When to use ILM over transformers:}
+
+1. \textbf{Controllable generation}: Explicit grammar, style, emotion control
+2. \textbf{Multilingual}: Unified handling of multiple scripts
+3. \textbf{Historical texts}: Direct support for ancient/rare scripts
+4. \textbf{Creative writing}: Higher diversity from diffusion
+5. \textbf{Format-constrained}: Explicit structure enforcement
+6. \textbf{Visual text}: Typography, text-in-image applications
+
+\textbf{When to use transformers:}
+
+1. \textbf{Real-time chat}: Lower latency for short responses
+2. \textbf{Complex reasoning}: Mature chain-of-thought techniques
+3. \textbf{Well-optimized tasks}: Existing fine-tuned models
+4. \textbf{Production stability}: More mature ecosystem
+5. \textbf{Ultra-long context}: Models up to 128K+ tokens exist
+
+\section{Feasibility, Roadmap, and Conclusion}
+
+\subsection{Technical feasibility: HIGH}
+
+\textbf{Components validated in production:}
+
+1. ✅ \textbf{Discrete diffusion}: Gemini Diffusion (Google, May 2025) achieves commercial viability
+2. ✅ \textbf{Hierarchical embeddings}: Poincaré/Box embeddings widely used, 95\%+ compression validated
+3. ✅ \textbf{Visual text encoding}: Glyph-ByT5 achieves 90\% accuracy (ECCV 2024)
+4. ✅ \textbf{Superposition}: Anthropic 2022-2025 demonstrates neural networks naturally use superposition
+5. ✅ \textbf{Consumer hardware}: RTX 4090 handles 1-2B param models at 30-50 tok/s with quantization
+
+\textbf{Integration challenges: MODERATE}
+
+- Individual components proven
+- Full integration untested
+- Requires custom training pipeline
+- Estimated 6-12 months for initial implementation with research team
+
+\subsection{Computational feasibility: HIGH for inference, MODERATE for training}
+
+\textbf{Training:}
+
+\begin{verbatim}
+Required: 8× A100 80GB (or 8× H100 for 2-3× speedup)
+Duration: ~20 weeks for full training
+Cost: ~$50K-100K (cloud) or $150K-200K (hardware purchase)
+Alternative: Modular training (cheaper, longer)
+\end{verbatim}
+
+\textbf{Inference on consumer hardware:}
+
+\begin{verbatim}
+RTX 4090: ✅ Excellent (24GB sufficient for 1.5B params + batch inference)
+RTX 4070 Ti: ✅ Good (16GB sufficient with tighter batching)
+M2 Ultra: ✅ Excellent (massive unified memory enables larger variants)
+M3/M4: ✅ Good (unified memory + Neural Engine optimization)
+
+Minimum: 16GB VRAM/RAM, can run quantized 1.5B model
+Recommended: 24GB for comfortable inference with batching
+\end{verbatim}
+
+\subsection{Data feasibility: HIGH}
+
+\textbf{Required datasets mostly available:}
+
+1. ✅ \textbf{Text corpora}: Abundant (C4, RefinedWeb, WuDaoCorpora—multiple terabytes)
+2. ✅ \textbf{Glyph-text pairs}: Can synthesize (render text with various fonts)
+3. ⚠️ \textbf{Meta-structure annotations}: Partially available
+   - Universal Dependencies: 200+ treebanks, 100+ languages
+   - PropBank/FrameNet: English well-covered, Chinese improving
+   - Emotion labels: GoEmotions (58K), SemEval datasets
+   - \textbf{Gap}: Need 10M+ annotated samples \(\to\) solution: semi-supervised learning
+4. ✅ \textbf{Historical scripts}: Datasets exist (HUST-OBC, TCD) but smaller scale
+
+\textbf{Data generation strategy:}
+
+\begin{verbatim}
+Supervised (10%): High-quality human annotations (1M samples)
+Semi-supervised (40%): Pseudo-labels from existing models
+Self-supervised (50%): Contrastive learning, masked prediction
+\end{verbatim}
+
+\subsection{Research novelty: HIGH}
+
+\textbf{Novel contributions:}
+
+1. \textbf{First integrated framework} combining superposition, hierarchical embeddings, diffusion, visual encoding
+2. \textbf{Unified multilingual model} without language-specific tokenization
+3. \textbf{Explicit meta-structure control} (vs implicit in transformers)
+4. \textbf{2D diffusion on text} (vs 1D sequence modeling)
+5. \textbf{Historical script support} built-in (vs afterthought)
+
+\textbf{Publishable aspects:}
+
+- Architecture design (ICML, ICLR, NeurIPS)
+- Multilingual visual encoding (ACL, EMNLP)
+- Controllable generation via meta-structures (ACL)
+- Efficient hierarchical embeddings (ICLR)
+
+\subsection{Practical deployment: MODERATE}
+
+\textbf{Advantages:}
+
+- Single model handles English + Chinese + historical scripts
+- Explicit control over generation (grammar, style, emotion)
+- Interpretable (can visualize meta-structure activations)
+- Memory-efficient (hierarchical embeddings)
+
+\textbf{Challenges:}
+
+- Novel architecture \(\to\) limited tooling
+- Requires custom serving infrastructure
+- Inference ~30\% slower than optimized transformers initially
+- Less mature than transformer ecosystem
+
+\textbf{Deployment timeline:}
+
+\begin{verbatim}
+Phase 1 (Months 1-6): Research prototype, validate components
+Phase 2 (Months 7-12): Integrate and train initial model
+Phase 3 (Months 13-18): Optimize for production, build tooling
+Phase 4 (Months 19-24): Deploy, gather feedback, iterate
+\end{verbatim}
+
+\subsection{Cost-benefit analysis}
+
+\textbf{Development costs:}
+
+\begin{verbatim}
+Personnel (2 years): 3 ML researchers + 2 engineers = $1-2M
+Compute: Training + experiments = $100-200K
+Infrastructure: Serving setup = $50K
+Total: $1.5-2.5M for full development
+\end{verbatim}
+
+\textbf{Potential benefits:}
+
+1. \textbf{Novel capabilities}: Explicit structure control, visual text handling
+2. \textbf{Efficiency}: Hierarchical embeddings reduce memory 50-90\%
+3. \textbf{Multilingual}: Single model vs separate models per language
+4. \textbf{Research impact}: High-novelty \(\to\) top-tier publications
+5. \textbf{Commercial}: Unique features for creative/design applications
+
+\textbf{ROI assessment}: Positive if:
+- Target application requires controllable generation (creative writing, design)
+- Multilingual support critical (especially CJK + historical scripts)
+- Research prestige valued (academic/industry research lab)
+- Long-term platform play (not immediate commercial deployment)
+
+\section{Recommended implementation roadmap}
+
+\subsection{Phase 1: Component validation (Months 1-3)}
+
+\textbf{Goal}: Validate each component independently
+
+\begin{verbatim}
+Task 1.1: Implement hierarchical embeddings
+- Use Poincaré or Box embeddings on WordNet
+- Benchmark memory usage and retrieval speed
+- Target: 90%+ compression with <5% accuracy loss
+
+Task 1.2: Integrate Glyph-ByT5
+- Use pre-trained Glyph-ByT5-v2 for Chinese + English
+- Test character-aware encoding on sample texts
+- Validate 30+ point improvement on spelling tasks
+
+Task 1.3: Train meta-structure encoders
+- Grammar: Train on Universal Dependencies (100K samples)
+- Meaning: Train on PropBank (100K samples)
+- Emotion: Train on GoEmotions (58K samples)
+- Style: Train on GYAFC + academic corpora (100K samples)
+- Target: 70%+ disentanglement scores (MIG, SAP)
+
+Task 1.4: Baseline diffusion model
+- Train discrete diffusion (masked) on 1B token subset
+- 512-token context, 10-50 denoising steps
+- Target: Perplexity within 20% of comparable AR model
+\end{verbatim}
+
+\subsection{Phase 2: Integration (Months 4-9)}
+
+\textbf{Goal}: Combine components into unified architecture
+
+\begin{verbatim}
+Task 2.1: Design integrated architecture
+- Define interfaces between components
+- Implement 2D reshaping for diffusion
+- Build conditioning mechanism (meta-structures → U-Net)
+
+Task 2.2: End-to-end training pipeline
+- Modular loss function with weight scheduling
+- Gradient checkpointing for memory efficiency
+- Mixed precision training (FP16 + INT8)
+
+Task 2.3: Train initial model (1B params)
+- Dataset: 50B tokens English + 25B tokens Chinese
+- Hardware: 8× A100 40GB (or rent on cloud)
+- Duration: ~8 weeks
+- Checkpoints: Every 10B tokens for evaluation
+
+Task 2.4: Evaluation framework
+- Perplexity on held-out test sets
+- Controllability: Grammar/style transfer tasks
+- Multilingual: Zero-shot on Japanese, Korean
+- Visual: Render text-in-image tasks
+\end{verbatim}
+
+\subsection{Phase 3: Optimization (Months 10-15)}
+
+\textbf{Goal}: Optimize for production deployment
+
+\begin{verbatim}
+Task 3.1: Model distillation and compression
+- Distill to 500M param student model
+- Quantize to INT8/INT4 (target: <2GB memory)
+- Prune redundant components (30-40% sparsity)
+
+Task 3.2: Inference optimization
+- Implement efficient serving (vLLM integration)
+- FlashAttention + fused kernels
+- Speculative decoding (draft model)
+- Target: 30-50 tokens/second on RTX 4090
+
+Task 3.3: Batch processing and caching
+- Continuous batching for multiple requests
+- KV cache optimization and quantization
+- Precompute meta-structure embeddings for common patterns
+
+Task 3.4: Deployment infrastructure
+- Docker containers with GPU support
+- Kubernetes autoscaling
+- Monitoring (Prometheus + Grafana)
+- API (OpenAI-compatible endpoints)
+\end{verbatim}
+
+\subsection{Phase 4: Applications and iteration (Months 16-24)}
+
+\textbf{Goal}: Build applications, gather feedback, improve
+
+\begin{verbatim}
+Task 4.1: Demonstrator applications
+- Creative writing assistant (style control)
+- Multilingual document generation
+- Historical text decipherment tool
+- Typography/design generation
+
+Task 4.2: User studies and feedback
+- 100-1000 users testing applications
+- Collect preference data (ILM vs GPT-4)
+- Identify failure modes and limitations
+
+Task 4.3: Targeted improvements
+- Fine-tune on domains where ILM underperforms
+- Add new meta-structures based on user needs
+- Extend to additional languages/scripts
+
+Task 4.4: Research publications
+- Architecture paper (ICLR/NeurIPS)
+- Multilingual visual encoding (ACL/EMNLP)
+- Applications and case studies (domain conferences)
+\end{verbatim}
+
+\subsection{Minimum viable implementation}
+
+\textbf{For proof-of-concept} (6-month timeline, 2 researchers):
+
+\begin{verbatim}
+Scope reduction:
+- Skip hierarchical embeddings initially (use standard embeddings)
+- Use pre-trained Glyph-ByT5 (don't train from scratch)
+- Simpler meta-structures (grammar + sentiment only, 50 patterns total)
+- Smaller model (300M params)
+- Limited languages (English + Chinese only)
+- Shorter context (256 tokens vs 512-1024)
+
+Resources:
+- Compute: 4× A100 40GB for 4 weeks (cloud: ~$10-15K)
+- Data: Use existing datasets (no custom annotation)
+- Personnel: 2 researchers + 1 engineer
+
+Deliverable:
+- Working prototype demonstrating core concept
+- Benchmark against standard diffusion LM
+- Demonstrate controllable generation
+- Sufficient for research paper submission
+\end{verbatim}
+
+\paragraph{Key insights} Superposition enables control; hierarchical structure enables compression and interpretability; diffusion enables global revision; and visual encoding enables universal multilingual handling. Together, ILM offers controllable, efficient, and extensible language generation.
+
+\section*{Appendix: Mathematical Notes}
+\subsection*{A. Graph Laplacian}
+With affinity $W$ and degree matrix $\mathrm{Deg}$, $L{=}\mathrm{Deg}{-}W$ yields $\operatorname{tr}(E^\top L E){=}\tfrac{1}{2}\sum_{p,q}w_{pq}\|E_p{-}E_q\|_2^2$.
+
+\subsection*{B. Mixed-Radix Posterior Capacity}
+Given $C{=}\prod K_\ell$ codes and $V$ items, balanced assignment reduces expected prefix collisions; nearest-neighbor lookup on prefixes accelerates decoding and improves robustness to denoise errors.
+
+\end{document}

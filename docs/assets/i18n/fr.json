@@ -32,5 +32,18 @@
   "explore": "Explorer",
   "see_more": "Voir plus →",
   "all": "Tous",
-  "content_language": "Langue du contenu"
+  "content_language": "Langue du contenu",
+  "cat_metasurfaces": "Métasurfaces",
+  "cat_theory": "Théorie",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "IA pour la science",
+  "cat_product_and_tools": "Produits et outils",
+  "cat_biomedicine": "Biomédecine",
+  "cat_language_models": "Modèles de langage",
+  "cat_general": "Général",
+  "hero_bullet_qc": "QC + MD + IA : pipeline automatisé de simulation de petites molécules de bout en bout.",
+  "hero_bullet_metasurface": "Imagerie par métasurface : conception assistée par IA, balayage de bibliothèques, optique de Fourier et validation.",
+  "hero_bullet_doraemon": "DORAEMON : concept tap-and-charge avec couplage EM rigoureux et limites de circuit.",
+  "hero_bullet_organoidvision": "OrganoidVision : organoïdes rétiniens comme capteurs d’imagerie événementiels adaptatifs.",
+  "hero_bullet_ilm": "ILM : modélisation du langage par images de glyphes, codes produits et génération par diffusion."
 }

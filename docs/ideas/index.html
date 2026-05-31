@@ -77,10 +77,18 @@
           Theory: "from-amber-500 to-yellow-400",
           DORAEMON: "from-emerald-500 to-teal-400",
           "AI for Science": "from-sky-500 to-cyan-400",
+          Biomedicine: "from-rose-500 to-orange-400",
+          "Language Models": "from-violet-500 to-purple-400",
           "Product & Tools": "from-indigo-500 to-violet-500",
           General: "from-slate-500 to-slate-400",
         };
         return map[cat] || map["General"];
+      }
+      function catKey(cat) {
+        return "cat_" + String(cat).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+      }
+      function catLabel(cat) {
+        return `<span data-i18n="${catKey(cat)}">${cat}</span>`;
       }
       function renderFilters() {
         const cats = [...new Set(ideas.map((i) => i.category))];
@@ -90,7 +98,7 @@
           .map((c) => {
             const active = c === currentCat || (c === "All" && !currentCat);
             const cls = active ? "ring-2 ring-indigo-400" : "";
-            const label = c === "All" ? "All" : c;
+            const label = c === "All" ? ALL : catLabel(c);
             const color = c === "All" ? "from-slate-600 to-slate-500" : catColor(c);
             return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
           })
@@ -101,6 +109,7 @@
             currentCat = v === "All" ? null : v;
             renderFilters();
             applyRender();
+            if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
           }),
         );
       }
@@ -109,7 +118,7 @@
         <a href="/ideas/${x.slug}.html" class="group block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
           <div class="text-xs flex items-center gap-2">
             <span class="inline-block rounded-full bg-slate-800 border border-slate-700 px-2 py-0.5">${x.author || "IDEAS"}</span>
-            <span class="inline-block rounded-full bg-gradient-to-r ${catColor(x.category)} px-2 py-0.5 text-slate-900 font-semibold">${x.category}</span>
+            <span class="inline-block rounded-full bg-gradient-to-r ${catColor(x.category)} px-2 py-0.5 text-slate-900 font-semibold">${catLabel(x.category)}</span>
           </div>
           <div class="mt-1 font-bold text-lg group-hover:text-white">${x.title}</div>
           <div class="mt-2 text-sm text-slate-400">${(x.excerpt || "").replace(/</g, "&lt;")}</div>
@@ -126,6 +135,7 @@
         if (q)
           list = list.filter((x) => (x.title + x.author + x.excerpt).toLowerCase().includes(q));
         render(list);
+        if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
       }
       async function loadIdeas() {
         ideas = await fetch("/assets/ideas.json").then((r) => r.json());
@@ -133,6 +143,7 @@
         currentCat = params.get("category");
         renderFilters();
         applyRender();
+        if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
       }
       document.getElementById("q").addEventListener("input", applyRender);
       loadIdeas();

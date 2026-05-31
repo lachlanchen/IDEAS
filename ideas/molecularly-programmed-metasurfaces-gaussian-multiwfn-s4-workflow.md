@@ -1,7 +1,7 @@
 # Molecularly Programmed Metasurfaces: Gaussian + Multiwfn + S4 Workflow
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 Absolutely—pairing **Gaussian** + **Multiwfn** (molecular optics) with **S4** (metasurface RCWA) is not only feasible, it’s a sharp way to design _molecularly programmed_ metasurfaces that do real optical work. Below I’ll give you: (i) concrete project ideas, (ii) a physics‑tight workflow that glues the tools together, and (iii) ready‑to‑run code that converts TD‑DFT outputs into **n(λ), k(λ)** you can feed into S4.
 
 ---

@@ -32,5 +32,18 @@
   "explore": "Khám phá",
   "see_more": "Xem thêm →",
   "all": "Tất cả",
-  "content_language": "Ngôn ngữ nội dung"
+  "content_language": "Ngôn ngữ nội dung",
+  "cat_metasurfaces": "Siêu bề mặt",
+  "cat_theory": "Lý thuyết",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "AI cho khoa học",
+  "cat_product_and_tools": "Sản phẩm & công cụ",
+  "cat_biomedicine": "Y sinh",
+  "cat_language_models": "Mô hình ngôn ngữ",
+  "cat_general": "Chung",
+  "hero_bullet_qc": "QC + MD + AI: quy trình mô phỏng phân tử nhỏ tự động từ đầu đến cuối.",
+  "hero_bullet_metasurface": "Ảnh hóa siêu bề mặt: thiết kế hỗ trợ AI, quét thư viện, quang học Fourier và xác thực.",
+  "hero_bullet_doraemon": "DORAEMON: ý tưởng chạm-là-sạc với ghép điện từ và giới hạn mạch nghiêm ngặt.",
+  "hero_bullet_organoidvision": "OrganoidVision: organoid võng mạc như cảm biến ảnh sự kiện thích nghi.",
+  "hero_bullet_ilm": "ILM: mô hình ngôn ngữ bằng ảnh glyph, mã tích và sinh khuếch tán."
 }

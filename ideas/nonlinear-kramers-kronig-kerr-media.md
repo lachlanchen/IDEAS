@@ -1,7 +1,7 @@
 # The Nonlinear Kramers-Kronig Relations: Causality Beyond Linearity
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 ## Introduction
 
 The classical Kramers–Kronig (KK) relations provide a bridge between a material’s dispersion (real part of the response) and its absorption (imaginary part of the response) by enforcing **causality** [en.wikipedia.org](https://en.wikipedia.org/wiki/Kramers%E2%80%93Kronig_relations) [api.creol.ucf.edu](https://api.creol.ucf.edu/Publications/3865.pdf). In linear optics, causality implies that no output occurs before an input signal arrives. Mathematically, this causality translates into analyticity of the frequency response, which yields Hilbert transform relations between the real and imaginary parts of any causal susceptibility [en.wikipedia.org](https://en.wikipedia.org/wiki/Kramers%E2%80%93Kronig_relations). In simple terms, if a medium absorbs light at a certain frequency, it must exhibit a corresponding phase shift across other frequencies so that the combined response does not produce any effect prior to the cause [api.creol.ucf.edu](https://api.creol.ucf.edu/Publications/3865.pdf). The **linear KK relations** are typically written as a pair of integrals. For example, if $\chi_1(\omega)$ and $\chi_2(\omega)$ are the real and imaginary parts of the linear susceptibility $\chi^{(1)}(\omega)$, one form is:

@@ -118,6 +118,12 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
       <td>—</td>
       <td>EN</td>
     </tr>
+    <tr>
+      <td>Feasible Biomolecular Imaging Metasurfaces with AlphaFold</td>
+      <td><a href="ideas/feasible-biomolecular-imaging-metasurfaces-alphafold.md">Markdown</a></td>
+      <td>—</td>
+      <td>EN</td>
+    </tr>
   </tbody>
   </table>
 
@@ -182,6 +188,96 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
       <td>Investigating the “Mpempba Effect” in Deep Learning and Imaging</td>
       <td><a href="ideas/investigating-mpempba-effect-deep-learning-imaging.md">Markdown</a></td>
       <td><a href="publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+  </tbody>
+  </table>
+
+### Biomedicine
+
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
+  <colgroup>
+    <col width="52%" />
+    <col width="28%" />
+    <col width="15%" />
+    <col width="5%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th align="left">Title</th>
+      <th align="left">Markdown</th>
+      <th align="left">PDF</th>
+      <th align="left">Lang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OrganoidVision: Engineering Retinal Organoids as Advanced Imaging Sensors</td>
+      <td><a href="ideas/organoidvision-bio-hybrid-vision-systems.md">Markdown</a></td>
+      <td><a href="publications/organoidvision-bio-hybrid-vision-systems/organoidvision-bio-hybrid-vision-systems.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>OrganoidIntelligence: Resource Map, Bioelectronic Interface Strategy and First-Demo Roadmap</td>
+      <td><a href="ideas/organoidintelligence-brain-on-chip-resource-map.md">Markdown</a></td>
+      <td><a href="publications/organoidintelligence-feasibility-roadmap/organoidintelligence-feasibility-roadmap.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>OrganoidIntelligence: Resource Map for Wetware Computing, Disease Models and Neural Interfaces</td>
+      <td><a href="ideas/organoidintelligence-brain-on-chip-resource-map.md">Markdown</a></td>
+      <td><a href="publications/organoidintelligence-resource-map/organoidintelligence-resource-map.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+  </tbody>
+  </table>
+
+### Language Models
+
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
+  <colgroup>
+    <col width="52%" />
+    <col width="28%" />
+    <col width="15%" />
+    <col width="5%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th align="left">Title</th>
+      <th align="left">Markdown</th>
+      <th align="left">PDF</th>
+      <th align="left">Lang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Imagized Language Model: Comprehensive Technical Documentation</td>
+      <td><a href="ideas/imagized-language-model.md">Markdown</a></td>
+      <td><a href="publications/imagized-language-model/imagized-language-model.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>Imagized Language Model: Structured Technical Documentation</td>
+      <td><a href="ideas/imagized-language-model.md">Markdown</a></td>
+      <td><a href="publications/imagized-language-model-structured-technical-documentation/imagized-language-model-structured-technical-documentation.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>Imagized Language Modeling with Factorized Glyph Embeddings and Diffusion-Based Generation</td>
+      <td><a href="ideas/imagized-language-model.md">Markdown</a></td>
+      <td><a href="publications/imagized-language-model-deep-dive/imagized-language-model-deep-dive.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>Mathematical Foundations of the Imagized Language Model</td>
+      <td><a href="ideas/imagized-language-model.md">Markdown</a></td>
+      <td><a href="publications/imagized-language-model-math-validation/imagized-language-model-math-validation.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
+    <tr>
+      <td>Cross-Lingual Imagized Language Model: A Mathematical Derivation</td>
+      <td><a href="ideas/imagized-language-model.md">Markdown</a></td>
+      <td><a href="publications/cross-lingual-imagized-language-model/cross-lingual-imagized-language-model.pdf">PDF</a></td>
       <td>EN</td>
     </tr>
   </tbody>

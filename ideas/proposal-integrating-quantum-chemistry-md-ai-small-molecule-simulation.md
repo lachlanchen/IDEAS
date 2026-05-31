@@ -1,7 +1,7 @@
 # Proposal: Integrating Quantum Chemistry, Molecular Dynamics, and AI for Small Molecule Simulation
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 ## Overview and Objectives
 
 We propose a comprehensive simulation workflow that **combines quantum chemistry**, **molecular dynamics (MD)**, and **AI-driven tools** to study a small or biomolecular system. The goal is to **optimize the molecular structure** and **predict its spectra** (e.g. infrared and UV-Vis) with high accuracy, while leveraging automation to streamline the process. Specifically, this plan will:

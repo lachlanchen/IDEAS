@@ -14,6 +14,7 @@ function parseMeta(markdown) {
   const lines = markdown.split(/\r?\n/);
   let title = "";
   let author = "";
+  let affiliation = "";
   let excerpt = "";
   let i = 0;
   for (; i < lines.length; i++) {
@@ -37,6 +38,16 @@ function parseMeta(markdown) {
       break;
     }
   }
+  for (let j = i; j < Math.min(lines.length, i + 4); j++) {
+    const l = lines[j].trim();
+    const m = l.match(/^Affiliation:\s*(.+)$/i);
+    if (m) {
+      affiliation = m[1].trim();
+      i = j + 1;
+      break;
+    }
+    if (l && !/^Affiliation:\s*/i.test(l)) break;
+  }
   // first non-empty paragraph for excerpt
   let para = [];
   for (let j = i; j < lines.length; j++) {
@@ -49,15 +60,16 @@ function parseMeta(markdown) {
       }
     }
     if (l.startsWith("#")) {
-      break;
-    } // stop at next header
+      if (para.length) break;
+      continue;
+    }
     para.push(l);
   }
   excerpt = para.join(" ").trim();
   if (excerpt.length > 320) {
     excerpt = excerpt.slice(0, 317) + "...";
   }
-  return { title, author, excerpt };
+  return { title, author, affiliation, excerpt };
 }
 
 async function ensureDir(dir) {
@@ -113,13 +125,13 @@ function baseTemplate({ title, content }) {
 </html>`;
 }
 
-function ideaDetailTemplate({ title, author, html, alts }) {
+function ideaDetailTemplate({ title, author, affiliation, html, alts }) {
   const content = `
   <section class="bg-gradient-to-b from-slate-900 to-slate-950">
     <div class="max-w-3xl mx-auto px-4 py-14">
       <h1 class="text-3xl md:text-4xl font-extrabold mb-2">${title}</h1>
       <div class="flex items-center justify-between mb-4">
-        ${author ? `<p class="text-slate-400"><span data-i18n="by">by</span> ${author}</p>` : "<span></span>"}
+        ${author ? `<p class="text-slate-400"><span data-i18n="by">by</span> ${author}${affiliation ? `<br><span class="text-slate-500">${affiliation}</span>` : ""}</p>` : "<span></span>"}
         ${
           Array.isArray(alts) && alts.length > 1
             ? `
@@ -177,6 +189,14 @@ function categoryForSlug(slug) {
   ) {
     return "AI for Science";
   }
+  // Biomedicine / organoid computing
+  if (s.includes("organoidvision") || s.includes("organoidintelligence") || s.includes("brain-on-chip")) {
+    return "Biomedicine";
+  }
+  // Language-model research
+  if (s.includes("imagized-language-model") || s.includes("cross-lingual-imagized")) {
+    return "Language Models";
+  }
   // Product & Tools
   if (s.includes("file-management") || s.includes("file-management")) {
     return "Product & Tools";
@@ -223,6 +243,41 @@ function labelForLang(code) {
   return L[code] || code;
 }
 
+function readBalancedCommandArg(source, command) {
+  const start = source.indexOf(`\\${command}{`);
+  if (start < 0) return "";
+  let i = start + command.length + 2;
+  let depth = 1;
+  let out = "";
+  for (; i < source.length; i++) {
+    const ch = source[i];
+    if (ch === "\\" && i + 1 < source.length) {
+      out += ch + source[++i];
+      continue;
+    }
+    if (ch === "{") depth++;
+    if (ch === "}") depth--;
+    if (depth === 0) break;
+    out += ch;
+  }
+  return out;
+}
+
+function cleanLatexTitle(raw, fallback) {
+  if (!raw) return fallback;
+  return raw
+    .replace(/\\vspace\{[^}]*\}/g, "")
+    .replace(/\\bfseries/g, "")
+    .replace(/\\large/g, "")
+    .replace(/\\footnotesize/g, "")
+    .replace(/\\textnormal\{([^{}]*)\}/g, "$1")
+    .replace(/\\\\/g, " ")
+    .replace(/\\[a-zA-Z]+\*?(?:\[[^\]]*\])?(?:\{([^{}]*)\})?/g, "$1")
+    .replace(/[{}$]/g, "")
+    .replace(/\s+/g, " ")
+    .trim() || fallback;
+}
+
 async function main() {
   const root = process.cwd();
   const ideasDir = path.join(root, "ideas");
@@ -239,12 +294,12 @@ async function main() {
   for (const file of files) {
     const mdPath = path.join(ideasDir, file);
     const raw = await fs.readFile(mdPath, "utf8");
-    const { title, author, excerpt } = parseMeta(raw);
+    const { title, author, affiliation, excerpt } = parseMeta(raw);
     const slug = file.replace(/\.md$/, "");
     const category = categoryForSlug(slug);
     const lang = languageForSlug(slug);
     const baseId = baseIdForSlug(slug);
-    const rec = { slug, title: title || slug, author, excerpt, category, lang, baseId, _raw: raw };
+    const rec = { slug, title: title || slug, author, affiliation, excerpt, category, lang, baseId, _raw: raw };
     ideas.push(rec);
     (groups[baseId] = groups[baseId] || []).push(rec);
   }
@@ -256,7 +311,7 @@ async function main() {
       label: labelForLang(r.lang),
     }));
     const html = await renderMarkdown(rec._raw);
-    const page = ideaDetailTemplate({ title: rec.title, author: rec.author, html, alts });
+    const page = ideaDetailTemplate({ title: rec.title, author: rec.author, affiliation: rec.affiliation, html, alts });
     await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page, "utf8");
     delete rec._raw;
   }
@@ -281,9 +336,12 @@ async function main() {
     for (const f of entries) {
       if (f.endsWith(".pdf")) {
         const category = categoryForSlug(cat);
+        const texPath = path.join(catDir, `${cat}.tex`);
+        const tex = await fs.readFile(texPath, "utf8").catch(() => "");
+        const fallbackTitle = cat.replace(/[-_]/g, " ");
         pubItems.push({
           slug: cat,
-          title: cat.replace(/[-_]/g, " "),
+          title: cleanLatexTitle(readBalancedCommandArg(tex, "title"), fallbackTitle),
           href: `/publications/${cat}/${f}`,
           category,
         });

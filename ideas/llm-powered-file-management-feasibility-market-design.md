@@ -1,5 +1,8 @@
 # LLM-Powered File Management: Feasibility, Market, and Design
 
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
+
 1. Situation: The File Organization Problem
    Modern computer users often face disorganized folders, duplicate files, and poorly named documents. Over years of use, multiple copies of files get scattered across drives, downloads directories overflow, and inconsistent naming conventions make it hard to know what’s what. This clutter isn’t just an aesthetic issue – it has real productivity costs. Studies show that 54% of office professionals waste time searching for files in cluttered storage systems
    techrepublic.com

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imagized Language Model: Text as Images, Glyph Codes, and Diffusion Generation — IDEAS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="/assets/favicon.png" />
+  <meta property="og:title" content="Imagized Language Model: Text as Images, Glyph Codes, and Diffusion Generation — IDEAS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/assets/logo.svg" />
+  <meta name="description" content="IDEAS — a lightweight, versioned notebook of research notes and essays." />
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: { DEFAULT:'#4f46e5'} } } } }
+  </script>
+  <style>.prose h1,h2,h3{scroll-margin-top:6rem}</style>
+  </head>
+<body class="bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
+      </nav>
+      <div id="langSwitcher" class="ml-4"></div>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-3xl mx-auto px-4 py-14">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Imagized Language Model: Text as Images, Glyph Codes, and Diffusion Generation</h1>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> Lachlan Chen, AgInTiFlow<br><span class="text-slate-500">AgInTi Lab, LazyingArt LLC</span></p>
+
+      </div>
+      <article class="prose prose-invert prose-slate max-w-none"><h1>Imagized Language Model: Text as Images, Glyph Codes, and Diffusion Generation</h1><p></p>Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC<p></p><h2>Concept</h2><p></p>The Imagized Language Model (ILM) treats language as an image-like object. Tokens are rendered as glyph images, mapped into factorized multi-channel codes, aligned through contrastive and structural objectives, and generated or infilled through diffusion-style denoising over code grids.<p></p>This idea is useful because it bypasses some assumptions of conventional tokenization. It can work across scripts by rendering text visually, it can learn from glyph images and question-answer corpora, and it can represent a token as a product of multiple discrete channels rather than a single opaque embedding.<p></p><h2>Product Direction</h2><p></p>- Encode words, characters, or unknown scripts as rendered glyph images.
+- Learn shared product-codebook addresses that are invertible, memory-like, and cross-lingual.
+- Align glyph features, token codes, and QA semantics with InfoNCE and Gram-structure losses.
+- Use image-style diffusion or inpainting to reconstruct masked language grids.
+- Position ILM as a bridge between language modeling, visual representation learning, historical scripts, and multilingual low-resource NLP.<p></p><h2>Publications</h2><p></p>- PDF: <a href="../publications/imagized-language-model/imagized-language-model.pdf">Imagized Language Model</a>
+- PDF: <a href="../publications/imagized-language-model-structured-technical-documentation/imagized-language-model-structured-technical-documentation.pdf">Structured Technical Documentation</a>
+- PDF: <a href="../publications/imagized-language-model-deep-dive/imagized-language-model-deep-dive.pdf">Deep Dive</a>
+- PDF: <a href="../publications/imagized-language-model-math-validation/imagized-language-model-math-validation.pdf">Math Validation</a>
+- PDF: <a href="../publications/cross-lingual-imagized-language-model/cross-lingual-imagized-language-model.pdf">Cross-Lingual Derivation</a>
+</article>
+    </div>
+  </section>
+  <footer class="border-t border-slate-800 mt-20">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400 flex justify-between">
+      <span>© 2026 IDEAS</span>
+      <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
+    </div>
+  </footer>
+  <script src="/assets/i18n.js"></script>
+</body>
+</html>

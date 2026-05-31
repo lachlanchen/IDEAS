@@ -32,5 +32,18 @@
   "explore": "閲覧",
   "see_more": "さらに見る →",
   "all": "すべて",
-  "content_language": "コンテンツの言語"
+  "content_language": "コンテンツの言語",
+  "cat_metasurfaces": "メタサーフェス",
+  "cat_theory": "理論",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "AI for Science",
+  "cat_product_and_tools": "プロダクトとツール",
+  "cat_biomedicine": "バイオメディシン",
+  "cat_language_models": "言語モデル",
+  "cat_general": "一般",
+  "hero_bullet_qc": "QC + MD + AI：小分子シミュレーションのエンドツーエンド自動化パイプライン。",
+  "hero_bullet_metasurface": "メタサーフェスイメージング：AI支援設計、ライブラリ探索、フーリエ光学、検証。",
+  "hero_bullet_doraemon": "DORAEMON：厳密な電磁結合と回路制約を含むタップ・アンド・チャージ構想。",
+  "hero_bullet_organoidvision": "OrganoidVision：網膜オルガノイドを適応型イベントベース画像センサーへ。",
+  "hero_bullet_ilm": "ILM：字形画像、積符号、拡散生成による言語モデリング。"
 }

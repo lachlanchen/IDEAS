@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Executive Overview}{1}{section.1}%
+\contentsline {paragraph}{Key innovations}{1}{section*.2}%
+\contentsline {section}{\numberline {2}Meta-Elements as Superposition}{2}{section.2}%
+\contentsline {paragraph}{Examples}{2}{section*.3}%
+\contentsline {section}{\numberline {3}Hierarchical, Memory-Like Embeddings}{2}{section.3}%
+\contentsline {paragraph}{Laplacian regularization}{2}{section*.4}%
+\contentsline {paragraph}{Text-as-image rasterization}{2}{section*.5}%
+\contentsline {section}{\numberline {4}Diffusion for Language}{2}{section.4}%
+\contentsline {paragraph}{Discrete diffusion}{2}{section*.6}%
+\contentsline {paragraph}{Latent diffusion}{2}{section*.7}%
+\contentsline {paragraph}{Coarse-to-fine}{3}{section*.8}%
+\contentsline {section}{\numberline {5}Comparison with Autoregressive Generation}{3}{section.5}%
+\contentsline {section}{\numberline {6}Direct Character Visual Representation}{3}{section.6}%
+\contentsline {section}{\numberline {7}Unified Objective}{3}{section.7}%
+\contentsline {section}{\numberline {8}Architecture and Training}{3}{section.8}%
+\contentsline {paragraph}{Backbone}{3}{section*.9}%
+\contentsline {paragraph}{Sampling}{3}{section*.10}%
+\contentsline {paragraph}{Efficiency}{3}{section*.11}%
+\contentsline {section}{\numberline {9}Feasibility and Roadmap}{4}{section.9}%
+\contentsline {paragraph}{Key insights}{4}{section*.12}%

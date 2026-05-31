@@ -1,7 +1,7 @@
 # Designing Molecularly Programmed Metasurfaces with Gaussian, Multiwfn, and S4
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 **Yes – combining Gaussian (quantum chemistry) + Multiwfn (molecular analysis) with S4 (metasurface RCWA solver) is not only feasible but opens up novel \*\*molecularly-programmed metasurface\*\* designs.** Below we outline: **(i)** several concrete project ideas, **(ii)** a physics-grounded workflow linking the tools, and **(iii)** an example simulation pipeline (with code) to convert TD-DFT results into dispersive **n(λ), k(λ)** inputs for S4. We also highlight choices to keep the experimental realization as simple and feasible as possible.
 
 ## Potential Projects Integrating Molecular Optics & Metasurfaces

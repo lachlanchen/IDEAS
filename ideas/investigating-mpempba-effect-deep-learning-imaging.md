@@ -1,7 +1,7 @@
 # Investigating the "Mpempba Effect" in Deep Learning and Imaging
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 ## Background and Motivation
 
 The term **"mpempba effect"** does not correspond to any well-established concept in the literature. It is likely referring to the **Mpemba effect**, a phenomenon from thermodynamics. The Mpemba effect describes the counterintuitive situation where a system that starts _hotter_ can cool to a target temperature faster than an identical system that starts _colder_, under the same conditions[scitechdaily.com](https://scitechdaily.com/scientists-unravel-the-bizarre-physics-of-the-mpemba-effect/#:~:text=The Mpemba effect%2C whereby hotter,documenting the effect in water). First observed by Aristotle and later documented by Erasto Mpemba in water freezing experiments, this effect has been confirmed in various physical systems beyond water[scitechdaily.com](https://scitechdaily.com/scientists-unravel-the-bizarre-physics-of-the-mpemba-effect/#:~:text=The Mpemba effect%2C whereby hotter,documenting the effect in water). In essence, _starting from a more extreme initial state can paradoxically speed up relaxation to equilibrium_.

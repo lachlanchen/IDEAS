@@ -32,5 +32,18 @@
   "explore": "瀏覽",
   "see_more": "檢視更多 →",
   "all": "全部",
-  "content_language": "內容語言"
+  "content_language": "內容語言",
+  "cat_metasurfaces": "超表面",
+  "cat_theory": "理論",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "AI 科學",
+  "cat_product_and_tools": "產品與工具",
+  "cat_biomedicine": "生物醫學",
+  "cat_language_models": "語言模型",
+  "cat_general": "通用",
+  "hero_bullet_qc": "QC + MD + AI：端到端小分子模擬與自動化管線。",
+  "hero_bullet_metasurface": "超表面成像：AI 輔助設計、單元庫掃描、傅立葉光學與驗證。",
+  "hero_bullet_doraemon": "DORAEMON：一碰即充概念，包含嚴格電磁耦合與電路限制。",
+  "hero_bullet_organoidvision": "OrganoidVision：把視網膜類器官作為自適應事件式成像感測器。",
+  "hero_bullet_ilm": "ILM：基於字形影像、乘積編碼與擴散生成的語言模型。"
 }

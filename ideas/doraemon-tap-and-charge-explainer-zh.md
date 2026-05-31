@@ -1,7 +1,7 @@
 # 用通俗中文讲清楚：DORAEMON「一碰即充」完整说明（Markdown 版）
 
-Author: LazyingArt
-
+Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC
 > 目标：先讲**直觉**，再讲**问题—方案—为什么能成—方法细节—影响与应用**，最后给一个**小算例**和**如何用代码做验证**的思路。整篇可直接当说明文/提案文使用。
 
 ---

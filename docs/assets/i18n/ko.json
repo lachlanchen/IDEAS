@@ -32,5 +32,18 @@
   "explore": "탐색",
   "see_more": "더 보기 →",
   "all": "전체",
-  "content_language": "콘텐츠 언어"
+  "content_language": "콘텐츠 언어",
+  "cat_metasurfaces": "메타표면",
+  "cat_theory": "이론",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "과학을 위한 AI",
+  "cat_product_and_tools": "제품 및 도구",
+  "cat_biomedicine": "생물의학",
+  "cat_language_models": "언어 모델",
+  "cat_general": "일반",
+  "hero_bullet_qc": "QC + MD + AI: 소분자 시뮬레이션을 위한 엔드투엔드 자동화 파이프라인.",
+  "hero_bullet_metasurface": "메타표면 이미징: AI 보조 설계, 라이브러리 스윕, 푸리에 광학, 검증.",
+  "hero_bullet_doraemon": "DORAEMON: 엄밀한 전자기 결합과 회로 한계를 포함한 탭-앤-차지 개념.",
+  "hero_bullet_organoidvision": "OrganoidVision: 망막 오가노이드를 적응형 이벤트 기반 이미징 센서로 사용.",
+  "hero_bullet_ilm": "ILM: 글리프 이미지, 곱 코드, 확산 생성을 이용한 언어 모델링."
 }

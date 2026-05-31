@@ -69,10 +69,18 @@
           Theory: "from-amber-500 to-yellow-400",
           DORAEMON: "from-emerald-500 to-teal-400",
           "AI for Science": "from-sky-500 to-cyan-400",
+          Biomedicine: "from-rose-500 to-orange-400",
+          "Language Models": "from-violet-500 to-purple-400",
           "Product & Tools": "from-indigo-500 to-violet-500",
           General: "from-slate-500 to-slate-400",
         };
         return map[cat] || map["General"];
+      }
+      function catKey(cat) {
+        return "cat_" + String(cat).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+      }
+      function catLabel(cat) {
+        return `<span data-i18n="${catKey(cat)}">${cat}</span>`;
       }
       function renderFilters() {
         const cats = [...new Set(pubs.map((p) => p.category))];
@@ -82,7 +90,7 @@
           .map((c) => {
             const active = c === currentCat || (c === "All" && !currentCat);
             const cls = active ? "ring-2 ring-indigo-400" : "";
-            const label = c === "All" ? ALL : c;
+            const label = c === "All" ? ALL : catLabel(c);
             const color = c === "All" ? "from-slate-600 to-slate-500" : catColor(c);
             return `<button data-cat="${c}" class="px-3 py-1 rounded-full bg-gradient-to-r ${color} text-slate-900 font-semibold ${cls}">${label}</button>`;
           })
@@ -93,6 +101,7 @@
             currentCat = v === "All" ? null : v;
             render();
             renderFilters();
+            if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
           }),
         );
       }
@@ -105,7 +114,7 @@
             (p) => `
         <a href="${p.href}" target="_blank" class="block p-5 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-indigo-500/60 transition">
           <div class=\"text-xs inline-flex items-center gap-2\">
-            <span class=\"inline-block rounded-full bg-gradient-to-r ${catColor(p.category)} px-2 py-0.5 text-slate-900 font-semibold\">${p.category}</span>
+            <span class=\"inline-block rounded-full bg-gradient-to-r ${catColor(p.category)} px-2 py-0.5 text-slate-900 font-semibold\">${catLabel(p.category)}</span>
             <span class=\"inline-block text-slate-400\">${p.slug}</span>
           </div>
           <div class=\"mt-1 font-bold text-lg\">${p.title}</div>
@@ -118,6 +127,7 @@
         pubs = await fetch("/assets/publications.json").then((r) => r.json());
         renderFilters();
         render();
+        if (window.__i18n && typeof window.__i18n.apply === "function") window.__i18n.apply();
       }
       load();
     </script>

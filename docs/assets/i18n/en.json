@@ -32,5 +32,18 @@
   "explore": "Explore",
   "see_more": "See more →",
   "all": "All",
-  "content_language": "Content language"
+  "content_language": "Content language",
+  "cat_metasurfaces": "Metasurfaces",
+  "cat_theory": "Theory",
+  "cat_doraemon": "DORAEMON",
+  "cat_ai_for_science": "AI for Science",
+  "cat_product_and_tools": "Product & Tools",
+  "cat_biomedicine": "Biomedicine",
+  "cat_language_models": "Language Models",
+  "cat_general": "General",
+  "hero_bullet_qc": "QC + MD + AI: end-to-end small molecule simulation pipeline with automation.",
+  "hero_bullet_metasurface": "Metasurface Imaging: AI-assisted design, library sweeps, Fourier optics, and validation.",
+  "hero_bullet_doraemon": "DORAEMON: Tap-and-Charge concept with rigorous EM coupling and circuit limits.",
+  "hero_bullet_organoidvision": "OrganoidVision: retinal organoids as adaptive event-based imaging sensors.",
+  "hero_bullet_ilm": "ILM: glyph-image language modeling with product codes and diffusion generation."
 }
