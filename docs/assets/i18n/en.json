@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "Metasurface Imaging: AI-assisted design, library sweeps, Fourier optics, and validation.",
   "hero_bullet_doraemon": "DORAEMON: Tap-and-Charge concept with rigorous EM coupling and circuit limits.",
   "hero_bullet_organoidvision": "OrganoidVision: retinal organoids as adaptive event-based imaging sensors.",
-  "hero_bullet_ilm": "ILM: glyph-image language modeling with product codes and diffusion generation."
+  "hero_bullet_ilm": "ILM: glyph-image language modeling with product codes and diffusion generation.",
+  "source_repos_label": "SOURCE REPOS",
+  "source_repos_title": "Linked Project Repositories",
+  "source_repos_desc": "These source projects remain independent GitHub repositories, while IDEAS curates their product framing, publications, and cross-domain roadmap.",
+  "source_organoidvision": "Retinal organoid imaging sensors and bio-hybrid vision stack.",
+  "source_organoidintelligence": "Brain-on-chip, wetware computing, MEA loop, and organoid intelligence roadmap.",
+  "source_ilm": "Glyph-image language modeling, product codes, and diffusion-style language generation."
 }

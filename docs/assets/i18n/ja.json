@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "メタサーフェスイメージング：AI支援設計、ライブラリ探索、フーリエ光学、検証。",
   "hero_bullet_doraemon": "DORAEMON：厳密な電磁結合と回路制約を含むタップ・アンド・チャージ構想。",
   "hero_bullet_organoidvision": "OrganoidVision：網膜オルガノイドを適応型イベントベース画像センサーへ。",
-  "hero_bullet_ilm": "ILM：字形画像、積符号、拡散生成による言語モデリング。"
+  "hero_bullet_ilm": "ILM：字形画像、積符号、拡散生成による言語モデリング。",
+  "source_repos_label": "ソースリポジトリ",
+  "source_repos_title": "関連プロジェクトリポジトリ",
+  "source_repos_desc": "これらのソースプロジェクトは独立した GitHub リポジトリとして残し、IDEAS では製品化の文脈、出版物、横断的ロードマップを整理します。",
+  "source_organoidvision": "網膜オルガノイド画像センサーとバイオハイブリッド視覚スタック。",
+  "source_organoidintelligence": "ブレイン・オン・チップ、ウェットウェア計算、MEA ループ、オルガノイド知能ロードマップ。",
+  "source_ilm": "字形画像言語モデリング、積符号、拡散型言語生成。"
 }

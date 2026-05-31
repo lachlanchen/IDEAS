@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "메타표면 이미징: AI 보조 설계, 라이브러리 스윕, 푸리에 광학, 검증.",
   "hero_bullet_doraemon": "DORAEMON: 엄밀한 전자기 결합과 회로 한계를 포함한 탭-앤-차지 개념.",
   "hero_bullet_organoidvision": "OrganoidVision: 망막 오가노이드를 적응형 이벤트 기반 이미징 센서로 사용.",
-  "hero_bullet_ilm": "ILM: 글리프 이미지, 곱 코드, 확산 생성을 이용한 언어 모델링."
+  "hero_bullet_ilm": "ILM: 글리프 이미지, 곱 코드, 확산 생성을 이용한 언어 모델링.",
+  "source_repos_label": "소스 저장소",
+  "source_repos_title": "연결된 프로젝트 저장소",
+  "source_repos_desc": "이 소스 프로젝트들은 독립 GitHub 저장소로 유지되고, IDEAS는 제품 관점, 출판물, 분야 간 로드맵을 정리합니다.",
+  "source_organoidvision": "망막 오가노이드 이미징 센서와 바이오 하이브리드 비전 스택.",
+  "source_organoidintelligence": "브레인 온 칩, 웻웨어 컴퓨팅, MEA 루프, 오가노이드 지능 로드맵.",
+  "source_ilm": "글리프 이미지 언어 모델링, 곱 코드, 확산식 언어 생성."
 }

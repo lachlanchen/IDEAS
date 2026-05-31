@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "Ảnh hóa siêu bề mặt: thiết kế hỗ trợ AI, quét thư viện, quang học Fourier và xác thực.",
   "hero_bullet_doraemon": "DORAEMON: ý tưởng chạm-là-sạc với ghép điện từ và giới hạn mạch nghiêm ngặt.",
   "hero_bullet_organoidvision": "OrganoidVision: organoid võng mạc như cảm biến ảnh sự kiện thích nghi.",
-  "hero_bullet_ilm": "ILM: mô hình ngôn ngữ bằng ảnh glyph, mã tích và sinh khuếch tán."
+  "hero_bullet_ilm": "ILM: mô hình ngôn ngữ bằng ảnh glyph, mã tích và sinh khuếch tán.",
+  "source_repos_label": "KHO NGUỒN",
+  "source_repos_title": "Kho dự án liên kết",
+  "source_repos_desc": "Các dự án nguồn này vẫn là kho GitHub độc lập, còn IDEAS quản lý cách đóng khung sản phẩm, ấn phẩm và lộ trình liên ngành.",
+  "source_organoidvision": "Cảm biến ảnh organoid võng mạc và ngăn xếp thị giác lai sinh học.",
+  "source_organoidintelligence": "Brain-on-chip, điện toán wetware, vòng lặp MEA và lộ trình trí tuệ organoid.",
+  "source_ilm": "Mô hình ngôn ngữ bằng ảnh glyph, mã tích và sinh ngôn ngữ kiểu khuếch tán."
 }

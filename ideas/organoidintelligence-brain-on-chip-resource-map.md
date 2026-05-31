@@ -18,5 +18,6 @@ The imported publications map the field from brain organoid culture and organ-on
 
 ## Publications
 
+- Source repository: [github.com/lachlanchen/OrganoidIntelligence](https://github.com/lachlanchen/OrganoidIntelligence)
 - PDF: [OrganoidIntelligence Feasibility Roadmap](../publications/organoidintelligence-feasibility-roadmap/organoidintelligence-feasibility-roadmap.pdf)
 - PDF: [OrganoidIntelligence Resource Map](../publications/organoidintelligence-resource-map/organoidintelligence-resource-map.pdf)

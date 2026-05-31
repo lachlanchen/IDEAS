@@ -19,6 +19,7 @@ This idea is useful because it bypasses some assumptions of conventional tokeniz
 
 ## Publications
 
+- Source repository: [github.com/lachlanchen/ImagizedLanguageModel](https://github.com/lachlanchen/ImagizedLanguageModel)
 - PDF: [Imagized Language Model](../publications/imagized-language-model/imagized-language-model.pdf)
 - PDF: [Structured Technical Documentation](../publications/imagized-language-model-structured-technical-documentation/imagized-language-model-structured-technical-documentation.pdf)
 - PDF: [Deep Dive](../publications/imagized-language-model-deep-dive/imagized-language-model-deep-dive.pdf)

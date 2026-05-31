@@ -40,6 +40,7 @@ This repository follows a content-first workflow:
 | 🧪 Day-to-day workflow | [Usage](#usage)                             |
 | 🧱 Repository layout   | [Project Structure](#project-structure)     |
 | ⚙️ Ops details         | [Configuration](#configuration)             |
+| 🔗 Source repositories | [Source Repositories](#source-repositories) |
 | 🧩 Contribution guide  | [Contribution](#contribution)               |
 | ✉️ Contact             | [Contact](#contact)                         |
 | ❤️ Support             | [Support / Donate](#-support)               |
@@ -61,6 +62,40 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
 - Static site content under `docs/` with generated manifests in `docs/assets/`.
 - Optional local git hook setup via `scripts/enable-hooks.sh`.
 - Repository includes publication artifacts (`.aux`, `.log`, `.fls`, `.fdb_latexmk`, `.out`) where useful for reproducibility.
+
+## Source Repositories
+
+<table width="100%" style="width:100%; table-layout:fixed; word-break:break-word; overflow-wrap:anywhere;">
+  <colgroup>
+    <col width="30%" />
+    <col width="45%" />
+    <col width="25%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th align="left">Project</th>
+      <th align="left">Role in IDEAS</th>
+      <th align="left">GitHub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OrganoidVision</td>
+      <td>Retinal organoid imaging sensors and bio-hybrid vision stack.</td>
+      <td><a href="https://github.com/lachlanchen/OrganoidVision">Repository</a></td>
+    </tr>
+    <tr>
+      <td>OrganoidIntelligence</td>
+      <td>Brain-on-chip, wetware computing, MEA loop, and organoid intelligence roadmap.</td>
+      <td><a href="https://github.com/lachlanchen/OrganoidIntelligence">Repository</a></td>
+    </tr>
+    <tr>
+      <td>ImagizedLanguageModel</td>
+      <td>Glyph-image language modeling, product codes, and diffusion-style language generation.</td>
+      <td><a href="https://github.com/lachlanchen/ImagizedLanguageModel">Repository</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Catalog by Category
 

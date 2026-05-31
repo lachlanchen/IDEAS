@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "Imagerie par métasurface : conception assistée par IA, balayage de bibliothèques, optique de Fourier et validation.",
   "hero_bullet_doraemon": "DORAEMON : concept tap-and-charge avec couplage EM rigoureux et limites de circuit.",
   "hero_bullet_organoidvision": "OrganoidVision : organoïdes rétiniens comme capteurs d’imagerie événementiels adaptatifs.",
-  "hero_bullet_ilm": "ILM : modélisation du langage par images de glyphes, codes produits et génération par diffusion."
+  "hero_bullet_ilm": "ILM : modélisation du langage par images de glyphes, codes produits et génération par diffusion.",
+  "source_repos_label": "DÉPÔTS SOURCE",
+  "source_repos_title": "Dépôts de projets liés",
+  "source_repos_desc": "Ces projets source restent des dépôts GitHub indépendants, tandis qu’IDEAS organise leur cadrage produit, leurs publications et leur feuille de route transdisciplinaire.",
+  "source_organoidvision": "Capteurs d’imagerie à organoïdes rétiniens et pile de vision bio-hybride.",
+  "source_organoidintelligence": "Brain-on-chip, calcul wetware, boucle MEA et feuille de route de l’intelligence organoïde.",
+  "source_ilm": "Modélisation du langage par images de glyphes, codes produits et génération de langage par diffusion."
 }

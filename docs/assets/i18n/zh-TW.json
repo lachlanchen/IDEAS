@@ -45,5 +45,11 @@
   "hero_bullet_metasurface": "超表面成像：AI 輔助設計、單元庫掃描、傅立葉光學與驗證。",
   "hero_bullet_doraemon": "DORAEMON：一碰即充概念，包含嚴格電磁耦合與電路限制。",
   "hero_bullet_organoidvision": "OrganoidVision：把視網膜類器官作為自適應事件式成像感測器。",
-  "hero_bullet_ilm": "ILM：基於字形影像、乘積編碼與擴散生成的語言模型。"
+  "hero_bullet_ilm": "ILM：基於字形影像、乘積編碼與擴散生成的語言模型。",
+  "source_repos_label": "原始碼倉庫",
+  "source_repos_title": "關聯專案倉庫",
+  "source_repos_desc": "這些源專案保持為獨立 GitHub 倉庫，IDEAS 負責整理它們的產品化敘事、論文與跨領域路線圖。",
+  "source_organoidvision": "視網膜類器官成像感測器與生物混合視覺架構。",
+  "source_organoidintelligence": "腦晶片、濕件運算、MEA 閉環與類器官智慧路線圖。",
+  "source_ilm": "字形影像語言建模、乘積編碼與擴散式語言生成。"
 }

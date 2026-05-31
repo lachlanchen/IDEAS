@@ -18,5 +18,6 @@ The imported publication describes a full stack for this direction: cone-enriche
 
 ## Publication
 
+- Source repository: [github.com/lachlanchen/OrganoidVision](https://github.com/lachlanchen/OrganoidVision)
 - PDF: [OrganoidVision: Bio-Hybrid Vision Systems](../publications/organoidvision-bio-hybrid-vision-systems/organoidvision-bio-hybrid-vision-systems.pdf)
 - Source: [LaTeX](../publications/organoidvision-bio-hybrid-vision-systems/organoidvision-bio-hybrid-vision-systems.tex)

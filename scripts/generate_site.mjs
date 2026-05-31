@@ -312,7 +312,7 @@ async function main() {
     }));
     const html = await renderMarkdown(rec._raw);
     const page = ideaDetailTemplate({ title: rec.title, author: rec.author, affiliation: rec.affiliation, html, alts });
-    await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page, "utf8");
+    await fs.writeFile(path.join(outIdeasDir, `${rec.slug}.html`), page.replace(/[ \t]+$/gm, ""), "utf8");
     delete rec._raw;
   }
   await fs.writeFile(path.join(outAssetsDir, "ideas.json"), JSON.stringify(ideas, null, 2));
