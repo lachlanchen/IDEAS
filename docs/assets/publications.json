@@ -30,6 +30,18 @@
     "category": "DORAEMON"
   },
   {
+    "slug": "human-centered-laboratory-autonomy",
+    "title": "Human-Centered Laboratory Autonomy AR-Guided Experiments, Scene-Level Learning, and Embodied Robot Integration",
+    "href": "/publications/human-centered-laboratory-autonomy/human-centered-laboratory-autonomy.pdf",
+    "category": "AI for Science"
+  },
+  {
+    "slug": "human-centered-laboratory-autonomy-zh",
+    "title": "以人为中心的实验室自主化 AR 辅助实验、场景级学习与具身机器人集成",
+    "href": "/publications/human-centered-laboratory-autonomy-zh/human-centered-laboratory-autonomy-zh.pdf",
+    "category": "AI for Science"
+  },
+  {
     "slug": "imagized-language-model",
     "title": "Imagized Language Model: Comprehensive Technical Documentation",
     "href": "/publications/imagized-language-model/imagized-language-model.pdf",

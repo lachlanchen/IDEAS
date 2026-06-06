@@ -185,7 +185,9 @@ function categoryForSlug(slug) {
     s.includes("mpempba") ||
     s.includes("quantum-chemistry") ||
     s.includes("molecular") ||
-    s.includes("imaging-system")
+    s.includes("imaging-system") ||
+    s.includes("laboratory-autonomy") ||
+    s.includes("robotic-lab")
   ) {
     return "AI for Science";
   }

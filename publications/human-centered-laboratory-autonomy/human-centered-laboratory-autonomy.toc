@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Executive Thesis}{4}{section.1}%
+\contentsline {section}{\numberline {2}Why Not Build A Bionic Human First?}{4}{section.2}%
+\contentsline {section}{\numberline {3}Why Robots Still Matter}{5}{section.3}%
+\contentsline {section}{\numberline {4}The Gap Between Robot Demo And Real Lab Application}{5}{section.4}%
+\contentsline {section}{\numberline {5}Product Idea 1: AR-Guided Experiments}{6}{section.5}%
+\contentsline {section}{\numberline {6}Product Idea 2: Camera-First Laboratory OS}{7}{section.6}%
+\contentsline {section}{\numberline {7}Product Idea 3: Scene-Video Training Instead Of Hand-Only Training}{7}{section.7}%
+\contentsline {section}{\numberline {8}Master-Apprentice Learning Loop}{8}{section.8}%
+\contentsline {section}{\numberline {9}Integrated Embodiment Architecture}{10}{section.9}%
+\contentsline {section}{\numberline {10}MVP Demo Scenario}{10}{section.10}%
+\contentsline {section}{\numberline {11}Feasibility Roadmap}{11}{section.11}%
+\contentsline {section}{\numberline {12}Prototype Design}{13}{section.12}%
+\contentsline {section}{\numberline {13}Model Strategy}{13}{section.13}%
+\contentsline {section}{\numberline {14}Safety, Privacy, And Governance}{14}{section.14}%
+\contentsline {section}{\numberline {15}Business Direction}{14}{section.15}%
+\contentsline {section}{\numberline {16}Next Actionable Steps}{14}{section.16}%
+\contentsline {section}{\numberline {17}Conclusion}{15}{section.17}%

@@ -1,0 +1,537 @@
+\documentclass[11pt,fontset=none]{ctexart}
+
+\usepackage[margin=0.82in]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc, fit, backgrounds}
+\graphicspath{{research/robotic_lab_automation_market_2026/figures/}{../research/robotic_lab_automation_market_2026/figures/}}
+
+\setmainfont{Latin Modern Roman}
+\setCJKmainfont[
+  BoldFont={Noto Serif CJK SC},
+  ItalicFont={Noto Serif CJK SC}
+]{Noto Serif CJK SC}
+\setCJKsansfont[
+  BoldFont={Noto Sans CJK SC},
+  ItalicFont={Noto Sans CJK SC}
+]{Noto Sans CJK SC}
+\setCJKmonofont[
+  BoldFont={Noto Sans CJK SC},
+  ItalicFont={Noto Sans CJK SC}
+]{Noto Sans CJK SC}
+
+\definecolor{Ink}{HTML}{16212B}
+\definecolor{Muted}{HTML}{5D6B73}
+\definecolor{Blue}{HTML}{2563EB}
+\definecolor{Teal}{HTML}{0F766E}
+\definecolor{Green}{HTML}{15803D}
+\definecolor{Amber}{HTML}{B7791F}
+\definecolor{Red}{HTML}{B91C1C}
+\definecolor{Panel}{HTML}{F5F7FA}
+\definecolor{Line}{HTML}{CAD5E2}
+\definecolor{SoftBlue}{HTML}{DBEAFE}
+\definecolor{SoftTeal}{HTML}{CCFBF1}
+\definecolor{SoftGreen}{HTML}{DCFCE7}
+\definecolor{SoftAmber}{HTML}{FEF3C7}
+\definecolor{SoftRed}{HTML}{FEE2E2}
+\definecolor{SoftGray}{HTML}{EDF2F7}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Blue,
+  urlcolor=Teal,
+  citecolor=Blue,
+  pdftitle={机器人实验室自动化：市场研究、产品方向与执行路线图},
+  pdfauthor={AgInTiFlow; https://flow.lazying.art}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.56em}
+\setlist[itemize]{leftmargin=1.35em, topsep=0.2em, itemsep=0.1em}
+\setlist[enumerate]{leftmargin=1.55em, topsep=0.2em, itemsep=0.1em}
+\renewcommand{\arraystretch}{1.17}
+\raggedbottom
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\pill}[2]{%
+  \tikz[baseline=(n.base)] \node[rounded corners=2pt, fill=#1, inner xsep=5pt, inner ysep=2pt] (n) {\footnotesize #2};%
+}
+\newcommand{\artifactroot}{\texttt{research/robotic\_lab\_automation\_market\_2026}}
+
+\title{\vspace{-1.35cm}\textbf{机器人实验室自动化}\\
+\large 市场研究、产品方向与执行路线图}
+\author{AgInTiFlow\\\url{https://flow.lazying.art}}
+\date{2026年6月5日}
+
+\begin{document}
+\maketitle
+\vspace{-0.8em}
+
+\begin{abstract}
+机器人实验室自动化是一个真实的市场机会，但最有可能胜出的产品并不是第一天就能替代科研人员的通用人形实验室机器人。更强的商业方向是一个边界清晰、以实验为中心的机器人工作单元：它自动化一个高价值、反复发生的工作流，并把每一次运行转换为标准化、可审计的数据。公开市场估计显示，全球实验室自动化市场为2024年82.7亿美元、2033年183.9亿美元；实验室机器人市场为2023年23.53亿美元、2030年38.64亿美元；药物发现服务市场为2024年148.9亿美元、2030年272.3亿美元。因此，这个机会不只是节省人工，更是发现、样品制备、实验执行、成像读数以及后续受监管制造中的数据、可重复性和吞吐量机会。
+\end{abstract}
+
+\section{研究结论}
+
+这个市场足够大，可以支撑一家严肃的公司；同时它也足够拥挤，新的进入者不应只销售裸机械臂、裸灵巧手，或泛泛宣称“AI科学家”。更实际的切入点是机器人实验或样品制备工作单元：它服务于一类边界明确的协议家族，并且具备强数据采集、质量控制和可重复运行能力。
+
+\textbf{最佳初始方向。} 构建一个固定式或半移动式机器人工作单元，用于筛选、样品制备、成像前实验、以及常规生物维护。第一代产品应按已完成协议运行数、结构化元数据、异常率、污染率、节省的操作员时间和客户回本周期来评估。
+
+\textbf{不适合作为第一切入点。} 通用实验室杂务、人形移动、开放式组织操作，以及受监管细胞治疗制造都不应成为第一商业目标。这些方向以后很重要，但在核心工作单元被验证之前，它们带来的集成和验证负担过高。
+
+\textbf{战略判断。} 现有液体处理器擅长移液；企业级编排平台擅长调度和仪器集成；定制集成商擅长一次性系统工程。新进入者的空间在这些类别之间：一个可重复部署的机器人工作单元，把物理操作、协议执行、数据来源记录和实验级学习循环结合起来。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{experiment_aware_workcell_loop.png}
+\caption{以实验为中心的工作单元闭环。该产品闭环将协议定义、机器人运行、QC/来源记录、数据产品和学习反馈连接起来。}
+\label{fig:workcell-loop-cn}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\sffamily,
+  box/.style={rounded corners=5pt, draw=Line, very thick, align=center, minimum height=1.02cm, text width=3.6cm, fill=white},
+  driver/.style={box, fill=SoftBlue, draw=Blue!60},
+  need/.style={box, fill=SoftTeal, draw=Teal!60},
+  wedge/.style={rounded corners=6pt, draw=Red!70, very thick, fill=SoftRed, align=center, minimum height=1.2cm, text width=4.2cm},
+  arrow/.style={-{Latex[length=3mm]}, very thick, draw=Ink!70, shorten >=2pt, shorten <=2pt}
+]
+\node[driver] (market) at (0,2.0) {增长中的自动化市场\\\footnotesize 实验室自动化、机器人、发现服务};
+\node[driver] (rd) at (0,0) {研发规模压力\\\footnotesize 高投入、更多实验、更快周期};
+\node[driver] (labor) at (0,-2.0) {人力与可重复性压力\\\footnotesize 人员、记录、数据质量};
+
+\node[need] (workflow) at (5.0,2.0) {工作流聚焦\\\footnotesize 先做一个协议家族};
+\node[need] (data) at (5.0,0) {数据产品\\\footnotesize 动作、元数据、QC、结果};
+\node[need] (deployment) at (5.0,-2.0) {部署纪律\\\footnotesize 夹具、安全、服务、验证};
+
+\node[wedge] (product) at (10.4,0) {以实验为中心的机器人工作单元\\\footnotesize 不是裸机器人；不是泛化实验室人形机器人};
+
+\draw[arrow] (market) -- (workflow);
+\draw[arrow] (rd) -- (data);
+\draw[arrow] (labor) -- (deployment);
+\draw[arrow] (workflow) -- (product);
+\draw[arrow] (data) -- (product);
+\draw[arrow] (deployment) -- (product);
+\end{tikzpicture}}
+\caption{可投资机会来自自动化预算增长、研发吞吐压力、人力约束和可重复性需求的叠加。}
+\label{fig:thesis-map-cn}
+\end{figure}
+
+\section{市场规模}
+
+直接市场不应只用一个标题数字描述，而应拆成三个相邻资金池：实验室自动化系统、实验室机器人、外包药物发现服务。第四个背景市场是全球处方药销售，它不是机器人TAM，但解释了为什么发现效率和周期时间始终有价值。
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{2.6cm}L{1.2cm}L{2.2cm}L{2.35cm}L{1.2cm}Y@{}}
+\toprule
+\textbf{市场} & \textbf{范围} & \textbf{基准} & \textbf{预测} & \textbf{CAGR} & \textbf{战略用途} \\
+\midrule
+实验室自动化 & 全球 & 2024年 USD 8.27B & 2033年 USD 18.39B & 9.27\% & 自动化实验室系统预算池。 \\
+实验室机器人 & 全球 & 2023年 USD 2.353B & 2030年 USD 3.864B & 7.10\% & 更窄的机器人子类，也是最接近的可比市场。 \\
+药物发现服务 & 全球 & 2024年 USD 14.89B & 2030年 USD 27.23B & 10.70\% & 可被自动化数据生成服务切入的服务市场。 \\
+处方药销售 & 全球 & 不作为TAM & 2030年超过 USD 1.7T & 7.70\% & 发现效率和专利悬崖压力的宏观需求背景。 \\
+\bottomrule
+\end{tabularx}
+\caption{本分析使用的市场估计。原始数据保存于 \texttt{data/market\_estimates.csv}。}
+\label{tab:market-size-cn}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{market_growth_projection.png}
+\caption{相邻增长市场池。图中曲线使用研究数据集中保存的基准值、预测值和CAGR。}
+\label{fig:market-growth-cn}
+\end{figure}
+
+\textbf{解读。} 直接机器人市场小于更广义的实验室自动化市场，但增长更快、规模更大的相邻市场是发现服务。这影响商业模式设计：公司可以先作为付费工作流或数据生成服务启动，待部署机制成熟后再产品化可重复工作单元。
+
+\textbf{产品聚焦含义。} 机器人公司不应把自己包装成普通资本设备供应商，而应定位为“产生可验证实验吞吐量和可复用数据资产”的方式。对药企发现团队、CRO和核心平台来说，这比硬件新奇性更有价值。
+
+\section{需求驱动}
+
+\subsection{研发规模与吞吐压力}
+
+在本报告采用的公开调查数据中，PhRMA成员公司2024年研发支出达到1043.44亿美元。逐年波动并不平滑，但绝对投入规模说明，发现与开发组织有预算为能够改善吞吐量、数据完整性或可重复性的工具付费。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phrma_rd_spend.png}
+\caption{PhRMA成员研发支出，分为美国国内与海外部分。图中数值从百万美元转换为十亿美元。}
+\label{fig:phrma-rd-cn}
+\end{figure}
+
+\subsection{人力与运营压力}
+
+美国劳工统计局报告，2024年美国临床实验室技术人员和技师岗位为351,200个，2034年预计为357,200个，并预计每年有22,600个岗位空缺。对自动化战略而言，关键并不是机器人替代所有技术人员，而是人员、重复劳动、记录工作以及夜间/周末运行形成了自动化可以解决的运营痛点。
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{3.8cm}L{2.4cm}L{2.0cm}Y@{}}
+\toprule
+\textbf{指标} & \textbf{数值} & \textbf{周期} & \textbf{战略解读} \\
+\midrule
+年薪中位数 & USD 61,890 & 2024年5月 & 单纯节省人工可以支撑部分场景，但高价值发现吞吐通常是更强的ROI叙事。 \\
+就业人数 & 351,200人 & 2024年 & 实验室是大规模运营环境，但并非每个实验室都是理想首客。 \\
+预计就业人数 & 357,200人 & 2034年 & 增长较慢，意味着每个人需要完成更多工作。 \\
+预计年度岗位空缺 & 22,600个/年 & 2024--2034 & 替换招聘和培训负担会让重复协议自动化更有吸引力。 \\
+\bottomrule
+\end{tabularx}
+\caption{分析使用的人力约束数据。原始数据保存于 \texttt{data/workforce\_constraints.csv}。}
+\label{tab:workforce-cn}
+\end{table}
+
+\subsection{可重复性、来源记录与数据压力}
+
+研究机构和资助方越来越重视复制、可重复性、数据共享和标准化记录。这会把价值主张从“机器人节省人工”转向“机器人产生完整实验记录”。实际产品必须记录试剂批号、板图、动作、偏差、仪器设置、环境状态、图像/读数文件、QC标记和操作员干预。
+
+自驱实验室文献也提醒，自治能力不是能自动迁移到所有实验空间的通用能力。有用系统需要明确的任务定义、安全边界和评价指标。因此，可商业化工作单元应先暴露保守控制面：验证过的动作原语、协议清单、审计日志和异常处理，而不是过早宣称广义自治。
+
+\section{竞争格局}
+
+公开市场可以拆成五类有用类别。
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\linewidth}{@{}L{2.3cm}L{2.8cm}Y Y@{}}
+\toprule
+\textbf{公司/平台} & \textbf{类别} & \textbf{公开定位信号} & \textbf{战略含义} \\
+\midrule
+Opentrons Flex & 易用液体处理机器人 & 公开页面强调模块化移液、夹爪、台面模块、开源软件/API，以及约USD 26,400起的配置。 & 设定低成本基准。新进入者不应只做另一个移液器。 \\
+Automata LINQ & 集成工作单元与云编排 & 公开页面强调工作流画布、调度、错误处理、多仪器和高密度垂直实验室布局。 & 说明客户需要人类实验室可兼容的端到端工作流编排。 \\
+HighRes Cellario OS & 企业实验室编排 & 公开页面强调数字SOP执行、上下文元数据、API、LIMS/ELN集成和大规模仪器连接。 & 数据上下文和企业集成与运动硬件同样重要。 \\
+Multiply Labs & 机器人生物制造集群 & 公开页面强调封闭机器人集群、GMP-ready运行、传感器日志和21 CFR Part 11兼容记录。 & 受监管制造很有吸引力，但验证负担高，应作为后续进入点。 \\
+传统自动化集成商 & 定制自动化系统 & 围绕液体处理器、培养箱、读板仪、板库和调度软件构建定制系统。 & 新进入者必须在可重复部署、部署速度、协议可迁移性或数据经济性上取胜。 \\
+\bottomrule
+\end{tabularx}
+\caption{基于公开产品页面和类别定位的竞争综合。原始矩阵保存于 \texttt{data/competitor\_matrix.csv}。}
+\label{tab:competitors-cn}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{competitor_positioning.png}
+\caption{方向性竞争定位。气泡大小代表保存评分模型中的数据产品深度；评分为综合判断，并非审计后的市场数据。}
+\label{fig:competitor-positioning-cn}
+\end{figure}
+
+\textbf{空白机会。} 最有前景的开放空间不是单纯机械操作，而是从协议到物理执行再到结构化数据的产品化桥梁。工作单元应让协议运行更容易指定、执行、审计、复现和优化。
+
+\section{客户细分}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{3.0cm}Y Y L{2.2cm}@{}}
+\toprule
+\textbf{细分} & \textbf{痛点} & \textbf{销售内容} & \textbf{优先级} \\
+\midrule
+生物技术发现团队 & 人手有限，但需要更多实验吞吐、更稳定运行和更快设计-构建-测试周期。 & 付费试点工作单元，或带完整元数据包的托管自动化实验运行。 & \pill{SoftGreen}{高} \\
+CRO和发现服务商 & 积压、重复协议、客户交付周期和利润率压力。 & 增加每月验证运行数的机器人服务单元。 & \pill{SoftGreen}{高} \\
+高校核心平台 & 重复服务流程、排程瓶颈、人员可用性和设备经费周期。 & 较低成本试点单元，配共享服务预约和QC报告。 & \pill{SoftAmber}{中} \\
+合成生物学与NGS团队 & 样品制备和组合式工作流适合自动化，但供应商竞争拥挤。 & 差异化协议/数据层，或围绕现有液体处理的专用操作。 & \pill{SoftAmber}{中} \\
+细胞治疗与GMP制造 & 过程价值极高，但验证、质量体系和工艺锁定很难。 & 在发现工作单元成熟后，再做验证模块或合作。 & \pill{SoftRed}{后续} \\
+通用湿实验室 & 杂务和临时处理定义弱、边界多、集成重。 & 不作为第一产品。 & \pill{SoftRed}{低} \\
+\bottomrule
+\end{tabularx}
+\caption{客户细分与推荐优先级。}
+\label{tab:segments-cn}
+\end{table}
+
+\section{工作流吸引力}
+
+第一工作流应由经济性和数据价值选择，而不是由最炫的机器人视频选择。下面的评分模型使用五个维度：自动化可行性、数据价值、客户痛点、监管复杂度和综合近期得分。底层数据保存为CSV工件。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{workflow_attractiveness.png}
+\caption{第一机器人工作单元的工作流吸引力。最强初始区域是高可行性、高数据价值的实验和样品制备工作。}
+\label{fig:workflow-attractiveness-cn}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\linewidth}{@{}L{3.15cm}rrrrY@{}}
+\toprule
+\textbf{工作流} & \textbf{可行} & \textbf{数据} & \textbf{痛点} & \textbf{近期} & \textbf{解读} \\
+\midrule
+实验筛选与成像 & 4.0 & 4.8 & 4.2 & 4.4 & 当系统能连接板图、机器人动作、读数和QC时，是最佳初始切入。 \\
+NGS或样品制备工作单元 & 4.4 & 4.1 & 3.8 & 4.2 & 可行且有价值，但与现有液体处理方案竞争拥挤。 \\
+储备液制备与板上加样 & 4.5 & 3.5 & 3.9 & 4.1 & 是实验工作流的强前置环节，也能简化后续操作。 \\
+细胞培养换液 & 4.2 & 3.8 & 4.4 & 4.0 & 重复且痛苦；污染控制必须早期设计。 \\
+类器官或组织维护 & 2.8 & 4.7 & 4.5 & 3.7 & 价值高，但生物变异性意味着更适合作为第二阶段产品。 \\
+细胞治疗单元操作 & 3.0 & 4.6 & 4.8 & 3.6 & 痛点和支付意愿高，但验证使其更适合作为后续进入点。 \\
+通用实验室助手 & 1.8 & 2.5 & 3.0 & 2.0 & 作为第一切入点过于宽泛。 \\
+\bottomrule
+\end{tabularx}
+\caption{工作流评分。原始数据保存于 \texttt{data/workflow\_scores.csv}。分数为1--5方向性评分。}
+\label{tab:workflow-scores-cn}
+\end{table}
+
+\section{产品方向}
+
+\subsection{产品应该是什么}
+
+推荐产品是\textbf{以实验为中心的机器人实验工作单元}：一个有边界的物理单元，加上工作流软件、协议清单、仪器连接器、QC逻辑和结构化数据层。它应声明能对特定协议家族进行验证运行，而不是声明广义智能。
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\sffamily,
+  layer/.style={rounded corners=5pt, draw=Line, very thick, fill=white, align=center, minimum height=1.05cm, text width=3.4cm},
+  data/.style={layer, fill=SoftTeal, draw=Teal!65},
+  control/.style={layer, fill=SoftBlue, draw=Blue!65},
+  physical/.style={layer, fill=SoftAmber, draw=Amber!70},
+  quality/.style={layer, fill=SoftGreen, draw=Green!65},
+  risk/.style={layer, fill=SoftRed, draw=Red!60},
+  arrow/.style={-{Latex[length=3mm]}, thick, draw=Ink!75, shorten >=2pt, shorten <=2pt}
+]
+\node[control] (protocol) at (0,2.4) {协议清单\\\footnotesize 步骤、参数、板图};
+\node[control] (scheduler) at (4.3,2.4) {调度器\\\footnotesize 资源、时间、依赖};
+\node[physical] (robot) at (8.6,2.4) {机器人执行\\\footnotesize 机械臂、手、夹爪、夹具};
+\node[physical] (instruments) at (12.9,2.4) {仪器\\\footnotesize 读板、成像、培养、搬运};
+
+\node[quality] (perception) at (0,0) {状态估计\\\footnotesize 视觉、条码、可选触觉};
+\node[quality] (qc) at (4.3,0) {QC与异常\\\footnotesize 范围检查、恢复、复核};
+\node[data] (store) at (8.6,0) {运行记录\\\footnotesize 动作、批号、设置、结果};
+\node[data] (analytics) at (12.9,0) {学习循环\\\footnotesize 优化、报告、迁移};
+
+\node[risk] (guard) at (4.3,-2.25) {安全护栏\\\footnotesize 区域、联锁、湿故障};
+\node[risk] (audit) at (8.6,-2.25) {审计追踪\\\footnotesize 谁、做什么、何时、为何};
+
+\draw[arrow] (protocol) -- (scheduler);
+\draw[arrow] (scheduler) -- (robot);
+\draw[arrow] (robot) -- (instruments);
+\draw[arrow] (instruments) -- (analytics);
+\draw[arrow] (robot) -- (perception);
+\draw[arrow] (perception) -- (qc);
+\draw[arrow] (qc) -- (store);
+\draw[arrow] (store) -- (analytics);
+\draw[arrow] (qc) -- (guard);
+\draw[arrow] (store) -- (audit);
+\draw[arrow] (analytics.south) -- ++(0,-0.55) -| (protocol.south);
+\end{tikzpicture}}
+\caption{产品化机器人实验工作单元参考架构。核心资产是从协议到执行再到结构化数据的闭环。}
+\label{fig:architecture-cn}
+\end{figure}
+
+\subsection{硬件方向}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{3.0cm}YY@{}}
+\toprule
+\textbf{决策} & \textbf{近期推荐选择} & \textbf{理由} \\
+\midrule
+底座 & 先做固定台式单元；只有在减少仪器重复时才使用移动底座。 & 固定单元降低导航、安全和验证负担。 \\
+操作器 & 机械臂加可换工具夹爪/手，并使用简化抓取的夹具。 & 环境应围绕机器人友好的动作原语重新设计。 \\
+灵巧手 & 用简单夹爪和直驱手做原型；把腱驱动设计留给重复接触的生产任务。 & 灵巧性有价值，但未被验证的手部复杂度会拖慢产品验证。 \\
+视觉 & 必须有侧视/腕部视觉，以及条码/标签读取。 & 视觉状态检查对可靠性、审计和异常处理是必需的。 \\
+触觉 & 只在插入、开盖、防滑或精细处理等接触密集步骤中添加。 & 触觉在能改变成功率时有价值，否则会增加集成负担。 \\
+环境 & 使用载具、架子、夹具、标准容器和板式格式。 & 最便宜的机器人改进通常是工作流重设计。 \\
+\bottomrule
+\end{tabularx}
+\caption{第一商业工作单元的硬件方向。}
+\label{tab:hardware-cn}
+\end{table}
+
+\subsection{软件与数据方向}
+
+软件应被视为最持久的资产。硬件会随客户改变，但协议表示、仪器连接器、异常分类、元数据模式和QC报告可以持续复用和复利增长。
+
+\begin{itemize}
+  \item \textbf{协议清单：} 明确输入、允许范围、时间窗口、板图、试剂批号、对照和预期读数。
+  \item \textbf{执行原语：} 带保护的取、放、移液、混合、开盖、关盖、扫描、成像、培养、等待和恢复。
+  \item \textbf{运行记录：} 带时间戳的动作、机器人状态、仪器设置、环境上下文、操作员干预和失败模式。
+  \item \textbf{质量层：} 阳性/阴性对照、板级QC、异常值标记、污染指标、漂移检测和重跑逻辑。
+  \item \textbf{客户输出：} markdown/PDF运行报告、机器可读数据包和可重复性清单。
+\end{itemize}
+
+\section{商业模式与试点经济性}
+
+最稳妥的商业模式顺序是先服务，再产品化部署。
+
+\begin{enumerate}
+  \item \textbf{设计伙伴服务：} 在受控内部或合作实验室运行客户协议，并交付数据包。
+  \item \textbf{付费试点单元：} 为一个协议家族安装有边界的工作单元，并设定清晰退出标准。
+  \item \textbf{可重复产品：} 销售或租赁标准化工作单元，并提供支持、软件和协议包。
+  \item \textbf{工作流网络：} 在客户间复用协议定义、连接器、QC逻辑和数据集。
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{roi_sensitivity.png}
+\caption{示例试点经济性。数据为规划假设，保存于 \texttt{data/roi\_scenarios.csv}，不是市场来源事实。}
+\label{fig:roi-cn}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\scriptsize
+\begin{tabularx}{\linewidth}{@{}L{2.6cm}r r r rY@{}}
+\toprule
+\textbf{场景} & \textbf{Capex} & \textbf{年价值} & \textbf{回本} & \textbf{额外运行/月} & \textbf{解读} \\
+\midrule
+高校核心平台试点 & USD 180k & USD 116k & 24.0月 & 12 & 若由设备经费或共享平台利用率支持，则可行。 \\
+生物技术发现团队 & USD 280k & USD 386k & 10.4月 & 28 & 当实验吞吐是真瓶颈时，是有吸引力的首客。 \\
+CRO服务单元 & USD 420k & USD 704k & 8.1月 & 75 & 当额外验证产能可销售或减少积压时，回本最强。 \\
+受监管制造试点 & USD 650k & USD 670k & 13.0月 & 20 & 经济性有吸引力，但验证和质量体系要求更高。 \\
+\bottomrule
+\end{tabularx}
+\caption{推导出的试点经济性。模型结合了人工节省、增量运行、服务/软件费用和支持假设。}
+\label{tab:roi-cn}
+\end{table}
+
+\section{监管、质量与安全}
+
+对发现研究来说，第一监管负担通常是内部质量、可追溯性和数据完整性，而不是正式制造验证。对临床、诊断或GMP工作流，负担会显著变化。FDA Part 11指导相关，因为电子记录和电子签名必须可靠；但仅有Part 11兼容还不够，底层predicate rules和过程验证仍然重要。
+
+\textbf{实际质量设计。}
+\begin{itemize}
+  \item 为协议版本、操作员、机器人程序、仪器设置、试剂批号、环境和异常处理保留完整审计追踪。
+  \item 把每个偏差都视为结构化数据，而不是自由文本补充。
+  \item 在产品声明和文档中区分研究用途工作流与受监管工作流。
+  \item 在运行开始前定义接受标准。
+  \item 让安全论证具体化：夹点、泄漏、锐器、溶剂兼容性、生物污染、培养箱访问和急停行为。
+\end{itemize}
+
+\clearpage
+\section{执行路线图}
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\sffamily,
+  phase/.style={rounded corners=5pt, draw=Line, very thick, align=left, text width=3.25cm, minimum height=2.0cm, fill=white},
+  arrow/.style={-{Latex[length=3mm]}, thick, draw=Ink!75}
+]
+\node[phase, fill=SoftGray] (p0) at (0,0) {\textbf{0. 发现}\\\footnotesize 1个月\\映射协议，建立成本/时间/错误基线，选择设计伙伴};
+\node[phase, fill=SoftBlue] (p1) at (3.75,0) {\textbf{1. 验证}\\\footnotesize 3个月\\50次可重复湿/干循环并记录动作};
+\node[phase, fill=SoftTeal] (p2) at (7.5,0) {\textbf{2. 试点}\\\footnotesize 6个月\\500次协议运行、QC报告、付费试点};
+\node[phase, fill=SoftGreen] (p3) at (11.25,0) {\textbf{3. 复制}\\\footnotesize 9个月\\第二套工作单元使用相同BOM和协议包};
+\node[phase, fill=SoftAmber] (p4) at (15,0) {\textbf{4. 扩展}\\\footnotesize 12个月\\在同一数据/编排层上增加相邻工作流};
+\draw[arrow] (p0) -- (p1);
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (p3) -- (p4);
+\end{tikzpicture}}
+\caption{执行路线图。详细KPI数据保存于 \texttt{data/roadmap\_kpis.csv}。}
+\label{fig:roadmap-cn}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{2.6cm}L{2.0cm}YY@{}}
+\toprule
+\textbf{阶段} & \textbf{长度} & \textbf{技术退出标准} & \textbf{商业退出标准} \\
+\midrule
+工作流发现 & 1个月 & 一个协议被映射为原语、QC字段和异常分类。 & 两个设计伙伴和人工基线指标。 \\
+台式证明 & 3个月 & 50次可重复湿/干循环，没有未解决的不安全状态。 & 在人工时间、排程或数据完整性上有可测提升。 \\
+试点工作单元 & 6个月 & 500次协议运行，带QC报告和恢复手册。 & 付费试点或付费数据生成服务。 \\
+可重复部署 & 9个月 & 第二套工作单元来自相同BOM和协议包。 & 对一个明确细分市场证明18个月内回本。 \\
+平台扩展 & 12个月 & 不替换数据层即可加入第二个相邻工作流。 & 可复用协议包或托管服务线。 \\
+\bottomrule
+\end{tabularx}
+\caption{里程碑与退出标准。}
+\label{tab:roadmap-cn}
+\end{table}
+
+\clearpage
+\section{研究工件}
+
+所有结构化研究工件保存在 \artifactroot。公开来源事实和推导假设分开保存，便于未来更新分析而不必重写报告逻辑。
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}L{5.0cm}Y@{}}
+\toprule
+\textbf{工件} & \textbf{内容} \\
+\midrule
+\path{data/market_estimates.csv} & 实验室自动化、实验室机器人、药物发现服务和制药销售背景估计。 \\
+\path{data/phrma_rd_spend_2018_2024.csv} & 图~\ref{fig:phrma-rd-cn} 使用的PhRMA成员研发支出序列。 \\
+\path{data/workforce_constraints.csv} & 用于运营压力分析的BLS劳动力市场指标。 \\
+\path{data/competitor_matrix.csv} & 公开竞争者/类别综合。 \\
+\path{data/competitor_positioning_scores.csv} & 图~\ref{fig:competitor-positioning-cn} 使用的方向性评分模型。 \\
+\path{data/workflow_scores.csv} & 图~\ref{fig:workflow-attractiveness-cn} 使用的工作流吸引力评分。 \\
+\path{data/roi_scenarios.csv} & 图~\ref{fig:roi-cn} 使用的试点经济性假设。 \\
+\path{data/roadmap_kpis.csv} & 阶段计划、技术退出、商业退出和主要风险。 \\
+\path{data/source_register.csv} & 来源ID、标题、发布者、访问日期、URL和关键事实。 \\
+\path{figures/} & 市场、研发支出、工作流、竞争者、ROI以及工作单元闭环图。 \\
+\path{notes/research_method.md} & 方法说明，以及来源事实与推导判断的区分。 \\
+\bottomrule
+\end{tabularx}
+\caption{已保存数据与研究工件清单。}
+\label{tab:artifacts-cn}
+\end{table}
+
+\clearpage
+\section{来源登记}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabularx}{\linewidth}{@{}L{3.2cm}L{3.8cm}Y@{}}
+\toprule
+\textbf{来源ID} & \textbf{来源} & \textbf{使用的关键数据或观点} \\
+\midrule
+\texttt{GVR-AUTO} & Grand View Research, Lab Automation Market & 2024年USD 8.27B，2033年USD 18.39B，CAGR 9.27\%。 \\
+\texttt{GVR-ROBOTICS} & Grand View Research, Laboratory Robotics Market & 2023年USD 2.353B，2030年USD 3.864B，CAGR 7.1\%。 \\
+\texttt{MNM-DDS} & MarketsandMarkets via PR Newswire & 药物发现服务市场2024年USD 14.89B，2030年USD 27.23B，CAGR 10.7\%。 \\
+\texttt{PHRMA} & PhRMA年度成员调查 & 成员研发支出，包括2024年总额USD 104.344B。 \\
+\texttt{BLS-LAB} & 美国劳工统计局 & 临床实验室技术人员/技师工资、就业、预测和岗位空缺。 \\
+\texttt{EVALUATE} & Evaluate World Preview release & 2030年全球处方药销售预计超过USD 1.7T。 \\
+\texttt{OPENTRONS} & Opentrons Flex公开页面 & 低成本液体处理自动化的价格与定位信号。 \\
+\texttt{AUTOMATA} & Automata LINQ公开页面 & 云工作流创建、调度、错误处理、仪器广度和高密度布局。 \\
+\texttt{HIGHRES} & HighRes Cellario公开页面 & 编排、元数据、数字SOP、API和仪器连接。 \\
+\texttt{MULTIPLY} & Multiply Labs公开页面 & GMP-ready机器人制造集群定位和数据记录声明。 \\
+\texttt{FDA-PART11} & 美国FDA Part 11指导 & 电子记录范围，以及仍需遵守底层predicate rules的提醒。 \\
+\texttt{SDL-METRICS} & Nature Communications & 自驱实验室需要量化设计指标和边界明确的实验空间。 \\
+\texttt{SAFE-SDL} & Nature Reviews Chemistry & 随着范围扩展，自驱实验室必须从设计阶段纳入安全。 \\
+\texttt{MOBILE-CHEMIST} & Nature & 移动机器人化学家八天完成688次实验，并将光催化剂活性提高六倍。 \\
+\texttt{FRUGAL-SDL} & RSC Digital Discovery & 低成本自驱实验室示例和frugal twin概念。 \\
+\texttt{NIH-REPRO} & NIH reproducibility page & 可重复性、复制、数据共享和标准化是机构需求驱动。 \\
+\bottomrule
+\end{tabularx}
+\caption{简要来源登记。完整ID、URL和访问日期保存于 \texttt{data/source\_register.csv}。}
+\label{tab:sources-cn}
+\end{table}
+
+\clearpage
+\section{最终方向}
+
+推荐的公司方向是：
+
+\begin{enumerate}
+  \item 选择一个具有明确经济负责人的实验/样品制备工作流。
+  \item 围绕机器人友好的载具、容器、夹具和机器可读清单重新设计协议。
+  \item 构建一个能完成运行并输出数据包的工作单元，而不是只做机器人演示。
+  \item 先销售付费数据生成或付费试点；在第二次成功安装后，把可重复部署转换为产品。
+  \item 保留更广泛机器人实验室平台的长期雄心，但通过经验证的工作流深度逐步获得平台资格。
+\end{enumerate}
+
+因此，最强的第一承诺不是“能做所有实验室工作的机器人”。最强的第一承诺是“一个经验证的自动化工作单元，能为明确工作流产生更可靠的实验吞吐和更好的数据”。
+
+\end{document}

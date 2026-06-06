@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}执行论点}{4}{section.1}%
+\contentsline {section}{\numberline {2}为什么不要先做仿生人形实验员}{4}{section.2}%
+\contentsline {section}{\numberline {3}为什么机器人仍然重要}{5}{section.3}%
+\contentsline {section}{\numberline {4}机器人演示与真实实验室应用之间的落差}{5}{section.4}%
+\contentsline {section}{\numberline {5}产品想法一：AR 辅助实验}{6}{section.5}%
+\contentsline {section}{\numberline {6}产品想法二：摄像头优先的实验室 OS}{6}{section.6}%
+\contentsline {section}{\numberline {7}产品想法三：用场景视频训练，而不是只训练手部轨迹}{7}{section.7}%
+\contentsline {section}{\numberline {8}师徒式学习循环}{8}{section.8}%
+\contentsline {section}{\numberline {9}集成具身架构}{10}{section.9}%
+\contentsline {section}{\numberline {10}MVP 演示场景}{10}{section.10}%
+\contentsline {section}{\numberline {11}可行性路线图}{12}{section.11}%
+\contentsline {section}{\numberline {12}原型设计}{12}{section.12}%
+\contentsline {section}{\numberline {13}模型策略}{13}{section.13}%
+\contentsline {section}{\numberline {14}安全、隐私与治理}{13}{section.14}%
+\contentsline {section}{\numberline {15}商业方向}{14}{section.15}%
+\contentsline {section}{\numberline {16}下一步行动}{14}{section.16}%
+\contentsline {section}{\numberline {17}结论}{15}{section.17}%

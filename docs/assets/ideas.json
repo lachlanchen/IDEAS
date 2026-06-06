@@ -50,6 +50,16 @@
     "baseId": "feasible-biomolecular-imaging-metasurfaces-alphafold"
   },
   {
+    "slug": "human-centered-laboratory-autonomy",
+    "title": "Human-Centered Laboratory Autonomy",
+    "author": "Lachlan Chen, AgInTiFlow",
+    "affiliation": "AgInTi Lab, LazyingArt LLC",
+    "excerpt": "The strongest path to useful laboratory robotics is not to start by copying the full human body. A complete bionic laboratory worker would need hands, arms, eyes, navigation, safety behavior, tool use, chemical compatibility, cleaning, calibration, protocol reasoning, exception handling, and accountability. That is ...",
+    "category": "AI for Science",
+    "lang": "en",
+    "baseId": "human-centered-laboratory-autonomy"
+  },
+  {
     "slug": "imagized-language-model",
     "title": "Imagized Language Model: Text as Images, Glyph Codes, and Diffusion Generation",
     "author": "Lachlan Chen, AgInTiFlow",

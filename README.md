@@ -225,6 +225,12 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
       <td><a href="publications/investigating-mpempba-effect-deep-learning-imaging/investigating-mpempba-effect-deep-learning-imaging.pdf">PDF</a></td>
       <td>EN</td>
     </tr>
+    <tr>
+      <td>Human-Centered Laboratory Autonomy</td>
+      <td><a href="ideas/human-centered-laboratory-autonomy.md">Markdown</a></td>
+      <td><a href="publications/human-centered-laboratory-autonomy/human-centered-laboratory-autonomy.pdf">PDF</a> · <a href="publications/human-centered-laboratory-autonomy-zh/human-centered-laboratory-autonomy-zh.pdf">中文 PDF</a> · <a href="publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-feasibility-roadmap.pdf">Archive</a></td>
+      <td>EN/ZH</td>
+    </tr>
   </tbody>
   </table>
 
