@@ -42,14 +42,27 @@
         <p class="text-slate-400"><span data-i18n="by">by</span> Lachlan Chen, AgInTiFlow<br><span class="text-slate-500">AgInTi Lab, LazyingArt LLC</span></p>
 
       </div>
-      <article class="prose prose-invert prose-slate max-w-none"><h1>Human-Centered Laboratory Autonomy</h1><p></p>Author: Lachlan Chen, AgInTiFlow
-Affiliation: AgInTi Lab, LazyingArt LLC<p></p><h2>Thesis</h2><p></p>The strongest path to useful laboratory robotics is not to start by copying the full human body. A complete bionic laboratory worker would need hands, arms, eyes, navigation, safety behavior, tool use, chemical compatibility, cleaning, calibration, protocol reasoning, exception handling, and accountability. That is too broad for a first product.<p></p>The better strategy is human-centered and scene-centered:<p></p>1. Treat the human laboratory worker as the current best general-purpose embodiment.
-2. Use AR glasses to reduce cognitive load and guide protocol execution.
-3. Use fixed cameras, egocentric video, and instrument logs to convert the lab into an observable scene.
-4. Build a protocol-state and scene-graph layer that understands objects, steps, evidence, risks, and exceptions.
-5. Add robot assistance only for constrained, verified, high-value actions.
-6. Use scene-video demonstrations to train models, rather than training only on hands, grippers, or joint trajectories.
-7. Connect humans, robot hands, robot arms, mobile bodies, drones, instruments, and AI reasoning through capability contracts.<p></p>The product thesis is simple:<p></p>> Do not replace the scientist first. Instrument the scientist, the protocol, and the scene first. Then let robots take over only the bounded actions that the scene model can verify.<p></p><img src="../publications/human-centered-laboratory-autonomy/figures/scene_video_master_apprentice_training.png" alt="Human-centered laboratory autonomy scene-video concept" width="100%"><p></p><h2>Publication Pack</h2><p></p><table>
+      <article class="prose prose-invert prose-slate max-w-none"><h1>Human-Centered Laboratory Autonomy</h1>
+<p>Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC</p>
+<h2>Thesis</h2>
+<p>The strongest path to useful laboratory robotics is not to start by copying the full human body. A complete bionic laboratory worker would need hands, arms, eyes, navigation, safety behavior, tool use, chemical compatibility, cleaning, calibration, protocol reasoning, exception handling, and accountability. That is too broad for a first product.</p>
+<p>The better strategy is human-centered and scene-centered:</p>
+<ol>
+<li>Treat the human laboratory worker as the current best general-purpose embodiment.</li>
+<li>Use AR glasses to reduce cognitive load and guide protocol execution.</li>
+<li>Use fixed cameras, egocentric video, and instrument logs to convert the lab into an observable scene.</li>
+<li>Build a protocol-state and scene-graph layer that understands objects, steps, evidence, risks, and exceptions.</li>
+<li>Add robot assistance only for constrained, verified, high-value actions.</li>
+<li>Use scene-video demonstrations to train models, rather than training only on hands, grippers, or joint trajectories.</li>
+<li>Connect humans, robot hands, robot arms, mobile bodies, drones, instruments, and AI reasoning through capability contracts.</li>
+</ol>
+<p>The product thesis is simple:</p>
+<blockquote>
+<p>Do not replace the scientist first. Instrument the scientist, the protocol, and the scene first. Then let robots take over only the bounded actions that the scene model can verify.</p>
+</blockquote>
+<img src="../publications/human-centered-laboratory-autonomy/figures/scene_video_master_apprentice_training.png" alt="Human-centered laboratory autonomy scene-video concept" width="100%"><h2>Publication Pack</h2>
+<table>
   <thead>
     <tr>
       <th align="left">Artifact</th>
@@ -89,103 +102,204 @@ Affiliation: AgInTi Lab, LazyingArt LLC<p></p><h2>Thesis</h2><p></p>The stronges
       <td><a href="../publications/human-centered-laboratory-autonomy/reference-pack/research-sources.md">Markdown</a></td>
     </tr>
   </tbody>
-</table><p></p><h2>Why This Matters</h2><p></p>Most robotics demos show impressive isolated manipulation. Real laboratories require complete, repeated protocol execution with traceability, safety, contamination control, calibration, exception recovery, operator trust, and economics. The hard part is not only a better robot hand. The hard part is knowing:<p></p>- what the current protocol step is;
-- what object matters now;
-- what failure looks like;
-- what evidence proves completion;
-- what safety constraint is active;
-- when human approval is required.<p></p>This idea closes the gap between robot demos and real deployment by making the laboratory itself a learning and execution environment.<p></p>The differentiated position is:<p></p>- <strong>Human-first:</strong> use people where general dexterity and judgement still dominate.
-- <strong>Camera-first:</strong> turn implicit visual checks into structured data.
-- <strong>AR-first:</strong> make protocols playable, visible, and hard to skip.
-- <strong>Robot-later:</strong> automate only bounded actions after evidence exists.
-- <strong>Scene-video-first:</strong> train models on complete situated demonstrations, not only robot trajectories.
-- <strong>Multi-embodiment:</strong> treat human, robot arm, robot hand, drone, mobile base, and instrument as executors of the same protocol-scene graph.<p></p><h2>Merged Direction</h2><p></p>The archived robotic-lab reports and the newer human-centered report should be treated as one product arc, not separate ideas.<p></p><h3>Archived Direction: Experiment-Centered Robot Workcell</h3><p></p>The archived reports argue that the first business should not be a generic humanoid or bare robot arm. The better first product is a workflow-specific robotic laboratory workcell with strong data capture and auditability.<p></p>Key points to preserve:<p></p>- Laboratory automation and laboratory robotics are real markets, but they are crowded and integration-heavy.
-- The first product should focus on a high-value protocol family, not general lab chores.
-- The workcell should combine physical execution, protocol state, QC evidence, provenance, and learning feedback.
-- Early customers are likely research labs, core facilities, CROs, process-development teams, and teaching labs.
-- Strong wedge workflows include sample preparation, plate handling, imaging preparation, assay setup, and repetitive instrument loading.
-- Robot value is highest when the work is repetitive, hazardous, traceable, high-frequency, or physically constrained.<p></p><h3>Current Direction: Human-Centered Laboratory Autonomy</h3><p></p>The newer report reframes the product around humans, AR, cameras, scene video, and master-apprentice learning.<p></p>Key points to preserve:<p></p>- Humans are still the best general-purpose lab embodiment for flexible judgement and recovery.
-- Robots still matter for repeatability, endurance, traceability, hazard separation, and data generation.
-- AR glasses can guide experiments like a precise game while avoiding cognitive overload.
-- Cameras should become the first software product layer: object state, PPE state, labware position, liquid state, step progress, anomaly detection, and audit evidence.
-- Scene video should be the core training data: fixed cameras, egocentric AR view, voice, instrument logs, object states, decisions, mistakes, corrections, and outcomes.
-- Master-apprentice learning is the natural data engine: senior workers teach junior workers, and the system captures explanation, demonstration, correction, and completion evidence.
-- Robot policies should be downstream of scene understanding, not the starting point.<p></p><h2>Product Architecture</h2><p></p><h3>Layer 1: AR Experiment Copilot</h3><p></p>The operator sees only the current step, the relevant object, the target location, and the required confirmation. The interface should behave like a cockpit or game objective system: sparse, timely, and action-oriented.<p></p>Capabilities:<p></p>- Highlight the correct reagent, rack, plate, pipette, target wells, or instrument.
-- Show safe zones, timers, target regions, and completion checkpoints.
-- Confirm PPE and authorization.
-- Record hands-free notes and deviations.
-- Reduce training time and missing documentation.<p></p>Avoid:<p></p>- Dense text overlays.
-- Long dashboards inside the glasses.
-- Overlays that block peripheral vision, PPE, or safety awareness.<p></p><img src="../publications/human-centered-laboratory-autonomy/figures/ar_guided_experiment_workflow.png" alt="AR-guided experiment workflow" width="100%"><p></p><h3>Layer 2: Camera-First Laboratory OS</h3><p></p>The first durable software product is a scene and protocol state layer.<p></p>Inputs:<p></p>- fixed overhead cameras;
-- side cameras at bench and instrument viewpoints;
-- AR-glasses egocentric video;
-- voice notes;
-- instrument logs;
-- timers and sensor data.<p></p>Outputs:<p></p>- object identity and pose;
-- labware state;
-- PPE state;
-- protocol step state;
-- expected evidence;
-- deviation flags;
-- reviewable run record.<p></p>This layer turns ordinary human visual checks into structured data.<p></p><h3>Layer 3: Scene-Video Training</h3><p></p>Traditional robot learning focuses heavily on hand paths, gripper states, or end-effector trajectories. Laboratory work is a situated decision process. The model should learn the scene, protocol, evidence, and risk.<p></p>Capture:<p></p>- senior-to-junior teaching sessions;
-- fixed camera views;
-- egocentric AR view;
-- voice explanation;
-- instrument logs;
-- object and container states;
-- mistakes and corrections;
-- final result data.<p></p>Train models to answer:<p></p>- What step is happening?
-- What object matters now?
-- What safety constraint is active?
-- What evidence proves completion?
-- What anomaly occurred?
-- What should happen next?
-- Is this a human-only step, robot-ready step, or escalation step?<p></p><h3>Layer 4: Bounded Robot Assistance</h3><p></p>Robots should enter only through constrained primitives with strong verification:<p></p>- move a plate from A to B;
-- load a sample carrier;
-- open or close a fixture;
-- scan inventory;
-- hold a camera or light;
-- perform repetitive pipetting only after labware geometry and liquid state are verified;
-- transport sealed items between fixed stations.<p></p>Each primitive needs:<p></p>- preconditions;
-- allowed workspace;
-- forbidden zones;
-- sensor checks;
-- completion evidence;
-- emergency stop behavior;
-- fallback to human control.<p></p><h3>Layer 5: Multi-Embodiment Protocol OS</h3><p></p>Long term, the same protocol-scene graph should dispatch work across humans, AR guidance, robot hands, robot arms, mobile bases, drones, fixed instruments, and AI reasoning services.<p></p>The key design object is a <strong>capability contract</strong>, not a robot form factor. A capability contract says:<p></p>- what the executor can do;
-- what inputs it needs;
-- what risks it introduces;
-- what evidence it must produce;
-- when it must ask for human approval.<p></p><h2>MVP Demo</h2><p></p>The first demo should avoid overbuilding hardware. Use ordinary equipment:<p></p>- one overhead RGB or RGB-D camera;
-- one side camera aimed at hands, pipette, tube rack, plate, and work zone;
-- optional AR glasses, with tablet fallback if needed;
-- a protocol engine with steps, preconditions, timers, and expected visual evidence;
-- a review tool for labeling step boundaries, object states, mistakes, and corrections;
-- a dashboard for completed runs, deviations, and training examples.<p></p>Pick one visible, repetitive workflow:<p></p>- pipetting a plate;
-- preparing a buffer;
-- loading samples for imaging;
-- instrument calibration;
-- plate or rack handling.<p></p>The MVP should prove four things:<p></p>1. The AR/tablet copilot reduces missing steps and training friction.
-2. Camera QA catches selected visual deviations.
-3. The system produces a structured run record.
-4. The run record identifies the first robot-ready primitive.<p></p><h2>Investor Framing</h2><p></p>The strongest commercial framing is:<p></p>> An AR-and-camera laboratory copilot that trains operators, verifies protocol execution, creates structured experimental records, and identifies the exact steps ready for robot assistance.<p></p>This is stronger than promising a general humanoid scientist. It lets the product sell value before expensive robotics integration:<p></p>- faster onboarding;
-- fewer repeated mistakes;
-- better experiment records;
-- easier supervision;
-- evidence for compliance and QA;
-- a data engine for future robot deployment.<p></p>The second product is a robot-assist module for one proven workflow. The company should add hardware only after the camera and AR system has measured enough repetitions to prove where automation pays.<p></p><h2>Next Steps</h2><p></p>1. Select one workflow with high repetition and visible state changes.
-2. Record 20--30 master-apprentice demonstrations with fixed cameras and egocentric view.
-3. Convert the SOP into a step graph with preconditions, expected evidence, deviations, and escalation rules.
-4. Build a minimal AR or tablet guidance interface with object highlights, timers, and confirmations.
-5. Train a narrow camera-QA model for 3--5 commercial checks.
-6. Measure error rate, training time, review time, and documentation completeness before and after guidance.
-7. Rank robot-assist candidates by frequency, risk, fixtureability, sensor-verifiability, and ROI.
-8. Add one robot primitive only after scene readiness and completion can be verified.<p></p><h2>References</h2><p></p>- <a href="../publications/human-centered-laboratory-autonomy/human-centered-laboratory-autonomy.pdf">Human-Centered Laboratory Autonomy PDF</a>
-- <a href="../publications/human-centered-laboratory-autonomy-zh/human-centered-laboratory-autonomy-zh.pdf">以人为中心的实验室自主化 PDF</a>
-- <a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-feasibility-roadmap.pdf">Archived robotic-lab feasibility roadmap</a>
-- <a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-market-research-roadmap.pdf">Archived robotic-lab market research roadmap</a>
-- <a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-market-research-roadmap-cn.pdf">Archived Chinese robotic-lab market research roadmap</a>
-- <a href="../publications/human-centered-laboratory-autonomy/reference-pack/research-sources.md">Research source register</a>
+</table><h2>Why This Matters</h2>
+<p>Most robotics demos show impressive isolated manipulation. Real laboratories require complete, repeated protocol execution with traceability, safety, contamination control, calibration, exception recovery, operator trust, and economics. The hard part is not only a better robot hand. The hard part is knowing:</p>
+<ul>
+<li>what the current protocol step is;</li>
+<li>what object matters now;</li>
+<li>what failure looks like;</li>
+<li>what evidence proves completion;</li>
+<li>what safety constraint is active;</li>
+<li>when human approval is required.</li>
+</ul>
+<p>This idea closes the gap between robot demos and real deployment by making the laboratory itself a learning and execution environment.</p>
+<p>The differentiated position is:</p>
+<ul>
+<li><strong>Human-first:</strong> use people where general dexterity and judgement still dominate.</li>
+<li><strong>Camera-first:</strong> turn implicit visual checks into structured data.</li>
+<li><strong>AR-first:</strong> make protocols playable, visible, and hard to skip.</li>
+<li><strong>Robot-later:</strong> automate only bounded actions after evidence exists.</li>
+<li><strong>Scene-video-first:</strong> train models on complete situated demonstrations, not only robot trajectories.</li>
+<li><strong>Multi-embodiment:</strong> treat human, robot arm, robot hand, drone, mobile base, and instrument as executors of the same protocol-scene graph.</li>
+</ul>
+<h2>Merged Direction</h2>
+<p>The archived robotic-lab reports and the newer human-centered report should be treated as one product arc, not separate ideas.</p>
+<h3>Archived Direction: Experiment-Centered Robot Workcell</h3>
+<p>The archived reports argue that the first business should not be a generic humanoid or bare robot arm. The better first product is a workflow-specific robotic laboratory workcell with strong data capture and auditability.</p>
+<p>Key points to preserve:</p>
+<ul>
+<li>Laboratory automation and laboratory robotics are real markets, but they are crowded and integration-heavy.</li>
+<li>The first product should focus on a high-value protocol family, not general lab chores.</li>
+<li>The workcell should combine physical execution, protocol state, QC evidence, provenance, and learning feedback.</li>
+<li>Early customers are likely research labs, core facilities, CROs, process-development teams, and teaching labs.</li>
+<li>Strong wedge workflows include sample preparation, plate handling, imaging preparation, assay setup, and repetitive instrument loading.</li>
+<li>Robot value is highest when the work is repetitive, hazardous, traceable, high-frequency, or physically constrained.</li>
+</ul>
+<h3>Current Direction: Human-Centered Laboratory Autonomy</h3>
+<p>The newer report reframes the product around humans, AR, cameras, scene video, and master-apprentice learning.</p>
+<p>Key points to preserve:</p>
+<ul>
+<li>Humans are still the best general-purpose lab embodiment for flexible judgement and recovery.</li>
+<li>Robots still matter for repeatability, endurance, traceability, hazard separation, and data generation.</li>
+<li>AR glasses can guide experiments like a precise game while avoiding cognitive overload.</li>
+<li>Cameras should become the first software product layer: object state, PPE state, labware position, liquid state, step progress, anomaly detection, and audit evidence.</li>
+<li>Scene video should be the core training data: fixed cameras, egocentric AR view, voice, instrument logs, object states, decisions, mistakes, corrections, and outcomes.</li>
+<li>Master-apprentice learning is the natural data engine: senior workers teach junior workers, and the system captures explanation, demonstration, correction, and completion evidence.</li>
+<li>Robot policies should be downstream of scene understanding, not the starting point.</li>
+</ul>
+<h2>Product Architecture</h2>
+<h3>Layer 1: AR Experiment Copilot</h3>
+<p>The operator sees only the current step, the relevant object, the target location, and the required confirmation. The interface should behave like a cockpit or game objective system: sparse, timely, and action-oriented.</p>
+<p>Capabilities:</p>
+<ul>
+<li>Highlight the correct reagent, rack, plate, pipette, target wells, or instrument.</li>
+<li>Show safe zones, timers, target regions, and completion checkpoints.</li>
+<li>Confirm PPE and authorization.</li>
+<li>Record hands-free notes and deviations.</li>
+<li>Reduce training time and missing documentation.</li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li>Dense text overlays.</li>
+<li>Long dashboards inside the glasses.</li>
+<li>Overlays that block peripheral vision, PPE, or safety awareness.</li>
+</ul>
+<img src="../publications/human-centered-laboratory-autonomy/figures/ar_guided_experiment_workflow.png" alt="AR-guided experiment workflow" width="100%"><h3>Layer 2: Camera-First Laboratory OS</h3>
+<p>The first durable software product is a scene and protocol state layer.</p>
+<p>Inputs:</p>
+<ul>
+<li>fixed overhead cameras;</li>
+<li>side cameras at bench and instrument viewpoints;</li>
+<li>AR-glasses egocentric video;</li>
+<li>voice notes;</li>
+<li>instrument logs;</li>
+<li>timers and sensor data.</li>
+</ul>
+<p>Outputs:</p>
+<ul>
+<li>object identity and pose;</li>
+<li>labware state;</li>
+<li>PPE state;</li>
+<li>protocol step state;</li>
+<li>expected evidence;</li>
+<li>deviation flags;</li>
+<li>reviewable run record.</li>
+</ul>
+<p>This layer turns ordinary human visual checks into structured data.</p>
+<h3>Layer 3: Scene-Video Training</h3>
+<p>Traditional robot learning focuses heavily on hand paths, gripper states, or end-effector trajectories. Laboratory work is a situated decision process. The model should learn the scene, protocol, evidence, and risk.</p>
+<p>Capture:</p>
+<ul>
+<li>senior-to-junior teaching sessions;</li>
+<li>fixed camera views;</li>
+<li>egocentric AR view;</li>
+<li>voice explanation;</li>
+<li>instrument logs;</li>
+<li>object and container states;</li>
+<li>mistakes and corrections;</li>
+<li>final result data.</li>
+</ul>
+<p>Train models to answer:</p>
+<ul>
+<li>What step is happening?</li>
+<li>What object matters now?</li>
+<li>What safety constraint is active?</li>
+<li>What evidence proves completion?</li>
+<li>What anomaly occurred?</li>
+<li>What should happen next?</li>
+<li>Is this a human-only step, robot-ready step, or escalation step?</li>
+</ul>
+<h3>Layer 4: Bounded Robot Assistance</h3>
+<p>Robots should enter only through constrained primitives with strong verification:</p>
+<ul>
+<li>move a plate from A to B;</li>
+<li>load a sample carrier;</li>
+<li>open or close a fixture;</li>
+<li>scan inventory;</li>
+<li>hold a camera or light;</li>
+<li>perform repetitive pipetting only after labware geometry and liquid state are verified;</li>
+<li>transport sealed items between fixed stations.</li>
+</ul>
+<p>Each primitive needs:</p>
+<ul>
+<li>preconditions;</li>
+<li>allowed workspace;</li>
+<li>forbidden zones;</li>
+<li>sensor checks;</li>
+<li>completion evidence;</li>
+<li>emergency stop behavior;</li>
+<li>fallback to human control.</li>
+</ul>
+<h3>Layer 5: Multi-Embodiment Protocol OS</h3>
+<p>Long term, the same protocol-scene graph should dispatch work across humans, AR guidance, robot hands, robot arms, mobile bases, drones, fixed instruments, and AI reasoning services.</p>
+<p>The key design object is a <strong>capability contract</strong>, not a robot form factor. A capability contract says:</p>
+<ul>
+<li>what the executor can do;</li>
+<li>what inputs it needs;</li>
+<li>what risks it introduces;</li>
+<li>what evidence it must produce;</li>
+<li>when it must ask for human approval.</li>
+</ul>
+<h2>MVP Demo</h2>
+<p>The first demo should avoid overbuilding hardware. Use ordinary equipment:</p>
+<ul>
+<li>one overhead RGB or RGB-D camera;</li>
+<li>one side camera aimed at hands, pipette, tube rack, plate, and work zone;</li>
+<li>optional AR glasses, with tablet fallback if needed;</li>
+<li>a protocol engine with steps, preconditions, timers, and expected visual evidence;</li>
+<li>a review tool for labeling step boundaries, object states, mistakes, and corrections;</li>
+<li>a dashboard for completed runs, deviations, and training examples.</li>
+</ul>
+<p>Pick one visible, repetitive workflow:</p>
+<ul>
+<li>pipetting a plate;</li>
+<li>preparing a buffer;</li>
+<li>loading samples for imaging;</li>
+<li>instrument calibration;</li>
+<li>plate or rack handling.</li>
+</ul>
+<p>The MVP should prove four things:</p>
+<ol>
+<li>The AR/tablet copilot reduces missing steps and training friction.</li>
+<li>Camera QA catches selected visual deviations.</li>
+<li>The system produces a structured run record.</li>
+<li>The run record identifies the first robot-ready primitive.</li>
+</ol>
+<h2>Investor Framing</h2>
+<p>The strongest commercial framing is:</p>
+<blockquote>
+<p>An AR-and-camera laboratory copilot that trains operators, verifies protocol execution, creates structured experimental records, and identifies the exact steps ready for robot assistance.</p>
+</blockquote>
+<p>This is stronger than promising a general humanoid scientist. It lets the product sell value before expensive robotics integration:</p>
+<ul>
+<li>faster onboarding;</li>
+<li>fewer repeated mistakes;</li>
+<li>better experiment records;</li>
+<li>easier supervision;</li>
+<li>evidence for compliance and QA;</li>
+<li>a data engine for future robot deployment.</li>
+</ul>
+<p>The second product is a robot-assist module for one proven workflow. The company should add hardware only after the camera and AR system has measured enough repetitions to prove where automation pays.</p>
+<h2>Next Steps</h2>
+<ol>
+<li>Select one workflow with high repetition and visible state changes.</li>
+<li>Record 20--30 master-apprentice demonstrations with fixed cameras and egocentric view.</li>
+<li>Convert the SOP into a step graph with preconditions, expected evidence, deviations, and escalation rules.</li>
+<li>Build a minimal AR or tablet guidance interface with object highlights, timers, and confirmations.</li>
+<li>Train a narrow camera-QA model for 3--5 commercial checks.</li>
+<li>Measure error rate, training time, review time, and documentation completeness before and after guidance.</li>
+<li>Rank robot-assist candidates by frequency, risk, fixtureability, sensor-verifiability, and ROI.</li>
+<li>Add one robot primitive only after scene readiness and completion can be verified.</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li><a href="../publications/human-centered-laboratory-autonomy/human-centered-laboratory-autonomy.pdf">Human-Centered Laboratory Autonomy PDF</a></li>
+<li><a href="../publications/human-centered-laboratory-autonomy-zh/human-centered-laboratory-autonomy-zh.pdf">以人为中心的实验室自主化 PDF</a></li>
+<li><a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-feasibility-roadmap.pdf">Archived robotic-lab feasibility roadmap</a></li>
+<li><a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-market-research-roadmap.pdf">Archived robotic-lab market research roadmap</a></li>
+<li><a href="../publications/human-centered-laboratory-autonomy/reference-pack/robotic-lab-automation-market-research-roadmap-cn.pdf">Archived Chinese robotic-lab market research roadmap</a></li>
+<li><a href="../publications/human-centered-laboratory-autonomy/reference-pack/research-sources.md">Research source register</a></li>
+</ul>
 </article>
     </div>
   </section>
