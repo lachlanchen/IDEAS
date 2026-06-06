@@ -30,6 +30,12 @@
     "category": "DORAEMON"
   },
   {
+    "slug": "gaugehand-contour-field-robotic-hand",
+    "title": "GaugeHand: A Lockable Contour-Field Robotic Hand for Dense-Contact Grasping",
+    "href": "/publications/gaugehand-contour-field-robotic-hand/gaugehand-contour-field-robotic-hand.pdf",
+    "category": "Product & Tools"
+  },
+  {
     "slug": "human-centered-laboratory-autonomy",
     "title": "Human-Centered Laboratory Autonomy AR-Guided Experiments, Scene-Level Learning, and Embodied Robot Integration",
     "href": "/publications/human-centered-laboratory-autonomy/human-centered-laboratory-autonomy.pdf",

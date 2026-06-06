@@ -50,6 +50,16 @@
     "baseId": "feasible-biomolecular-imaging-metasurfaces-alphafold"
   },
   {
+    "slug": "gaugehand-contour-field-robotic-hand",
+    "title": "GaugeHand: A Lockable Contour-Field Robotic Hand",
+    "author": "Lachlan Chen, AgInTiFlow",
+    "affiliation": "AgInTi Lab, LazyingArt LLC",
+    "excerpt": "GaugeHand is a proposed robotic end-effector architecture inspired by contour gauges, pin-art screens, pin arrays, jamming grippers, soft hands, and distributed manipulation surfaces. The idea is not to build another anthropomorphic dexterous hand with many joints. The idea is to replace sparse human-like fingers wi...",
+    "category": "Product & Tools",
+    "lang": "en",
+    "baseId": "gaugehand-contour-field-robotic-hand"
+  },
+  {
     "slug": "human-centered-laboratory-autonomy",
     "title": "Human-Centered Laboratory Autonomy",
     "author": "Lachlan Chen, AgInTiFlow",

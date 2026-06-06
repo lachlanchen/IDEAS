@@ -200,7 +200,7 @@ function categoryForSlug(slug) {
     return "Language Models";
   }
   // Product & Tools
-  if (s.includes("file-management") || s.includes("file-management")) {
+  if (s.includes("file-management") || s.includes("gaugehand") || s.includes("robotic-hand")) {
     return "Product & Tools";
   }
   return "General";

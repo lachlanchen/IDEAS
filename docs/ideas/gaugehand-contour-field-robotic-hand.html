@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GaugeHand: A Lockable Contour-Field Robotic Hand — IDEAS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}</style>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="/assets/favicon.png" />
+  <meta property="og:title" content="GaugeHand: A Lockable Contour-Field Robotic Hand — IDEAS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/assets/logo.svg" />
+  <meta name="description" content="IDEAS — a lightweight, versioned notebook of research notes and essays." />
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: { DEFAULT:'#4f46e5'} } } } }
+  </script>
+  <style>.prose h1,h2,h3{scroll-margin-top:6rem}</style>
+  </head>
+<body class="bg-slate-950 text-slate-100">
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-extrabold tracking-wide"><img src="/assets/logo.svg" class="w-6 h-6" alt="logo" /> IDEAS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="hover:text-primary" data-i18n="nav_home">Home</a>
+        <a href="/ideas/" class="hover:text-primary" data-i18n="nav_ideas">Ideas</a>
+        <a href="/publications/" class="hover:text-primary" data-i18n="nav_publications">Publications</a>
+        <a href="https://github.com/lachlanchen/IDEAS" class="hover:text-primary" data-i18n="nav_github">GitHub</a>
+      </nav>
+      <div id="langSwitcher" class="ml-4"></div>
+    </div>
+  </header>
+
+  <section class="bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-3xl mx-auto px-4 py-14">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-2">GaugeHand: A Lockable Contour-Field Robotic Hand</h1>
+      <div class="flex items-center justify-between mb-4">
+        <p class="text-slate-400"><span data-i18n="by">by</span> Lachlan Chen, AgInTiFlow<br><span class="text-slate-500">AgInTi Lab, LazyingArt LLC</span></p>
+
+      </div>
+      <article class="prose prose-invert prose-slate max-w-none"><h1>GaugeHand: A Lockable Contour-Field Robotic Hand</h1>
+<p>Author: Lachlan Chen, AgInTiFlow
+Affiliation: AgInTi Lab, LazyingArt LLC</p>
+<h2>Summary</h2>
+<p>GaugeHand is a proposed robotic end-effector architecture inspired by contour gauges, pin-art screens, pin arrays, jamming grippers, soft hands, and distributed manipulation surfaces. The idea is not to build another anthropomorphic dexterous hand with many joints. The idea is to replace sparse human-like fingers with a dense, lockable, self-sensing contact field.</p>
+<p>The core mechanism is a pin-array or contour-gauge-like surface that passively adapts to unknown object geometry. When the gripper closes, the object itself pushes pins to different depths. The device then locks this temporary morphology and uses it as a custom fixture. If the pin field also reports displacement, force, and eventually shear, the hand becomes both a gripper and a tactile shape sensor.</p>
+<p>The first serious prototype should not be a five-finger hand. It should be a <strong>two-sided lockable pin-array gripper</strong>: two small contour-field pads facing each other, with passive sliding pins, spring return, soft tips, shared locking, simple macro closure, and staged sensing.</p>
+<h2>Why This Matters</h2>
+<p>Many robotic hands copy the human hand: fingers, joints, tendons, motors, tactile pads, and high-dimensional control. That route is useful for human-compatible tools and teleoperation, but it is expensive, fragile, and often unnecessarily complex for high-mix grasping.</p>
+<p>GaugeHand targets a different optimum:</p>
+<ul>
+<li>dense contact instead of sparse fingertips;</li>
+<li>passive shape adaptation instead of precise pre-contact pose estimation;</li>
+<li>lockable morphology instead of one fixed jaw shape;</li>
+<li>tactile depth maps instead of blind compliance;</li>
+<li>low-dimensional control instead of independent actuation for every contact element.</li>
+</ul>
+<p>This is especially relevant for objects that are irregular, unknown, fragile, texture-rich, difficult to model visually, or hard to grip with flat jaws or suction.</p>
+<h2>Core Mechanism</h2>
+<p>GaugeHand uses a dense field of sliding pins or micro-contact elements. Each pin can move normal to the contact surface. The object locally displaces the pins, creating a mechanical sample of the object surface.</p>
+<p>The minimum architecture is:</p>
+<ol>
+<li>passive sliding pins with spring return;</li>
+<li>soft silicone, TPU, or rubber tips;</li>
+<li>a shared lock plate, wedge lock, brake layer, or jamming/stiffening layer;</li>
+<li>simple macro closure from a parallel gripper, linear slide, or screw actuator;</li>
+<li>displacement sensing for pin depth;</li>
+<li>later normal force, shear, and slip sensing.</li>
+</ol>
+<p>The gripping mechanisms are:</p>
+<ul>
+<li>normal force from macro closure;</li>
+<li>friction from soft tips or a soft skin;</li>
+<li>geometric interlocking with object edges and concavities;</li>
+<li>caging from opposed pads;</li>
+<li>locking, which converts the adapted pin field into a temporary custom fixture.</li>
+</ul>
+<p>The main missing capability is <strong>controlled shear</strong>. Normal pin displacement is enough for shape capture and many grasps, but it is not enough for true dexterity. In-hand manipulation needs tangential force, shear sensing, slip detection, controlled release, and object-pose estimation from contact.</p>
+<h2>What Exists Today</h2>
+<p>The ingredients exist, but the complete GaugeHand combination is not common as an off-the-shelf product.</p>
+<p>Existing adjacent categories:</p>
+<ul>
+<li>cheap contour gauges, profile gauges, and locking contour gauges;</li>
+<li>pin-art screens, pin walls, and pin-screen mechanisms;</li>
+<li>academic pin-array grippers;</li>
+<li>granular jamming grippers;</li>
+<li>soft adaptive grippers;</li>
+<li>underactuated hands such as qb SoftHand;</li>
+<li>industrial adaptive grippers;</li>
+<li>dexterous hands such as Allegro Hand and Shadow Hand;</li>
+<li>distributed manipulation arrays such as ArrayBot and Linear Delta Arrays.</li>
+</ul>
+<p>These systems prove important parts of the concept. Pin-array grippers show passive geometric adaptation. Jamming grippers show that universal grasping does not require anthropomorphic fingers. Soft hands show that morphology can compress control dimensionality. Distributed arrays show that many simple local contacts can manipulate objects. Tactile sensors such as GelSight show that contact geometry is highly informative.</p>
+<p>But the product gap remains:</p>
+<blockquote>
+<p>Dense pin-array contact + lockable morphology + shape/tactile sensing + robotic closure + eventual shear-capable manipulation.</p>
+</blockquote>
+<h2>Product Gap</h2>
+<p>A commercial &quot;3D contour-gauge robotic hand&quot; with all target properties is not common:</p>
+<ul>
+<li>dense 3D pin-array contact field;</li>
+<li>robotic closure;</li>
+<li>per-pin or per-patch sensing;</li>
+<li>lockable morphology;</li>
+<li>shear-capable manipulation;</li>
+<li>usable robot integration API.</li>
+</ul>
+<p>Existing products cover pieces:</p>
+<ul>
+<li>contour gauges copy shape but do not grasp robotically;</li>
+<li>adaptive grippers grasp but do not return dense depth maps;</li>
+<li>soft grippers conform but usually lack precise lockable morphology;</li>
+<li>qb SoftHand offers underactuated human-like morphology, not dense field contact;</li>
+<li>dexterous hands provide high DOF but are expensive and sparse-contact;</li>
+<li>academic pin-array grippers are close mechanically but are not mature general products.</li>
+</ul>
+<p>GaugeHand should therefore enter as a smarter adaptive gripper, not as a full replacement for dexterous hands.</p>
+<h2>Proposed MVP</h2>
+<p>The recommended MVP is a <strong>two-sided lockable pin-array gripper</strong>.</p>
+<p>Minimum hardware:</p>
+<ul>
+<li>two opposing pads;</li>
+<li>8 x 8 to 12 x 12 pins per pad;</li>
+<li>passive sliding pins;</li>
+<li>spring return;</li>
+<li>30-60 mm pin stroke;</li>
+<li>5-8 mm pin pitch for the first robust prototype;</li>
+<li>soft replaceable tips or a thin replaceable skin;</li>
+<li>shared or segmented lock layer;</li>
+<li>simple parallel-jaw closure;</li>
+<li>depth sensing in stages.</li>
+</ul>
+<p>Recommended staging:</p>
+<ol>
+<li>Build the mechanical pin cartridge first.</li>
+<li>Add shared locking before attempting per-pin actuation.</li>
+<li>Add displacement sensing before normal force.</li>
+<li>Add normal force before shear/slip.</li>
+<li>Add shear-capable skin or pin-tip motion only after the passive locked gripper is reliable.</li>
+</ol>
+<p>The MVP should compare against:</p>
+<ul>
+<li>flat parallel jaws;</li>
+<li>soft jaws or soft gripper;</li>
+<li>three-finger adaptive gripper;</li>
+<li>vacuum gripper where relevant;</li>
+<li>qb SoftHand or a low-cost dexterous hand if the task needs a hand baseline.</li>
+</ul>
+<h2>Technical Risks</h2>
+<p>Key risks:</p>
+<ul>
+<li><strong>Pin binding:</strong> angled contact can wedge pins and corrupt sensing.</li>
+<li><strong>Pin buckling:</strong> long thin pins may bend under compression.</li>
+<li><strong>Uneven locking:</strong> some pins may slip while others hold.</li>
+<li><strong>Low friction:</strong> shape capture alone does not prevent slip.</li>
+<li><strong>High friction:</strong> too much friction prevents controlled reorientation.</li>
+<li><strong>Sensor overload:</strong> per-pin sensing increases wiring, calibration, and failure points.</li>
+<li><strong>Debris and contamination:</strong> pin arrays collect dust, fibers, liquids, and residue.</li>
+<li><strong>Object damage:</strong> hard pins can create pressure points.</li>
+<li><strong>Control dimensionality:</strong> many contacts can overwhelm a policy unless compressed into low-dimensional modes.</li>
+<li><strong>Shear gap:</strong> without controlled tangential interaction, GaugeHand remains a gripper and tactile scanner, not a true dexterous manipulator.</li>
+</ul>
+<p>Mitigations:</p>
+<ul>
+<li>use lower pin density first and prioritize reliability;</li>
+<li>use guided sleeves, low-friction bushings, and anti-rotation features;</li>
+<li>use soft replaceable tips or continuous skin;</li>
+<li>keep sensing modular and multiplexed;</li>
+<li>use low-dimensional tactile control modes;</li>
+<li>design the pin array as a cleanable cartridge;</li>
+<li>treat shear-capable pins or movable skin as the second-generation dexterity upgrade.</li>
+</ul>
+<h2>Market and Application Fit</h2>
+<p>GaugeHand fits tasks where ordinary grippers struggle:</p>
+<ul>
+<li>high-mix bin picking;</li>
+<li>irregular object pickup;</li>
+<li>fragile-object handling;</li>
+<li>tool-handle stabilization;</li>
+<li>laboratory automation;</li>
+<li>food/agriculture handling;</li>
+<li>recycling and disassembly;</li>
+<li>research and education platforms for tactile manipulation.</li>
+</ul>
+<p>The best first customer is not a general humanoid company asking for human-level dexterity. The best first customer is a robotics integrator, applied robotics lab, or high-mix manufacturing team with repeated failures caused by object variability.</p>
+<p>The strongest positioning:</p>
+<blockquote>
+<p>An adaptive tactile gripper that forms a temporary custom fixture around unknown objects.</p>
+</blockquote>
+<h2>Chinese Procurement Search Terms</h2>
+<p>Chinese procurement is useful for finding mechanism samples and low-cost baselines. The correct search strategy is not to begin with only &quot;灵巧手&quot;, because that shifts the project back toward expensive anthropomorphic hands.</p>
+<p>Important search terms:</p>
+<ul>
+<li>轮廓规</li>
+<li>仿形尺</li>
+<li>取型器</li>
+<li>取形器</li>
+<li>取模器</li>
+<li>带锁轮廓规</li>
+<li>金属针轮廓规</li>
+<li>针雕</li>
+<li>立体针雕</li>
+<li>针屏</li>
+<li>针幕</li>
+<li>针幕墙</li>
+<li>柔性夹爪</li>
+<li>软体夹爪</li>
+<li>自适应夹爪</li>
+<li>气动柔性夹爪</li>
+<li>硅胶柔性夹爪</li>
+<li>仿生柔性手爪</li>
+<li>灵巧手</li>
+<li>机器人灵巧手</li>
+<li>电动夹爪</li>
+<li>平行夹爪</li>
+<li>三指夹爪</li>
+<li>大寰 电动夹爪</li>
+<li>DH Robotics PGE</li>
+<li>DH Robotics CGE</li>
+</ul>
+<p>Recommended purchase sequence:</p>
+<ol>
+<li>Buy contour gauges, profile gauges, and a pin-art toy.</li>
+<li>Buy a low-cost soft gripper as an adaptive non-anthropomorphic baseline.</li>
+<li>Buy a parallel gripper or three-finger gripper as the robotic interface baseline.</li>
+<li>Build a custom two-sided pin-array pad system.</li>
+<li>Only buy a dexterous hand if the experiment explicitly needs an anthropomorphic baseline.</li>
+</ol>
+<h2>Roadmap</h2>
+<h3>Stage 1: Passive Lockable Pin Palm</h3>
+<p>Demonstrate adaptive dense contact and shape capture. Build a 10 x 10 or 12 x 12 pin pad with spring return, shared lock, soft tips, and depth sensing. Measure depth-map repeatability, binding, and locked holding force.</p>
+<h3>Stage 2: Opposing Adaptive Gripper</h3>
+<p>Build two opposing pads with macro closure. Test pickup success on unknown irregular objects, pose uncertainty, fragile-object damage, slip, and disturbance resistance.</p>
+<h3>Stage 3: Shear-Capable Pin Field</h3>
+<p>Add a movable soft skin, tilting tips, sparse lateral actuators, or another shear mechanism. Demonstrate controlled object translation or rotation while maintaining grasp.</p>
+<h3>Stage 4: Three-Pad Contour Hand</h3>
+<p>Move from two opposed pads to three curved pads around the object. Use few macro DOF and many micro contacts.</p>
+<h3>Stage 5: Product Cartridge</h3>
+<p>Design the pin pad as a replaceable, sealed, cleanable cartridge with sensor health monitoring and a simple robot API.</p>
+<h2>References</h2>
+<ul>
+<li>Mo and Zhang, &quot;A novel universal gripper based on meshed pin array&quot;: <a href="https://journals.sagepub.com/doi/10.1177/1729881419834781">https://journals.sagepub.com/doi/10.1177/1729881419834781</a></li>
+<li>Brown et al., &quot;Universal Robotic Gripper based on the Jamming of Granular Material&quot;: <a href="https://arxiv.org/abs/1009.4444">https://arxiv.org/abs/1009.4444</a></li>
+<li>ArrayBot: <a href="https://arxiv.org/abs/2306.16857">https://arxiv.org/abs/2306.16857</a></li>
+<li>Linear Delta Arrays: <a href="https://arxiv.org/abs/2206.04596">https://arxiv.org/abs/2206.04596</a></li>
+<li>Festo DHEF: <a href="https://www.festo.com/us/en/a/8092533">https://www.festo.com/us/en/a/8092533</a></li>
+<li>OnRobot Soft Gripper: <a href="https://onrobot.com/zh_hant/chanpinmen/rouxingjiazhao">https://onrobot.com/zh_hant/chanpinmen/rouxingjiazhao</a></li>
+<li>Schmalz mGrip: <a href="https://www.schmalz.com/en-us/solutions/media-center/mgrip---hygienic-gripping--safe-holding">https://www.schmalz.com/en-us/solutions/media-center/mgrip---hygienic-gripping--safe-holding</a></li>
+<li>SRT SFG: <a href="https://www.softrobottech.com/web/zh/category/13">https://www.softrobottech.com/web/zh/category/13</a></li>
+<li>qb SoftHand: <a href="https://qbrobotics.com/product/qb-softhand-industry/">https://qbrobotics.com/product/qb-softhand-industry/</a></li>
+<li>Allegro Hand: <a href="https://www.allegrohand.com/">https://www.allegrohand.com/</a></li>
+<li>Shadow Dexterous Hand: <a href="https://shadowrobot.com/dexterous-hand-series/">https://shadowrobot.com/dexterous-hand-series/</a></li>
+<li>AgiBot: <a href="https://www.agibot.com/">https://www.agibot.com/</a></li>
+<li>DH-Robotics: <a href="https://www.dh-robotics.com/">https://www.dh-robotics.com/</a></li>
+<li>OYMotion ROHAND: <a href="https://www.oymotion.com/product61">https://www.oymotion.com/product61</a></li>
+<li>VEICHI YZ-T6: <a href="https://www.veichi.com/product/yz-t6-6dof-tendon-driven-dexterous-hand.html">https://www.veichi.com/product/yz-t6-6dof-tendon-driven-dexterous-hand.html</a></li>
+</ul>
+</article>
+    </div>
+  </section>
+  <footer class="border-t border-slate-800 mt-20">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400 flex justify-between">
+      <span>© 2026 IDEAS</span>
+      <a class="hover:text-primary" href="https://github.com/lachlanchen/IDEAS">GitHub</a>
+    </div>
+  </footer>
+  <script src="/assets/i18n.js"></script>
+</body>
+</html>

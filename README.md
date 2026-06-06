@@ -348,6 +348,12 @@ IDEAS is a lightweight, versioned notebook of research notes and essays.
       <td><a href="publications/llm-powered-file-management-feasibility-market-design/llm-powered-file-management-feasibility-market-design.pdf">PDF</a></td>
       <td>EN</td>
     </tr>
+    <tr>
+      <td>GaugeHand: A Lockable Contour‑Field Robotic Hand</td>
+      <td><a href="ideas/gaugehand-contour-field-robotic-hand.md">Markdown</a></td>
+      <td><a href="publications/gaugehand-contour-field-robotic-hand/gaugehand-contour-field-robotic-hand.pdf">PDF</a></td>
+      <td>EN</td>
+    </tr>
   </tbody>
   </table>
 
